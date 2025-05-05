@@ -31,20 +31,20 @@ header h1 {
     white-space: nowrap; /* Prevent wrapping */
     overflow: hidden; /* Hide overflow if it still happens */
     text-overflow: ellipsis; /* Add ellipsis if text is too long */
-    display: inline-block; /* Allow overflow/ellipsis */
-    max-width: 100%; /* Ensure it respects container width */
+    display: block; /* Make H1 a block element */
+    margin-bottom: 0; /* Remove default margin below H1 */
 }
 
 header p {
     font-size: 1em;
     color: #999999; /* Muted grey */
-    margin-top: 5px;
+    margin-top: 5px; /* Add space above the paragraph */
     /* Ensure it stays on one line */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    display: inline-block;
-    max-width: 100%;
+    display: block; /* Make P a block element */
+    margin-bottom: 0; /* Remove default margin below P */
 }
 
 main {
