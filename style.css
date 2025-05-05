@@ -22,27 +22,37 @@ header {
 
 header h1 {
     margin-top: 0;
-    font-size: 2.8em;
+    /* Reduced font size by about 30% */
+    font-size: 2em; /* Was 2.8em */
     text-transform: uppercase; /* Giving it a digital menu feel */
     letter-spacing: 2px;
     color: #00a3a3; /* Slightly more saturated Cyan */
+    /* Ensure it doesn't break into two lines easily */
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden; /* Hide overflow if it still happens */
+    text-overflow: ellipsis; /* Add ellipsis if text is too long */
+    display: inline-block; /* Allow overflow/ellipsis */
+    max-width: 100%; /* Ensure it respects container width */
 }
 
 header p {
     font-size: 1em;
     color: #999999; /* Muted grey */
     margin-top: 5px;
+    /* Ensure it stays on one line */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 100%;
 }
 
-/* --- Restore Main Content Layout --- */
 main {
     max-width: 1100px; /* Keep consistent with overall max width */
     margin: 0 auto; /* Center the content */
     padding: 0 20px; /* Add padding on the sides */
     box-sizing: border-box;
 }
-
-/* Removed rules for .content-container, .main-content, .sidebar, .sidebar h3, .ad-unit */
 
 section {
     background-color: #1a1a33; /* Match header background */
@@ -67,6 +77,12 @@ h2 {
     margin-bottom: 20px;
     font-size: 1.8em;
     text-transform: uppercase;
+    /* Ensure H2s stay on one line */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block; /* Use block for H2s */
+    max-width: 100%;
 }
 
 p {
@@ -145,6 +161,7 @@ p {
 #contact ul {
     list-style: none;
     padding: 0;
+    margin-bottom: 20px; /* Add space below the list */
 }
 
 #contact li {
@@ -164,6 +181,31 @@ p {
     border-bottom-color: #ffffff;
 }
 
+/* --- Styling for the Taplink Button --- */
+.contact-button-container {
+    text-align: center; /* Center the button */
+    margin-top: 20px; /* Space above the button */
+}
+
+.taplink-button {
+    display: inline-block; /* Make it behave like a block but inline */
+    background-color: #00a3a3; /* Match heading color */
+    color: #1a1a33; /* Dark text on button */
+    padding: 12px 25px;
+    text-decoration: none; /* Remove underline */
+    text-transform: uppercase;
+    font-size: 1.1em;
+    border-radius: 5px; /* Slightly rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 2px solid #00a3a3; /* Border matches background */
+}
+
+.taplink-button:hover {
+    background-color: #1a1a33; /* Dark background on hover */
+    color: #00e6e6; /* Cyan text on hover */
+    border-color: #00e6e6; /* Cyan border on hover */
+}
+
 
 footer {
     text-align: center;
@@ -176,8 +218,6 @@ footer {
 }
 
 /* --- Responsive adjustments --- */
-/* Simplified media queries now that sidebar layout is removed */
-
 @media (max-width: 768px) {
     main {
         padding: 0 15px; /* Adjust padding */
@@ -196,6 +236,9 @@ footer {
     .show h3 {
         font-size: 1.1em;
     }
+    header h1 {
+         font-size: 1.8em; /* Further reduce header font on smaller screens */
+    }
 }
 
 @media (max-width: 480px) {
@@ -203,7 +246,7 @@ footer {
          padding: 0 10px; /* Further reduce padding */
      }
     header h1 {
-        font-size: 1.6em;
+        font-size: 1.4em; /* Even smaller header font on very small screens */
     }
 
     section {
@@ -222,9 +265,12 @@ footer {
          border-right: none;
          box-shadow: none;
     }
-     /* Aspect ratio padding handles height */
      #livestream .video-container p {
          min-height: 0; /* Ensure no artificial min-height */
          padding: 10px; /* Reduce padding */
+     }
+     .taplink-button {
+         font-size: 1em; /* Reduce button font size on very small screens */
+         padding: 10px 20px;
      }
 }
