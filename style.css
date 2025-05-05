@@ -82,12 +82,10 @@ p {
 }
 
 #livestream .video-container iframe {
-    display: block; /* Helps with centering and removing extra space */
-    width: 100%; /* Make iframe fill the container width */
-    /* Set height based on the aspect ratio relative to the width */
-    /* 720 / 1280 = 0.5625 -> 56.25% of the width */
-    height: auto; /* Use auto height for responsiveness */
-    min-height: 300px; /* Prevent it from collapsing too much on tiny screens */
+    display: block;
+    width: 100%;
+    height: auto; /* Keep this */
+    /* Remove this line -> min-height: 300px; */
     border: none;
 }
 
@@ -101,12 +99,13 @@ p {
      padding: 20px;
      box-sizing: border-box;
      text-align: center;
-     min-height: 400px; /* Ensure placeholder has a decent height */
+     /* Remove this line -> min-height: 400px; */
      background-color: #000;
-     position: static; /* Reset absolute positioning for placeholder */
+     position: static;
      width: auto;
+     /* Keep the max-width from previous versions if it was there, or add if needed */
+     max-width: 100%; /* Ensure placeholder respects container width */
 }
-
 
 .show {
     margin-bottom: 20px;
