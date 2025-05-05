@@ -1,44 +1,127 @@
-/* style.css - Dark Mode, Cyber-Vaporwave, Grungy */
+/* style.css - Modern Lo-fi / 90s TV Vibe */
 
 body {
-    font-family: 'Consolas', 'Monaco', 'Lucida Console', monospace; /* Techy/code-like font */
+    font-family: 'Arial', sans-serif; /* Simple, classic digital font */
     margin: 0;
     padding: 0;
-    background-color: #1a0033; /* Deep dark purple */
-    color: #00ffff; /* Cyan/Aqua neon for default text */
-    line-height: 1.6;
-    overflow-x: hidden; /* Prevent horizontal scroll from glow effects */
+    background-color: #0c0c1a; /* Very dark desaturated blue/grey */
+    color: #cccccc; /* Light grey for default text */
+    line-height: 1.5;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    font-size: 16px; /* Base font size */
 }
 
 header {
-    background-color: #0d001a; /* Even darker purple */
-    color: #ff00ff; /* Magenta neon */
+    background-color: #1a1a33; /* Slightly lighter dark blue/purple */
+    color: #00e6e6; /* Desaturated Cyan */
     padding: 20px;
     text-align: center;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #4a0099; /* Subtle purple border */
-    box-shadow: 0 0 15px #4a0099; /* Purple glow */
+    margin-bottom: 30px;
+    border-bottom: 4px solid #005b5b; /* Solid border for structure */
 }
 
 header h1 {
     margin-top: 0;
-    font-size: 3em;
-    text-shadow: 0 0 10px #ff00ff; /* Magenta glow */
+    font-size: 2.8em;
+    text-transform: uppercase; /* Giving it a digital menu feel */
+    letter-spacing: 2px;
+    color: #00a3a3; /* Slightly more saturated Cyan */
 }
 
 header p {
-    font-size: 1.2em;
-    color: #aaaaaa; /* Lighter grey for description */
+    font-size: 1em;
+    color: #999999; /* Muted grey */
+    margin-top: 5px;
 }
 
 main {
-    max-width: 1000px; /* Slightly wider content */
-    margin: 0 auto; /* Center */
-    padding: 0 20px; /* Padding on sides */
+    max-width: 1100px; /* Slightly wider than video to give padding */
+    margin: 0 auto; /* Center the main content block */
+    padding: 0 20px;
 }
 
 section {
-    background-color: #2a0055; /* Darker purple/blue for sections */
-    padding: 30px; /* More padding */
-    margin-bottom: 30px;
-    border: 1px solid #4a0099; /* Section
+    background-color: #1a1a33; /* Match header background */
+    padding: 25px;
+    margin-bottom: 25px;
+    border: 1px solid #005b5b; /* Match header border color */
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3); /* Subtle shadow */
+    box-sizing: border-box; /* Include padding and border in element's total width/height */
+}
+
+h2 {
+    color: #00a3a3; /* Match header h1 color */
+    border-bottom: 2px solid #005b5b;
+    padding-bottom: 8px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    text-transform: uppercase;
+}
+
+p {
+    color: #cccccc;
+    margin-bottom: 15px;
+}
+
+/* --- Video Container Styling --- */
+#livestream .video-container {
+    position: relative;
+    /* Set max-width to the video width */
+    max-width: 1280px;
+    /* Center the container */
+    margin: 20px auto;
+    /* Remove padding-bottom aspect ratio hack */
+    padding-bottom: 0;
+    height: auto; /* Let height be determined by content/aspect ratio */
+    overflow: hidden;
+    background-color: #000; /* Black background */
+    border: 2px solid #00e6e6; /* Cyan border */
+    box-shadow: 0 0 10px rgba(0, 230, 230, 0.5); /* Subtle cyan glow effect */
+    box-sizing: border-box;
+}
+
+#livestream .video-container iframe {
+    display: block; /* Helps with centering and removing extra space */
+    width: 100%; /* Make iframe fill the container width */
+    /* Set height based on the aspect ratio relative to the width */
+    /* 720 / 1280 = 0.5625 -> 56.25% of the width */
+    height: auto; /* Use auto height for responsiveness */
+    min-height: 300px; /* Prevent it from collapsing too much on tiny screens */
+    border: none;
+}
+
+/* Style the placeholder text if iframe isn't there */
+#livestream .video-container p {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: #fff;
+     font-size: 1.2em;
+     padding: 20px;
+     box-sizing: border-box;
+     text-align: center;
+     min-height: 400px; /* Ensure placeholder has a decent height */
+     background-color: #000;
+     position: static; /* Reset absolute positioning for placeholder */
+     width: auto;
+}
+
+
+.show {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #2a2a4d; /* Slightly different dark tone for shows */
+    border-left: 4px solid #00a3a3; /* Cyan accent border */
+    box-sizing: border-box;
+}
+
+.show h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: #00e6e6; /* Desaturated Cyan for show titles */
+    font-size: 1.3em;
+}
+
+.show p {
+    color: #bbbbbb; /* Slightly lighter grey for descriptions */
