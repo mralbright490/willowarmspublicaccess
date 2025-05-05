@@ -6,7 +6,6 @@
     <title>Willow Arms Public Access \\ Indie Internet Broadcasts</title>
     <meta name="description" content="Tune into Willow Arms Public Access, an offbeat internet TV channel featuring live streams, the Bonfire Podcast, unique music videos ([vibe]rations), experimental shows like 'POV: mom & dad are fighting again', and lo-fi streams ([iinnermission]). Discover weird online broadcasts.">
     <style>
-        /* General Body and Layout */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -286,15 +285,14 @@
             color: #00e6e6;
         }
 
-        /* --- Floating Participate Button Styling --- */
         #participate-button {
-            position: fixed; /* Make it float relative to the viewport */
-            z-index: 1000; /* Ensure it's above most other content */
-            display: none; /* Initially hidden, shown by JS */
+            position: fixed;
+            z-index: 1000;
+            display: none;
             padding: 10px 15px;
-            background-color: #00a3a3; /* Button background */
-            color: #1a1a33; /* Button text color */
-            border: 2px solid #00e6e6; /* Button border */
+            background-color: #00a3a3;
+            color: #1a1a33;
+            border: 2px solid #00e6e6;
             border-radius: 5px;
             cursor: pointer;
             text-transform: uppercase;
@@ -309,30 +307,28 @@
              border-color: #00a3a3;
         }
 
-
-        /* --- Modal Pop-up Styling --- */
         #popup-overlay {
-            position: fixed; /* Cover the entire viewport */
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay */
-            display: none; /* Initially hidden */
-            justify-content: center; /* Center content horizontally */
-            align-items: center; /* Center content vertically */
-            z-index: 2000; /* Ensure it's above the button and everything else */
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
         }
 
         #popup-content {
-            background-color: #1a1a33; /* Dark background for the pop-up box */
+            background-color: #1a1a33;
             padding: 30px;
-            border: 2px solid #00a3a3; /* Border matching theme */
+            border: 2px solid #00a3a3;
             border-radius: 8px;
-            text-align: center; /* Center text and button inside */
-            max-width: 400px; /* Limit the width of the pop-up box */
-            box-shadow: 0 0 20px rgba(0, 163, 163, 0.5); /* Glow effect */
-            color: #cccccc; /* Text color */
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 163, 163, 0.5);
+            color: #cccccc;
         }
 
         #popup-content p {
@@ -342,9 +338,9 @@
         }
 
         #popup-yes-button {
-            background-color: #00a3a3; /* Button background */
-            color: #1a1a33; /* Button text color */
-            border: 2px solid #00e6e6; /* Button border */
+            background-color: #00a3a3;
+            color: #1a1a33;
+            border: 2px solid #00e6e6;
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
@@ -359,10 +355,6 @@
              border-color: #00a3a3;
         }
 
-
-        /* --- Theme Styles --- */
-
-        /* Noire Theme */
         body.theme-noire {
             background-color: #111;
             color: #eee;
@@ -557,7 +549,6 @@
              border-color: #ffcc00;
         }
 
-
         body.theme-mr-johnson {
             background-color: #1a0033;
             color: #006400;
@@ -654,7 +645,6 @@
              color: #ffffff;
              border-color: #32cd32;
         }
-
 
         footer {
             text-align: center;
@@ -923,7 +913,7 @@
             participateButton.style.top = buttonY + 'px';
         }
 
-        let animationInterval; // Declare animationInterval in a scope accessible by clearInterval
+        let animationInterval;
 
         document.addEventListener('DOMContentLoaded', () => {
             const themeSelect = document.getElementById('theme-select');
@@ -936,40 +926,25 @@
             }
 
             if (participateButton && popupOverlay && popupYesButton) {
-                // Initialize and start button animation after DOM is ready
                 initializeButton();
-                animationInterval = setInterval(updateButtonPosition, 30); // Start the animation
+                animationInterval = setInterval(updateButtonPosition, 30);
 
-                // Button click: Hide button, Show pop-up overlay, Stop animation
                 participateButton.addEventListener('click', () => {
-                    participateButton.style.display = 'none'; // Hide the button
-                    popupOverlay.style.display = 'flex'; // Show the pop-up overlay
-                    clearInterval(animationInterval); // Stop the animation
+                    participateButton.style.display = 'none';
+                    popupOverlay.style.display = 'flex';
+                    clearInterval(animationInterval);
                 });
 
-                // Yes button click: Hide pop-up overlay
                 popupYesButton.addEventListener('click', () => {
-                    popupOverlay.style.display = 'none'; // Hide the pop-up overlay
-                    // The participate button remains hidden until page refresh
+                    popupOverlay.style.display = 'none';
                 });
-
-                // Optional: Hide pop-up overlay if clicking outside the content box
-                // popupOverlay.addEventListener('click', (event) => {
-                //     if (event.target === popupOverlay) { // Only hide if clicking the overlay itself
-                //         popupOverlay.style.display = 'none';
-                //         // Re-initialize button if you want it to reappear after closing without clicking Yes
-                //         // initializeButton();
-                //         // animationInterval = setInterval(updateButtonPosition, 30); // Restart animation
-                //     }
-                // });
             }
 
             loadTheme();
         });
 
-         // Adjust button position on window resize
          window.addEventListener('resize', () => {
-              if (participateButton && participateButton.style.display !== 'none') { // Only re-initialize if button is visible
+              if (participateButton && participateButton.style.display !== 'none') {
                    initializeButton();
               }
          });
