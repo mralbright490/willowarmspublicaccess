@@ -3,17 +3,332 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Willow Arms Public Access // Indie Internet TV & Live Stream</title> <meta name="description" content="Tune into Willow Arms Public Access, an offbeat internet TV channel featuring live streams, the Bonfire Podcast, unique music videos ([vibe]rations), experimental shows like 'POV: mom & dad are fighting again', and lo-fi streams ([iinnermission]). Discover weird online broadcasts."> <link rel="stylesheet" href="style.css">
+    <title>Willow Arms Public Access // Indie Internet TV & Live Stream</title> <meta name="description" content="Tune into Willow Arms Public Access, an offbeat internet TV channel featuring live streams, the Bonfire Podcast, unique music videos ([vibe]rations), experimental shows like 'POV: mom & dad are fighting again', and lo-fi streams ([iinnermission]). Discover weird online broadcasts."> <style>
+        /* style.css - Modern Lo-fi / 90s TV Vibe (Single Column) */
+
+        body {
+            font-family: 'Arial', sans-serif; /* Simple, classic digital font */
+            margin: 0;
+            padding: 0;
+            background-color: #0c0c1a; /* Very dark desaturated blue/grey */
+            color: #cccccc; /* Light grey for default text */
+            line-height: 1.5;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            font-size: 16px; /* Base font size */
+        }
+
+        header {
+            background-color: #1a1a33; /* Slightly lighter dark blue/purple */
+            color: #00e6e6; /* Desaturated Cyan */
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 4px solid #005b5b; /* Solid border for structure */
+        }
+
+        header h1 {
+            margin-top: 0;
+            /* Reduced font size by about 30% */
+            font-size: 2em; /* Was 2.8em */
+            text-transform: uppercase; /* Giving it a digital menu feel */
+            letter-spacing: 2px;
+            color: #00a3a3; /* Slightly more saturated Cyan */
+            /* Keep nowrap to force single line */
+            white-space: nowrap;
+            overflow: hidden; /* Hide overflow if it still happens */
+            text-overflow: ellipsis; /* Add ellipsis if text is too long */
+            display: block; /* Make H1 a block element */
+            margin-bottom: 0; /* Remove default margin below H1 */
+        }
+
+        header p {
+            font-size: 1em;
+            color: #999999; /* Muted grey */
+            margin-top: 5px; /* Add space above the paragraph */
+            /* Keep nowrap to force single line */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block; /* Make P a block element */
+            margin-bottom: 0; /* Remove default margin below P */
+        }
+
+        main {
+            max-width: 1100px; /* Keep consistent with overall max width */
+            margin: 0 auto; /* Center the content */
+            padding: 0 20px; /* Add padding on the sides */
+            box-sizing: border-box;
+        }
+
+        section {
+            background-color: #1a1a33; /* Match header background */
+            padding: 25px;
+            margin-bottom: 25px; /* Keep space below sections */
+            border: 1px solid #005b5b; /* Section border */
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.3); /* Subtle shadow */
+            box-sizing: border-box;
+        }
+
+        /* Remove margin-bottom from the last section */
+        main section:last-child {
+            margin-bottom: 0;
+        }
+
+
+        h2 {
+            color: #00a3a3; /* Match header h1 color */
+            border-bottom: 2px solid #005b5b;
+            padding-bottom: 8px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-transform: uppercase;
+            /* Ensure H2s stay on one line */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block; /* Use block for H2s */
+            max-width: 100%;
+        }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            word-break: break-word; /* Added to help text wrap in show descriptions */
+        }
+
+        /* --- Video Container Styling --- */
+        #livestream .video-container {
+            position: relative; /* Needed for absolute positioning of iframe */
+            max-width: 1280px; /* Set max-width to the video width */
+            margin: 20px auto; /* Center the container */
+            /* --- Aspect Ratio Padding Hack --- */
+            /* 720 (height) / 1280 (width) = 0.5625 */
+            padding-bottom: 56.25%; /* Creates the height based on 16:9 aspect ratio */
+            height: 0; /* Collapse the container's natural height */
+            /* --- End Aspect Ratio Hack --- */
+            overflow: hidden; /* Hides anything outside the container */
+            background-color: #000; /* Black background */
+            border: 2px solid #00e6e6; /* Cyan border */
+            box-shadow: 0 0 10px rgba(0, 230, 230, 0.5); /* Subtle cyan glow effect */
+            box-sizing: border-box;
+        }
+
+        #livestream .video-container iframe {
+            position: absolute; /* Position over the padded container */
+            top: 0;
+            left: 0;
+            width: 100%; /* Fill the container's width */
+            height: 100%; /* Fill the container's height (defined by padding) */
+            border: none;
+            /* The HTML iframe tag still needs width="1280" height="720" for fallback/info */
+        }
+
+        /* Style the placeholder text if iframe isn't there */
+        #livestream .video-container p {
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             color: #fff;
+             font-size: 1.2em;
+             padding: 20px;
+             box-sizing: border-box;
+             text-align: center;
+             background-color: #000; /* Ensure placeholder has dark background */
+             z-index: 1; /* Make sure it's above the background if needed */
+             max-width: 100%; /* Ensure placeholder respects container width */
+        }
+
+
+        .show {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #2a2a4d; /* Slightly different dark tone for shows */
+            border-left: 4px solid #00a3a3; /* Cyan accent border */
+            box-sizing: border-box;
+        }
+
+        .show h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #00e6e6; /* Desaturated Cyan for show titles */
+            font-size: 1.3em;
+            word-break: break-word; /* Added to help show titles wrap if needed */
+        }
+
+        .show p {
+            color: #bbbbbb; /* Slightly lighter grey for descriptions */
+            font-size: 0.95em;
+             word-break: break-word; /* Added to help text wrap in show descriptions */
+        }
+
+        #contact ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px; /* Add space below the list */
+        }
+
+        #contact li {
+            margin-bottom: 12px;
+        }
+
+        #contact a {
+            color: #00e6e6; /* Cyan links */
+            text-decoration: none;
+            border-bottom: 1px dotted #005b5b; /* Dotted underline */
+            padding-bottom: 2px;
+            transition: color 0.3s ease;
+        }
+
+        #contact a:hover {
+            color: #ffffff; /* White on hover */
+            border-bottom-color: #ffffff;
+        }
+
+        /* --- Styling for the Taplink Button --- */
+        .contact-button-container {
+            text-align: center; /* Center the button */
+            margin-top: 20px; /* Space above the button */
+        }
+
+        .taplink-button {
+            display: inline-block; /* Make it behave like a block but inline */
+            background-color: #00a3a3; /* Match heading color */
+            color: #1a1a33; /* Dark text on button */
+            padding: 12px 25px;
+            text-decoration: none; /* Remove underline */
+            text-transform: uppercase;
+            font-size: 1.1em;
+            border-radius: 5px; /* Slightly rounded corners */
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border: 2px solid #00a3a3; /* Border matches background */
+        }
+
+        .taplink-button:hover {
+            background-color: #1a1a33; /* Dark background on hover */
+            color: #00e6e6; /* Cyan text on hover */
+            border-color: #00e6e6; /* Cyan border on hover */
+        }
+
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            background-color: #1a1a33; /* Match section background */
+            color: #666666; /* Darker grey for footer text */
+            font-size: 0.85em;
+            border-top: 1px solid #005b5b;
+        }
+
+        /* --- Responsive adjustments --- */
+        @media (max-width: 768px) {
+            main {
+                padding: 0 15px; /* Adjust padding */
+            }
+            h2 {
+                font-size: 1.6em;
+            }
+            section {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+            .show {
+                padding: 12px;
+            }
+
+            .show h3 {
+                font-size: 1.1em;
+                 white-space: normal; /* Allow wrapping */
+                 overflow: visible;
+                 text-overflow: clip;
+            }
+            .show p {
+                 white-space: normal; /* Allow wrapping */
+                 overflow: visible;
+                 text-overflow: clip;
+            }
+            header h1 {
+                 /* Further reduce header font on smaller screens */
+                 font-size: 1.6em; /* Adjusted size */
+                 /* Keep nowrap, overflow, ellipsis */
+                 white-space: nowrap;
+                 overflow: hidden;
+                 text-overflow: ellipsis;
+            }
+            header p {
+                 /* Keep nowrap, overflow, ellipsis */
+                 white-space: nowrap;
+                 overflow: hidden;
+                 text-overflow: ellipsis;
+            }
+        }
+
+        @media (max-width: 480px) {
+             main {
+                 padding: 0 10px; /* Further reduce padding */
+             }
+            header h1 {
+                /* Even smaller header font on very small screens */
+                font-size: 1.2em; /* Adjusted size */
+                /* Keep nowrap, overflow, ellipsis */
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            section {
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+             #livestream .video-container {
+                 max-width: 100%; /* Allow video to take full width */
+                 margin-left: 0;
+                 margin-right: 0;
+                 border-left: none;
+                 border-right: none;
+                 box-shadow: none;
+            }
+             #livestream .video-container p {
+                 min-height: 0; /* Ensure no artificial min-height */
+                 padding: 10px; /* Reduce padding */
+             }
+             .taplink-button {
+                 font-size: 1em; /* Reduce button font size on very small screens */
+                 padding: 10px 20px;
+             }
+             .show h3 {
+                 font-size: 1em; /* Further reduce show title font */
+                 white-space: normal; /* Allow wrapping */
+                 overflow: visible;
+                 text-overflow: clip;
+             }
+             .show p {
+                  white-space: normal; /* Allow wrapping */
+                  overflow: visible;
+                  text-overflow: clip;
+             }
+        }
+    </style>
 </head>
 <body>
 
     <header>
-        <h3>// WILLOW ARMS PUBLIC ACCESS \\</h3> <p>Indie Online Broadcasts</p> </header>
+        <h1>// WILLOW ARMS PUBLIC ACCESS //</h1> <p>Indie Online Broadcasts</p> </header>
 
     <main>
         <section id="livestream">
             <h2>[ WATCH THE LIVE STREAM ]</h2> <div class="video-container">
-                <iframe src="https://player.kick.com/willowarmspublicaccess" height="720" width="1280" frameborder="0" scrolling="no" allowfullscreen="true"></iframe> </div>
+                <iframe src="https://player.kick.com/willowarmspublicaccess" height="720" width="1280" frameborder="0" scrolling="no" allowfullscreen="true"></iframe></div>
         </section>
 
         <section id="about">
@@ -34,9 +349,10 @@
         </section>
 
         <section id="contact">
-            <h2>[ CONNECT WITH WILLOW ARMS PUBLIC ACCESS ]</h2> <p>Find all our links and ways to connect:</p>             <div class="contact-button-container">
+            <h2>[ CONNECT WITH WILLOW ARMS PUBLIC ACCESS ]</h2> <p>Find all our links and ways to connect:</p> 
+            <div class="contact-button-container">
                 <a href="https://taplink.cc/wapaccess" class="taplink-button" target="_blank" rel="noopener noreferrer">
-                     Links
+                    All Our Links
                 </a>
             </div>
         </section>
