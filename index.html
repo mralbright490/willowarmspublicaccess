@@ -15,6 +15,7 @@
             line-height: 1.5;
             overflow-x: hidden; /* Prevent horizontal scroll */
             font-size: 16px; /* Base font size */
+            transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition for theme changes */
         }
 
         header {
@@ -24,6 +25,7 @@
             text-align: center;
             margin-bottom: 30px;
             border-bottom: 4px solid #005b5b; /* Solid border for structure */
+            transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease; /* Smooth transition */
         }
 
         header h2 { /* Changed from h1 to h2 to match user's structure */
@@ -39,6 +41,7 @@
             text-overflow: ellipsis; /* Add ellipsis if text is too long */
             display: block; /* Make H2 a block element */
             margin-bottom: 0; /* Remove default margin below H2 */
+            transition: color 0.5s ease; /* Smooth transition */
         }
 
         header p {
@@ -51,6 +54,7 @@
             text-overflow: ellipsis;
             display: block; /* Make P a block element */
             margin-bottom: 0; /* Remove default margin below P */
+            transition: color 0.5s ease; /* Smooth transition */
         }
 
         main {
@@ -67,6 +71,7 @@
             border: 1px solid #005b5b; /* Section border */
             box-shadow: 5px 5px 15px rgba(0,0,0,0.3); /* Subtle shadow */
             box-sizing: border-box;
+            transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease; /* Smooth transition */
         }
 
         /* Remove margin-bottom from the last section */
@@ -90,6 +95,7 @@
             text-overflow: ellipsis;
             display: block; /* Use block for H2s */
             max-width: 100%;
+            transition: color 0.5s ease, border-color 0.5s ease; /* Smooth transition */
         }
 
          /* Styling for H3 section titles (specifically contact) */
@@ -107,6 +113,7 @@
              text-overflow: ellipsis;
              display: block; /* Make H3 a block element */
              max-width: 100%;
+             transition: color 0.5s ease, border-color 0.5s ease; /* Smooth transition */
          }
 
 
@@ -114,6 +121,7 @@
             color: #cccccc;
             margin-bottom: 15px;
             word-break: break-word; /* Added to help text wrap in show descriptions */
+            transition: color 0.5s ease; /* Smooth transition */
         }
 
         /* --- Video Container Styling --- */
@@ -131,6 +139,7 @@
             border: 2px solid #00e6e6; /* Cyan border */
             box-shadow: 0 0 10px rgba(0, 230, 230, 0.5); /* Subtle cyan glow effect */
             box-sizing: border-box;
+             transition: border-color 0.5s ease, box-shadow 0.5s ease; /* Smooth transition */
         }
 
         #livestream .video-container iframe {
@@ -170,6 +179,7 @@
             background-color: #2a2a4d; /* Slightly different dark tone for shows */
             border-left: 4px solid #00a3a3; /* Cyan accent border */
             box-sizing: border-box;
+            transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease; /* Smooth transition */
         }
 
         .show h3 { /* Styling for show titles */
@@ -182,12 +192,14 @@
             overflow: hidden;
             text-overflow: ellipsis;
             display: block; /* Make H3 a block element */
+            transition: color 0.5s ease; /* Smooth transition */
         }
 
         .show p {
             color: #bbbbbb; /* Slightly lighter grey for descriptions */
             font-size: 0.95em;
              word-break: break-word; /* Added to help text wrap in show descriptions */
+             transition: color 0.5s ease; /* Smooth transition */
         }
 
         #contact ul {
@@ -205,7 +217,7 @@
             text-decoration: none;
             border-bottom: 1px dotted #005b5b; /* Dotted underline */
             padding-bottom: 2px;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, border-bottom-color 0.3s ease; /* Smooth transition */
         }
 
         #contact a:hover {
@@ -228,7 +240,7 @@
             text-transform: uppercase;
             font-size: 1.1em;
             border-radius: 5px; /* Slightly rounded corners */
-            transition: background-color 0.3s ease, color 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
             border: 2px solid #00a3a3; /* Border matches background */
         }
 
@@ -236,6 +248,176 @@
             background-color: #1a1a33; /* Dark background on hover */
             color: #00e6e6; /* Cyan text on hover */
             border-color: #00e6e6; /* Cyan border on hover */
+        }
+
+        /* --- Theme Switcher Styling --- */
+        .theme-switcher {
+            text-align: center;
+            margin-top: 40px; /* Space above the switcher */
+            padding-top: 20px;
+            border-top: 1px solid #005b5b; /* Separator line */
+        }
+
+        .theme-switcher button {
+            background-color: #1a1a33; /* Dark button background */
+            color: #00e6e6; /* Cyan button text */
+            border: 1px solid #00a3a3; /* Cyan border */
+            padding: 8px 15px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+        }
+
+        .theme-switcher button:hover {
+            background-color: #00a3a3;
+            color: #1a1a33;
+            border-color: #00e6e6;
+        }
+
+        /* --- Theme Styles --- */
+
+        /* Noire Theme */
+        body.theme-noire {
+            background-color: #111;
+            color: #eee;
+        }
+        body.theme-noire header {
+            background-color: #222;
+            border-bottom-color: #555;
+        }
+        body.theme-noire header h2, /* Target H2 in header */
+        body.theme-noire section h2, /* Target H2 in sections */
+        body.theme-noire section h3 { /* Target H3 in sections */
+            color: #fff;
+        }
+         body.theme-noire header p {
+            color: #bbb;
+        }
+        body.theme-noire section {
+            background-color: #222;
+            border-color: #555;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+        }
+        body.theme-noire #livestream .video-container {
+             border-color: #fff;
+             box-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
+         body.theme-noire .show {
+            background-color: #333;
+            border-left-color: #888;
+        }
+        body.theme-noire .show h3 { /* Target H3 in show */
+            color: #eee;
+        }
+         body.theme-noire .show p {
+            color: #ccc;
+        }
+        body.theme-noire a {
+            color: #eee;
+            border-bottom-color: #555;
+        }
+        body.theme-noire a:hover {
+            color: #fff;
+            border-bottom-color: #eee;
+        }
+         body.theme-noire .taplink-button {
+            background-color: #555;
+            color: #eee;
+            border-color: #888;
+        }
+         body.theme-noire .taplink-button:hover {
+            background-color: #888;
+            color: #111;
+            border-color: #eee;
+        }
+         body.theme-noire .theme-switcher button {
+            background-color: #333;
+            color: #eee;
+            border-color: #888;
+        }
+         body.theme-noire .theme-switcher button:hover {
+            background-color: #eee;
+            color: #333;
+            border-color: #fff;
+        }
+         body.theme-noire footer {
+            background-color: #222;
+            color: #555;
+            border-top-color: #555;
+        }
+
+
+        /* Slade Theme (Grey and Orange) */
+        body.theme-slade {
+            background-color: #222;
+            color: #eee;
+        }
+         body.theme-slade header {
+            background-color: #333;
+            border-bottom-color: #ff6600; /* Orange */
+        }
+        body.theme-slade header h2, /* Target H2 in header */
+        body.theme-slade section h2, /* Target H2 in sections */
+        body.theme-slade section h3 { /* Target H3 in sections */
+            color: #ff9900; /* Lighter Orange */
+        }
+         body.theme-slade header p {
+            color: #ccc;
+        }
+        body.theme-slade section {
+            background-color: #333;
+            border-color: #ff6600;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+        }
+         body.theme-slade #livestream .video-container {
+             border-color: #ff9900;
+             box-shadow: 0 0 10px rgba(255,153,0,0.5);
+        }
+         body.theme-slade .show {
+            background-color: #444;
+            border-left-color: #ff9900;
+        }
+        body.theme-slade .show h3 { /* Target H3 in show */
+            color: #ffcc00; /* Yellowish Orange */
+        }
+         body.theme-slade .show p {
+            color: #ddd;
+        }
+        body.theme-slade a {
+            color: #ff9900;
+            border-bottom-color: #ff6600;
+        }
+        body.theme-slade a:hover {
+            color: #fff;
+            border-bottom-color: #ffcc00;
+        }
+         body.theme-slade .taplink-button {
+            background-color: #ff6600;
+            color: #222;
+            border-color: #ff9900;
+        }
+         body.theme-slade .taplink-button:hover {
+            background-color: #ff9900;
+            color: #111;
+            border-color: #ffcc00;
+        }
+         body.theme-slade .theme-switcher button {
+            background-color: #444;
+            color: #ff9900;
+            border-color: #ff6600;
+        }
+         body.theme-slade .theme-switcher button:hover {
+            background-color: #ff9900;
+            color: #444;
+            border-color: #ffcc00;
+        }
+         body.theme-slade footer {
+            background-color: #333;
+            color: #ff6600;
+            border-top-color: #ff6600;
         }
 
 
@@ -247,6 +429,7 @@
             color: #666666; /* Darker grey for footer text */
             font-size: 0.85em;
             border-top: 1px solid #005b5b;
+            transition: background-color 0.5s ease, color 0.5s ease, border-top-color 0.5s ease; /* Smooth transition */
         }
 
         /* --- Responsive adjustments --- */
@@ -312,7 +495,7 @@
              }
             /* Even smaller Header H2 font on very small screens */
             header h2 { /* Target H2 within header */
-                font-size: 1em; /* Adjusted size */
+                font-size: 1.2em; /* Adjusted size */
                 white-space: nowrap; /* Keep on one line */
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -325,14 +508,14 @@
 
             /* Even smaller H2 font */
             section h2 { /* Target H2 within sections */
-                font-size: 1em; /* Adjusted size */
+                font-size: 1.2em; /* Adjusted size */
                  white-space: nowrap; /* Keep on one line */
                  overflow: hidden;
                  text-overflow: ellipsis;
             }
              /* Even smaller H3 font */
              section h3 { /* Target H3 within sections (like contact) */
-                font-size: 1em; /* Adjusted size to match H2 */
+                font-size: 1.2em; /* Adjusted size to match H2 */
                  white-space: nowrap; /* Keep on one line */
                  overflow: hidden;
                  text-overflow: ellipsis;
@@ -355,7 +538,7 @@
              }
              /* Even smaller Show H3 font */
              .show h3 { /* Target H3 within .show */
-                 font-size: 0.8em; /* Adjusted size */
+                 font-size: 0.9em; /* Adjusted size */
                  white-space: nowrap; /* Keep on one line */
                  overflow: hidden;
                  text-overflow: ellipsis;
@@ -410,7 +593,56 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Willow Arms Public Access. Your source for offbeat internet TV.</p> </footer>
+        <p>&copy; 2025 Willow Arms Public Access. Your source for offbeat internet TV.</p> <div class="theme-switcher">
+            <button data-theme="default">Default Theme</button>
+            <button data-theme="noire">Noire Theme</button>
+            <button data-theme="slade">Slade Theme</button>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for Theme Switching and Persistence
+
+        // Function to set the theme
+        function setTheme(themeName) {
+            // Remove any existing theme classes from the body
+            document.body.classList.remove('theme-noire', 'theme-slade'); // Add other theme classes here
+
+            // Add the selected theme class if it's not the default
+            if (themeName !== 'default') {
+                document.body.classList.add('theme-' + themeName);
+            }
+
+            // Save the selected theme to localStorage
+            localStorage.setItem('wapTheme', themeName);
+        }
+
+        // Function to load the theme from localStorage on page load
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('wapTheme');
+            if (savedTheme) {
+                setTheme(savedTheme);
+            } else {
+                // If no theme is saved, set the default theme
+                setTheme('default');
+            }
+        }
+
+        // Add event listeners to the theme buttons
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeButtons = document.querySelectorAll('.theme-switcher button');
+
+            themeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const theme = button.getAttribute('data-theme');
+                    setTheme(theme);
+                });
+            });
+
+            // Load the theme when the page finishes loading
+            loadTheme();
+        });
+    </script>
 
 </body>
 </html>
