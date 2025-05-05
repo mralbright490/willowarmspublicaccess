@@ -66,15 +66,17 @@ p {
 
 /* --- Video Container Styling --- */
 #livestream .video-container {
-    position: relative;
+    position: relative; /* Needed for absolute positioning of iframe */
     /* Set max-width to the video width */
     max-width: 1280px;
     /* Center the container */
     margin: 20px auto;
-    /* Remove padding-bottom aspect ratio hack */
-    padding-bottom: 0;
-    height: auto; /* Let height be determined by content/aspect ratio */
-    overflow: hidden;
+    /* --- Aspect Ratio Padding Hack --- */
+    /* 720 (height) / 1280 (width) = 0.5625 */
+    padding-bottom: 56.25%; /* Creates the height based on 16:9 aspect ratio */
+    height: 0; /* Collapse the container's natural height */
+    /* --- End Aspect Ratio Hack --- */
+    overflow: hidden; /* Hides anything outside the container */
     background-color: #000; /* Black background */
     border: 2px solid #00e6e6; /* Cyan border */
     box-shadow: 0 0 10px rgba(0, 230, 230, 0.5); /* Subtle cyan glow effect */
@@ -82,15 +84,26 @@ p {
 }
 
 #livestream .video-container iframe {
-    display: block;
-    width: 100%;
-    height: auto; /* Keep this */
-    /* Remove this line -> min-height: 300px; */
+    position: absolute; /* Position over the padded container */
+    top: 0;
+    left: 0;
+    width: 100%; /* Fill the container's width */
+    height: 100%; /* Fill the container's height (defined by padding) */
     border: none;
+    /* The HTML iframe tag still needs width="1280" height="720" for fallback/info */
 }
 
 /* Style the placeholder text if iframe isn't there */
+/* This style needs to be *outside* the iframe rule but *inside* the video-container context */
 #livestream .video-container p {
+     /* This text will appear *behind* the absolute iframe if it loads, or alone if it doesn't */
+     /* Position it absolutely to layer correctly, or keep static and adjust layout */
+     /* Let's make it absolute again to layer over the black background */
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
      display: flex;
      justify-content: center;
      align-items: center;
@@ -99,12 +112,8 @@ p {
      padding: 20px;
      box-sizing: border-box;
      text-align: center;
-     /* Remove this line -> min-height: 400px; */
-     background-color: #000;
-     position: static;
-     width: auto;
-     /* Keep the max-width from previous versions if it was there, or add if needed */
-     max-width: 100%; /* Ensure placeholder respects container width */
+     background-color: #000; /* Ensure placeholder has dark background */
+     z-index: 1; /* Make sure it's above the background if needed */
 }
 
 .show {
