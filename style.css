@@ -1,4 +1,4 @@
-/* style.css - Modern Lo-fi / 90s TV Vibe (Single Column) */
+/* style.css - Modern Lo-fi / 9s TV Vibe (Single Column) */
 
 body {
     font-family: 'Arial', sans-serif; /* Simple, classic digital font */
@@ -27,8 +27,8 @@ header h1 {
     text-transform: uppercase; /* Giving it a digital menu feel */
     letter-spacing: 2px;
     color: #00a3a3; /* Slightly more saturated Cyan */
-    /* Ensure it doesn't break into two lines easily */
-    white-space: nowrap; /* Prevent wrapping */
+    /* Keep nowrap to force single line */
+    white-space: nowrap;
     overflow: hidden; /* Hide overflow if it still happens */
     text-overflow: ellipsis; /* Add ellipsis if text is too long */
     display: block; /* Make H1 a block element */
@@ -39,7 +39,7 @@ header p {
     font-size: 1em;
     color: #999999; /* Muted grey */
     margin-top: 5px; /* Add space above the paragraph */
-    /* Ensure it stays on one line */
+    /* Keep nowrap to force single line */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -237,7 +237,18 @@ footer {
         font-size: 1.1em;
     }
     header h1 {
-         font-size: 1.8em; /* Further reduce header font on smaller screens */
+         /* Further reduce header font on smaller screens */
+         font-size: 1.6em; /* Adjusted size */
+         /* Keep nowrap, overflow, ellipsis */
+         white-space: nowrap;
+         overflow: hidden;
+         text-overflow: ellipsis;
+    }
+    header p {
+         /* Keep nowrap, overflow, ellipsis */
+         white-space: nowrap;
+         overflow: hidden;
+         text-overflow: ellipsis;
     }
 }
 
@@ -246,7 +257,12 @@ footer {
          padding: 0 10px; /* Further reduce padding */
      }
     header h1 {
-        font-size: 1.4em; /* Even smaller header font on very small screens */
+        /* Even smaller header font on very small screens */
+        font-size: 1.2em; /* Adjusted size */
+        /* Keep nowrap, overflow, ellipsis */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     section {
