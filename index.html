@@ -3,156 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Willow Arms Public Access \\ Indie Internet Broadcasts</title> <meta name="description" content="Tune into Willow Arms Public Access, an offbeat internet TV channel featuring live streams, the Bonfire Podcast, unique music videos ([vibe]rations), experimental shows like 'POV: mom & dad are fighting again', and lo-fi streams ([iinnermission]). Discover weird online broadcasts."> <style>
-        /* style.css - Modern Lo-fi / 90s TV Vibe (Single Column) */
-
+    <title>Willow Arms Public Access \\ Indie Internet Broadcasts</title>
+    <meta name="description" content="Tune into Willow Arms Public Access, an offbeat internet TV channel featuring live streams, the Bonfire Podcast, unique music videos ([vibe]rations), experimental shows like 'POV: mom & dad are fighting again', and lo-fi streams ([iinnermission]). Discover weird online broadcasts.">
+    <style>
         body {
-            font-family: 'Arial', sans-serif; /* Simple, classic digital font */
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0c0c1a; /* Very dark desaturated blue/grey */
-            color: #cccccc; /* Light grey for default text */
+            background-color: #0c0c1a;
+            color: #cccccc;
             line-height: 1.5;
-            overflow-x: hidden; /* Prevent horizontal scroll */
-            font-size: 16px; /* Base font size */
-            transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition for theme changes */
+            overflow-x: hidden;
+            font-size: 16px;
+            transition: background-color 0.5s ease, color 0.5s ease;
         }
 
         header {
-            background-color: #1a1a33; /* Slightly lighter dark blue/purple */
-            color: #00e6e6; /* Desaturated Cyan */
+            background-color: #1a1a33;
+            color: #00e6e6;
             padding: 20px;
             text-align: center;
             margin-bottom: 30px;
-            border-bottom: 4px solid #005b5b; /* Solid border for structure */
-            transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease; /* Smooth transition */
+            border-bottom: 4px solid #005b5b;
+            transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
         }
 
-        header h2 { /* Changed from h1 to h2 to match user's structure */
+        header h2 {
             margin-top: 0;
-            /* Base font size */
             font-size: 2em;
-            text-transform: uppercase; /* Giving it a digital menu feel */
+            text-transform: uppercase;
             letter-spacing: 2px;
-            color: #00a3a3; /* Slightly more saturated Cyan */
-            /* Keep nowrap to force single line on larger screens */
+            color: #00a3a3;
             white-space: nowrap;
-            overflow: hidden; /* Hide overflow if it still happens */
-            text-overflow: ellipsis; /* Add ellipsis if text is too long */
-            display: block; /* Make H2 a block element */
-            margin-bottom: 0; /* Remove default margin below H2 */
-            transition: color 0.5s ease; /* Smooth transition */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+            margin-bottom: 0;
+            transition: color 0.5s ease;
         }
 
         header p {
             font-size: 1em;
-            color: #999999; /* Muted grey */
-            margin-top: 5px; /* Add space above the paragraph */
-            /* Keep nowrap to force single line */
+            color: #999999;
+            margin-top: 5px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            display: block; /* Make P a block element */
-            margin-bottom: 0; /* Remove default margin below P */
-            transition: color 0.5s ease; /* Smooth transition */
+            display: block;
+            margin-bottom: 0;
+            transition: color 0.5s ease;
         }
 
         main {
-            max-width: 1100px; /* Keep consistent with overall max width */
-            margin: 0 auto; /* Center the content */
-            padding: 0 20px; /* Add padding on the sides */
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
             box-sizing: border-box;
         }
 
         section {
-            background-color: #1a1a33; /* Match header background */
+            background-color: #1a1a33;
             padding: 25px;
-            margin-bottom: 25px; /* Keep space below sections */
-            border: 1px solid #005b5b; /* Section border */
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.3); /* Subtle shadow */
+            margin-bottom: 25px;
+            border: 1px solid #005b5b;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
             box-sizing: border-box;
-            transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease; /* Smooth transition */
+            transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
         }
 
-        /* Remove margin-bottom from the last section */
         main section:last-child {
             margin-bottom: 0;
         }
 
-
-        /* Styling for H2 section titles */
-        section h2 { /* Target H2 within sections */
-            color: #00a3a3; /* Match header color */
+        section h2 {
+            color: #00a3a3;
             border-bottom: 2px solid #005b5b;
             padding-bottom: 8px;
             margin-top: 0;
             margin-bottom: 20px;
             font-size: 1.8em;
             text-transform: uppercase;
-            /* Keep nowrap to force single line on larger screens */
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            display: block; /* Use block for H2s */
+            display: block;
             max-width: 100%;
-            transition: color 0.5s ease, border-color 0.5s ease; /* Smooth transition */
+            transition: color 0.5s ease, border-color 0.5s ease;
         }
 
-         /* Styling for H3 section titles (specifically contact) */
-         section h3 { /* Target H3 within sections (like contact) */
-             color: #00a3a3; /* Match other headings */
+         section h3 {
+             color: #00a3a3;
              border-bottom: 2px solid #005b5b;
              padding-bottom: 8px;
              margin-top: 0;
              margin-bottom: 20px;
-             font-size: 1.8em; /* Base size, adjusted in media queries */
+             font-size: 1.8em;
              text-transform: uppercase;
-             /* Keep nowrap to force single line on larger screens */
              white-space: nowrap;
              overflow: hidden;
              text-overflow: ellipsis;
-             display: block; /* Make H3 a block element */
+             display: block;
              max-width: 100%;
-             transition: color 0.5s ease, border-color 0.5s ease; /* Smooth transition */
+             transition: color 0.5s ease, border-color 0.5s ease;
          }
-
 
         p {
             color: #cccccc;
             margin-bottom: 15px;
-            word-break: break-word; /* Added to help text wrap in show descriptions */
-            transition: color 0.5s ease; /* Smooth transition */
+            word-break: break-word;
+            transition: color 0.5s ease;
         }
 
-        /* --- Video Container Styling --- */
         #livestream .video-container {
-            position: relative; /* Needed for absolute positioning of iframe */
-            max-width: 1280px; /* Set max-width to the video width */
-            margin: 20px auto; /* Center the container */
-            /* --- Aspect Ratio Padding Hack --- */
-            /* 720 (height) / 1280 (width) = 0.5625 */
-            padding-bottom: 56.25%; /* Creates the height based on 16:9 aspect ratio */
-            height: 0; /* Collapse the container's natural height */
-            /* --- End Aspect Ratio Hack --- */
-            overflow: hidden; /* Hides anything outside the container */
-            background-color: #000; /* Black background */
-            border: 2px solid #00e6e6; /* Cyan border */
-            box-shadow: 0 0 10px rgba(0, 230, 230, 0.5); /* Subtle cyan glow effect */
+            position: relative;
+            max-width: 1280px;
+            margin: 20px auto;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background-color: #000;
+            border: 2px solid #00e6e6;
+            box-shadow: 0 0 10px rgba(0, 230, 230, 0.5);
             box-sizing: border-box;
-             transition: border-color 0.5s ease, box-shadow 0.5s ease; /* Smooth transition */
+             transition: border-color 0.5s ease, box-shadow 0.5s ease;
         }
 
         #livestream .video-container iframe {
-            position: absolute; /* Position over the padded container */
+            position: absolute;
             top: 0;
             left: 0;
-            width: 100%; /* Fill the container's width */
-            height: 100%; /* Fill the container's height (defined by padding) */
+            width: 100%;
+            height: 100%;
             border: none;
-            /* The HTML iframe tag still needs width="1280" height="720" for fallback/info */
         }
 
-        /* Style the placeholder text if iframe isn't there */
         #livestream .video-container p {
              position: absolute;
              top: 0;
@@ -167,45 +151,43 @@
              padding: 20px;
              box-sizing: border-box;
              text-align: center;
-             background-color: #000; /* Ensure placeholder has dark background */
-             z-index: 1; /* Make sure it's above the background if needed */
-             max-width: 100%; /* Ensure placeholder respects container width */
+             background-color: #000;
+             z-index: 1;
+             max-width: 100%;
         }
-
 
         .show {
             margin-bottom: 20px;
             padding: 15px;
-            background-color: #2a2a4d; /* Slightly different dark tone for shows */
-            border-left: 4px solid #00a3a3; /* Cyan accent border */
+            background-color: #2a2a4d;
+            border-left: 4px solid #00a3a3;
             box-sizing: border-box;
-            transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease; /* Smooth transition */
+            transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
         }
 
-        .show h3 { /* Styling for show titles */
+        .show h3 {
             margin-top: 0;
             margin-bottom: 8px;
-            color: #00e6e6; /* Desaturated Cyan for show titles */
-            font-size: 1.3em; /* Base size, adjusted in media queries */
-            /* Keep nowrap to force single line on larger screens */
+            color: #00e6e6;
+            font-size: 1.3em;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            display: block; /* Make H3 a block element */
-            transition: color 0.5s ease; /* Smooth transition */
+            display: block;
+            transition: color 0.5s ease;
         }
 
         .show p {
-            color: #bbbbbb; /* Slightly lighter grey for descriptions */
+            color: #bbbbbb;
             font-size: 0.95em;
-             word-break: break-word; /* Added to help text wrap in show descriptions */
-             transition: color 0.5s ease; /* Smooth transition */
+             word-break: break-word;
+             transition: color 0.5s ease;
         }
 
         #contact ul {
             list-style: none;
             padding: 0;
-            margin-bottom: 20px; /* Add space below the list */
+            margin-bottom: 20px;
         }
 
         #contact li {
@@ -213,73 +195,74 @@
         }
 
         #contact a {
-            color: #00e6e6; /* Cyan links */
+            color: #00e6e6;
             text-decoration: none;
-            border-bottom: 1px dotted #005b5b; /* Dotted underline */
+            border-bottom: 1px dotted #005b5b;
             padding-bottom: 2px;
-            transition: color 0.3s ease, border-bottom-color 0.3s ease; /* Smooth transition */
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
         }
 
         #contact a:hover {
-            color: #ffffff; /* White on hover */
+            color: #ffffff;
             border-bottom-color: #ffffff;
         }
 
-        /* --- Styling for the Taplink Button --- */
         .contact-button-container {
-            text-align: center; /* Center the button */
-            margin-top: 20px; /* Space above the button */
+            text-align: center;
+            margin-top: 20px;
         }
 
         .taplink-button {
-            display: inline-block; /* Make it behave like a block but inline */
-            background-color: #00a3a3; /* Match heading color */
-            color: #1a1a33; /* Dark text on button */
+            display: inline-block;
+            background-color: #00a3a3;
+            color: #1a1a33;
             padding: 12px 25px;
-            text-decoration: none; /* Remove underline */
+            text-decoration: none;
             text-transform: uppercase;
             font-size: 1.1em;
-            border-radius: 5px; /* Slightly rounded corners */
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
-            border: 2px solid #00a3a3; /* Border matches background */
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            border: 2px solid #00a3a3;
         }
 
         .taplink-button:hover {
-            background-color: #1a1a33; /* Dark background on hover */
-            color: #00e6e6; /* Cyan text on hover */
-            border-color: #00e6e6; /* Cyan border on hover */
-        }
-
-        /* --- Theme Switcher Styling --- */
-        .theme-switcher {
-            text-align: center;
-            margin-top: 40px; /* Space above the switcher */
-            padding-top: 20px;
-            border-top: 1px solid #005b5b; /* Separator line */
-        }
-
-        .theme-switcher button {
-            background-color: #1a1a33; /* Dark button background */
-            color: #00e6e6; /* Cyan button text */
-            border: 1px solid #00a3a3; /* Cyan border */
-            padding: 8px 15px;
-            margin: 0 5px;
-            cursor: pointer;
-            border-radius: 4px;
-            text-transform: uppercase;
-            font-size: 0.9em;
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
-        }
-
-        .theme-switcher button:hover {
-            background-color: #00a3a3;
-            color: #1a1a33;
+            background-color: #1a1a33;
+            color: #00e6e6;
             border-color: #00e6e6;
         }
 
-        /* --- Theme Styles --- */
+        .theme-switcher {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #005b5b;
+            color: #cccccc;
+        }
 
-        /* Noire Theme */
+        .theme-switcher label {
+            margin-right: 10px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .theme-switcher select {
+            background-color: #1a1a33;
+            color: #00e6e6;
+            border: 1px solid #00a3a3;
+            padding: 5px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            cursor: pointer;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        .theme-switcher select option {
+            background-color: #1a1a33;
+            color: #00e6e6;
+        }
+
         body.theme-noire {
             background-color: #111;
             color: #eee;
@@ -288,9 +271,9 @@
             background-color: #222;
             border-bottom-color: #555;
         }
-        body.theme-noire header h2, /* Target H2 in header */
-        body.theme-noire section h2, /* Target H2 in sections */
-        body.theme-noire section h3 { /* Target H3 in sections */
+        body.theme-noire header h2,
+        body.theme-noire section h2,
+        body.theme-noire section h3 {
             color: #fff;
         }
          body.theme-noire header p {
@@ -309,7 +292,7 @@
             background-color: #333;
             border-left-color: #888;
         }
-        body.theme-noire .show h3 { /* Target H3 in show */
+        body.theme-noire .show h3 {
             color: #eee;
         }
          body.theme-noire .show p {
@@ -349,20 +332,18 @@
             border-top-color: #555;
         }
 
-
-        /* Slade Theme (Grey and Orange) */
         body.theme-slade {
             background-color: #222;
             color: #eee;
         }
          body.theme-slade header {
             background-color: #333;
-            border-bottom-color: #ff6600; /* Orange */
+            border-bottom-color: #ff6600;
         }
-        body.theme-slade header h2, /* Target H2 in header */
-        body.theme-slade section h2, /* Target H2 in sections */
-        body.theme-slade section h3 { /* Target H3 in sections */
-            color: #ff9900; /* Lighter Orange */
+        body.theme-slade header h2,
+        body.theme-slade section h2,
+        body.theme-slade section h3 {
+            color: #ff9900;
         }
          body.theme-slade header p {
             color: #ccc;
@@ -380,8 +361,8 @@
             background-color: #444;
             border-left-color: #ff9900;
         }
-        body.theme-slade .show h3 { /* Target H3 in show */
-            color: #ffcc00; /* Yellowish Orange */
+        body.theme-slade .show h3 {
+            color: #ffcc00;
         }
          body.theme-slade .show p {
             color: #ddd;
@@ -420,34 +401,98 @@
             border-top-color: #ff6600;
         }
 
+        body.theme-mr-johnson {
+            background-color: #1a0033;
+            color: #006400;
+        }
+        body.theme-mr-johnson header {
+            background-color: #2a0055;
+            border-bottom-color: #008000;
+        }
+        body.theme-mr-johnson header h2,
+        body.theme-mr-johnson section h2,
+        body.theme-mr-johnson section h3 {
+            color: #00ff00;
+        }
+         body.theme-mr-johnson header p {
+            color: #00aa00;
+        }
+        body.theme-mr-johnson section {
+            background-color: #2a0055;
+            border-color: #008000;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+        }
+         body.theme-mr-johnson #livestream .video-container {
+             border-color: #00ff00;
+             box-shadow: 0 0 10px rgba(0,255,0,0.5);
+        }
+         body.theme-mr-johnson .show {
+            background-color: #3a0066;
+            border-left-color: #00ff00;
+        }
+        body.theme-mr-johnson .show h3 {
+            color: #32cd32;
+        }
+         body.theme-mr-johnson .show p {
+            color: #00cc00;
+        }
+        body.theme-mr-johnson a {
+            color: #00ff00;
+            border-bottom-color: #008000;
+        }
+        body.theme-mr-johnson a:hover {
+            color: #ffffff;
+            border-bottom-color: #00ff00;
+        }
+         body.theme-mr-johnson .taplink-button {
+            background-color: #008000;
+            color: #1a0033;
+            border-color: #00ff00;
+        }
+         body.theme-mr-johnson .taplink-button:hover {
+            background-color: #00ff00;
+            color: #1a0033;
+            border-color: #008000;
+        }
+         body.theme-mr-johnson .theme-switcher select {
+            background-color: #3a0066;
+            color: #00ff00;
+            border-color: #008000;
+        }
+         body.theme-mr-johnson .theme-switcher select option {
+             background-color: #3a0066;
+             color: #00ff00;
+         }
+         body.theme-mr-johnson footer {
+            background-color: #2a0055;
+            color: #006400;
+            border-top-color: #008000;
+        }
 
         footer {
             text-align: center;
             padding: 20px;
             margin-top: 30px;
-            background-color: #1a1a33; /* Match section background */
-            color: #666666; /* Darker grey for footer text */
+            background-color: #1a1a33;
+            color: #666666;
             font-size: 0.85em;
             border-top: 1px solid #005b5b;
-            transition: background-color 0.5s ease, color 0.5s ease, border-top-color 0.5s ease; /* Smooth transition */
+            transition: background-color 0.5s ease, color 0.5s ease, border-top-color 0.5s ease;
         }
 
-        /* --- Responsive adjustments --- */
         @media (max-width: 768px) {
             main {
-                padding: 0 15px; /* Adjust padding */
+                padding: 0 15px;
             }
-            /* Reduce H2 font size */
-            section h2 { /* Target H2 within sections */
-                font-size: 1.4em; /* Adjusted size */
-                 white-space: nowrap; /* Keep on one line */
+            section h2 {
+                font-size: 1.4em;
+                 white-space: nowrap;
                  overflow: hidden;
                  text-overflow: ellipsis;
             }
-             /* Reduce H3 font size */
-             section h3 { /* Target H3 within sections */
-                font-size: 1.4em; /* Adjusted size to match H2 */
-                 white-space: nowrap; /* Keep on one line */
+             section h3 {
+                font-size: 1.4em;
+                 white-space: nowrap;
                  overflow: hidden;
                  text-overflow: ellipsis;
             }
@@ -459,44 +504,41 @@
                 padding: 12px;
             }
 
-            /* Reduce Show H3 font size */
-            .show h3 { /* Target H3 within .show */
-                font-size: 1em; /* Adjusted size */
-                 white-space: nowrap; /* Keep on one line */
+            .show h3 {
+                font-size: 1em;
+                 white-space: nowrap;
                  overflow: hidden;
                  text-overflow: ellipsis;
             }
             .show p {
-                 white-space: normal; /* Allow wrapping */
+                 white-space: normal;
                  overflow: visible;
                  text-overflow: clip;
             }
-            /* Reduce Header H2 font size */
-            header h2 { /* Target H2 within header */
-                 font-size: 1.4em; /* Adjusted size */
-                 white-space: nowrap; /* Keep on one line */
+            header h2 {
+                 font-size: 1.4em;
+                 white-space: nowrap;
                  overflow: hidden;
                  text-overflow: ellipsis;
             }
             header p {
-                 white-space: nowrap; /* Keep on one line */
+                 white-space: nowrap;
                  overflow: hidden;
                  text-overflow: ellipsis;
             }
-             .theme-switcher button { /* Assuming you add theme switcher back later */
-                 font-size: 0.8em; /* Smaller buttons on mobile */
-                 padding: 6px 10px;
+             .theme-switcher select {
+                 font-size: 0.8em;
+                 padding: 4px;
              }
         }
 
         @media (max-width: 480px) {
              main {
-                 padding: 0 10px; /* Further reduce padding */
+                 padding: 0 10px;
              }
-            /* Even smaller Header H2 font on very small screens */
-            header h2 { /* Target H2 within header */
-                font-size: 1.2em; /* Adjusted size */
-                white-space: nowrap; /* Keep on one line */
+            header h2 {
+                font-size: 1.2em;
+                white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
             }
@@ -506,22 +548,20 @@
                 margin-bottom: 15px;
             }
 
-            /* Even smaller H2 font */
-            section h2 { /* Target H2 within sections */
-                font-size: 1.2em; /* Adjusted size */
-                 white-space: nowrap; /* Keep on one line */
+            section h2 {
+                font-size: 1.2em;
+                 white-space: nowrap;
                  overflow: hidden;
                  text-overflow: ellipsis;
             }
-             /* Even smaller H3 font */
-             section h3 { /* Target H3 within sections (like contact) */
-                font-size: 1.2em; /* Adjusted size to match H2 */
-                 white-space: nowrap; /* Keep on one line */
+             section h3 {
+                font-size: 1.2em;
+                 white-space: nowrap;
                  overflow: hidden;
                  text-overflow: ellipsis;
             }
              #livestream .video-container {
-                 max-width: 100%; /* Allow video to take full width */
+                 max-width: 100%;
                  margin-left: 0;
                  margin-right: 0;
                  border-left: none;
@@ -529,28 +569,27 @@
                  box-shadow: none;
             }
              #livestream .video-container p {
-                 min-height: 0; /* Ensure no artificial min-height */
-                 padding: 10px; /* Reduce padding */
+                 min-height: 0;
+                 padding: 10px;
              }
              .taplink-button {
-                 font-size: 1em; /* Reduce button font size on very small screens */
+                 font-size: 1em;
                  padding: 10px 20px;
              }
-             /* Even smaller Show H3 font */
-             .show h3 { /* Target H3 within .show */
-                 font-size: 0.9em; /* Adjusted size */
-                 white-space: nowrap; /* Keep on one line */
+             .show h3 {
+                 font-size: 0.9em;
+                 white-space: nowrap;
                  overflow: hidden;
                  text-overflow: ellipsis;
              }
              .show p {
-                  white-space: normal; /* Allow wrapping */
+                  white-space: normal;
                   overflow: visible;
                   text-overflow: clip;
              }
-             .theme-switcher button { /* Assuming you add theme switcher back later */
-                 font-size: 0.7em; /* Even smaller buttons on very small mobile */
-                 padding: 5px 8px;
+             .theme-switcher select {
+                 font-size: 0.7em;
+                 padding: 3px;
              }
         }
     </style>
@@ -594,9 +633,12 @@
 
     <footer>
         <p>&copy; 2025 Willow Arms Public Access. Your source for offbeat internet TV.</p> <div class="theme-switcher">
-            <button data-theme="default">Default Theme</button>
-            <button data-theme="noire">Noire Theme</button>
-            <button data-theme="slade">Slade Theme</button>
+            <label for="theme-select">Choose Theme:</label>
+            <select id="theme-select">
+                <option value="default">Default Theme</option>
+                <option value="noire">Noire Theme</option>
+                <option value="slade">Slade Theme</option>
+                <option value="mr-johnson">Mr. Johnson Theme</option> </select>
         </div>
     </footer>
 
@@ -605,8 +647,8 @@
 
         // Function to set the theme
         function setTheme(themeName) {
-            // Remove any existing theme classes from the body
-            document.body.classList.remove('theme-noire', 'theme-slade'); // Add other theme classes here
+            // Remove all existing theme classes from the body
+            document.body.classList.remove('theme-noire', 'theme-slade', 'theme-mr-johnson'); // Add other theme classes here
 
             // Add the selected theme class if it's not the default
             if (themeName !== 'default') {
@@ -615,6 +657,12 @@
 
             // Save the selected theme to localStorage
             localStorage.setItem('wapTheme', themeName);
+
+            // Set the dropdown value to match the selected theme
+            const themeSelect = document.getElementById('theme-select');
+            if (themeSelect) {
+                 themeSelect.value = themeName;
+            }
         }
 
         // Function to load the theme from localStorage on page load
@@ -628,21 +676,21 @@
             }
         }
 
-        // Add event listeners to the theme buttons
+        // Add event listener to the dropdown menu
         document.addEventListener('DOMContentLoaded', () => {
-            const themeButtons = document.querySelectorAll('.theme-switcher button');
+            const themeSelect = document.getElementById('theme-select');
 
-            themeButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const theme = button.getAttribute('data-theme');
-                    setTheme(theme);
+            if (themeSelect) {
+                themeSelect.addEventListener('change', (event) => {
+                    const selectedTheme = event.target.value;
+                    setTheme(selectedTheme);
                 });
-            });
+            }
+
 
             // Load the theme when the page finishes loading
             loadTheme();
         });
     </script>
-
 </body>
 </html>
