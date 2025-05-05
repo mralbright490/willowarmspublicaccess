@@ -71,11 +71,9 @@
             transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
         }
 
-        /* Remove margin-bottom from the last section */
         main section:last-child {
             margin-bottom: 0;
         }
-
 
         section h2 {
             color: #00a3a3;
@@ -186,32 +184,27 @@
              transition: color 0.5s ease;
         }
 
-        /* --- TikTok Section Styling --- */
         #tiktok-feed .tiktok-container {
-            /* Styling for a scrollable box to hold SociableKIT embed */
-            height: 500px; /* Set a fixed height for the scrollable area */
-            overflow-y: scroll; /* Enable vertical scrolling */
-            border: 1px solid #00a3a3; /* Add a border */
-            padding: 10px; /* Add padding inside the scrollable area */
-            background-color: #1a1a33; /* Match section background */
+            height: 500px;
+            overflow-y: scroll;
+            border: 1px solid #00a3a3;
+            padding: 10px;
+            background-color: #1a1a33;
             box-sizing: border-box;
-            /* Ensure the container takes full width of its parent section */
             width: 100%;
-            max-width: none; /* Remove any max-width constraints */
+            max-width: none;
         }
 
-        /* Style for the placeholder text in the TikTok container */
         #tiktok-feed .tiktok-container p {
              text-align: center;
              color: #999999;
              font-size: 0.9em;
-             margin-bottom: 0; /* Remove bottom margin from placeholder */
+             margin-bottom: 0;
              position: static;
              width: auto;
              height: auto;
              padding: 0;
         }
-
 
         #contact ul {
             list-style: none;
@@ -613,6 +606,12 @@
 </head>
 <body>
 
+    <button id="participate-button">Participate</button>
+
+    <div id="popup-message">
+        <p>you've come here in search of release, huh?</p>
+    </div>
+
     <header>
         <h2>// WILLOW ARMS PUBLIC ACCESS \\</h2> <p>Indie Online Broadcasts</p> </header>
 
@@ -655,7 +654,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Willow Arms Public Access.<br> Your source for offbeat internet TV.</p> <div class="theme-switcher">
+        <p>&copy; 2025 Willow Arms Public Access. <br> Your source for offbeat internet TV.</p> <div class="theme-switcher">
             <label for="theme-select">Choose Theme:</label>
             <select id="theme-select">
                 <option value="default">Default Theme</option>
@@ -667,21 +666,19 @@
 
     <script>
         // JavaScript for Theme Switching and Persistence
+        const participateButton = document.getElementById('participate-button');
+        const popupMessage = document.getElementById('popup-message');
+        let buttonX, buttonY, dx, dy;
+        const buttonSize = 60; // Adjust based on button size
+        const speed = 3; // Adjust speed
 
         // Function to set the theme
         function setTheme(themeName) {
-            // Remove all existing theme classes from the body
-            document.body.classList.remove('theme-noire', 'theme-slade', 'theme-mr-johnson'); // Add other theme classes here
-
-            // Add the selected theme class if it's not the default
+            document.body.classList.remove('theme-noire', 'theme-slade', 'theme-mr-johnson');
             if (themeName !== 'default') {
                 document.body.classList.add('theme-' + themeName);
             }
-
-            // Save the selected theme to localStorage
             localStorage.setItem('wapTheme', themeName);
-
-            // Set the dropdown value to match the selected theme
             const themeSelect = document.getElementById('theme-select');
             if (themeSelect) {
                  themeSelect.value = themeName;
@@ -694,12 +691,72 @@
             if (savedTheme) {
                 setTheme(savedTheme);
             } else {
-                // If no theme is saved, set the default theme
                 setTheme('default');
             }
         }
 
-        // Add event listener to the dropdown menu
+        // Function to initialize button position and movement
+        function initializeButton() {
+            const maxAttempts = 10;
+            let attempts = 0;
+
+            while (attempts < maxAttempts) {
+                buttonX = Math.random() * (window.innerWidth - buttonSize);
+                buttonY = Math.random() * (window.innerHeight - buttonSize);
+
+                // Check if the initial position is too close to the bottom right (where it starts fixed)
+                const distanceToBottomRight = Math.sqrt(
+                    Math.pow(window.innerWidth - buttonSize - buttonX, 2) +
+                    Math.pow(window.innerHeight - buttonSize - buttonY, 2)
+                );
+
+                // If it's not too close, break the loop
+                if (distanceToBottomRight > 100) { // Adjust the '100' value as needed
+                    break;
+                }
+                attempts++;
+            }
+
+
+            // Ensure dx and dy are not zero
+            dx = (Math.random() - 0.5) * 2 * speed;
+            dy = (Math.random() - 0.5) * 2 * speed;
+            if (dx === 0 && dy === 0) { // Avoid both being zero
+                 dx = speed;
+            }
+
+
+            participateButton.style.left = buttonX + 'px';
+            participateButton.style.top = buttonY + 'px';
+            participateButton.style.display = 'block'; // Make it visible after positioning
+        }
+
+        // Function to update button position
+        function updateButtonPosition() {
+            buttonX += dx;
+            buttonY += dy;
+
+            // Bounce off horizontal walls
+            if (buttonX + buttonSize > window.innerWidth || buttonX < 0) {
+                dx = -dx;
+                 // Prevent sticking to the edge
+                if (buttonX < 0) buttonX = 0;
+                if (buttonX + buttonSize > window.innerWidth) buttonX = window.innerWidth - buttonSize;
+            }
+
+            // Bounce off vertical walls
+            if (buttonY + buttonSize > window.innerHeight || buttonY < 0) {
+                dy = -dy;
+                 // Prevent sticking to the edge
+                if (buttonY < 0) buttonY = 0;
+                if (buttonY + buttonSize > window.innerHeight) buttonY = window.innerHeight - buttonSize;
+            }
+
+            participateButton.style.left = buttonX + 'px';
+            participateButton.style.top = buttonY + 'px';
+        }
+
+
         document.addEventListener('DOMContentLoaded', () => {
             const themeSelect = document.getElementById('theme-select');
 
@@ -710,10 +767,33 @@
                 });
             }
 
+            if (participateButton && popupMessage) {
+                // Initialize and start button animation after DOM is ready
+                initializeButton();
+                setInterval(updateButtonPosition, 30); // Update position roughly 30 times per second
 
-            // Load the theme when the page finishes loading
+                // Add event listener for the participate button
+                participateButton.addEventListener('click', () => {
+                    popupMessage.style.display = 'flex'; // Show the pop-up
+                });
+
+                // Add event listener to hide the pop-up when clicked anywhere on it
+                popupMessage.addEventListener('click', () => {
+                    popupMessage.style.display = 'none'; // Hide the pop-up
+                });
+            }
+
             loadTheme();
         });
+
+         // Adjust button position on window resize
+         window.addEventListener('resize', () => {
+              if (participateButton) {
+                   // Re-initialize position to ensure it stays within new bounds
+                   initializeButton();
+              }
+         });
+
     </script>
 </body>
 </html>
