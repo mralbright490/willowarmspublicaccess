@@ -1,4 +1,4 @@
-/* style.css - Modern Lo-fi / 90s TV Vibe */
+/* style.css - Modern Lo-fi / 90s TV Vibe (Single Column) */
 
 body {
     font-family: 'Arial', sans-serif; /* Simple, classic digital font */
@@ -34,20 +34,30 @@ header p {
     margin-top: 5px;
 }
 
+/* --- Restore Main Content Layout --- */
 main {
-    max-width: 1100px; /* Slightly wider than video to give padding */
-    margin: 0 auto; /* Center the main content block */
-    padding: 0 20px;
+    max-width: 1100px; /* Keep consistent with overall max width */
+    margin: 0 auto; /* Center the content */
+    padding: 0 20px; /* Add padding on the sides */
+    box-sizing: border-box;
 }
+
+/* Removed rules for .content-container, .main-content, .sidebar, .sidebar h3, .ad-unit */
 
 section {
     background-color: #1a1a33; /* Match header background */
     padding: 25px;
-    margin-bottom: 25px;
-    border: 1px solid #005b5b; /* Match header border color */
+    margin-bottom: 25px; /* Keep space below sections */
+    border: 1px solid #005b5b; /* Section border */
     box-shadow: 5px 5px 15px rgba(0,0,0,0.3); /* Subtle shadow */
-    box-sizing: border-box; /* Include padding and border in element's total width/height */
+    box-sizing: border-box;
 }
+
+/* Remove margin-bottom from the last section */
+main section:last-child {
+    margin-bottom: 0;
+}
+
 
 h2 {
     color: #00a3a3; /* Match header h1 color */
@@ -67,10 +77,8 @@ p {
 /* --- Video Container Styling --- */
 #livestream .video-container {
     position: relative; /* Needed for absolute positioning of iframe */
-    /* Set max-width to the video width */
-    max-width: 1280px;
-    /* Center the container */
-    margin: 20px auto;
+    max-width: 1280px; /* Set max-width to the video width */
+    margin: 20px auto; /* Center the container */
     /* --- Aspect Ratio Padding Hack --- */
     /* 720 (height) / 1280 (width) = 0.5625 */
     padding-bottom: 56.25%; /* Creates the height based on 16:9 aspect ratio */
@@ -94,11 +102,7 @@ p {
 }
 
 /* Style the placeholder text if iframe isn't there */
-/* This style needs to be *outside* the iframe rule but *inside* the video-container context */
 #livestream .video-container p {
-     /* This text will appear *behind* the absolute iframe if it loads, or alone if it doesn't */
-     /* Position it absolutely to layer correctly, or keep static and adjust layout */
-     /* Let's make it absolute again to layer over the black background */
      position: absolute;
      top: 0;
      left: 0;
@@ -114,7 +118,9 @@ p {
      text-align: center;
      background-color: #000; /* Ensure placeholder has dark background */
      z-index: 1; /* Make sure it's above the background if needed */
+     max-width: 100%; /* Ensure placeholder respects container width */
 }
+
 
 .show {
     margin-bottom: 20px;
@@ -133,3 +139,92 @@ p {
 
 .show p {
     color: #bbbbbb; /* Slightly lighter grey for descriptions */
+    font-size: 0.95em;
+}
+
+#contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+#contact li {
+    margin-bottom: 12px;
+}
+
+#contact a {
+    color: #00e6e6; /* Cyan links */
+    text-decoration: none;
+    border-bottom: 1px dotted #005b5b; /* Dotted underline */
+    padding-bottom: 2px;
+    transition: color 0.3s ease;
+}
+
+#contact a:hover {
+    color: #ffffff; /* White on hover */
+    border-bottom-color: #ffffff;
+}
+
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    background-color: #1a1a33; /* Match section background */
+    color: #666666; /* Darker grey for footer text */
+    font-size: 0.85em;
+    border-top: 1px solid #005b5b;
+}
+
+/* --- Responsive adjustments --- */
+/* Simplified media queries now that sidebar layout is removed */
+
+@media (max-width: 768px) {
+    main {
+        padding: 0 15px; /* Adjust padding */
+    }
+    h2 {
+        font-size: 1.6em;
+    }
+    section {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    .show {
+        padding: 12px;
+    }
+
+    .show h3 {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+     main {
+         padding: 0 10px; /* Further reduce padding */
+     }
+    header h1 {
+        font-size: 1.6em;
+    }
+
+    section {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+     #livestream .video-container {
+         max-width: 100%; /* Allow video to take full width */
+         margin-left: 0;
+         margin-right: 0;
+         border-left: none;
+         border-right: none;
+         box-shadow: none;
+    }
+     /* Aspect ratio padding handles height */
+     #livestream .video-container p {
+         min-height: 0; /* Ensure no artificial min-height */
+         padding: 10px; /* Reduce padding */
+     }
+}
