@@ -1,125 +1,44 @@
+/* style.css - Dark Mode, Cyber-Vaporwave, Grungy */
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; /* A safe, simple font stack */
+    font-family: 'Consolas', 'Monaco', 'Lucida Console', monospace; /* Techy/code-like font */
     margin: 0;
     padding: 0;
-    background-color: #f0f0e0; /* Off-white/light yellow for a slightly old-school feel */
-    color: #333;
+    background-color: #1a0033; /* Deep dark purple */
+    color: #00ffff; /* Cyan/Aqua neon for default text */
     line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll from glow effects */
 }
 
 header {
-    background-color: #6b8e23; /* Olive Drab */
-    color: #fff;
+    background-color: #0d001a; /* Even darker purple */
+    color: #ff00ff; /* Magenta neon */
     padding: 20px;
     text-align: center;
     margin-bottom: 20px;
+    border-bottom: 2px solid #4a0099; /* Subtle purple border */
+    box-shadow: 0 0 15px #4a0099; /* Purple glow */
 }
 
 header h1 {
     margin-top: 0;
-    font-size: 2.5em;
+    font-size: 3em;
+    text-shadow: 0 0 10px #ff00ff; /* Magenta glow */
+}
+
+header p {
+    font-size: 1.2em;
+    color: #aaaaaa; /* Lighter grey for description */
 }
 
 main {
-    max-width: 900px; /* Limit content width */
-    margin: 0 auto; /* Center the content */
-    padding: 0 20px; /* Add padding on the sides */
+    max-width: 1000px; /* Slightly wider content */
+    margin: 0 auto; /* Center */
+    padding: 0 20px; /* Padding on sides */
 }
 
 section {
-    background-color: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc; /* Simple border */
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
-}
-
-h2 {
-    color: #556b2f; /* Dark Olive Green */
-    border-bottom: 2px solid #6b8e23; /* Underline with theme color */
-    padding-bottom: 5px;
-    margin-top: 0;
-}
-
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio (height / width * 100) */
-    height: 0;
-    overflow: hidden;
-    background-color: #000; /* Black background for the player area */
-}
-
-.video-container iframe,
-.video-container p { /* Style the placeholder text too */
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none; /* Remove iframe border */
-    display: flex; /* Use flex to center placeholder text */
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-size: 1.2em;
-    padding: 20px; /* Add some padding to placeholder */
-    box-sizing: border-box; /* Include padding in element's total width and height */
-    text-align: center;
-}
-
-
-.show {
-    margin-bottom: 15px;
-    padding: 10px;
-    background-color: #f9f9f9; /* Slightly different background for shows */
-    border-left: 4px solid #b8860b; /* Dark Goldenrod border */
-}
-
-.show h3 {
-    margin-top: 0;
-    margin-bottom: 5px;
-    color: #8b4513; /* Saddle Brown */
-}
-
-#contact ul {
-    list-style: none;
-    padding: 0;
-}
-
-#contact li {
-    margin-bottom: 10px;
-}
-
-#contact a {
-    color: #556b2f; /* Dark Olive Green */
-    text-decoration: none;
-}
-
-#contact a:hover {
-    text-decoration: underline;
-}
-
-
-footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-    background-color: #6b8e23; /* Match header */
-    color: #fff;
-    font-size: 0.9em;
-}
-
-/* Basic Responsiveness */
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 1.8em;
-    }
-
-    main {
-        padding: 0 10px;
-    }
-
-    section {
-        padding: 15px;
-    }
-}
+    background-color: #2a0055; /* Darker purple/blue for sections */
+    padding: 30px; /* More padding */
+    margin-bottom: 30px;
+    border: 1px solid #4a0099; /* Section
