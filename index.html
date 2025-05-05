@@ -26,7 +26,7 @@
             border-bottom: 4px solid #005b5b; /* Solid border for structure */
         }
 
-        header h1 {
+        header h2 { /* Changed from h1 to h2 to match user's structure */
             margin-top: 0;
             /* Base font size */
             font-size: 2em;
@@ -37,8 +37,8 @@
             white-space: nowrap;
             overflow: hidden; /* Hide overflow if it still happens */
             text-overflow: ellipsis; /* Add ellipsis if text is too long */
-            display: block; /* Make H1 a block element */
-            margin-bottom: 0; /* Remove default margin below H1 */
+            display: block; /* Make H2 a block element */
+            margin-bottom: 0; /* Remove default margin below H2 */
         }
 
         header p {
@@ -75,8 +75,9 @@
         }
 
 
-        h2 {
-            color: #00a3a3; /* Match header h1 color */
+        /* Styling for H2 section titles */
+        section h2 { /* Target H2 within sections */
+            color: #00a3a3; /* Match header color */
             border-bottom: 2px solid #005b5b;
             padding-bottom: 8px;
             margin-top: 0;
@@ -90,6 +91,24 @@
             display: block; /* Use block for H2s */
             max-width: 100%;
         }
+
+         /* Styling for H3 section titles (specifically contact) */
+         section h3 { /* Target H3 within sections (like contact) */
+             color: #00a3a3; /* Match other headings */
+             border-bottom: 2px solid #005b5b;
+             padding-bottom: 8px;
+             margin-top: 0;
+             margin-bottom: 20px;
+             font-size: 1.8em; /* Base size, adjusted in media queries */
+             text-transform: uppercase;
+             /* Keep nowrap to force single line on larger screens */
+             white-space: nowrap;
+             overflow: hidden;
+             text-overflow: ellipsis;
+             display: block; /* Make H3 a block element */
+             max-width: 100%;
+         }
+
 
         p {
             color: #cccccc;
@@ -153,11 +172,11 @@
             box-sizing: border-box;
         }
 
-        .show h3 {
+        .show h3 { /* Styling for show titles */
             margin-top: 0;
             margin-bottom: 8px;
             color: #00e6e6; /* Desaturated Cyan for show titles */
-            font-size: 1.3em;
+            font-size: 1.3em; /* Base size, adjusted in media queries */
             /* Keep nowrap to force single line on larger screens */
             white-space: nowrap;
             overflow: hidden;
@@ -236,8 +255,15 @@
                 padding: 0 15px; /* Adjust padding */
             }
             /* Reduce H2 font size */
-            h2 {
+            section h2 { /* Target H2 within sections */
                 font-size: 1.4em; /* Adjusted size */
+                 white-space: nowrap; /* Keep on one line */
+                 overflow: hidden;
+                 text-overflow: ellipsis;
+            }
+             /* Reduce H3 font size */
+             section h3 { /* Target H3 within sections */
+                font-size: 1.4em; /* Adjusted size to match H2 */
                  white-space: nowrap; /* Keep on one line */
                  overflow: hidden;
                  text-overflow: ellipsis;
@@ -251,7 +277,7 @@
             }
 
             /* Reduce Show H3 font size */
-            .show h3 {
+            .show h3 { /* Target H3 within .show */
                 font-size: 1em; /* Adjusted size */
                  white-space: nowrap; /* Keep on one line */
                  overflow: hidden;
@@ -262,8 +288,8 @@
                  overflow: visible;
                  text-overflow: clip;
             }
-            /* Reduce Header H1 font size */
-            header h1 {
+            /* Reduce Header H2 font size */
+            header h2 { /* Target H2 within header */
                  font-size: 1.4em; /* Adjusted size */
                  white-space: nowrap; /* Keep on one line */
                  overflow: hidden;
@@ -274,15 +300,19 @@
                  overflow: hidden;
                  text-overflow: ellipsis;
             }
+             .theme-switcher button { /* Assuming you add theme switcher back later */
+                 font-size: 0.8em; /* Smaller buttons on mobile */
+                 padding: 6px 10px;
+             }
         }
 
         @media (max-width: 480px) {
              main {
                  padding: 0 10px; /* Further reduce padding */
              }
-            /* Even smaller Header H1 font on very small screens */
-            header h1 {
-                font-size: 1.2em; /* Adjusted size */
+            /* Even smaller Header H2 font on very small screens */
+            header h2 { /* Target H2 within header */
+                font-size: 1em; /* Adjusted size */
                 white-space: nowrap; /* Keep on one line */
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -294,8 +324,15 @@
             }
 
             /* Even smaller H2 font */
-            h2 {
-                font-size: 1.2em; /* Adjusted size */
+            section h2 { /* Target H2 within sections */
+                font-size: 1em; /* Adjusted size */
+                 white-space: nowrap; /* Keep on one line */
+                 overflow: hidden;
+                 text-overflow: ellipsis;
+            }
+             /* Even smaller H3 font */
+             section h3 { /* Target H3 within sections (like contact) */
+                font-size: 1em; /* Adjusted size to match H2 */
                  white-space: nowrap; /* Keep on one line */
                  overflow: hidden;
                  text-overflow: ellipsis;
@@ -317,8 +354,8 @@
                  padding: 10px 20px;
              }
              /* Even smaller Show H3 font */
-             .show h3 {
-                 font-size: 0.9em; /* Adjusted size */
+             .show h3 { /* Target H3 within .show */
+                 font-size: 0.8em; /* Adjusted size */
                  white-space: nowrap; /* Keep on one line */
                  overflow: hidden;
                  text-overflow: ellipsis;
@@ -327,6 +364,10 @@
                   white-space: normal; /* Allow wrapping */
                   overflow: visible;
                   text-overflow: clip;
+             }
+             .theme-switcher button { /* Assuming you add theme switcher back later */
+                 font-size: 0.7em; /* Even smaller buttons on very small mobile */
+                 padding: 5px 8px;
              }
         }
     </style>
@@ -360,8 +401,7 @@
         </section>
 
         <section id="contact">
-            <h3>[wapa connections]</h3> <p>Find all our links and ways to connect:</p> 
-            <div class="contact-button-container">
+            <h2>[wapa connections]</h2> <p>Find all our links and ways to connect:</p> <div class="contact-button-container">
                 <a href="https://taplink.cc/wapaccess" class="taplink-button" target="_blank" rel="noopener noreferrer">
                     Links
                 </a>
