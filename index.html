@@ -71,9 +71,11 @@
             transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
         }
 
+        /* Remove margin-bottom from the last section */
         main section:last-child {
             margin-bottom: 0;
         }
+
 
         section h2 {
             color: #00a3a3;
@@ -183,6 +185,33 @@
              word-break: break-word;
              transition: color 0.5s ease;
         }
+
+        /* --- TikTok Section Styling --- */
+        #tiktok-feed .tiktok-container {
+            /* Styling for a scrollable box to hold SociableKIT embed */
+            height: 500px; /* Set a fixed height for the scrollable area */
+            overflow-y: scroll; /* Enable vertical scrolling */
+            border: 1px solid #00a3a3; /* Add a border */
+            padding: 10px; /* Add padding inside the scrollable area */
+            background-color: #1a1a33; /* Match section background */
+            box-sizing: border-box;
+            /* Ensure the container takes full width of its parent section */
+            width: 100%;
+            max-width: none; /* Remove any max-width constraints */
+        }
+
+        /* Style for the placeholder text in the TikTok container */
+        #tiktok-feed .tiktok-container p {
+             text-align: center;
+             color: #999999;
+             font-size: 0.9em;
+             margin-bottom: 0; /* Remove bottom margin from placeholder */
+             position: static;
+             width: auto;
+             height: auto;
+             padding: 0;
+        }
+
 
         #contact ul {
             list-style: none;
@@ -316,16 +345,15 @@
             color: #111;
             border-color: #eee;
         }
-         body.theme-noire .theme-switcher button {
+         body.theme-noire .theme-switcher select {
             background-color: #333;
             color: #eee;
             border-color: #888;
         }
-         body.theme-noire .theme-switcher button:hover {
-            background-color: #eee;
-            color: #333;
-            border-color: #fff;
-        }
+         body.theme-noire .theme-switcher select option {
+             background-color: #333;
+             color: #eee;
+         }
          body.theme-noire footer {
             background-color: #222;
             color: #555;
@@ -385,16 +413,15 @@
             color: #111;
             border-color: #ffcc00;
         }
-         body.theme-slade .theme-switcher button {
+         body.theme-slade .theme-switcher select {
             background-color: #444;
             color: #ff9900;
             border-color: #ff6600;
         }
-         body.theme-slade .theme-switcher button:hover {
-            background-color: #ff9900;
-            color: #444;
-            border-color: #ffcc00;
-        }
+         body.theme-slade .theme-switcher select option {
+             background-color: #444;
+             color: #ff9900;
+         }
          body.theme-slade footer {
             background-color: #333;
             color: #ff6600;
@@ -443,16 +470,6 @@
         body.theme-mr-johnson a:hover {
             color: #ffffff;
             border-bottom-color: #00ff00;
-        }
-         body.theme-mr-johnson .taplink-button {
-            background-color: #008000;
-            color: #1a0033;
-            border-color: #00ff00;
-        }
-         body.theme-mr-johnson .taplink-button:hover {
-            background-color: #00ff00;
-            color: #1a0033;
-            border-color: #008000;
         }
          body.theme-mr-johnson .theme-switcher select {
             background-color: #3a0066;
@@ -620,6 +637,12 @@
 
             <div class="show">
                 <h3>:: [iinnermission] :: Lo-fi Live Stream</h3> <p>Need to chill? [iinnermission] is our lo-fi live stream designed for focus, relaxation, or just background ambiance. Calming visuals and sounds from the Willow Arms universe. A perfect stream for downtime on the internet.</p> </div>
+        </section>
+
+        <section id="tiktok-feed">
+            <h2>[LATEST TIKTOKS]</h2> <div class="tiktok-container">
+                <div class='sk-tiktok-feed' data-embed-id='25553721'></div><script src='https://widgets.sociablekit.com/tiktok-feed/widget.js' defer></script>
+            </div>
         </section>
 
         <section id="contact">
