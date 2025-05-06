@@ -8,35 +8,52 @@
     <link rel="icon" href="wapabroadcastlogo.ico" type="image/x-icon">
     <style>
 
-    /* --- Theme: AfterLounge (Previously Default) --- */
-    body.theme-afterlounge section { /* Renamed from theme-default */
-        background-image: url('afterlounge.png'); /* Make sure this image file exists! */
+    /* --- Theme: AfterLounge Body Background --- */
+    body.theme-afterlounge {
+        background-image: url('afterlounge.png'); /* <-- REPLACE WITH YOUR BODY BACKGROUND IMAGE */
         background-size: cover;
         background-repeat: no-repeat;
-        background-position: center;
-        /* Base section styles (like background-color) are overridden by the image. */
-        /* You might need to adjust text colors or add an overlay for better readability */
-        color: #ffffff; /* Example: Setting default text to white for this theme */
-        /* Example overlay: adds a dark semi-transparent layer over the background image */
-        /* background-color: rgba(0, 0, 0, 0.5);  */
-        /* Make sure nested elements have appropriate colors too */
+        background-attachment: fixed;
+        background-position: center center;
+        background-color: #0c0c1a; /* Fallback color */
     }
-    /* Specific color adjustments for AfterLounge theme elements if needed */
+
+    /* --- Theme: AfterLounge Sections --- */
+    body.theme-afterlounge section {
+        /* Sections have a semi-transparent background over the body image */
+        background-color: rgba(26, 26, 51, 0.85); /* Semi-transparent dark blue/purple (85% opacity) */
+        color: #ffffff; /* White text for readability */
+        border: 1px solid #008b8b; /* Optional: slightly brighter border */
+        /* Inherits other section styles like padding, margin, box-shadow */
+    }
+
+    /* --- Theme: AfterLounge Specific Element Styling --- */
     body.theme-afterlounge section h2,
     body.theme-afterlounge section h3 {
-        color: #00e6e6; /* Example: Using a bright color for headings */
+        color: #00e6e6; /* Bright headings */
         border-bottom-color: #00a3a3;
     }
     body.theme-afterlounge .show {
-        background-color: rgba(42, 42, 77, 0.8); /* Example: Slightly transparent background for show boxes */
-        border-left-color: #00e6e6;
+        background-color: rgba(42, 42, 77, 0.9); /* Slightly more opaque background for show boxes */
+        border-left-color: #00e6e6; /* Bright accent border */
     }
     body.theme-afterlounge .show h3 {
-        color: #00e6e6;
+        color: #00e6e6; /* Match section headings */
     }
      body.theme-afterlounge .show p {
         color: #dddddd; /* Lighter text for show descriptions */
     }
+    body.theme-afterlounge .iframe-container { /* Ensure iframe containers also fit */
+        background-color: rgba(26, 26, 51, 0.85);
+        border-color: #008b8b;
+    }
+     body.theme-afterlounge .iframe-container p {
+        color: #dddddd;
+    }
+     body.theme-afterlounge #livestream .video-container { /* Adjust video border if needed */
+        border-color: #00e6e6;
+        box-shadow: 0 0 10px rgba(0, 230, 230, 0.5);
+     }
     /* --- End Theme: AfterLounge --- */
 
 
@@ -44,12 +61,12 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0c0c1a;
+            background-color: #0c0c1a; /* Default background */
             color: #cccccc;
             line-height: 1.5;
             overflow-x: hidden;
             font-size: 16px;
-            transition: background-color 0.5s ease, color 0.5s ease;
+            transition: background-color 0.5s ease, color 0.5s ease, background-image 0.5s ease; /* Added background-image transition */
         }
 
         header {
@@ -126,7 +143,6 @@
              background-position: calc(100% - 8px) center, calc(100% - 4px) center;
              background-size: 4px 4px, 4px 4px;
              background-repeat: no-repeat;
-             /* Inherits base background/border/color */
              appearance: none;
              -webkit-appearance: none;
              -moz-appearance: none;
@@ -152,22 +168,23 @@
         }
 
         section {
+            /* Default section background color (used if no theme overrides it) */
             background-color: #1a1a33;
             padding: 25px;
             margin-bottom: 25px;
-            border: 1px solid #005b5b;
+            border: 1px solid #005b5b; /* Default border */
             box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
             box-sizing: border-box;
-            transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, background-image 0.5s ease; /* Added background-image transition */
+            transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, color 0.5s ease;
         }
 
         main section:last-child {
-            margin-bottom: 0; /* Applies to #links-embed */
+            margin-bottom: 0;
         }
 
         section h2 {
-            color: #00a3a3;
-            border-bottom: 2px solid #005b5b;
+            color: #00a3a3; /* Default heading color */
+            border-bottom: 2px solid #005b5b; /* Default heading border */
             padding-bottom: 8px;
             margin-top: 0;
             margin-bottom: 20px;
@@ -182,8 +199,8 @@
         }
 
          section h3 {
-             color: #00a3a3;
-             border-bottom: 2px solid #005b5b;
+             color: #00a3a3; /* Default heading color */
+             border-bottom: 2px solid #005b5b; /* Default heading border */
              padding-bottom: 8px;
              margin-top: 0;
              margin-bottom: 20px;
@@ -198,7 +215,7 @@
          }
 
         p {
-            color: #cccccc;
+            color: #cccccc; /* Default paragraph color */
             margin-bottom: 15px;
             word-break: break-word;
             transition: color 0.5s ease;
@@ -212,10 +229,10 @@
             height: 0;
             overflow: hidden;
             background-color: #000;
-            border: 2px solid #00e6e6;
-            box-shadow: 0 0 10px rgba(0, 230, 230, 0.5);
+            border: 2px solid #00e6e6; /* Default video border */
+            box-shadow: 0 0 10px rgba(0, 230, 230, 0.5); /* Default video shadow */
             box-sizing: border-box;
-             transition: border-color 0.5s ease, box-shadow 0.5s ease;
+            transition: border-color 0.5s ease, box-shadow 0.5s ease;
         }
 
         #livestream .video-container iframe {
@@ -249,8 +266,8 @@
         .show {
             margin-bottom: 20px;
             padding: 15px;
-            background-color: #2a2a4d;
-            border-left: 4px solid #00a3a3;
+            background-color: #2a2a4d; /* Default show background */
+            border-left: 4px solid #00a3a3; /* Default show border */
             box-sizing: border-box;
             transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
         }
@@ -258,7 +275,7 @@
         .show h3 {
             margin-top: 0;
             margin-bottom: 8px;
-            color: #00e6e6;
+            color: #00e6e6; /* Default show title color */
             font-size: 1.3em;
             white-space: nowrap;
             overflow: hidden;
@@ -268,7 +285,7 @@
         }
 
         .show p {
-            color: #bbbbbb;
+            color: #bbbbbb; /* Default show description color */
             font-size: 0.95em;
              word-break: break-word;
              transition: color 0.5s ease;
@@ -276,9 +293,9 @@
 
         /* --- Styling for Iframe Containers (Merch, TikTok, Links) --- */
         .iframe-container {
-            border: 1px solid #00a3a3;
+            border: 1px solid #00a3a3; /* Default iframe border */
             padding: 10px;
-            background-color: #1a1a33;
+            background-color: #1a1a33; /* Default iframe background */
             box-sizing: border-box;
             width: 100%;
             overflow: hidden;
@@ -294,7 +311,7 @@
 
         .iframe-container p { /* Fallback text style */
              text-align: center;
-             color: #999999;
+             color: #999999; /* Default fallback text color */
              font-size: 0.9em;
              margin-bottom: 0;
              transition: color 0.5s ease;
@@ -311,42 +328,7 @@
              padding: 0;
          }
 
-
-        /* Base theme switcher styles, used in controls bar */
-        .theme-switcher {
-            color: #cccccc;
-            transition: color 0.5s ease;
-        }
-
-        .theme-switcher label {
-            margin-right: 10px;
-            font-size: 0.9em;
-            text-transform: uppercase;
-        }
-
-        .theme-switcher select {
-            background-color: #1a1a33;
-            color: #00e6e6;
-            border: 1px solid #00a3a3;
-            padding: 5px;
-            border-radius: 4px;
-            font-size: 0.9em;
-            cursor: pointer;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-            background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
-            background-position: calc(100% - 15px) calc(1em + 2px), calc(100% - 10px) calc(1em + 2px);
-            background-size: 5px 5px, 5px 5px;
-            background-repeat: no-repeat;
-            padding-right: 25px;
-        }
-
-        .theme-switcher select option {
-            background-color: #1a1a33;
-            color: #00e6e6;
-        }
+        /* --- Theme Switcher (already styled above in #controls-bar) --- */
 
         #participate-button {
             position: fixed;
@@ -419,10 +401,9 @@
              border-color: #00a3a3;
         }
 
-        /* --- Theme Styles --- */
-        /* Add .iframe-container theme styles */
+        /* --- Other Theme Styles --- */
         /* --- Theme: Noire --- */
-        body.theme-noire { background-color: #111; color: #eee; }
+        body.theme-noire { background-color: #111; color: #eee; background-image: none; } /* Ensure no leftover body image */
         body.theme-noire header { background-color: #222; border-bottom-color: #555; }
         body.theme-noire #controls-bar { background-color: #2a2a2a; border-bottom-color: #555; }
         body.theme-noire #controls-bar .theme-switcher { color: #bbb; }
@@ -430,7 +411,7 @@
         body.theme-noire #controls-bar .theme-switcher select option { background-color: #333; color: #eee; }
         body.theme-noire header h2, body.theme-noire section h2, body.theme-noire section h3 { color: #fff; border-bottom-color: #555; }
         body.theme-noire header p { color: #bbb; }
-        body.theme-noire section { background-color: #222; border-color: #555; box-shadow: 5px 5px 15px rgba(0,0,0,0.5); }
+        body.theme-noire section { background-color: #222; border-color: #555; box-shadow: 5px 5px 15px rgba(0,0,0,0.5); color: #eee; background-image: none;}
         body.theme-noire .iframe-container { border-color: #555; background-color: #222; }
         body.theme-noire .iframe-container p { color: #bbb; }
         body.theme-noire #livestream .video-container { border-color: #fff; box-shadow: 0 0 10px rgba(255,255,255,0.3); }
@@ -445,7 +426,7 @@
         body.theme-noire #popup-yes-button:hover { background-color: #888; color: #111; border-color: #eee; }
 
         /* --- Theme: Slade --- */
-        body.theme-slade { background-color: #222; color: #eee; }
+        body.theme-slade { background-color: #222; color: #eee; background-image: none; } /* Ensure no leftover body image */
         body.theme-slade header { background-color: #333; border-bottom-color: #ff6600; }
         body.theme-slade #controls-bar { background-color: #3a3a3a; border-bottom-color: #ff6600; }
         body.theme-slade #controls-bar .theme-switcher { color: #ccc; }
@@ -453,7 +434,7 @@
         body.theme-slade #controls-bar .theme-switcher select option { background-color: #444; color: #ff9900; }
         body.theme-slade header h2, body.theme-slade section h2, body.theme-slade section h3 { color: #ff9900; border-bottom-color: #ff6600; }
         body.theme-slade header p { color: #ccc; }
-        body.theme-slade section { background-color: #333; border-color: #ff6600; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); }
+        body.theme-slade section { background-color: #333; border-color: #ff6600; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); color: #eee; background-image: none;}
         body.theme-slade .iframe-container { border-color: #ff6600; background-color: #333; }
         body.theme-slade .iframe-container p { color: #ccc; }
         body.theme-slade #livestream .video-container { border-color: #ff9900; box-shadow: 0 0 10px rgba(255,153,0,0.5); }
@@ -468,7 +449,7 @@
         body.theme-slade #popup-yes-button:hover { background-color: #ff9900; color: #111; border-color: #ffcc00; }
 
         /* --- Theme: Mr. Johnson --- */
-        body.theme-mr-johnson { background-color: #1a0033; color: #00cc00; background-image: url('garage1.png'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
+        body.theme-mr-johnson { color: #00cc00; background-image: url('garage1.png'); background-color: #1a0033; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
         body.theme-mr-johnson header { background-color: #2a0055; border-bottom-color: #008000; color: #00ff00; }
         body.theme-mr-johnson #controls-bar { background-color: #300060; border-bottom-color: #008000; }
         body.theme-mr-johnson #controls-bar .theme-switcher { color: #00aa00; }
@@ -476,7 +457,7 @@
         body.theme-mr-johnson #controls-bar .theme-switcher select option { background-color: #3a0066; color: #00ff00; }
         body.theme-mr-johnson header h2, body.theme-mr-johnson section h2, body.theme-mr-johnson section h3 { color: #00ff00; border-bottom-color: #008000; }
         body.theme-mr-johnson header p { color: #00aa00; }
-        body.theme-mr-johnson section { background-color: rgba(42, 0, 85, 0.85); border-color: #008000; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); }
+        body.theme-mr-johnson section { background-color: rgba(42, 0, 85, 0.85); border-color: #008000; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); color: #00cc00; background-image: none;} /* Ensure no leftover section image */
         body.theme-mr-johnson .iframe-container { border-color: #008000; background-color: rgba(42, 0, 85, 0.85); }
         body.theme-mr-johnson .iframe-container p { color: #00aa00; }
         body.theme-mr-johnson #livestream .video-container { border-color: #00ff00; box-shadow: 0 0 10px rgba(0,255,0,0.5); }
@@ -499,7 +480,7 @@
         body.theme-albright #controls-bar .theme-switcher select option { background-color: #6f4f2d; color: #ffc107; }
         body.theme-albright header h2, body.theme-albright section h2, body.theme-albright section h3 { color: #ffc107; border-bottom-color: #b46a00; }
         body.theme-albright header p { color: #a1887f; }
-        body.theme-albright section { background-color: rgba(74, 57, 46, 0.85); border: 1px solid #b46a00; box-shadow: 5px 5px 15px rgba(0,0,0,0.6); }
+        body.theme-albright section { background-color: rgba(74, 57, 46, 0.85); border: 1px solid #b46a00; box-shadow: 5px 5px 15px rgba(0,0,0,0.6); color: #cdc8b1; background-image: none;} /* Ensure no leftover section image */
         body.theme-albright .iframe-container { border-color: #b46a00; background-color: rgba(74, 57, 46, 0.85); }
         body.theme-albright .iframe-container p { color: #a1887f; }
         body.theme-albright #livestream .video-container { border-color: #ffc107; box-shadow: 0 0 10px rgba(255,193,7,0.6); }
@@ -513,8 +494,8 @@
         body.theme-albright #popup-yes-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
         body.theme-albright #popup-yes-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
 
-        /* --- Theme: Riggin (Orange & Black) - NEW --- */
-        body.theme-riggin { background-color: #000000; color: #FFA500; }
+        /* --- Theme: Riggin (Orange & Black) --- */
+        body.theme-riggin { background-color: #000000; color: #FFA500; background-image: none; } /* Ensure no leftover body image */
         body.theme-riggin header { background-color: #1a1a1a; border-bottom: 4px solid #FF8C00; color: #FFA500; }
         body.theme-riggin #controls-bar { background-color: #222222; border-bottom-color: #FF8C00; }
         body.theme-riggin #controls-bar .theme-switcher { color: #FFD700; }
@@ -522,7 +503,7 @@
         body.theme-riggin #controls-bar .theme-switcher select option { background-color: #333333; color: #FFA500; }
         body.theme-riggin header h2 { color: #FFA500; }
         body.theme-riggin header p { color: #FFD700; }
-        body.theme-riggin section { background-color: #1a1a1a; border: 1px solid #FF8C00; box-shadow: 5px 5px 15px rgba(50,50,50,0.4); }
+        body.theme-riggin section { background-color: #1a1a1a; border: 1px solid #FF8C00; box-shadow: 5px 5px 15px rgba(50,50,50,0.4); color: #FFA500; background-image: none;}
         body.theme-riggin .iframe-container { border-color: #FF8C00; background-color: #1a1a1a; }
         body.theme-riggin .iframe-container p { color: #FFD700; }
         body.theme-riggin section h2, body.theme-riggin section h3 { color: #FFA500; border-bottom-color: #FF8C00; }
@@ -542,10 +523,10 @@
             text-align: center;
             padding: 20px;
             margin-top: 30px;
-            background-color: #1a1a33;
-            color: #666666;
+            background-color: #1a1a33; /* Default footer background */
+            color: #666666; /* Default footer text color */
             font-size: 0.85em;
-            border-top: 1px solid #005b5b;
+            border-top: 1px solid #005b5b; /* Default footer border */
             transition: background-color 0.5s ease, color 0.5s ease, border-top-color 0.5s ease;
         }
 
