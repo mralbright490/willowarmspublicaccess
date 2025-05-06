@@ -3,265 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[ wapa broadcasting ]</title> <meta name="description" content="Tune into Willow Arms Public Access, an offbeat internet TV channel featuring live streams, the Bonfire Podcast, unique music videos ([vibe]rations), experimental shows like 'POV: mom & dad are fighting again', and lo-fi streams ([iinnermission]). Discover weird online broadcasts.">
+    <title>[ wapa broadcasting ]</title>
+    <meta name="description" content="Tune into Willow Arms Public Access, an offbeat internet TV channel featuring live streams, the Bonfire Podcast, unique music videos ([vibe]rations), experimental shows like 'POV: mom & dad are fighting again', and lo-fi streams ([iinnermission]). Discover weird online broadcasts.">
     <link rel="icon" href="wapabroadcastlogo.ico" type="image/x-icon">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #0c0c1a;
+        /* ... (Your existing CSS styles) ... */
+
+        /* --- New Bar Styles --- */
+        .top-bar {
+            background-color: #1a1a33;
+            /* Match header background */
             color: #cccccc;
-            line-height: 1.5;
-            overflow-x: hidden;
-            font-size: 16px;
-            transition: background-color 0.5s ease, color 0.5s ease;
-        }
-
-        header {
-            background-color: #1a1a33;
-            color: #00e6e6;
-            padding: 20px;
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 4px solid #005b5b;
-            transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
-        }
-
-        header h2 {
-            margin-top: 0;
-            font-size: 2em;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #00a3a3;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: block;
-            margin-bottom: 0;
-            transition: color 0.5s ease;
-        }
-
-        header p {
-            font-size: 1em;
-            color: #999999;
-            margin-top: 5px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: block;
-            margin-bottom: 0;
-            transition: color 0.5s ease;
-        }
-
-        main {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-            box-sizing: border-box;
-        }
-
-        section {
-            background-color: #1a1a33;
-            padding: 25px;
+            display: flex;
+            /* Use flexbox for horizontal layout */
+            align-items: center;
+            /* Center items vertically */
+            justify-content: space-between;
+            /* Space out items */
+            padding: 10px 20px;
+            /* Adjust padding as needed */
             margin-bottom: 25px;
+            /* Space below the bar */
             border: 1px solid #005b5b;
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+            /* Match section border */
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+            /* Match section shadow */
             box-sizing: border-box;
             transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
         }
 
-        main section:last-child {
-            margin-bottom: 0;
-        }
-
-        section h2 {
+        .top-bar h2 {
+            /* Style for the "wapa connections" heading */
             color: #00a3a3;
-            border-bottom: 2px solid #005b5b;
-            padding-bottom: 8px;
-            margin-top: 0;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-            text-transform: uppercase;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: block;
-            max-width: 100%;
-            transition: color 0.5s ease, border-color 0.5s ease;
-        }
-
-         section h3 {
-             color: #00a3a3;
-             border-bottom: 2px solid #005b5b;
-             padding-bottom: 8px;
-             margin-top: 0;
-             margin-bottom: 20px;
-             font-size: 1.8em;
-             text-transform: uppercase;
-             white-space: nowrap;
-             overflow: hidden;
-             text-overflow: ellipsis;
-             display: block;
-             max-width: 100%;
-             transition: color 0.5s ease, border-color 0.5s ease;
-         }
-
-        p {
-            color: #cccccc;
-            margin-bottom: 15px;
-            word-break: break-word;
-            transition: color 0.5s ease;
-        }
-
-        #livestream .video-container {
-            position: relative;
-            max-width: 1280px;
-            margin: 20px auto;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            background-color: #000;
-            border: 2px solid #00e6e6;
-            box-shadow: 0 0 10px rgba(0, 230, 230, 0.5);
-            box-sizing: border-box;
-             transition: border-color 0.5s ease, box-shadow 0.5s ease;
-        }
-
-        #livestream .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        #livestream .video-container p {
-             position: absolute;
-             top: 0;
-             left: 0;
-             width: 100%;
-             height: 100%;
-             display: flex;
-             justify-content: center;
-             align-items: center;
-             color: #fff;
-             font-size: 1.2em;
-             padding: 20px;
-             box-sizing: border-box;
-             text-align: center;
-             background-color: #000;
-             z-index: 1;
-             max-width: 100%;
-        }
-
-        .show {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #2a2a4d;
-            border-left: 4px solid #00a3a3;
-            box-sizing: border-box;
-            transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
-        }
-
-        .show h3 {
-            margin-top: 0;
-            margin-bottom: 8px;
-            color: #00e6e6;
+            border-bottom: none;
+            /* Remove the bottom border */
+            padding-bottom: 0;
+            margin-bottom: 0;
             font-size: 1.3em;
+            /* Adjust size as needed */
+            text-transform: uppercase;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             display: block;
+            max-width: 50%;
+            /* Adjust as needed */
             transition: color 0.5s ease;
-        }
-
-        .show p {
-            color: #bbbbbb;
-            font-size: 0.95em;
-             word-break: break-word;
-             transition: color 0.5s ease;
-        }
-
-        #tiktok-feed .tiktok-container {
-            height: 500px;
-            overflow-y: scroll;
-            border: 1px solid #00a3a3;
-            padding: 10px;
-            background-color: #1a1a33;
-            box-sizing: border-box;
-            width: 100%;
-            max-width: none;
-            transition: border-color 0.5s ease, background-color 0.5s ease; /* Added */
-        }
-
-        #tiktok-feed .tiktok-container p {
-             text-align: center;
-             color: #999999;
-             font-size: 0.9em;
-             margin-bottom: 0;
-             position: static;
-             width: auto;
-             height: auto;
-             padding: 0;
-             transition: color 0.5s ease; /* Added */
-        }
-
-        #contact ul {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 20px;
-        }
-
-        #contact li {
-            margin-bottom: 12px;
-        }
-
-        #contact a { /* Base link style in contact */
-            color: #00e6e6;
-            text-decoration: none;
-            border-bottom: 1px dotted #005b5b;
-            padding-bottom: 2px;
-            transition: color 0.3s ease, border-bottom-color 0.3s ease;
-        }
-
-        #contact a:hover {
-            color: #ffffff;
-            border-bottom-color: #ffffff;
-        }
-
-        .contact-button-container {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .taplink-button {
-            display: inline-block;
-            background-color: #00a3a3;
-            color: #1a1a33;
-            padding: 12px 25px;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 1.1em;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-            border: 2px solid #00a3a3;
-        }
-
-        .taplink-button:hover {
-            background-color: #1a1a33;
-            color: #00e6e6;
-            border-color: #00e6e6;
         }
 
         .theme-switcher {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #005b5b;
+            /* Style for the theme switcher */
+            text-align: right;
+            /* Align to the right */
+            padding-top: 0;
+            border-top: none;
+            /* Remove top border */
+            margin-top: 0;
+            /* Remove top margin */
             color: #cccccc;
-            transition: border-top-color 0.5s ease, color 0.5s ease; /* Added */
+            transition: color 0.5s ease;
         }
 
         .theme-switcher label {
@@ -281,7 +81,7 @@
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Added */
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
         /* Style for dropdown arrow */
@@ -290,779 +90,40 @@
             background-position: calc(100% - 15px) calc(1em + 2px), calc(100% - 10px) calc(1em + 2px);
             background-size: 5px 5px, 5px 5px;
             background-repeat: no-repeat;
-            padding-right: 25px; /* Make space for arrow */
+            padding-right: 25px;
+            /* Make space for arrow */
         }
 
-
         .theme-switcher select option {
-            background-color: #1a1a33; /* Ensure options have a consistent background */
+            background-color: #1a1a33;
+            /* Ensure options have a consistent background */
             color: #00e6e6;
         }
 
-        #participate-button {
-            position: fixed;
-            z-index: 1000;
-            display: none; /* Hidden initially */
-            padding: 10px 15px;
-            background-color: #00a3a3;
-            color: #1a1a33;
-            border: 2px solid #00e6e6;
-            border-radius: 5px;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-size: 1em;
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-        }
-
-        #participate-button:hover {
-             background-color: #00e6e6;
-             color: #1a1a33;
-             border-color: #00a3a3;
-        }
-
-        #popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: none; /* Hidden initially */
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-        }
-
-        #popup-content {
-            background-color: #1a1a33;
-            padding: 30px;
-            border: 2px solid #00a3a3;
-            border-radius: 8px;
-            text-align: center;
-            max-width: 400px;
-            box-shadow: 0 0 20px rgba(0, 163, 163, 0.5);
-            color: #cccccc;
-            transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease; /* Added */
-        }
-
-        #popup-content p {
-            margin-top: 0;
-            margin-bottom: 20px;
-            font-size: 1.2em;
-        }
-
-        #popup-yes-button {
-            background-color: #00a3a3;
-            color: #1a1a33;
-            border: 2px solid #00e6e6;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-size: 1em;
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-        }
-
-        #popup-yes-button:hover {
-             background-color: #00e6e6;
-             color: #1a1a33;
-             border-color: #00a3a3;
-        }
-
-        /* --- Theme: Noire --- */
-        body.theme-noire {
-            background-color: #111;
-            color: #eee;
-        }
-        body.theme-noire header {
-            background-color: #222;
-            border-bottom-color: #555;
-        }
-        body.theme-noire header h2,
-        body.theme-noire section h2,
-        body.theme-noire section h3 {
-            color: #fff;
-            border-bottom-color: #555;
-        }
-         body.theme-noire header p {
-            color: #bbb;
-        }
-        body.theme-noire section {
-            background-color: #222;
-            border-color: #555;
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
-        }
-        body.theme-noire #livestream .video-container {
-             border-color: #fff;
-             box-shadow: 0 0 10px rgba(255,255,255,0.3);
-        }
-         body.theme-noire .show {
-            background-color: #333;
-            border-left-color: #888;
-        }
-        body.theme-noire .show h3 {
-            color: #eee;
-        }
-         body.theme-noire .show p {
-            color: #ccc;
-        }
-        body.theme-noire #contact a { /* Specificity for links */
-            color: #eee;
-            border-bottom: 1px dotted #555;
-        }
-        body.theme-noire #contact a:hover {
-            color: #fff;
-            border-bottom-color: #eee;
-        }
-        body.theme-noire #tiktok-feed .tiktok-container { /* Added */
-             border-color: #555;
-             background-color: #222;
-        }
-         body.theme-noire #tiktok-feed .tiktok-container p { /* Added */
-             color: #bbb;
-         }
-         body.theme-noire .taplink-button {
-            background-color: #555;
-            color: #eee;
-            border-color: #888;
-        }
-         body.theme-noire .taplink-button:hover {
-            background-color: #888;
-            color: #111;
-            border-color: #eee;
-        }
-         body.theme-noire .theme-switcher select {
-            background-color: #333;
-            color: #eee;
-            border-color: #888;
-        }
-         body.theme-noire .theme-switcher select option {
-             background-color: #333;
-             color: #eee;
-         }
-         body.theme-noire footer {
-            background-color: #222;
-            color: #555;
-            border-top-color: #555;
-        }
-        body.theme-noire #participate-button {
-            background-color: #555;
-            color: #eee;
-            border-color: #888;
-        }
-        body.theme-noire #participate-button:hover {
-            background-color: #888;
-            color: #111;
-            border-color: #eee;
-        }
-        body.theme-noire #popup-content {
-            background-color: #222;
-            border-color: #888;
-            box-shadow: 0 0 20px rgba(136, 136, 136, 0.5);
-            color: #eee;
-        }
-        body.theme-noire #popup-yes-button {
-            background-color: #555;
-            color: #eee;
-            border-color: #888;
-        }
-        body.theme-noire #popup-yes-button:hover {
-             background-color: #888;
-             color: #111;
-             border-color: #eee;
-        }
-        body.theme-noire .theme-switcher { /* Added */
-             border-top-color: #555;
-             color: #bbb; /* Match header p */
-        }
-
-        /* --- Theme: Slade --- */
-        body.theme-slade {
-            background-color: #222; /* Dark Grey */
-            color: #eee; /* Light Grey Text */
-        }
-         body.theme-slade header {
-            background-color: #333; /* Slightly Lighter Grey */
-            border-bottom-color: #ff6600; /* Bright Orange */
-        }
-        body.theme-slade header h2,
-        body.theme-slade section h2,
-        body.theme-slade section h3 {
-            color: #ff9900; /* Lighter Orange */
-            border-bottom-color: #ff6600; /* Bright Orange */
-        }
-         body.theme-slade header p {
-            color: #ccc; /* Medium Grey */
-        }
-        body.theme-slade section {
-            background-color: #333; /* Match Header */
-            border-color: #ff6600; /* Bright Orange */
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
-        }
-         body.theme-slade #livestream .video-container {
-             border-color: #ff9900; /* Lighter Orange */
-             box-shadow: 0 0 10px rgba(255,153,0,0.5); /* Orange Glow */
-        }
-         body.theme-slade .show {
-            background-color: #444; /* Medium Grey */
-            border-left-color: #ff9900; /* Lighter Orange Accent */
-        }
-        body.theme-slade .show h3 {
-            color: #ffcc00; /* Yellowish Orange */
-        }
-         body.theme-slade .show p {
-            color: #ddd; /* Light Grey */
-        }
-        body.theme-slade #contact a { /* Specificity for links */
-            color: #ff9900; /* Lighter Orange */
-            border-bottom: 1px dotted #ff6600; /* Bright Orange */
-        }
-        body.theme-slade #contact a:hover {
-            color: #fff;
-            border-bottom-color: #ffcc00; /* Yellowish Orange */
-        }
-         body.theme-slade #tiktok-feed .tiktok-container { /* Added */
-             border-color: #ff6600;
-             background-color: #333;
-        }
-         body.theme-slade #tiktok-feed .tiktok-container p { /* Added */
-             color: #ccc;
-         }
-         body.theme-slade .taplink-button {
-            background-color: #ff6600; /* Bright Orange */
-            color: #222; /* Dark Text */
-            border-color: #ff9900; /* Lighter Orange Border */
-        }
-         body.theme-slade .taplink-button:hover {
-            background-color: #ff9900; /* Lighter Orange Background */
-            color: #111; /* Very Dark Text */
-            border-color: #ffcc00; /* Yellowish Orange Border */
-        }
-         body.theme-slade .theme-switcher select {
-            background-color: #444; /* Medium Grey */
-            color: #ff9900; /* Lighter Orange Text */
-            border-color: #ff6600; /* Bright Orange Border */
-        }
-         body.theme-slade .theme-switcher select option {
-             background-color: #444;
-             color: #ff9900;
-         }
-         body.theme-slade footer {
-            background-color: #333; /* Match Header */
-            color: #ff6600; /* Bright Orange Text */
-            border-top-color: #ff6600; /* Bright Orange */
-        }
-        body.theme-slade #participate-button {
-            background-color: #ff6600; /* Bright Orange */
-            color: #222; /* Dark Text */
-            border-color: #ff9900; /* Lighter Orange Border */
-        }
-        body.theme-slade #participate-button:hover {
-            background-color: #ff9900; /* Lighter Orange Background */
-            color: #111; /* Very Dark Text */
-            border-color: #ffcc00; /* Yellowish Orange Border */
-        }
-        body.theme-slade #popup-content {
-            background-color: #333; /* Match Header */
-            border-color: #ff9900; /* Lighter Orange Border */
-            box-shadow: 0 0 20px rgba(255, 153, 0, 0.5); /* Orange Glow */
-            color: #eee; /* Light Grey Text */
-        }
-        body.theme-slade #popup-yes-button {
-            background-color: #ff6600; /* Bright Orange */
-            color: #222; /* Dark Text */
-            border-color: #ff9900; /* Lighter Orange Border */
-        }
-        body.theme-slade #popup-yes-button:hover {
-             background-color: #ff9900; /* Lighter Orange Background */
-             color: #111; /* Very Dark Text */
-             border-color: #ffcc00; /* Yellowish Orange Border */
-        }
-         body.theme-slade .theme-switcher { /* Added */
-             border-top-color: #ff6600;
-             color: #ccc; /* Match header p */
-        }
-
-        /* --- Theme: Mr. Johnson --- */
-        body.theme-mr-johnson {
-            background-color: #1a0033; /* Dark Purple */
-            color: #00cc00; /* Lighter Green Body Text */
-        
-	/* --- New Background Image Properties --- */
-            background-image: url('garage1.png'); /* <-- Replace with your image path */
-            background-color: #281c12; /* Fallback color if image fails */
-            background-size: cover; /* Scale image to cover */
-            background-repeat: no-repeat; /* Do not tile the image */
-            background-attachment: fixed; /* Keep image fixed during scroll */
-            background-position: center center; /* Center the image */
-            /* --- End New Background Image Properties --- */
-        }
-
-        body.theme-mr-johnson header {
-            background-color: #2a0055; /* Slightly Lighter Purple */
-            border-bottom-color: #008000; /* Medium Green */
-            color: #00ff00; /* Override default header text color */
-        }
-        body.theme-mr-johnson header h2,
-        body.theme-mr-johnson section h2,
-        body.theme-mr-johnson section h3 {
-            color: #00ff00; /* Bright Green */
-            border-bottom-color: #008000; /* Medium Green */
-        }
-         body.theme-mr-johnson header p {
-            color: #00aa00; /* Slightly Lighter Dark Green */
-        }
-        body.theme-mr-johnson section {
-            background-color: #2a0055; /* Match Header */
-            border-color: #008000; /* Medium Green */
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
-        }
-         body.theme-mr-johnson #livestream .video-container {
-             border-color: #00ff00; /* Bright Green */
-             box-shadow: 0 0 10px rgba(0,255,0,0.5); /* Green Glow */
-        }
-         body.theme-mr-johnson .show {
-            background-color: #3a0066; /* Medium Purple */
-            border-left-color: #00ff00; /* Bright Green Accent */
-        }
-        body.theme-mr-johnson .show h3 {
-            color: #32cd32; /* Lime Green */
-        }
-         body.theme-mr-johnson .show p {
-            color: #00dd00; /* Brighter Green */
-        }
-        body.theme-mr-johnson #contact a { /* Specificity for links */
-            color: #00ff00; /* Bright Green */
-            border-bottom: 1px dotted #008000; /* Medium Green */
-        }
-        body.theme-mr-johnson #contact a:hover {
-            color: #ffffff; /* White */
-            border-bottom-color: #00ff00; /* Bright Green */
-        }
-         body.theme-mr-johnson #tiktok-feed .tiktok-container { /* Added */
-             border-color: #008000;
-             background-color: #2a0055;
-        }
-         body.theme-mr-johnson #tiktok-feed .tiktok-container p { /* Added */
-             color: #00aa00;
-         }
-         body.theme-mr-johnson .taplink-button {
-            background-color: #008000; /* Medium Green */
-            color: #1a0033; /* Dark Purple Text */
-            border-color: #00ff00; /* Bright Green Border */
-        }
-         body.theme-mr-johnson .taplink-button:hover {
-            background-color: #00ff00; /* Bright Green Background */
-            color: #ffffff; /* White Text */
-            border-color: #32cd32; /* Lime Green Border */
-        }
-         body.theme-mr-johnson .theme-switcher select {
-            background-color: #3a0066; /* Medium Purple */
-            color: #00ff00; /* Bright Green Text */
-            border-color: #008000; /* Medium Green Border */
-        }
-         body.theme-mr-johnson .theme-switcher select option { /* Corrected */
-             background-color: #3a0066;
-             color: #00ff00;
-         }
-         body.theme-mr-johnson footer {
-            background-color: #2a0055; /* Match Header */
-            color: #00aa00; /* Match Header P */
-            border-top-color: #008000; /* Medium Green */
-        }
-        body.theme-mr-johnson #participate-button {
-            background-color: #008000; /* Medium Green */
-            color: #1a0033; /* Dark Purple Text */
-            border-color: #00ff00; /* Bright Green Border */
-        }
-        body.theme-mr-johnson #participate-button:hover {
-            background-color: #00ff00; /* Bright Green Background */
-            color: #ffffff; /* White Text */
-            border-color: #32cd32; /* Lime Green Border */
-        }
-         body.theme-mr-johnson #popup-content {
-            background-color: #2a0055; /* Match Header */
-            border-color: #00ff00; /* Bright Green Border */
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Green Glow */
-            color: #00dd00; /* Match show p */
-        }
-        body.theme-mr-johnson #popup-yes-button {
-            background-color: #008000; /* Medium Green */
-            color: #1a0033; /* Dark Purple Text */
-            border-color: #00ff00; /* Bright Green Border */
-        }
-        body.theme-mr-johnson #popup-yes-button:hover {
-             background-color: #00ff00; /* Bright Green Background */
-             color: #ffffff; /* White Text */
-             border-color: #32cd32; /* Lime Green Border */
-        }
-        body.theme-mr-johnson .theme-switcher { /* Added */
-             border-top-color: #008000;
-             color: #00aa00; /* Match header p */
-        }
-
-
-        /* --- Theme: Albright (Steampunk - Revised) --- */
-        body.theme-albright {
-            /* background-color: #281c12; /* Fallback color */ */
-            color: #cdc8b1; /* Light Beige/Aged Paper */
-
-            /* --- New Background Image Properties --- */
-            background-image: url('tp1.png'); /* <-- Replace with your image path */
-            background-color: #281c12; /* Fallback color if image fails */
-            background-size: cover; /* Scale image to cover */
-            background-repeat: no-repeat; /* Do not tile the image */
-            background-attachment: fixed; /* Keep image fixed during scroll */
-            background-position: center center; /* Center the image */
-            /* --- End New Background Image Properties --- */
-        }
-        body.theme-albright header {
-            background-color: #4a392e; /* Darker Brown - Currently Opaque */
-            /* Example for semi-transparent: background-color: rgba(74, 57, 46, 0.8); */
-            border-bottom: 4px solid #b46a00; /* Copper */
-             color: #ffc107; /* Override default header text color */
-        }
-        body.theme-albright header h2,
-        body.theme-albright section h2,
-        body.theme-albright section h3 {
-            color: #ffc107; /* Amber/Gold */
-            border-bottom-color: #b46a00; /* Copper */
-        }
-        body.theme-albright header p {
-            color: #a1887f; /* Tarnished Brass */
-        }
-        body.theme-albright section {
-            background-color: #4a392e; /* Darker Brown - Currently Opaque */
-            /* Example for semi-transparent: background-color: rgba(74, 57, 46, 0.8); */
-            border: 1px solid #b46a00; /* Copper */
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
-        }
-         body.theme-albright #livestream .video-container {
-             border-color: #ffc107; /* Amber/Gold */
-             box-shadow: 0 0 10px rgba(255,193,7,0.6); /* Gold Glow */
-             /* Consider adding a slight background to the container if needed */
-             /* background-color: rgba(0, 0, 0, 0.2); */
-        }
-        body.theme-albright .show {
-            background-color: #6f4f2d; /* Bronze - Currently Opaque */
-            /* Example for semi-transparent: background-color: rgba(111, 79, 45, 0.85); */
-            border-left: 4px solid #cd7f32; /* Another Bronze */
-        }
-        body.theme-albright .show h3 {
-            color: #ffd700; /* Gold */
-        }
-        body.theme-albright .show p {
-            color: #eee; /* Light color for readability */
-        }
-        body.theme-albright #contact a { /* Specificity for links */
-            color: #ffc107; /* Amber/Gold */
-            border-bottom: 1px dotted #b46a00; /* Copper */
-        }
-        body.theme-albright #contact a:hover {
-            color: #fff;
-            border-bottom-color: #ffd700; /* Gold */
-        }
-         body.theme-albright #tiktok-feed .tiktok-container { /* Added */
-             border-color: #b46a00;
-             background-color: #4a392e;
-        }
-         body.theme-albright #tiktok-feed .tiktok-container p { /* Added */
-             color: #a1887f;
-         }
-        body.theme-albright .taplink-button {
-            background-color: #b46a00; /* Copper */
-            color: #281c12; /* Very Dark Brown */
-            border-color: #cd7f32; /* Another Bronze */
-        }
-         body.theme-albright .taplink-button:hover {
-            background-color: #cd7f32; /* Another Bronze */
-            color: #4a392e; /* Darker Brown */
-            border-color: #ffd700; /* Gold */
-        }
-        body.theme-albright .theme-switcher select {
-            background-color: #6f4f2d; /* Bronze */
-            color: #ffc107; /* Amber/Gold */
-            border-color: #b46a00; /* Copper */
-        }
-         body.theme-albright .theme-switcher select option {
-             background-color: #6f4f2d; /* Bronze */
-             color: #ffc107; /* Amber/Gold */
-         }
-        body.theme-albright footer {
-            background-color: #1c120b; /* Even Darker Brown - Currently Opaque */
-            /* Example for semi-transparent: background-color: rgba(28, 18, 11, 0.9); */
-            color: #a1887f; /* Match header p */
-            border-top: 1px solid #4a392e; /* Darker Brown */
-        }
-        body.theme-albright #participate-button {
-            background-color: #b46a00; /* Copper */
-            color: #281c12; /* Very Dark Brown */
-            border-color: #cd7f32; /* Another Bronze */
-        }
-        body.theme-albright #participate-button:hover {
-            background-color: #cd7f32; /* Another Bronze */
-            color: #4a392e; /* Darker Brown */
-            border-color: #ffd700; /* Gold */
-        }
-         body.theme-albright #popup-content {
-            background-color: #4a392e; /* Darker Brown - Currently Opaque */
-            border-color: #ffc107; /* Amber/Gold */
-            box-shadow: 0 0 20px rgba(255, 193, 7, 0.6); /* Gold Glow */
-            color: #cdc8b1; /* Light Beige/Aged Paper */
-        }
-        body.theme-albright #popup-yes-button {
-            background-color: #b46a00; /* Copper */
-            color: #281c12; /* Very Dark Brown */
-            border-color: #cd7f32; /* Another Bronze */
-        }
-        body.theme-albright #popup-yes-button:hover {
-             background-color: #cd7f32; /* Another Bronze */
-             color: #4a392e; /* Darker Brown */
-             border-color: #ffd700; /* Gold */
-        }
-        body.theme-albright .theme-switcher { /* Added */
-             border-top-color: #4a392e; /* Match footer border */
-             color: #a1887f; /* Match header p */
-        }
-
-
-        /* --- Theme: Riggin (Orange & Black) - NEW --- */
-        body.theme-riggin {
-            background-color: #000000; /* Black */
-            color: #FFA500; /* Orange Text */
-        }
-        body.theme-riggin header {
-            background-color: #1a1a1a; /* Dark Grey */
-            border-bottom: 4px solid #FF8C00; /* Dark Orange */
-            color: #FFA500; /* Orange Header Text (override default) */
-        }
-        body.theme-riggin header h2 {
-            color: #FFA500; /* Orange */
-            /* border-bottom-color: #FF8C00; /* Dark Orange - Removed, inherited */
-        }
-         body.theme-riggin header p {
-            color: #FFD700; /* Gold/Lighter Orange */
-        }
-        body.theme-riggin section {
-            background-color: #1a1a1a; /* Dark Grey */
-            border: 1px solid #FF8C00; /* Dark Orange */
-            box-shadow: 5px 5px 15px rgba(50,50,50,0.4); /* Grey shadow */
-        }
-        body.theme-riggin section h2,
-        body.theme-riggin section h3 {
-             color: #FFA500; /* Orange */
-             border-bottom-color: #FF8C00; /* Dark Orange */
-        }
-        body.theme-riggin #livestream .video-container {
-             border-color: #FFA500; /* Orange */
-             box-shadow: 0 0 10px rgba(255,165,0,0.6); /* Orange Glow */
-        }
-        body.theme-riggin .show {
-            background-color: #333333; /* Medium Grey */
-            border-left: 4px solid #FFA500; /* Orange Accent */
-        }
-        body.theme-riggin .show h3 {
-            color: #FFD700; /* Gold/Lighter Orange */
-        }
-        body.theme-riggin .show p {
-            color: #cccccc; /* Light Grey for readability */
-        }
-        body.theme-riggin #contact a { /* Specificity for links */
-            color: #FFA500; /* Orange */
-            border-bottom: 1px dotted #FF8C00; /* Dark Orange */
-        }
-        body.theme-riggin #contact a:hover {
-            color: #ffffff; /* White */
-            border-bottom-color: #FFA500; /* Orange */
-        }
-         body.theme-riggin #tiktok-feed .tiktok-container { /* Added */
-             border-color: #FF8C00;
-             background-color: #1a1a1a;
-        }
-         body.theme-riggin #tiktok-feed .tiktok-container p { /* Added */
-             color: #FFD700;
-         }
-        body.theme-riggin .taplink-button {
-            background-color: #FFA500; /* Orange */
-            color: #000000; /* Black Text */
-            border-color: #FF8C00; /* Dark Orange Border */
-        }
-        body.theme-riggin .taplink-button:hover {
-            background-color: #FF8C00; /* Dark Orange Background */
-            color: #000000; /* Black Text */
-            border-color: #FFA500; /* Orange Border */
-        }
-        body.theme-riggin .theme-switcher select {
-            background-color: #333333; /* Medium Grey */
-            color: #FFA500; /* Orange Text */
-            border-color: #FF8C00; /* Dark Orange Border */
-        }
-        body.theme-riggin .theme-switcher select option {
-             background-color: #333333; /* Medium Grey */
-             color: #FFA500; /* Orange Text */
-         }
-        body.theme-riggin footer {
-            background-color: #1a1a1a; /* Dark Grey */
-            color: #FFD700; /* Match header p */
-            border-top: 1px solid #FF8C00; /* Dark Orange */
-        }
-        body.theme-riggin #participate-button {
-            background-color: #FFA500; /* Orange */
-            color: #000000; /* Black Text */
-            border-color: #FF8C00; /* Dark Orange Border */
-        }
-        body.theme-riggin #participate-button:hover {
-            background-color: #FF8C00; /* Dark Orange Background */
-            color: #000000; /* Black Text */
-            border-color: #FFA500; /* Orange Border */
-        }
-         body.theme-riggin #popup-content {
-            background-color: #1a1a1a; /* Dark Grey */
-            border-color: #FFA500; /* Orange */
-            box-shadow: 0 0 20px rgba(255, 165, 0, 0.6); /* Orange Glow */
-            color: #FFA500; /* Orange Text */
-        }
-        body.theme-riggin #popup-yes-button {
-            background-color: #FFA500; /* Orange */
-            color: #000000; /* Black Text */
-            border-color: #FF8C00; /* Dark Orange Border */
-        }
-        body.theme-riggin #popup-yes-button:hover {
-             background-color: #FF8C00; /* Dark Orange Background */
-             color: #000000; /* Black Text */
-             border-color: #FFA500; /* Orange Border */
-        }
-        body.theme-riggin .theme-switcher {
-             border-top-color: #FF8C00; /* Dark Orange */
-             color: #FFD700; /* Match header p */
-        }
-
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 30px;
-            background-color: #1a1a33;
-            color: #666666;
-            font-size: 0.85em;
-            border-top: 1px solid #005b5b;
-            transition: background-color 0.5s ease, color 0.5s ease, border-top-color 0.5s ease;
-        }
+        /* ... (Your existing responsive styles) ... */
 
         @media (max-width: 768px) {
-            main {
-                padding: 0 15px;
-            }
-            section h2 {
-                font-size: 1.4em;
-                 white-space: nowrap;
-                 overflow: hidden;
-                 text-overflow: ellipsis;
-            }
-             section h3 {
-                font-size: 1.4em;
-                 white-space: nowrap;
-                 overflow: hidden;
-                 text-overflow: ellipsis;
-            }
-            section {
-                padding: 20px;
-                margin-bottom: 20px;
-            }
-            .show {
-                padding: 12px;
+            /* Adjust top bar layout for smaller screens */
+            .top-bar {
+                flex-direction: column;
+                /* Stack items vertically */
+                align-items: flex-start;
+                /* Align to the left */
             }
 
-            .show h3 {
-                font-size: 1em;
-                 white-space: nowrap;
-                 overflow: hidden;
-                 text-overflow: ellipsis;
-            }
-            .show p {
-                 white-space: normal;
-                 overflow: visible;
-                 text-overflow: clip;
-            }
-            header h2 {
-                 font-size: 1.4em;
-                 white-space: nowrap;
-                 overflow: hidden;
-                 text-overflow: ellipsis;
-            }
-            header p {
-                 white-space: nowrap;
-                 overflow: hidden;
-                 text-overflow: ellipsis;
-            }
-             .theme-switcher select {
-                 font-size: 0.8em;
-                 padding: 4px;
-                 padding-right: 25px; /* Ensure arrow space */
-             }
-        }
-
-        @media (max-width: 480px) {
-             main {
-                 padding: 0 10px;
-             }
-            header h2 {
-                font-size: 1.2em;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+            .top-bar h2 {
+                margin-bottom: 10px;
+                /* Add space below heading */
+                max-width: 100%;
+                /* Full width */
             }
 
-            section {
-                padding: 15px;
-                margin-bottom: 15px;
+            .theme-switcher {
+                text-align: left;
+                /* Align left on small screens */
             }
 
-            section h2 {
-                font-size: 1.2em;
-                 white-space: nowrap;
-                 overflow: hidden;
-                 text-overflow: ellipsis;
-            }
-             section h3 {
-                font-size: 1.2em;
-                 white-space: nowrap;
-                 overflow: hidden;
-                 text-overflow: ellipsis;
-            }
-             #livestream .video-container {
-                 max-width: 100%;
-                 margin-left: 0;
-                 margin-right: 0;
-                 border-left: none;
-                 border-right: none;
-                 box-shadow: none;
-            }
-             #livestream .video-container p {
-                 min-height: 0;
-                 padding: 10px;
-             }
-             .taplink-button {
-                 font-size: 1em;
-                 padding: 10px 20px;
-             }
-             .show h3 {
-                 font-size: 0.9em;
-                 white-space: nowrap;
-                 overflow: hidden;
-                 text-overflow: ellipsis;
-             }
-             .show p {
-                  white-space: normal;
-                  overflow: visible;
-                  text-overflow: clip;
-             }
-             .theme-switcher select {
-                 font-size: 0.7em;
-                 padding: 3px;
-                 padding-right: 25px; /* Ensure arrow space */
-             }
+            /* ... (Your existing responsive styles) ... */
         }
     </style>
 </head>
@@ -1078,58 +139,22 @@
     </div>
 
     <header>
-        <h2>// WILLOW ARMS PUBLIC ACCESS \\</h2> <p>Indie Online Broadcasts</p> </header>
+        <h2>// WILLOW ARMS PUBLIC ACCESS \\</h2>
+        <p>Indie Online Broadcasts</p>
+    </header>
 
-    <main>
-        <section id="livestream">
-            <h2>[tune in]</h2> <div class="video-container">
-                 <iframe src="https://player.kick.com/willowarmspublicaccess" height="720" width="1280" frameborder="0" scrolling="no" allowfullscreen="true"></iframe> </div>
-        </section>
-
-        <section id="about">
-            <h2>[who are we]</h2> <p>Willow Arms Public Access is your source for truly independent internet television. We're an online broadcast experiment featuring live streams, unique shows, and unfiltered content outside the mainstream. If you're searching for offbeat online TV or a community public access vibe, you've found it.</p> </section>
-
-        <section id="shows">
-            <h2>[lineup]</h2> <p>Explore the programming lineup on Willow Arms Public Access:</p> <div class="show">
-                <h3>:: The Bonfire Podcast :: Live Discussions & Rambling</h3> <p>Tune into The Bonfire Podcast live stream or catch reruns. It's an unfiltered discussion show covering anything and everything, like a digital gathering around a late-night fire. Expect tangents, strong opinions, and maybe a little bit of chaos. It's our main talk show broadcast.</p> </div>
-
-            <div class="show">
-                <h3>:: [vibe]rations :: Offbeat Music Videos</h3> <p>[vibe]rations brings you a curated selection of unique and offbeat music videos. From lo-fi visuals to experimental sounds, this show is like finding a hidden signal of digital art and music. Great for discovering new vibes on our internet TV channel.</p> </div>
-
-            <div class="show">
-                <h3>:: POV: mom & dad are fighting again :: Experimental Broadcast</h3> <p>Experience 'POV: mom & dad are fighting again,' one of our most unique online shows. It's an experimental broadcast blending old TV signals, nostalgic aesthetics, and background ambiance. A lo-fi, dreamlike journey into the uncomfortable familiar.</p> </div>
-
-            <div class="show">
-                <h3>:: [iinnermission] :: Lo-fi Live Stream</h3> <p>Need to chill? [iinnermission] is our lo-fi live stream designed for focus, relaxation, or just background ambiance. Calming visuals and sounds from the Willow Arms universe. A perfect stream for downtime on the internet.</p> </div>
-        </section>
-
-         <section id="merch">
-            <h2>[MERCH]</h2>
-            <div style="border: 1px solid #00a3a3; padding: 10px; background-color: #1a1a33; box-sizing: border-box; width: 100%; overflow: hidden;">
-                <iframe src="https://wapashop.printify.me"
-                        style="width: 100%; height: 600px; border: none;">
-                    <p>Your browser does not support iframes. Please visit the <a href="https://wapashop.printify.me">Merch Store</a> directly.</p>
-                </iframe>
-            </div>
-        </section>
-
-        <section id="tiktok-feed">
-            <h2>[LATEST TIKTOKS]</h2> <div class="tiktok-container">
-                <div class='sk-tiktok-feed' data-embed-id='25553721'></div><script src='https://widgets.sociablekit.com/tiktok-feed/widget.js' defer></script>
-            </div>
-        </section>
-
+    <div class="top-bar">
         <section id="contact">
-            <h2>[wapa connections]</h2> <p>Find all our links and ways to connect:</p> <div class="contact-button-container">
-                <a href="https://taplink.cc/wapaccess" class="taplink-button" target="_blank" rel="noopener noreferrer">
+            <h2>[wapa connections]</h2>
+            <p>Find all our links and ways to connect:</p>
+            <div class="contact-button-container">
+                <a href="https://taplink.cc/wapaccess" class="taplink-button" target="_blank"
+                   rel="noopener noreferrer">
                     Links
                 </a>
             </div>
         </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 Willow Arms Public Access. <br> Your source for offbeat internet TV.</p> <div class="theme-switcher">
+        <div class="theme-switcher">
             <label for="theme-select">Choose Theme:</label>
             <select id="theme-select">
                 <option value="default">Default Theme</option>
@@ -1140,167 +165,21 @@
                 <option value="riggin">Riggin Theme</option>
             </select>
         </div>
+    </div>
+    <main>
+        <section id="livestream">
+            <h2>[tune in]</h2>
+            <div class="video-container">
+                <iframe src="https://player.kick.com/willowarmspublicaccess" height="720" width="1280" frameborder="0"
+                        scrolling="no" allowfullscreen="true"></iframe>
+            </div>
+        </section>
+
+        </main>
+
+    <footer>
+        <p>&copy; 2025 Willow Arms Public Access. <br> Your source for offbeat internet TV.</p>
     </footer>
 
-    <script>
-        const participateButton = document.getElementById('participate-button');
-        const popupOverlay = document.getElementById('popup-overlay');
-        const popupYesButton = document.getElementById('popup-yes-button');
-        let buttonX, buttonY, dx, dy;
-        const defaultButtonSize = 60; // Default size if offsetWidth/Height isn't available yet
-        const speed = 3;
-        let animationInterval = null; // Initialize animationInterval
-
-        function setTheme(themeName) {
-            // Remove all theme classes before adding the new one
-            document.body.className = document.body.className.replace(/theme-\S+/g, '').trim();
-            if (themeName !== 'default') {
-                document.body.classList.add('theme-' + themeName);
-            }
-            localStorage.setItem('wapTheme', themeName); // Save preference
-            const themeSelect = document.getElementById('theme-select');
-            if (themeSelect) {
-                 themeSelect.value = themeName; // Sync dropdown
-            }
-        }
-
-        function loadTheme() {
-            const savedTheme = localStorage.getItem('wapTheme') || 'default'; // Get saved theme or use default
-            setTheme(savedTheme);
-        }
-
-        function initializeButton() {
-            if (!participateButton) return; // Exit if button doesn't exist
-
-            const maxAttempts = 10;
-            let attempts = 0;
-            const buttonWidth = participateButton.offsetWidth || defaultButtonSize;
-            const buttonHeight = participateButton.offsetHeight || defaultButtonSize;
-
-            // Try to place the button away from the bottom-right corner
-            while (attempts < maxAttempts) {
-                buttonX = Math.random() * (window.innerWidth - buttonWidth);
-                buttonY = Math.random() * (window.innerHeight - buttonHeight);
-
-                const distanceToBottomRight = Math.sqrt(
-                    Math.pow(window.innerWidth - buttonWidth - buttonX, 2) +
-                    Math.pow(window.innerHeight - buttonHeight - buttonY, 2)
-                );
-
-                if (distanceToBottomRight > 150) { // Ensure it's not too close
-                    break;
-                }
-                attempts++;
-            }
-
-             // Fallback position if constraint isn't met
-             if (attempts === maxAttempts) {
-                 buttonX = Math.max(0, Math.min(50, window.innerWidth - buttonWidth)); // Place near top-left but within bounds
-                 buttonY = Math.max(0, Math.min(50, window.innerHeight - buttonHeight));
-             }
-
-            // Set initial velocity
-            dx = (Math.random() - 0.5) * 2 * speed;
-            dy = (Math.random() - 0.5) * 2 * speed;
-            // Ensure it moves if velocity is zero
-            if (Math.abs(dx) < 0.1 && Math.abs(dy) < 0.1) {
-                 dx = (Math.random() < 0.5 ? -1 : 1) * speed;
-                 dy = (Math.random() < 0.5 ? -1 : 1) * speed;
-                 if (Math.abs(dx) < 0.1 && Math.abs(dy) < 0.1) dx = speed; // Final fallback
-            }
-
-            participateButton.style.left = buttonX + 'px';
-            participateButton.style.top = buttonY + 'px';
-            participateButton.style.display = 'block'; // Show the button
-        }
-
-        function updateButtonPosition() {
-             if (!participateButton) return;
-
-             const buttonWidth = participateButton.offsetWidth;
-             const buttonHeight = participateButton.offsetHeight;
-
-            buttonX += dx;
-            buttonY += dy;
-
-            // Bounce off walls and clamp position
-            if (buttonX + buttonWidth > window.innerWidth) {
-                dx = -Math.abs(dx); // Ensure velocity is negative
-                buttonX = window.innerWidth - buttonWidth;
-            } else if (buttonX < 0) {
-                dx = Math.abs(dx); // Ensure velocity is positive
-                buttonX = 0;
-            }
-
-            if (buttonY + buttonHeight > window.innerHeight) {
-                dy = -Math.abs(dy); // Ensure velocity is negative
-                buttonY = window.innerHeight - buttonHeight;
-            } else if (buttonY < 0) {
-                dy = Math.abs(dy); // Ensure velocity is positive
-                buttonY = 0;
-            }
-
-            participateButton.style.left = buttonX + 'px';
-            participateButton.style.top = buttonY + 'px';
-        }
-
-        // --- Event Listeners ---
-        document.addEventListener('DOMContentLoaded', () => {
-            loadTheme(); // Load theme as soon as DOM is ready
-
-            const themeSelect = document.getElementById('theme-select');
-            if (themeSelect) {
-                themeSelect.addEventListener('change', (event) => {
-                    setTheme(event.target.value);
-                });
-            }
-
-            // Check if all required elements exist
-            if (participateButton && popupOverlay && popupYesButton) {
-                 // Use setTimeout to ensure layout is complete before getting dimensions
-                 setTimeout(() => {
-                     initializeButton();
-                     // Clear any previous interval before starting a new one
-                     if (animationInterval) clearInterval(animationInterval);
-                     animationInterval = setInterval(updateButtonPosition, 30); // ~33fps
-                 }, 0);
-
-                participateButton.addEventListener('click', () => {
-                    participateButton.style.display = 'none'; // Hide button
-                    popupOverlay.style.display = 'flex';    // Show popup
-                    if (animationInterval) {
-                        clearInterval(animationInterval); // Stop animation
-                        animationInterval = null;          // Clear interval ID
-                    }
-                });
-
-                popupYesButton.addEventListener('click', () => {
-                    popupOverlay.style.display = 'none'; // Hide popup
-                    // Optional: Restart the button animation after closing popup
-                    // setTimeout(initializeButton, 500); // Delay restart slightly
-                    // if (!animationInterval) { // Start only if stopped
-                    //     animationInterval = setInterval(updateButtonPosition, 30);
-                    // }
-                });
-            } else {
-                console.warn("Participate button or popup elements not found."); // Add warning if elements are missing
-            }
-        });
-
-         // Adjust button position on resize if it's currently visible
-         window.addEventListener('resize', () => {
-              if (participateButton && participateButton.style.display === 'block') {
-                   // Clamp position to new window bounds immediately
-                   const buttonWidth = participateButton.offsetWidth;
-                   const buttonHeight = participateButton.offsetHeight;
-                   buttonX = Math.max(0, Math.min(buttonX, window.innerWidth - buttonWidth));
-                   buttonY = Math.max(0, Math.min(buttonY, window.innerHeight - buttonHeight));
-                   participateButton.style.left = buttonX + 'px';
-                   participateButton.style.top = buttonY + 'px';
-                   // Optional: could re-initialize if drastic resize occurs, but clamping is usually sufficient
-                   // initializeButton();
-              }
-         });
-    </script>
-</body>
+    </body>
 </html>
