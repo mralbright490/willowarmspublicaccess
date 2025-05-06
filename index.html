@@ -193,6 +193,7 @@
             box-sizing: border-box;
             width: 100%;
             max-width: none;
+            transition: border-color 0.5s ease, background-color 0.5s ease; /* Added */
         }
 
         #tiktok-feed .tiktok-container p {
@@ -204,6 +205,7 @@
              width: auto;
              height: auto;
              padding: 0;
+             transition: color 0.5s ease; /* Added */
         }
 
         #contact ul {
@@ -216,7 +218,7 @@
             margin-bottom: 12px;
         }
 
-        #contact a {
+        #contact a { /* Base link style in contact */
             color: #00e6e6;
             text-decoration: none;
             border-bottom: 1px dotted #005b5b;
@@ -259,6 +261,7 @@
             padding-top: 20px;
             border-top: 1px solid #005b5b;
             color: #cccccc;
+            transition: border-top-color 0.5s ease, color 0.5s ease; /* Added */
         }
 
         .theme-switcher label {
@@ -278,17 +281,28 @@
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Added */
         }
 
+        /* Style for dropdown arrow */
+        .theme-switcher select {
+            background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
+            background-position: calc(100% - 15px) calc(1em + 2px), calc(100% - 10px) calc(1em + 2px);
+            background-size: 5px 5px, 5px 5px;
+            background-repeat: no-repeat;
+            padding-right: 25px; /* Make space for arrow */
+        }
+
+
         .theme-switcher select option {
-            background-color: #1a1a33;
+            background-color: #1a1a33; /* Ensure options have a consistent background */
             color: #00e6e6;
         }
 
         #participate-button {
             position: fixed;
             z-index: 1000;
-            display: none;
+            display: none; /* Hidden initially */
             padding: 10px 15px;
             background-color: #00a3a3;
             color: #1a1a33;
@@ -314,7 +328,7 @@
             right: 0;
             bottom: 0;
             background-color: rgba(0, 0, 0, 0.7);
-            display: none;
+            display: none; /* Hidden initially */
             justify-content: center;
             align-items: center;
             z-index: 2000;
@@ -329,6 +343,7 @@
             max-width: 400px;
             box-shadow: 0 0 20px rgba(0, 163, 163, 0.5);
             color: #cccccc;
+            transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease; /* Added */
         }
 
         #popup-content p {
@@ -368,7 +383,7 @@
         body.theme-noire section h2,
         body.theme-noire section h3 {
             color: #fff;
-            border-bottom-color: #555; /* Added */
+            border-bottom-color: #555;
         }
          body.theme-noire header p {
             color: #bbb;
@@ -400,6 +415,13 @@
             color: #fff;
             border-bottom-color: #eee;
         }
+        body.theme-noire #tiktok-feed .tiktok-container { /* Added */
+             border-color: #555;
+             background-color: #222;
+        }
+         body.theme-noire #tiktok-feed .tiktok-container p { /* Added */
+             color: #bbb;
+         }
          body.theme-noire .taplink-button {
             background-color: #555;
             color: #eee;
@@ -452,6 +474,7 @@
         }
         body.theme-noire .theme-switcher { /* Added */
              border-top-color: #555;
+             color: #bbb; /* Match header p */
         }
 
         /* --- Theme: Slade --- */
@@ -499,6 +522,13 @@
             color: #fff;
             border-bottom-color: #ffcc00; /* Yellowish Orange */
         }
+         body.theme-slade #tiktok-feed .tiktok-container { /* Added */
+             border-color: #ff6600;
+             background-color: #333;
+        }
+         body.theme-slade #tiktok-feed .tiktok-container p { /* Added */
+             color: #ccc;
+         }
          body.theme-slade .taplink-button {
             background-color: #ff6600; /* Bright Orange */
             color: #222; /* Dark Text */
@@ -551,16 +581,18 @@
         }
          body.theme-slade .theme-switcher { /* Added */
              border-top-color: #ff6600;
+             color: #ccc; /* Match header p */
         }
 
         /* --- Theme: Mr. Johnson --- */
         body.theme-mr-johnson {
             background-color: #1a0033; /* Dark Purple */
-            color: #006400; /* Dark Green Text */
+            color: #00cc00; /* Lighter Green Body Text */
         }
         body.theme-mr-johnson header {
             background-color: #2a0055; /* Slightly Lighter Purple */
             border-bottom-color: #008000; /* Medium Green */
+            color: #00ff00; /* Override default header text color */
         }
         body.theme-mr-johnson header h2,
         body.theme-mr-johnson section h2,
@@ -588,7 +620,7 @@
             color: #32cd32; /* Lime Green */
         }
          body.theme-mr-johnson .show p {
-            color: #00cc00; /* Lighter Green */
+            color: #00dd00; /* Brighter Green */
         }
         body.theme-mr-johnson #contact a { /* Specificity for links */
             color: #00ff00; /* Bright Green */
@@ -598,6 +630,13 @@
             color: #ffffff; /* White */
             border-bottom-color: #00ff00; /* Bright Green */
         }
+         body.theme-mr-johnson #tiktok-feed .tiktok-container { /* Added */
+             border-color: #008000;
+             background-color: #2a0055;
+        }
+         body.theme-mr-johnson #tiktok-feed .tiktok-container p { /* Added */
+             color: #00aa00;
+         }
          body.theme-mr-johnson .taplink-button {
             background-color: #008000; /* Medium Green */
             color: #1a0033; /* Dark Purple Text */
@@ -619,7 +658,7 @@
          }
          body.theme-mr-johnson footer {
             background-color: #2a0055; /* Match Header */
-            color: #006400; /* Dark Green */
+            color: #00aa00; /* Match Header P */
             border-top-color: #008000; /* Medium Green */
         }
         body.theme-mr-johnson #participate-button {
@@ -636,7 +675,7 @@
             background-color: #2a0055; /* Match Header */
             border-color: #00ff00; /* Bright Green Border */
             box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Green Glow */
-            color: #00cc00; /* Lighter Green Text */
+            color: #00dd00; /* Match show p */
         }
         body.theme-mr-johnson #popup-yes-button {
             background-color: #008000; /* Medium Green */
@@ -650,17 +689,29 @@
         }
         body.theme-mr-johnson .theme-switcher { /* Added */
              border-top-color: #008000;
+             color: #00aa00; /* Match header p */
         }
 
 
         /* --- Theme: Albright (Steampunk - Revised) --- */
         body.theme-albright {
-            background-color: #281c12; /* Very Dark Brown */
+            /* background-color: #281c12; /* Fallback color */ */
             color: #cdc8b1; /* Light Beige/Aged Paper */
+
+            /* --- New Background Image Properties --- */
+            background-image: url('YOUR_IMAGE_PATH_HERE.jpg'); /* <-- Replace with your image path */
+            background-color: #281c12; /* Fallback color if image fails */
+            background-size: cover; /* Scale image to cover */
+            background-repeat: no-repeat; /* Do not tile the image */
+            background-attachment: fixed; /* Keep image fixed during scroll */
+            background-position: center center; /* Center the image */
+            /* --- End New Background Image Properties --- */
         }
         body.theme-albright header {
-            background-color: #4a392e; /* Darker Brown */
+            background-color: #4a392e; /* Darker Brown - Currently Opaque */
+            /* Example for semi-transparent: background-color: rgba(74, 57, 46, 0.8); */
             border-bottom: 4px solid #b46a00; /* Copper */
+             color: #ffc107; /* Override default header text color */
         }
         body.theme-albright header h2,
         body.theme-albright section h2,
@@ -672,16 +723,20 @@
             color: #a1887f; /* Tarnished Brass */
         }
         body.theme-albright section {
-            background-color: #4a392e; /* Darker Brown */
+            background-color: #4a392e; /* Darker Brown - Currently Opaque */
+            /* Example for semi-transparent: background-color: rgba(74, 57, 46, 0.8); */
             border: 1px solid #b46a00; /* Copper */
             box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
         }
          body.theme-albright #livestream .video-container {
              border-color: #ffc107; /* Amber/Gold */
              box-shadow: 0 0 10px rgba(255,193,7,0.6); /* Gold Glow */
+             /* Consider adding a slight background to the container if needed */
+             /* background-color: rgba(0, 0, 0, 0.2); */
         }
         body.theme-albright .show {
-            background-color: #6f4f2d; /* Bronze */
+            background-color: #6f4f2d; /* Bronze - Currently Opaque */
+            /* Example for semi-transparent: background-color: rgba(111, 79, 45, 0.85); */
             border-left: 4px solid #cd7f32; /* Another Bronze */
         }
         body.theme-albright .show h3 {
@@ -698,6 +753,13 @@
             color: #fff;
             border-bottom-color: #ffd700; /* Gold */
         }
+         body.theme-albright #tiktok-feed .tiktok-container { /* Added */
+             border-color: #b46a00;
+             background-color: #4a392e;
+        }
+         body.theme-albright #tiktok-feed .tiktok-container p { /* Added */
+             color: #a1887f;
+         }
         body.theme-albright .taplink-button {
             background-color: #b46a00; /* Copper */
             color: #281c12; /* Very Dark Brown */
@@ -718,8 +780,9 @@
              color: #ffc107; /* Amber/Gold */
          }
         body.theme-albright footer {
-            background-color: #1c120b; /* Even Darker Brown */
-            color: #b46a00; /* Copper */
+            background-color: #1c120b; /* Even Darker Brown - Currently Opaque */
+            /* Example for semi-transparent: background-color: rgba(28, 18, 11, 0.9); */
+            color: #a1887f; /* Match header p */
             border-top: 1px solid #4a392e; /* Darker Brown */
         }
         body.theme-albright #participate-button {
@@ -733,7 +796,7 @@
             border-color: #ffd700; /* Gold */
         }
          body.theme-albright #popup-content {
-            background-color: #4a392e; /* Darker Brown */
+            background-color: #4a392e; /* Darker Brown - Currently Opaque */
             border-color: #ffc107; /* Amber/Gold */
             box-shadow: 0 0 20px rgba(255, 193, 7, 0.6); /* Gold Glow */
             color: #cdc8b1; /* Light Beige/Aged Paper */
@@ -749,8 +812,10 @@
              border-color: #ffd700; /* Gold */
         }
         body.theme-albright .theme-switcher { /* Added */
-             border-top-color: #4a392e;
+             border-top-color: #4a392e; /* Match footer border */
+             color: #a1887f; /* Match header p */
         }
+
 
         /* --- Theme: Riggin (Orange & Black) - NEW --- */
         body.theme-riggin {
@@ -764,7 +829,7 @@
         }
         body.theme-riggin header h2 {
             color: #FFA500; /* Orange */
-            border-bottom-color: #FF8C00; /* Dark Orange */
+            /* border-bottom-color: #FF8C00; /* Dark Orange - Removed, inherited */
         }
          body.theme-riggin header p {
             color: #FFD700; /* Gold/Lighter Orange */
@@ -801,6 +866,13 @@
             color: #ffffff; /* White */
             border-bottom-color: #FFA500; /* Orange */
         }
+         body.theme-riggin #tiktok-feed .tiktok-container { /* Added */
+             border-color: #FF8C00;
+             background-color: #1a1a1a;
+        }
+         body.theme-riggin #tiktok-feed .tiktok-container p { /* Added */
+             color: #FFD700;
+         }
         body.theme-riggin .taplink-button {
             background-color: #FFA500; /* Orange */
             color: #000000; /* Black Text */
@@ -822,7 +894,7 @@
          }
         body.theme-riggin footer {
             background-color: #1a1a1a; /* Dark Grey */
-            color: #FFA500; /* Orange */
+            color: #FFD700; /* Match header p */
             border-top: 1px solid #FF8C00; /* Dark Orange */
         }
         body.theme-riggin #participate-button {
@@ -853,6 +925,7 @@
         }
         body.theme-riggin .theme-switcher {
              border-top-color: #FF8C00; /* Dark Orange */
+             color: #FFD700; /* Match header p */
         }
 
 
@@ -916,6 +989,7 @@
              .theme-switcher select {
                  font-size: 0.8em;
                  padding: 4px;
+                 padding-right: 25px; /* Ensure arrow space */
              }
         }
 
@@ -977,6 +1051,7 @@
              .theme-switcher select {
                  font-size: 0.7em;
                  padding: 3px;
+                 padding-right: 25px; /* Ensure arrow space */
              }
         }
     </style>
@@ -1062,63 +1137,67 @@
         const popupOverlay = document.getElementById('popup-overlay');
         const popupYesButton = document.getElementById('popup-yes-button');
         let buttonX, buttonY, dx, dy;
-        const buttonSize = 60;
+        const defaultButtonSize = 60; // Default size if offsetWidth/Height isn't available yet
         const speed = 3;
+        let animationInterval = null; // Initialize animationInterval
 
         function setTheme(themeName) {
-            document.body.classList.remove('theme-noire', 'theme-slade', 'theme-mr-johnson', 'theme-albright', 'theme-riggin'); // Ensure 'theme-riggin' is removed
+            // Remove all theme classes before adding the new one
+            document.body.className = document.body.className.replace(/theme-\S+/g, '').trim();
             if (themeName !== 'default') {
                 document.body.classList.add('theme-' + themeName);
             }
-            localStorage.setItem('wapTheme', themeName);
+            localStorage.setItem('wapTheme', themeName); // Save preference
             const themeSelect = document.getElementById('theme-select');
             if (themeSelect) {
-                 themeSelect.value = themeName;
+                 themeSelect.value = themeName; // Sync dropdown
             }
         }
 
         function loadTheme() {
-            const savedTheme = localStorage.getItem('wapTheme');
-            if (savedTheme) {
-                setTheme(savedTheme);
-            } else {
-                setTheme('default'); // Default theme if none saved
-            }
+            const savedTheme = localStorage.getItem('wapTheme') || 'default'; // Get saved theme or use default
+            setTheme(savedTheme);
         }
 
         function initializeButton() {
+            if (!participateButton) return; // Exit if button doesn't exist
+
             const maxAttempts = 10;
             let attempts = 0;
+            const buttonWidth = participateButton.offsetWidth || defaultButtonSize;
+            const buttonHeight = participateButton.offsetHeight || defaultButtonSize;
 
+            // Try to place the button away from the bottom-right corner
             while (attempts < maxAttempts) {
-                buttonX = Math.random() * (window.innerWidth - buttonSize);
-                buttonY = Math.random() * (window.innerHeight - buttonSize);
+                buttonX = Math.random() * (window.innerWidth - buttonWidth);
+                buttonY = Math.random() * (window.innerHeight - buttonHeight);
 
                 const distanceToBottomRight = Math.sqrt(
-                    Math.pow(window.innerWidth - buttonSize - buttonX, 2) +
-                    Math.pow(window.innerHeight - buttonSize - buttonY, 2)
+                    Math.pow(window.innerWidth - buttonWidth - buttonX, 2) +
+                    Math.pow(window.innerHeight - buttonHeight - buttonY, 2)
                 );
 
-                if (distanceToBottomRight > 100) { // Ensure it's not too close to the bottom right
+                if (distanceToBottomRight > 150) { // Ensure it's not too close
                     break;
                 }
                 attempts++;
             }
 
-            // Ensure initial position is not 0,0 if randomization fails badly
+             // Fallback position if constraint isn't met
              if (attempts === maxAttempts) {
-                 buttonX = 50;
-                 buttonY = 50;
+                 buttonX = Math.max(0, Math.min(50, window.innerWidth - buttonWidth)); // Place near top-left but within bounds
+                 buttonY = Math.max(0, Math.min(50, window.innerHeight - buttonHeight));
              }
 
-
-            dx = (Math.random() - 0.5) * 2 * speed; // Random horizontal direction (-speed to +speed)
-            dy = (Math.random() - 0.5) * 2 * speed; // Random vertical direction (-speed to +speed)
-            // Ensure it moves if both dx and dy are 0
-            if (dx === 0 && dy === 0) {
-                 dx = speed;
+            // Set initial velocity
+            dx = (Math.random() - 0.5) * 2 * speed;
+            dy = (Math.random() - 0.5) * 2 * speed;
+            // Ensure it moves if velocity is zero
+            if (Math.abs(dx) < 0.1 && Math.abs(dy) < 0.1) {
+                 dx = (Math.random() < 0.5 ? -1 : 1) * speed;
+                 dy = (Math.random() < 0.5 ? -1 : 1) * speed;
+                 if (Math.abs(dx) < 0.1 && Math.abs(dy) < 0.1) dx = speed; // Final fallback
             }
-
 
             participateButton.style.left = buttonX + 'px';
             participateButton.style.top = buttonY + 'px';
@@ -1126,75 +1205,90 @@
         }
 
         function updateButtonPosition() {
+             if (!participateButton) return;
+
+             const buttonWidth = participateButton.offsetWidth;
+             const buttonHeight = participateButton.offsetHeight;
+
             buttonX += dx;
             buttonY += dy;
 
-            // Bounce off walls
-            if (buttonX + participateButton.offsetWidth > window.innerWidth || buttonX < 0) {
-                dx = -dx;
-                // Clamp position to prevent sticking outside bounds
-                if (buttonX < 0) buttonX = 0;
-                if (buttonX + participateButton.offsetWidth > window.innerWidth) buttonX = window.innerWidth - participateButton.offsetWidth;
+            // Bounce off walls and clamp position
+            if (buttonX + buttonWidth > window.innerWidth) {
+                dx = -Math.abs(dx); // Ensure velocity is negative
+                buttonX = window.innerWidth - buttonWidth;
+            } else if (buttonX < 0) {
+                dx = Math.abs(dx); // Ensure velocity is positive
+                buttonX = 0;
             }
 
-            if (buttonY + participateButton.offsetHeight > window.innerHeight || buttonY < 0) {
-                dy = -dy;
-                 // Clamp position
-                if (buttonY < 0) buttonY = 0;
-                if (buttonY + participateButton.offsetHeight > window.innerHeight) buttonY = window.innerHeight - participateButton.offsetHeight;
+            if (buttonY + buttonHeight > window.innerHeight) {
+                dy = -Math.abs(dy); // Ensure velocity is negative
+                buttonY = window.innerHeight - buttonHeight;
+            } else if (buttonY < 0) {
+                dy = Math.abs(dy); // Ensure velocity is positive
+                buttonY = 0;
             }
 
             participateButton.style.left = buttonX + 'px';
             participateButton.style.top = buttonY + 'px';
         }
 
-        let animationInterval;
-
+        // --- Event Listeners ---
         document.addEventListener('DOMContentLoaded', () => {
-            const themeSelect = document.getElementById('theme-select');
+            loadTheme(); // Load theme as soon as DOM is ready
 
+            const themeSelect = document.getElementById('theme-select');
             if (themeSelect) {
                 themeSelect.addEventListener('change', (event) => {
-                    const selectedTheme = event.target.value;
-                    setTheme(selectedTheme);
+                    setTheme(event.target.value);
                 });
             }
 
+            // Check if all required elements exist
             if (participateButton && popupOverlay && popupYesButton) {
-                initializeButton();
-                // Make sure animation interval isn't already running if DOMContentLoaded fires multiple times
-                if (animationInterval) clearInterval(animationInterval);
-                animationInterval = setInterval(updateButtonPosition, 30); // ~33fps
+                 // Use setTimeout to ensure layout is complete before getting dimensions
+                 setTimeout(() => {
+                     initializeButton();
+                     // Clear any previous interval before starting a new one
+                     if (animationInterval) clearInterval(animationInterval);
+                     animationInterval = setInterval(updateButtonPosition, 30); // ~33fps
+                 }, 0);
 
                 participateButton.addEventListener('click', () => {
                     participateButton.style.display = 'none'; // Hide button
-                    popupOverlay.style.display = 'flex'; // Show popup
-                    clearInterval(animationInterval); // Stop animation
-                    animationInterval = null; // Clear interval variable
+                    popupOverlay.style.display = 'flex';    // Show popup
+                    if (animationInterval) {
+                        clearInterval(animationInterval); // Stop animation
+                        animationInterval = null;          // Clear interval ID
+                    }
                 });
 
                 popupYesButton.addEventListener('click', () => {
                     popupOverlay.style.display = 'none'; // Hide popup
-                    // Optionally restart the button animation here if desired
-                    // initializeButton();
-                    // animationInterval = setInterval(updateButtonPosition, 30);
+                    // Optional: Restart the button animation after closing popup
+                    // setTimeout(initializeButton, 500); // Delay restart slightly
+                    // if (!animationInterval) { // Start only if stopped
+                    //     animationInterval = setInterval(updateButtonPosition, 30);
+                    // }
                 });
+            } else {
+                console.warn("Participate button or popup elements not found."); // Add warning if elements are missing
             }
-
-            loadTheme(); // Load saved theme or set default
         });
 
-         // Adjust button position on resize if it's visible
+         // Adjust button position on resize if it's currently visible
          window.addEventListener('resize', () => {
-              if (participateButton && participateButton.style.display !== 'none') {
-                   // Re-initialize to ensure it's within new bounds
-                   // Optionally, just clamp existing position instead of fully re-initializing
-                   buttonX = Math.min(Math.max(0, buttonX), window.innerWidth - participateButton.offsetWidth);
-                   buttonY = Math.min(Math.max(0, buttonY), window.innerHeight - participateButton.offsetHeight);
+              if (participateButton && participateButton.style.display === 'block') {
+                   // Clamp position to new window bounds immediately
+                   const buttonWidth = participateButton.offsetWidth;
+                   const buttonHeight = participateButton.offsetHeight;
+                   buttonX = Math.max(0, Math.min(buttonX, window.innerWidth - buttonWidth));
+                   buttonY = Math.max(0, Math.min(buttonY, window.innerHeight - buttonHeight));
                    participateButton.style.left = buttonX + 'px';
                    participateButton.style.top = buttonY + 'px';
-                   // If velocity might push it out quickly, consider resetting velocity too
-                   // Or just let the boundary checks handle it in the next update cycle
+                   // Optional: could re-initialize if drastic resize occurs, but clamping is usually sufficient
+                   // initializeButton();
               }
          });
     </script>
