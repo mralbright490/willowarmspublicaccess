@@ -355,6 +355,7 @@
              border-color: #00a3a3;
         }
 
+        /* --- Theme: Noire --- */
         body.theme-noire {
             background-color: #111;
             color: #eee;
@@ -367,6 +368,7 @@
         body.theme-noire section h2,
         body.theme-noire section h3 {
             color: #fff;
+            border-bottom-color: #555; /* Added */
         }
          body.theme-noire header p {
             color: #bbb;
@@ -390,14 +392,11 @@
          body.theme-noire .show p {
             color: #ccc;
         }
-        body.theme-noire a {
+        body.theme-noire #contact a { /* Specificity for links */
             color: #eee;
-            text-decoration: none;
             border-bottom: 1px dotted #555;
-            padding-bottom: 2px;
-            transition: color 0.3s ease, border-bottom-color 0.3s ease;
         }
-        body.theme-noire a:hover {
+        body.theme-noire #contact a:hover {
             color: #fff;
             border-bottom-color: #eee;
         }
@@ -451,203 +450,210 @@
              color: #111;
              border-color: #eee;
         }
+        body.theme-noire .theme-switcher { /* Added */
+             border-top-color: #555;
+        }
 
+        /* --- Theme: Slade --- */
         body.theme-slade {
-            background-color: #222;
-            color: #eee;
+            background-color: #222; /* Dark Grey */
+            color: #eee; /* Light Grey Text */
         }
          body.theme-slade header {
-            background-color: #333;
-            border-bottom-color: #ff6600;
+            background-color: #333; /* Slightly Lighter Grey */
+            border-bottom-color: #ff6600; /* Bright Orange */
         }
         body.theme-slade header h2,
         body.theme-slade section h2,
         body.theme-slade section h3 {
-            color: #ff9900;
+            color: #ff9900; /* Lighter Orange */
+            border-bottom-color: #ff6600; /* Bright Orange */
         }
          body.theme-slade header p {
-            color: #ccc;
+            color: #ccc; /* Medium Grey */
         }
         body.theme-slade section {
-            background-color: #333;
-            border-color: #ff6600;
+            background-color: #333; /* Match Header */
+            border-color: #ff6600; /* Bright Orange */
             box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
         }
          body.theme-slade #livestream .video-container {
-             border-color: #ff9900;
-             box-shadow: 0 0 10px rgba(255,153,0,0.5);
+             border-color: #ff9900; /* Lighter Orange */
+             box-shadow: 0 0 10px rgba(255,153,0,0.5); /* Orange Glow */
         }
          body.theme-slade .show {
-            background-color: #444;
-            border-left-color: #ff9900;
+            background-color: #444; /* Medium Grey */
+            border-left-color: #ff9900; /* Lighter Orange Accent */
         }
         body.theme-slade .show h3 {
-            color: #ffcc00;
+            color: #ffcc00; /* Yellowish Orange */
         }
          body.theme-slade .show p {
-            color: #ddd;
+            color: #ddd; /* Light Grey */
         }
-        body.theme-slade a {
-            color: #ff9900;
-            text-decoration: none;
-            border-bottom: 1px dotted #ff6600;
-            padding-bottom: 2px;
-            transition: color 0.3s ease, border-bottom-color 0.3s ease;
+        body.theme-slade #contact a { /* Specificity for links */
+            color: #ff9900; /* Lighter Orange */
+            border-bottom: 1px dotted #ff6600; /* Bright Orange */
         }
-        body.theme-slade a:hover {
+        body.theme-slade #contact a:hover {
             color: #fff;
-            border-bottom-color: #ffcc00;
+            border-bottom-color: #ffcc00; /* Yellowish Orange */
         }
          body.theme-slade .taplink-button {
-            background-color: #ff6600;
-            color: #222;
-            border-color: #ff9900;
+            background-color: #ff6600; /* Bright Orange */
+            color: #222; /* Dark Text */
+            border-color: #ff9900; /* Lighter Orange Border */
         }
          body.theme-slade .taplink-button:hover {
-            background-color: #ff9900;
-            color: #111;
-            border-color: #ffcc00;
+            background-color: #ff9900; /* Lighter Orange Background */
+            color: #111; /* Very Dark Text */
+            border-color: #ffcc00; /* Yellowish Orange Border */
         }
          body.theme-slade .theme-switcher select {
-            background-color: #444;
-            color: #ff9900;
-            border-color: #ff6600;
+            background-color: #444; /* Medium Grey */
+            color: #ff9900; /* Lighter Orange Text */
+            border-color: #ff6600; /* Bright Orange Border */
         }
          body.theme-slade .theme-switcher select option {
              background-color: #444;
              color: #ff9900;
          }
          body.theme-slade footer {
-            background-color: #333;
-            color: #ff6600;
-            border-top-color: #ff6600;
+            background-color: #333; /* Match Header */
+            color: #ff6600; /* Bright Orange Text */
+            border-top-color: #ff6600; /* Bright Orange */
         }
         body.theme-slade #participate-button {
-            background-color: #ff6600;
-            color: #222;
-            border-color: #ff9900;
+            background-color: #ff6600; /* Bright Orange */
+            color: #222; /* Dark Text */
+            border-color: #ff9900; /* Lighter Orange Border */
         }
         body.theme-slade #participate-button:hover {
-            background-color: #ff9900;
-            color: #111;
-            border-color: #ffcc00;
+            background-color: #ff9900; /* Lighter Orange Background */
+            color: #111; /* Very Dark Text */
+            border-color: #ffcc00; /* Yellowish Orange Border */
         }
         body.theme-slade #popup-content {
-            background-color: #333;
-            border-color: #ff9900;
-            box-shadow: 0 0 20px rgba(255, 153, 0, 0.5);
-            color: #eee;
+            background-color: #333; /* Match Header */
+            border-color: #ff9900; /* Lighter Orange Border */
+            box-shadow: 0 0 20px rgba(255, 153, 0, 0.5); /* Orange Glow */
+            color: #eee; /* Light Grey Text */
         }
         body.theme-slade #popup-yes-button {
-            background-color: #ff6600;
-            color: #222;
-            border-color: #ff9900;
+            background-color: #ff6600; /* Bright Orange */
+            color: #222; /* Dark Text */
+            border-color: #ff9900; /* Lighter Orange Border */
         }
         body.theme-slade #popup-yes-button:hover {
-             background-color: #ff9900;
-             color: #111;
-             border-color: #ffcc00;
+             background-color: #ff9900; /* Lighter Orange Background */
+             color: #111; /* Very Dark Text */
+             border-color: #ffcc00; /* Yellowish Orange Border */
+        }
+         body.theme-slade .theme-switcher { /* Added */
+             border-top-color: #ff6600;
         }
 
-
+        /* --- Theme: Mr. Johnson --- */
         body.theme-mr-johnson {
-            background-color: #1a0033;
-            color: #006400;
+            background-color: #1a0033; /* Dark Purple */
+            color: #006400; /* Dark Green Text */
         }
         body.theme-mr-johnson header {
-            background-color: #2a0055;
-            border-bottom-color: #008000;
+            background-color: #2a0055; /* Slightly Lighter Purple */
+            border-bottom-color: #008000; /* Medium Green */
         }
         body.theme-mr-johnson header h2,
         body.theme-mr-johnson section h2,
         body.theme-mr-johnson section h3 {
-            color: #00ff00;
+            color: #00ff00; /* Bright Green */
+            border-bottom-color: #008000; /* Medium Green */
         }
          body.theme-mr-johnson header p {
-            color: #00aa00;
+            color: #00aa00; /* Slightly Lighter Dark Green */
         }
         body.theme-mr-johnson section {
-            background-color: #2a0055;
-            border-color: #008000;
+            background-color: #2a0055; /* Match Header */
+            border-color: #008000; /* Medium Green */
             box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
         }
          body.theme-mr-johnson #livestream .video-container {
-             border-color: #00ff00;
-             box-shadow: 0 0 10px rgba(0,255,0,0.5);
+             border-color: #00ff00; /* Bright Green */
+             box-shadow: 0 0 10px rgba(0,255,0,0.5); /* Green Glow */
         }
          body.theme-mr-johnson .show {
-            background-color: #3a0066;
-            border-left-color: #00ff00;
+            background-color: #3a0066; /* Medium Purple */
+            border-left-color: #00ff00; /* Bright Green Accent */
         }
         body.theme-mr-johnson .show h3 {
-            color: #32cd32;
+            color: #32cd32; /* Lime Green */
         }
          body.theme-mr-johnson .show p {
-            color: #00cc00;
+            color: #00cc00; /* Lighter Green */
         }
-        body.theme-mr-johnson a {
-            color: #00ff00;
-            text-decoration: none;
-            border-bottom: 1px dotted #008000;
-            padding-bottom: 2px;
-            transition: color 0.3s ease, border-bottom-color 0.3s ease;
+        body.theme-mr-johnson #contact a { /* Specificity for links */
+            color: #00ff00; /* Bright Green */
+            border-bottom: 1px dotted #008000; /* Medium Green */
         }
-        body.theme-mr-johnson a:hover {
-            color: #ffffff;
-            border-bottom-color: #00ff00;
+        body.theme-mr-johnson #contact a:hover {
+            color: #ffffff; /* White */
+            border-bottom-color: #00ff00; /* Bright Green */
         }
          body.theme-mr-johnson .taplink-button {
-            background-color: #008000;
-            color: #1a0033;
-            border-color: #00ff00;
+            background-color: #008000; /* Medium Green */
+            color: #1a0033; /* Dark Purple Text */
+            border-color: #00ff00; /* Bright Green Border */
         }
          body.theme-mr-johnson .taplink-button:hover {
-            background-color: #00ff00;
-            color: #ffffff;
-            border-color: #32cd32;
+            background-color: #00ff00; /* Bright Green Background */
+            color: #ffffff; /* White Text */
+            border-color: #32cd32; /* Lime Green Border */
         }
          body.theme-mr-johnson .theme-switcher select {
-            background-color: #3a0066;
-            color: #00ff00;
-            border-color: #008000;
+            background-color: #3a0066; /* Medium Purple */
+            color: #00ff00; /* Bright Green Text */
+            border-color: #008000; /* Medium Green Border */
         }
-         body.theme-mr-johnson select option {
+         body.theme-mr-johnson .theme-switcher select option { /* Corrected */
              background-color: #3a0066;
              color: #00ff00;
          }
          body.theme-mr-johnson footer {
-            background-color: #2a0055;
-            color: #006400;
-            border-top-color: #008000;
+            background-color: #2a0055; /* Match Header */
+            color: #006400; /* Dark Green */
+            border-top-color: #008000; /* Medium Green */
         }
         body.theme-mr-johnson #participate-button {
-            background-color: #008000;
-            color: #1a0033;
-            border-color: #00ff00;
+            background-color: #008000; /* Medium Green */
+            color: #1a0033; /* Dark Purple Text */
+            border-color: #00ff00; /* Bright Green Border */
         }
         body.theme-mr-johnson #participate-button:hover {
-            background-color: #00ff00;
-            color: #ffffff;
-            border-color: #32cd32;
+            background-color: #00ff00; /* Bright Green Background */
+            color: #ffffff; /* White Text */
+            border-color: #32cd32; /* Lime Green Border */
         }
          body.theme-mr-johnson #popup-content {
-            background-color: #2a0055;
-            border-color: #00ff00;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
-            color: #00cc00;
+            background-color: #2a0055; /* Match Header */
+            border-color: #00ff00; /* Bright Green Border */
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Green Glow */
+            color: #00cc00; /* Lighter Green Text */
         }
         body.theme-mr-johnson #popup-yes-button {
-            background-color: #008000;
-            color: #1a0033;
-            border-color: #00ff00;
+            background-color: #008000; /* Medium Green */
+            color: #1a0033; /* Dark Purple Text */
+            border-color: #00ff00; /* Bright Green Border */
         }
         body.theme-mr-johnson #popup-yes-button:hover {
-             background-color: #00ff00;
-             color: #ffffff;
-             border-color: #32cd32;
+             background-color: #00ff00; /* Bright Green Background */
+             color: #ffffff; /* White Text */
+             border-color: #32cd32; /* Lime Green Border */
+        }
+        body.theme-mr-johnson .theme-switcher { /* Added */
+             border-top-color: #008000;
         }
 
-        /* Albright Theme (Steampunk - Revised) */
+
+        /* --- Theme: Albright (Steampunk - Revised) --- */
         body.theme-albright {
             background-color: #281c12; /* Very Dark Brown */
             color: #cdc8b1; /* Light Beige/Aged Paper */
@@ -672,7 +678,7 @@
         }
          body.theme-albright #livestream .video-container {
              border-color: #ffc107; /* Amber/Gold */
-             box-shadow: 0 0 10px rgba(255,193,7,0.6);
+             box-shadow: 0 0 10px rgba(255,193,7,0.6); /* Gold Glow */
         }
         body.theme-albright .show {
             background-color: #6f4f2d; /* Bronze */
@@ -684,14 +690,11 @@
         body.theme-albright .show p {
             color: #eee; /* Light color for readability */
         }
-        body.theme-albright a {
+        body.theme-albright #contact a { /* Specificity for links */
             color: #ffc107; /* Amber/Gold */
-            text-decoration: none;
             border-bottom: 1px dotted #b46a00; /* Copper */
-            padding-bottom: 2px;
-            transition: color 0.3s ease, border-bottom-color 0.3s ease;
         }
-        body.theme-albright a:hover {
+        body.theme-albright #contact a:hover {
             color: #fff;
             border-bottom-color: #ffd700; /* Gold */
         }
@@ -732,7 +735,7 @@
          body.theme-albright #popup-content {
             background-color: #4a392e; /* Darker Brown */
             border-color: #ffc107; /* Amber/Gold */
-            box-shadow: 0 0 20px rgba(255, 193, 7, 0.6);
+            box-shadow: 0 0 20px rgba(255, 193, 7, 0.6); /* Gold Glow */
             color: #cdc8b1; /* Light Beige/Aged Paper */
         }
         body.theme-albright #popup-yes-button {
@@ -744,6 +747,112 @@
              background-color: #cd7f32; /* Another Bronze */
              color: #4a392e; /* Darker Brown */
              border-color: #ffd700; /* Gold */
+        }
+        body.theme-albright .theme-switcher { /* Added */
+             border-top-color: #4a392e;
+        }
+
+        /* --- Theme: Riggin (Orange & Black) - NEW --- */
+        body.theme-riggin {
+            background-color: #000000; /* Black */
+            color: #FFA500; /* Orange Text */
+        }
+        body.theme-riggin header {
+            background-color: #1a1a1a; /* Dark Grey */
+            border-bottom: 4px solid #FF8C00; /* Dark Orange */
+            color: #FFA500; /* Orange Header Text (override default) */
+        }
+        body.theme-riggin header h2 {
+            color: #FFA500; /* Orange */
+            border-bottom-color: #FF8C00; /* Dark Orange */
+        }
+         body.theme-riggin header p {
+            color: #FFD700; /* Gold/Lighter Orange */
+        }
+        body.theme-riggin section {
+            background-color: #1a1a1a; /* Dark Grey */
+            border: 1px solid #FF8C00; /* Dark Orange */
+            box-shadow: 5px 5px 15px rgba(50,50,50,0.4); /* Grey shadow */
+        }
+        body.theme-riggin section h2,
+        body.theme-riggin section h3 {
+             color: #FFA500; /* Orange */
+             border-bottom-color: #FF8C00; /* Dark Orange */
+        }
+        body.theme-riggin #livestream .video-container {
+             border-color: #FFA500; /* Orange */
+             box-shadow: 0 0 10px rgba(255,165,0,0.6); /* Orange Glow */
+        }
+        body.theme-riggin .show {
+            background-color: #333333; /* Medium Grey */
+            border-left: 4px solid #FFA500; /* Orange Accent */
+        }
+        body.theme-riggin .show h3 {
+            color: #FFD700; /* Gold/Lighter Orange */
+        }
+        body.theme-riggin .show p {
+            color: #cccccc; /* Light Grey for readability */
+        }
+        body.theme-riggin #contact a { /* Specificity for links */
+            color: #FFA500; /* Orange */
+            border-bottom: 1px dotted #FF8C00; /* Dark Orange */
+        }
+        body.theme-riggin #contact a:hover {
+            color: #ffffff; /* White */
+            border-bottom-color: #FFA500; /* Orange */
+        }
+        body.theme-riggin .taplink-button {
+            background-color: #FFA500; /* Orange */
+            color: #000000; /* Black Text */
+            border-color: #FF8C00; /* Dark Orange Border */
+        }
+        body.theme-riggin .taplink-button:hover {
+            background-color: #FF8C00; /* Dark Orange Background */
+            color: #000000; /* Black Text */
+            border-color: #FFA500; /* Orange Border */
+        }
+        body.theme-riggin .theme-switcher select {
+            background-color: #333333; /* Medium Grey */
+            color: #FFA500; /* Orange Text */
+            border-color: #FF8C00; /* Dark Orange Border */
+        }
+        body.theme-riggin .theme-switcher select option {
+             background-color: #333333; /* Medium Grey */
+             color: #FFA500; /* Orange Text */
+         }
+        body.theme-riggin footer {
+            background-color: #1a1a1a; /* Dark Grey */
+            color: #FFA500; /* Orange */
+            border-top: 1px solid #FF8C00; /* Dark Orange */
+        }
+        body.theme-riggin #participate-button {
+            background-color: #FFA500; /* Orange */
+            color: #000000; /* Black Text */
+            border-color: #FF8C00; /* Dark Orange Border */
+        }
+        body.theme-riggin #participate-button:hover {
+            background-color: #FF8C00; /* Dark Orange Background */
+            color: #000000; /* Black Text */
+            border-color: #FFA500; /* Orange Border */
+        }
+         body.theme-riggin #popup-content {
+            background-color: #1a1a1a; /* Dark Grey */
+            border-color: #FFA500; /* Orange */
+            box-shadow: 0 0 20px rgba(255, 165, 0, 0.6); /* Orange Glow */
+            color: #FFA500; /* Orange Text */
+        }
+        body.theme-riggin #popup-yes-button {
+            background-color: #FFA500; /* Orange */
+            color: #000000; /* Black Text */
+            border-color: #FF8C00; /* Dark Orange Border */
+        }
+        body.theme-riggin #popup-yes-button:hover {
+             background-color: #FF8C00; /* Dark Orange Background */
+             color: #000000; /* Black Text */
+             border-color: #FFA500; /* Orange Border */
+        }
+        body.theme-riggin .theme-switcher {
+             border-top-color: #FF8C00; /* Dark Orange */
         }
 
 
@@ -957,7 +1066,7 @@
         const speed = 3;
 
         function setTheme(themeName) {
-            document.body.classList.remove('theme-noire', 'theme-slade', 'theme-mr-johnson', 'theme-albright', 'theme-riggin');
+            document.body.classList.remove('theme-noire', 'theme-slade', 'theme-mr-johnson', 'theme-albright', 'theme-riggin'); // Ensure 'theme-riggin' is removed
             if (themeName !== 'default') {
                 document.body.classList.add('theme-' + themeName);
             }
@@ -973,7 +1082,7 @@
             if (savedTheme) {
                 setTheme(savedTheme);
             } else {
-                setTheme('default');
+                setTheme('default'); // Default theme if none saved
             }
         }
 
@@ -990,37 +1099,49 @@
                     Math.pow(window.innerHeight - buttonSize - buttonY, 2)
                 );
 
-                if (distanceToBottomRight > 100) {
+                if (distanceToBottomRight > 100) { // Ensure it's not too close to the bottom right
                     break;
                 }
                 attempts++;
             }
 
-            dx = (Math.random() - 0.5) * 2 * speed;
-            dy = (Math.random() - 0.5) * 2 * speed;
+            // Ensure initial position is not 0,0 if randomization fails badly
+             if (attempts === maxAttempts) {
+                 buttonX = 50;
+                 buttonY = 50;
+             }
+
+
+            dx = (Math.random() - 0.5) * 2 * speed; // Random horizontal direction (-speed to +speed)
+            dy = (Math.random() - 0.5) * 2 * speed; // Random vertical direction (-speed to +speed)
+            // Ensure it moves if both dx and dy are 0
             if (dx === 0 && dy === 0) {
                  dx = speed;
             }
 
+
             participateButton.style.left = buttonX + 'px';
             participateButton.style.top = buttonY + 'px';
-            participateButton.style.display = 'block';
+            participateButton.style.display = 'block'; // Show the button
         }
 
         function updateButtonPosition() {
             buttonX += dx;
             buttonY += dy;
 
-            if (buttonX + buttonSize > window.innerWidth || buttonX < 0) {
+            // Bounce off walls
+            if (buttonX + participateButton.offsetWidth > window.innerWidth || buttonX < 0) {
                 dx = -dx;
+                // Clamp position to prevent sticking outside bounds
                 if (buttonX < 0) buttonX = 0;
-                if (buttonX + buttonSize > window.innerWidth) buttonX = window.innerWidth - buttonSize;
+                if (buttonX + participateButton.offsetWidth > window.innerWidth) buttonX = window.innerWidth - participateButton.offsetWidth;
             }
 
-            if (buttonY + buttonSize > window.innerHeight || buttonY < 0) {
+            if (buttonY + participateButton.offsetHeight > window.innerHeight || buttonY < 0) {
                 dy = -dy;
+                 // Clamp position
                 if (buttonY < 0) buttonY = 0;
-                if (buttonY + buttonSize > window.innerHeight) buttonY = window.innerHeight - buttonSize;
+                if (buttonY + participateButton.offsetHeight > window.innerHeight) buttonY = window.innerHeight - participateButton.offsetHeight;
             }
 
             participateButton.style.left = buttonX + 'px';
@@ -1041,25 +1162,39 @@
 
             if (participateButton && popupOverlay && popupYesButton) {
                 initializeButton();
-                animationInterval = setInterval(updateButtonPosition, 30);
+                // Make sure animation interval isn't already running if DOMContentLoaded fires multiple times
+                if (animationInterval) clearInterval(animationInterval);
+                animationInterval = setInterval(updateButtonPosition, 30); // ~33fps
 
                 participateButton.addEventListener('click', () => {
-                    participateButton.style.display = 'none';
-                    popupOverlay.style.display = 'flex';
-                    clearInterval(animationInterval);
+                    participateButton.style.display = 'none'; // Hide button
+                    popupOverlay.style.display = 'flex'; // Show popup
+                    clearInterval(animationInterval); // Stop animation
+                    animationInterval = null; // Clear interval variable
                 });
 
                 popupYesButton.addEventListener('click', () => {
-                    popupOverlay.style.display = 'none';
+                    popupOverlay.style.display = 'none'; // Hide popup
+                    // Optionally restart the button animation here if desired
+                    // initializeButton();
+                    // animationInterval = setInterval(updateButtonPosition, 30);
                 });
             }
 
-            loadTheme();
+            loadTheme(); // Load saved theme or set default
         });
 
+         // Adjust button position on resize if it's visible
          window.addEventListener('resize', () => {
               if (participateButton && participateButton.style.display !== 'none') {
-                   initializeButton();
+                   // Re-initialize to ensure it's within new bounds
+                   // Optionally, just clamp existing position instead of fully re-initializing
+                   buttonX = Math.min(Math.max(0, buttonX), window.innerWidth - participateButton.offsetWidth);
+                   buttonY = Math.min(Math.max(0, buttonY), window.innerHeight - participateButton.offsetHeight);
+                   participateButton.style.left = buttonX + 'px';
+                   participateButton.style.top = buttonY + 'px';
+                   // If velocity might push it out quickly, consider resetting velocity too
+                   // Or just let the boundary checks handle it in the next update cycle
               }
          });
     </script>
