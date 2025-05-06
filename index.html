@@ -68,7 +68,6 @@
             transition: background-color 0.5s ease, border-color 0.5s ease;
         }
 
-
         #controls-bar .theme-switcher {
              margin: 0;
              padding: 0;
@@ -94,6 +93,7 @@
              background-position: calc(100% - 8px) center, calc(100% - 4px) center;
              background-size: 4px 4px, 4px 4px;
              background-repeat: no-repeat;
+             /* Inherits base background/border/color */
              appearance: none;
              -webkit-appearance: none;
              -moz-appearance: none;
@@ -129,7 +129,7 @@
         }
 
         main section:last-child {
-            margin-bottom: 0; /* This will now apply to the new placeholder section */
+            margin-bottom: 0; /* Applies to #links-embed */
         }
 
         section h2 {
@@ -242,7 +242,6 @@
         }
 
         /* --- Styling for Iframe Containers (Merch, TikTok, Links) --- */
-        /* Keeping this class in case the new section uses an iframe */
         .iframe-container {
             border: 1px solid #00a3a3;
             padding: 10px;
@@ -259,8 +258,6 @@
             border: none;
             display: block;
         }
-
-        /* Removed specific height for Discord Widget */
 
         .iframe-container p { /* Fallback text style */
              text-align: center;
@@ -280,12 +277,6 @@
              height: auto;
              padding: 0;
          }
-
-        /* Added basic style for general content area in new section */
-        .content-area {
-            /* Add padding, etc. if needed */
-            padding: 10px 0; /* Example padding */
-        }
 
 
         /* Base theme switcher styles, used in controls bar */
@@ -396,8 +387,7 @@
         }
 
         /* --- Theme Styles --- */
-        /* Removed Discord Widget theme styles */
-        /* Added comments for new section theme styles */
+        /* Add .iframe-container theme styles */
         /* --- Theme: Noire --- */
         body.theme-noire { background-color: #111; color: #eee; }
         body.theme-noire header { background-color: #222; border-bottom-color: #555; }
@@ -410,7 +400,6 @@
         body.theme-noire section { background-color: #222; border-color: #555; box-shadow: 5px 5px 15px rgba(0,0,0,0.5); }
         body.theme-noire .iframe-container { border-color: #555; background-color: #222; }
         body.theme-noire .iframe-container p { color: #bbb; }
-        /* Add .content-area theme styles for #new-section-placeholder if needed */
         body.theme-noire #livestream .video-container { border-color: #fff; box-shadow: 0 0 10px rgba(255,255,255,0.3); }
         body.theme-noire .show { background-color: #333; border-left-color: #888; }
         body.theme-noire .show h3 { color: #eee; }
@@ -434,7 +423,6 @@
         body.theme-slade section { background-color: #333; border-color: #ff6600; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); }
         body.theme-slade .iframe-container { border-color: #ff6600; background-color: #333; }
         body.theme-slade .iframe-container p { color: #ccc; }
-        /* Add .content-area theme styles for #new-section-placeholder if needed */
         body.theme-slade #livestream .video-container { border-color: #ff9900; box-shadow: 0 0 10px rgba(255,153,0,0.5); }
         body.theme-slade .show { background-color: #444; border-left-color: #ff9900; }
         body.theme-slade .show h3 { color: #ffcc00; }
@@ -458,7 +446,6 @@
         body.theme-mr-johnson section { background-color: rgba(42, 0, 85, 0.85); border-color: #008000; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); }
         body.theme-mr-johnson .iframe-container { border-color: #008000; background-color: rgba(42, 0, 85, 0.85); }
         body.theme-mr-johnson .iframe-container p { color: #00aa00; }
-        /* Add .content-area theme styles for #new-section-placeholder if needed */
         body.theme-mr-johnson #livestream .video-container { border-color: #00ff00; box-shadow: 0 0 10px rgba(0,255,0,0.5); }
         body.theme-mr-johnson .show { background-color: rgba(58, 0, 102, 0.9); border-left-color: #00ff00; }
         body.theme-mr-johnson .show h3 { color: #32cd32; }
@@ -482,7 +469,6 @@
         body.theme-albright section { background-color: rgba(74, 57, 46, 0.85); border: 1px solid #b46a00; box-shadow: 5px 5px 15px rgba(0,0,0,0.6); }
         body.theme-albright .iframe-container { border-color: #b46a00; background-color: rgba(74, 57, 46, 0.85); }
         body.theme-albright .iframe-container p { color: #a1887f; }
-        /* Add .content-area theme styles for #new-section-placeholder if needed */
         body.theme-albright #livestream .video-container { border-color: #ffc107; box-shadow: 0 0 10px rgba(255,193,7,0.6); }
         body.theme-albright .show { background-color: rgba(111, 79, 45, 0.9); border-left: 4px solid #cd7f32; }
         body.theme-albright .show h3 { color: #ffd700; }
@@ -506,7 +492,6 @@
         body.theme-riggin section { background-color: #1a1a1a; border: 1px solid #FF8C00; box-shadow: 5px 5px 15px rgba(50,50,50,0.4); }
         body.theme-riggin .iframe-container { border-color: #FF8C00; background-color: #1a1a1a; }
         body.theme-riggin .iframe-container p { color: #FFD700; }
-        /* Add .content-area theme styles for #new-section-placeholder if needed */
         body.theme-riggin section h2, body.theme-riggin section h3 { color: #FFA500; border-bottom-color: #FF8C00; }
         body.theme-riggin #livestream .video-container { border-color: #FFA500; box-shadow: 0 0 10px rgba(255,165,0,0.6); }
         body.theme-riggin .show { background-color: #333333; border-left: 4px solid #FFA500; }
@@ -617,7 +602,6 @@
              .iframe-container iframe {
                  height: 500px;
              }
-              /* Removed Discord height adjustment */
              #tiktok-feed .iframe-container {
                  height: 400px;
              }
@@ -735,12 +719,6 @@
             </div>
         </section>
 
-        <section id="new-section-placeholder">
-            <h2>[YOUR NEW TITLE HERE]</h2>
-            <div class="content-area">
-                <p>Replace this text with your desired content.</p>
-            </div>
-        </section>
         </main>
 
     <footer>
