@@ -24,7 +24,6 @@
             color: #00e6e6;
             padding: 20px;
             text-align: center;
-            /* margin-bottom: 30px; Removed margin-bottom */
             border-bottom: 4px solid #005b5b;
             transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
         }
@@ -55,71 +54,51 @@
             transition: color 0.5s ease;
         }
 
-        /* --- Updated Controls Bar Styling --- */
+        /* --- Simplified Controls Bar Styling --- */
         #controls-bar {
-            background-color: #1f1f3d; /* Slightly different shade */
+            background-color: #1f1f3d;
             padding: 8px 20px;
             display: flex;
-            /* justify-content: space-between; Removed */
-            align-items: center; /* Vertically align items */
+            justify-content: flex-end; /* Push content (theme switcher) to the right */
+            align-items: center;
             border-bottom: 1px solid #005b5b;
-            margin-bottom: 30px; /* Add margin below the bar */
-            flex-wrap: wrap; /* Allow items to wrap on small screens */
-            gap: 10px; /* Add gap between items when wrapping */
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 10px;
             transition: background-color 0.5s ease, border-color 0.5s ease;
         }
 
-        /* New wrapper divs for layout */
-        .bar-left, .bar-right {
-            flex: 1; /* Allow left and right sections to take up space */
-        }
-        .bar-center {
-             flex-shrink: 0; /* Prevent center from shrinking */
-             text-align: center; /* Center the button */
-        }
-        .bar-right {
-            display: flex;
-            justify-content: flex-end; /* Push content (theme switcher) to the right */
-            align-items: center; /* Keep theme switcher vertically centered */
-        }
+        /* Removed .bar-left, .bar-center, .bar-right styles */
 
-
-        #controls-bar .taplink-button {
-            /* Inherits base styles, adjust as needed */
-            padding: 6px 15px; /* Make button smaller */
-            font-size: 0.9em;
-            margin: 0; /* Remove extra margins */
-        }
+        /* Removed button styles from controls bar */
 
         #controls-bar .theme-switcher {
-             /* Remove positioning styles from footer */
-             /* text-align: right; No longer needed here */
+             /* Styles remain largely the same, ensure proper alignment */
              margin: 0;
              padding: 0;
              border: none;
-             color: #cccccc; /* Ensure text is visible */
-             display: flex; /* Use flex for label and select */
+             color: #cccccc;
+             display: flex;
              align-items: center;
-             gap: 8px; /* Space between label and select */
+             gap: 8px;
              transition: color 0.5s ease;
         }
 
         #controls-bar .theme-switcher label {
-            margin-right: 0; /* Remove default margin */
+            margin-right: 0;
             font-size: 0.85em;
             text-transform: uppercase;
-            white-space: nowrap; /* Prevent label wrapping */
+            white-space: nowrap;
         }
 
         #controls-bar .theme-switcher select {
-            /* Inherits base styles, adjust as needed */
             font-size: 0.85em;
-            padding: 4px 20px 4px 8px; /* Adjust padding */
-            /* Re-apply arrow styling if needed, might inherit */
+            padding: 4px 20px 4px 8px;
              background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
              background-position: calc(100% - 8px) center, calc(100% - 4px) center;
              background-size: 4px 4px, 4px 4px;
              background-repeat: no-repeat;
+             /* Inherits base background/border/color from .theme-switcher select */
         }
         /* --- End Controls Bar Styling --- */
 
@@ -254,56 +233,48 @@
              transition: color 0.5s ease;
         }
 
-        #tiktok-feed .tiktok-container {
-            height: 500px;
-            overflow-y: scroll;
+        /* --- Styling for Iframe Containers (Merch, TikTok, Links) --- */
+        .iframe-container { /* Generic container for embedded content */
             border: 1px solid #00a3a3;
             padding: 10px;
             background-color: #1a1a33;
             box-sizing: border-box;
             width: 100%;
-            max-width: none;
-            transition: border-color 0.5s ease, background-color 0.5s ease; /* Added */
+            overflow: hidden; /* Hide scrollbars on container */
+             transition: border-color 0.5s ease, background-color 0.5s ease;
         }
 
-        #tiktok-feed .tiktok-container p {
+        .iframe-container iframe {
+            width: 100%;
+            height: 600px; /* Default height, adjust per section if needed */
+            border: none;
+            display: block; /* Prevent extra space below iframe */
+        }
+
+        .iframe-container p { /* Fallback text style */
              text-align: center;
              color: #999999;
              font-size: 0.9em;
              margin-bottom: 0;
+             transition: color 0.5s ease;
+        }
+
+        #tiktok-feed .iframe-container { /* Specific adjustments for TikTok if needed */
+             height: 500px; /* Override default height */
+             overflow-y: scroll; /* Allow scrolling *within* TikTok container */
+        }
+         #tiktok-feed .iframe-container p { /* TikTok specific fallback adjustments */
              position: static;
              width: auto;
              height: auto;
              padding: 0;
-             transition: color 0.5s ease; /* Added */
-        }
+         }
 
-        /* Removed #contact styles as section is removed */
-
-        .taplink-button { /* Base button style for reuse */
-            display: inline-block;
-            background-color: #00a3a3;
-            color: #1a1a33;
-            padding: 12px 25px;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 1.1em;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-            border: 2px solid #00a3a3;
-        }
-
-        .taplink-button:hover {
-            background-color: #1a1a33;
-            color: #00e6e6;
-            border-color: #00e6e6;
-        }
 
         /* Base theme switcher styles, used in controls bar */
         .theme-switcher {
-            /* No specific positioning here, handled by container */
             color: #cccccc;
-            transition: color 0.5s ease; /* Added */
+            transition: color 0.5s ease;
         }
 
         .theme-switcher label {
@@ -323,17 +294,16 @@
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Added */
-             /* Style for dropdown arrow */
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
             background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
             background-position: calc(100% - 15px) calc(1em + 2px), calc(100% - 10px) calc(1em + 2px);
             background-size: 5px 5px, 5px 5px;
             background-repeat: no-repeat;
-            padding-right: 25px; /* Make space for arrow */
+            padding-right: 25px;
         }
 
         .theme-switcher select option {
-            background-color: #1a1a33; /* Ensure options have a consistent background */
+            background-color: #1a1a33;
             color: #00e6e6;
         }
 
@@ -381,7 +351,7 @@
             max-width: 400px;
             box-shadow: 0 0 20px rgba(0, 163, 163, 0.5);
             color: #cccccc;
-            transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease; /* Added */
+            transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
         }
 
         #popup-content p {
@@ -408,25 +378,24 @@
              border-color: #00a3a3;
         }
 
-        /* --- Theme Styles (Unchanged except for controls bar) --- */
+        /* --- Theme Styles --- */
         /* --- Theme: Noire --- */
         body.theme-noire { background-color: #111; color: #eee; }
         body.theme-noire header { background-color: #222; border-bottom-color: #555; }
-        body.theme-noire #controls-bar { background-color: #2a2a2a; border-bottom-color: #555; } /* Theme Controls Bar */
-        body.theme-noire #controls-bar .theme-switcher { color: #bbb; } /* Theme Controls Bar Text */
-        body.theme-noire #controls-bar .taplink-button { background-color: #555; color: #eee; border-color: #888; }
-        body.theme-noire #controls-bar .taplink-button:hover { background-color: #888; color: #111; border-color: #eee; }
+        body.theme-noire #controls-bar { background-color: #2a2a2a; border-bottom-color: #555; }
+        body.theme-noire #controls-bar .theme-switcher { color: #bbb; }
+        /* Removed button theme styles from controls bar */
         body.theme-noire #controls-bar .theme-switcher select { background-color: #333; color: #eee; border-color: #888; }
         body.theme-noire #controls-bar .theme-switcher select option { background-color: #333; color: #eee; }
         body.theme-noire header h2, body.theme-noire section h2, body.theme-noire section h3 { color: #fff; border-bottom-color: #555; }
         body.theme-noire header p { color: #bbb; }
         body.theme-noire section { background-color: #222; border-color: #555; box-shadow: 5px 5px 15px rgba(0,0,0,0.5); }
+        body.theme-noire .iframe-container { border-color: #555; background-color: #222; } /* Theme iframe container */
+        body.theme-noire .iframe-container p { color: #bbb; } /* Theme iframe fallback text */
         body.theme-noire #livestream .video-container { border-color: #fff; box-shadow: 0 0 10px rgba(255,255,255,0.3); }
         body.theme-noire .show { background-color: #333; border-left-color: #888; }
         body.theme-noire .show h3 { color: #eee; }
         body.theme-noire .show p { color: #ccc; }
-        body.theme-noire #tiktok-feed .tiktok-container { border-color: #555; background-color: #222; }
-        body.theme-noire #tiktok-feed .tiktok-container p { color: #bbb; }
         body.theme-noire footer { background-color: #222; color: #555; border-top-color: #555; }
         body.theme-noire #participate-button { background-color: #555; color: #eee; border-color: #888; }
         body.theme-noire #participate-button:hover { background-color: #888; color: #111; border-color: #eee; }
@@ -437,21 +406,20 @@
         /* --- Theme: Slade --- */
         body.theme-slade { background-color: #222; color: #eee; }
         body.theme-slade header { background-color: #333; border-bottom-color: #ff6600; }
-        body.theme-slade #controls-bar { background-color: #3a3a3a; border-bottom-color: #ff6600; } /* Theme Controls Bar */
-        body.theme-slade #controls-bar .theme-switcher { color: #ccc; } /* Theme Controls Bar Text */
-        body.theme-slade #controls-bar .taplink-button { background-color: #ff6600; color: #222; border-color: #ff9900; }
-        body.theme-slade #controls-bar .taplink-button:hover { background-color: #ff9900; color: #111; border-color: #ffcc00; }
+        body.theme-slade #controls-bar { background-color: #3a3a3a; border-bottom-color: #ff6600; }
+        body.theme-slade #controls-bar .theme-switcher { color: #ccc; }
+        /* Removed button theme styles from controls bar */
         body.theme-slade #controls-bar .theme-switcher select { background-color: #444; color: #ff9900; border-color: #ff6600; }
         body.theme-slade #controls-bar .theme-switcher select option { background-color: #444; color: #ff9900; }
         body.theme-slade header h2, body.theme-slade section h2, body.theme-slade section h3 { color: #ff9900; border-bottom-color: #ff6600; }
         body.theme-slade header p { color: #ccc; }
         body.theme-slade section { background-color: #333; border-color: #ff6600; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); }
+        body.theme-slade .iframe-container { border-color: #ff6600; background-color: #333; } /* Theme iframe container */
+        body.theme-slade .iframe-container p { color: #ccc; } /* Theme iframe fallback text */
         body.theme-slade #livestream .video-container { border-color: #ff9900; box-shadow: 0 0 10px rgba(255,153,0,0.5); }
         body.theme-slade .show { background-color: #444; border-left-color: #ff9900; }
         body.theme-slade .show h3 { color: #ffcc00; }
         body.theme-slade .show p { color: #ddd; }
-        body.theme-slade #tiktok-feed .tiktok-container { border-color: #ff6600; background-color: #333; }
-        body.theme-slade #tiktok-feed .tiktok-container p { color: #ccc; }
         body.theme-slade footer { background-color: #333; color: #ff6600; border-top-color: #ff6600; }
         body.theme-slade #participate-button { background-color: #ff6600; color: #222; border-color: #ff9900; }
         body.theme-slade #participate-button:hover { background-color: #ff9900; color: #111; border-color: #ffcc00; }
@@ -462,21 +430,20 @@
         /* --- Theme: Mr. Johnson --- */
         body.theme-mr-johnson { background-color: #1a0033; color: #00cc00; background-image: url('garage1.png'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
         body.theme-mr-johnson header { background-color: #2a0055; border-bottom-color: #008000; color: #00ff00; }
-        body.theme-mr-johnson #controls-bar { background-color: #300060; border-bottom-color: #008000; } /* Theme Controls Bar */
-        body.theme-mr-johnson #controls-bar .theme-switcher { color: #00aa00; } /* Theme Controls Bar Text */
-        body.theme-mr-johnson #controls-bar .taplink-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
-        body.theme-mr-johnson #controls-bar .taplink-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
+        body.theme-mr-johnson #controls-bar { background-color: #300060; border-bottom-color: #008000; }
+        body.theme-mr-johnson #controls-bar .theme-switcher { color: #00aa00; }
+        /* Removed button theme styles from controls bar */
         body.theme-mr-johnson #controls-bar .theme-switcher select { background-color: #3a0066; color: #00ff00; border-color: #008000; }
         body.theme-mr-johnson #controls-bar .theme-switcher select option { background-color: #3a0066; color: #00ff00; }
         body.theme-mr-johnson header h2, body.theme-mr-johnson section h2, body.theme-mr-johnson section h3 { color: #00ff00; border-bottom-color: #008000; }
         body.theme-mr-johnson header p { color: #00aa00; }
-        body.theme-mr-johnson section { background-color: rgba(42, 0, 85, 0.85); border-color: #008000; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); } /* Added transparency */
+        body.theme-mr-johnson section { background-color: rgba(42, 0, 85, 0.85); border-color: #008000; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); }
+        body.theme-mr-johnson .iframe-container { border-color: #008000; background-color: rgba(42, 0, 85, 0.85); } /* Theme iframe container */
+        body.theme-mr-johnson .iframe-container p { color: #00aa00; } /* Theme iframe fallback text */
         body.theme-mr-johnson #livestream .video-container { border-color: #00ff00; box-shadow: 0 0 10px rgba(0,255,0,0.5); }
-        body.theme-mr-johnson .show { background-color: rgba(58, 0, 102, 0.9); border-left-color: #00ff00; } /* Added transparency */
+        body.theme-mr-johnson .show { background-color: rgba(58, 0, 102, 0.9); border-left-color: #00ff00; }
         body.theme-mr-johnson .show h3 { color: #32cd32; }
         body.theme-mr-johnson .show p { color: #00dd00; }
-        body.theme-mr-johnson #tiktok-feed .tiktok-container { border-color: #008000; background-color: rgba(42, 0, 85, 0.85); } /* Added transparency */
-        body.theme-mr-johnson #tiktok-feed .tiktok-container p { color: #00aa00; }
         body.theme-mr-johnson footer { background-color: #2a0055; color: #00aa00; border-top-color: #008000; }
         body.theme-mr-johnson #participate-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
         body.theme-mr-johnson #participate-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
@@ -486,48 +453,46 @@
 
         /* --- Theme: Albright (Steampunk - Revised) --- */
         body.theme-albright { color: #cdc8b1; background-image: url('tp1.png'); background-color: #281c12; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
-        body.theme-albright header { background-color: rgba(74, 57, 46, 0.85); border-bottom: 4px solid #b46a00; color: #ffc107; } /* Added transparency */
-        body.theme-albright #controls-bar { background-color: rgba(90, 70, 55, 0.9); border-bottom-color: #b46a00; } /* Theme Controls Bar + transparency */
-        body.theme-albright #controls-bar .theme-switcher { color: #a1887f; } /* Theme Controls Bar Text */
-        body.theme-albright #controls-bar .taplink-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
-        body.theme-albright #controls-bar .taplink-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
+        body.theme-albright header { background-color: rgba(74, 57, 46, 0.85); border-bottom: 4px solid #b46a00; color: #ffc107; }
+        body.theme-albright #controls-bar { background-color: rgba(90, 70, 55, 0.9); border-bottom-color: #b46a00; }
+        body.theme-albright #controls-bar .theme-switcher { color: #a1887f; }
+        /* Removed button theme styles from controls bar */
         body.theme-albright #controls-bar .theme-switcher select { background-color: #6f4f2d; color: #ffc107; border-color: #b46a00; }
         body.theme-albright #controls-bar .theme-switcher select option { background-color: #6f4f2d; color: #ffc107; }
         body.theme-albright header h2, body.theme-albright section h2, body.theme-albright section h3 { color: #ffc107; border-bottom-color: #b46a00; }
         body.theme-albright header p { color: #a1887f; }
-        body.theme-albright section { background-color: rgba(74, 57, 46, 0.85); border: 1px solid #b46a00; box-shadow: 5px 5px 15px rgba(0,0,0,0.6); } /* Added transparency */
+        body.theme-albright section { background-color: rgba(74, 57, 46, 0.85); border: 1px solid #b46a00; box-shadow: 5px 5px 15px rgba(0,0,0,0.6); }
+        body.theme-albright .iframe-container { border-color: #b46a00; background-color: rgba(74, 57, 46, 0.85); } /* Theme iframe container */
+        body.theme-albright .iframe-container p { color: #a1887f; } /* Theme iframe fallback text */
         body.theme-albright #livestream .video-container { border-color: #ffc107; box-shadow: 0 0 10px rgba(255,193,7,0.6); }
-        body.theme-albright .show { background-color: rgba(111, 79, 45, 0.9); border-left: 4px solid #cd7f32; } /* Added transparency */
+        body.theme-albright .show { background-color: rgba(111, 79, 45, 0.9); border-left: 4px solid #cd7f32; }
         body.theme-albright .show h3 { color: #ffd700; }
         body.theme-albright .show p { color: #eee; }
-        body.theme-albright #tiktok-feed .tiktok-container { border-color: #b46a00; background-color: rgba(74, 57, 46, 0.85); } /* Added transparency */
-        body.theme-albright #tiktok-feed .tiktok-container p { color: #a1887f; }
-        body.theme-albright footer { background-color: rgba(28, 18, 11, 0.9); color: #a1887f; border-top: 1px solid #4a392e; } /* Added transparency */
+        body.theme-albright footer { background-color: rgba(28, 18, 11, 0.9); color: #a1887f; border-top: 1px solid #4a392e; }
         body.theme-albright #participate-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
         body.theme-albright #participate-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
-        body.theme-albright #popup-content { background-color: rgba(74, 57, 46, 0.95); border-color: #ffc107; box-shadow: 0 0 20px rgba(255, 193, 7, 0.6); color: #cdc8b1; } /* Added transparency */
+        body.theme-albright #popup-content { background-color: rgba(74, 57, 46, 0.95); border-color: #ffc107; box-shadow: 0 0 20px rgba(255, 193, 7, 0.6); color: #cdc8b1; }
         body.theme-albright #popup-yes-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
         body.theme-albright #popup-yes-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
 
         /* --- Theme: Riggin (Orange & Black) - NEW --- */
         body.theme-riggin { background-color: #000000; color: #FFA500; }
         body.theme-riggin header { background-color: #1a1a1a; border-bottom: 4px solid #FF8C00; color: #FFA500; }
-        body.theme-riggin #controls-bar { background-color: #222222; border-bottom-color: #FF8C00; } /* Theme Controls Bar */
-        body.theme-riggin #controls-bar .theme-switcher { color: #FFD700; } /* Theme Controls Bar Text */
-        body.theme-riggin #controls-bar .taplink-button { background-color: #FFA500; color: #000000; border-color: #FF8C00; }
-        body.theme-riggin #controls-bar .taplink-button:hover { background-color: #FF8C00; color: #000000; border-color: #FFA500; }
+        body.theme-riggin #controls-bar { background-color: #222222; border-bottom-color: #FF8C00; }
+        body.theme-riggin #controls-bar .theme-switcher { color: #FFD700; }
+        /* Removed button theme styles from controls bar */
         body.theme-riggin #controls-bar .theme-switcher select { background-color: #333333; color: #FFA500; border-color: #FF8C00; }
         body.theme-riggin #controls-bar .theme-switcher select option { background-color: #333333; color: #FFA500; }
         body.theme-riggin header h2 { color: #FFA500; }
         body.theme-riggin header p { color: #FFD700; }
         body.theme-riggin section { background-color: #1a1a1a; border: 1px solid #FF8C00; box-shadow: 5px 5px 15px rgba(50,50,50,0.4); }
+        body.theme-riggin .iframe-container { border-color: #FF8C00; background-color: #1a1a1a; } /* Theme iframe container */
+        body.theme-riggin .iframe-container p { color: #FFD700; } /* Theme iframe fallback text */
         body.theme-riggin section h2, body.theme-riggin section h3 { color: #FFA500; border-bottom-color: #FF8C00; }
         body.theme-riggin #livestream .video-container { border-color: #FFA500; box-shadow: 0 0 10px rgba(255,165,0,0.6); }
         body.theme-riggin .show { background-color: #333333; border-left: 4px solid #FFA500; }
         body.theme-riggin .show h3 { color: #FFD700; }
         body.theme-riggin .show p { color: #cccccc; }
-        body.theme-riggin #tiktok-feed .tiktok-container { border-color: #FF8C00; background-color: #1a1a1a; }
-        body.theme-riggin #tiktok-feed .tiktok-container p { color: #FFD700; }
         body.theme-riggin footer { background-color: #1a1a1a; color: #FFD700; border-top: 1px solid #FF8C00; }
         body.theme-riggin #participate-button { background-color: #FFA500; color: #000000; border-color: #FF8C00; }
         body.theme-riggin #participate-button:hover { background-color: #FF8C00; color: #000000; border-color: #FFA500; }
@@ -555,22 +520,9 @@
             /* Adjust controls bar layout */
             #controls-bar {
                  padding: 8px 15px;
-                 /* justify-content: center; Removed - flex properties handle this */
+                 justify-content: center; /* Center theme switcher when wrapped */
             }
-
-             /* Make wrappers stack vertically on small screens if needed, */
-             /* but flex-wrap on parent might be enough. Let's adjust spacing. */
-            .bar-center {
-                order: 1; /* Ensure button comes first if wrapped */
-                width: 100%; /* Allow button to take full width if wrapped */
-                margin-bottom: 8px; /* Add space below button if wrapped */
-            }
-            .bar-left, .bar-right {
-                order: 2; /* Ensure theme switcher comes after */
-                flex-basis: 100%; /* Allow theme switcher container full width */
-                justify-content: center; /* Center theme switcher when wrapped */
-            }
-            .bar-left { display: none; } /* Hide empty left spacer */
+            /* Removed responsive styles for bar wrappers */
 
             section h2, section h3 {
                 font-size: 1.4em;
@@ -617,25 +569,19 @@
              /* Further adjust controls bar */
              #controls-bar {
                  padding: 6px 10px;
+                 justify-content: center; /* Ensure centering */
              }
-              #controls-bar .taplink-button {
-                 font-size: 0.8em;
-                 padding: 5px 10px;
-             }
+              /* Removed button adjustments */
              #controls-bar .theme-switcher label {
                  font-size: 0.75em;
              }
               #controls-bar .theme-switcher select {
                  font-size: 0.75em;
-                 padding: 3px 18px 3px 6px; /* Adjust padding */
-                 background-position: calc(100% - 6px) center, calc(100% - 3px) center; /* Adjust arrow pos */
-                 background-size: 3px 3px, 3px 3px; /* Adjust arrow size */
+                 padding: 3px 18px 3px 6px;
+                 background-position: calc(100% - 6px) center, calc(100% - 3px) center;
+                 background-size: 3px 3px, 3px 3px;
              }
-             /* Ensure centering on smallest screens */
-             .bar-right {
-                 justify-content: center;
-             }
-
+             /* Removed wrapper adjustments */
 
             header h2 {
                 font-size: 1.2em;
@@ -655,6 +601,12 @@
                  overflow: hidden;
                  text-overflow: ellipsis;
             }
+             .iframe-container iframe {
+                 height: 500px; /* Adjust height for smaller screens if needed */
+             }
+             #tiktok-feed .iframe-container {
+                 height: 400px; /* Adjust TikTok height too */
+             }
              #livestream .video-container {
                  max-width: 100%;
                  margin-left: 0;
@@ -698,24 +650,17 @@
     </header>
 
     <div id="controls-bar">
-        <div class="bar-left"></div> <div class="bar-center">
-             <a href="https://taplink.cc/wapaccess" class="taplink-button" target="_blank" rel="noopener noreferrer">
-                 Links
-             </a>
-        </div>
-        <div class="bar-right">
-             <div class="theme-switcher">
-                 <label for="theme-select">Theme:</label>
-                 <select id="theme-select">
-                     <option value="default">Default</option>
-                     <option value="noire">Noire</option>
-                     <option value="slade">Slade</option>
-                     <option value="mr-johnson">Mr. Johnson</option>
-                     <option value="albright">Albright</option>
-                     <option value="riggin">Riggin</option>
-                 </select>
-             </div>
-        </div>
+         <div class="theme-switcher">
+             <label for="theme-select">Theme:</label>
+             <select id="theme-select">
+                 <option value="default">Default</option>
+                 <option value="noire">Noire</option>
+                 <option value="slade">Slade</option>
+                 <option value="mr-johnson">Mr. Johnson</option>
+                 <option value="albright">Albright</option>
+                 <option value="riggin">Riggin</option>
+             </select>
+         </div>
     </div>
     <main>
         <section id="livestream">
@@ -756,9 +701,8 @@
 
          <section id="merch">
             <h2>[MERCH]</h2>
-            <div style="border: 1px solid #00a3a3; padding: 10px; background-color: #1a1a33; box-sizing: border-box; width: 100%; overflow: hidden;">
-                <iframe src="https://wapashop.printify.me"
-                        style="width: 100%; height: 600px; border: none;">
+            <div class="iframe-container">
+                <iframe src="https://wapashop.printify.me">
                     <p>Your browser does not support iframes. Please visit the <a href="https://wapashop.printify.me">Merch Store</a> directly.</p>
                 </iframe>
             </div>
@@ -766,174 +710,146 @@
 
         <section id="tiktok-feed">
             <h2>[LATEST TIKTOKS]</h2>
-            <div class="tiktok-container">
+            <div class="iframe-container">
                 <div class='sk-tiktok-feed' data-embed-id='25553721'></div><script src='https://widgets.sociablekit.com/tiktok-feed/widget.js' defer></script>
-            </div>
+                </div>
         </section>
 
-    </main>
+        <section id="links-embed">
+            <h2>[links]</h2>
+             <div class="iframe-container">
+                <iframe src="https://taplink.cc/wapaccess">
+                    <p>Your browser does not support iframes. Please visit our <a href="https://taplink.cc/wapaccess">Links Page</a> directly.</p>
+                </iframe>
+            </div>
+        </section>
+        </main>
 
     <footer>
         <p>&copy; 2025 Willow Arms Public Access. <br> Your source for offbeat internet TV.</p>
     </footer>
 
     <script>
+        // Javascript remains the same as previous version
         const participateButton = document.getElementById('participate-button');
         const popupOverlay = document.getElementById('popup-overlay');
         const popupYesButton = document.getElementById('popup-yes-button');
         let buttonX, buttonY, dx, dy;
-        const defaultButtonSize = 60; // Default size if offsetWidth/Height isn't available yet
+        const defaultButtonSize = 60;
         const speed = 3;
-        let animationInterval = null; // Initialize animationInterval
+        let animationInterval = null;
 
         function setTheme(themeName) {
-            // Remove all theme classes before adding the new one
             document.body.className = document.body.className.replace(/theme-\S+/g, '').trim();
             if (themeName !== 'default') {
                 document.body.classList.add('theme-' + themeName);
             }
-            localStorage.setItem('wapTheme', themeName); // Save preference
+            localStorage.setItem('wapTheme', themeName);
             const themeSelect = document.getElementById('theme-select');
             if (themeSelect) {
-                 themeSelect.value = themeName; // Sync dropdown
+                 themeSelect.value = themeName;
             }
         }
 
         function loadTheme() {
-            const savedTheme = localStorage.getItem('wapTheme') || 'default'; // Get saved theme or use default
+            const savedTheme = localStorage.getItem('wapTheme') || 'default';
             setTheme(savedTheme);
         }
 
         function initializeButton() {
-            if (!participateButton) return; // Exit if button doesn't exist
-
+            if (!participateButton) return;
             const maxAttempts = 10;
             let attempts = 0;
             const buttonWidth = participateButton.offsetWidth || defaultButtonSize;
             const buttonHeight = participateButton.offsetHeight || defaultButtonSize;
-
-            // Try to place the button away from the bottom-right corner
             while (attempts < maxAttempts) {
                 buttonX = Math.random() * (window.innerWidth - buttonWidth);
                 buttonY = Math.random() * (window.innerHeight - buttonHeight);
-
                 const distanceToBottomRight = Math.sqrt(
                     Math.pow(window.innerWidth - buttonWidth - buttonX, 2) +
                     Math.pow(window.innerHeight - buttonHeight - buttonY, 2)
                 );
-
-                if (distanceToBottomRight > 150) { // Ensure it's not too close
-                    break;
-                }
+                if (distanceToBottomRight > 150) { break; }
                 attempts++;
             }
-
-             // Fallback position if constraint isn't met
              if (attempts === maxAttempts) {
-                 buttonX = Math.max(0, Math.min(50, window.innerWidth - buttonWidth)); // Place near top-left but within bounds
+                 buttonX = Math.max(0, Math.min(50, window.innerWidth - buttonWidth));
                  buttonY = Math.max(0, Math.min(50, window.innerHeight - buttonHeight));
              }
-
-            // Set initial velocity
             dx = (Math.random() - 0.5) * 2 * speed;
             dy = (Math.random() - 0.5) * 2 * speed;
-            // Ensure it moves if velocity is zero
             if (Math.abs(dx) < 0.1 && Math.abs(dy) < 0.1) {
                  dx = (Math.random() < 0.5 ? -1 : 1) * speed;
                  dy = (Math.random() < 0.5 ? -1 : 1) * speed;
-                 if (Math.abs(dx) < 0.1 && Math.abs(dy) < 0.1) dx = speed; // Final fallback
+                 if (Math.abs(dx) < 0.1 && Math.abs(dy) < 0.1) dx = speed;
             }
-
             participateButton.style.left = buttonX + 'px';
             participateButton.style.top = buttonY + 'px';
-            participateButton.style.display = 'block'; // Show the button
+            participateButton.style.display = 'block';
         }
 
         function updateButtonPosition() {
              if (!participateButton) return;
-
              const buttonWidth = participateButton.offsetWidth;
              const buttonHeight = participateButton.offsetHeight;
-
             buttonX += dx;
             buttonY += dy;
-
-            // Bounce off walls and clamp position
             if (buttonX + buttonWidth > window.innerWidth) {
-                dx = -Math.abs(dx); // Ensure velocity is negative
+                dx = -Math.abs(dx);
                 buttonX = window.innerWidth - buttonWidth;
             } else if (buttonX < 0) {
-                dx = Math.abs(dx); // Ensure velocity is positive
+                dx = Math.abs(dx);
                 buttonX = 0;
             }
-
             if (buttonY + buttonHeight > window.innerHeight) {
-                dy = -Math.abs(dy); // Ensure velocity is negative
+                dy = -Math.abs(dy);
                 buttonY = window.innerHeight - buttonHeight;
             } else if (buttonY < 0) {
-                dy = Math.abs(dy); // Ensure velocity is positive
+                dy = Math.abs(dy);
                 buttonY = 0;
             }
-
             participateButton.style.left = buttonX + 'px';
             participateButton.style.top = buttonY + 'px';
         }
 
-        // --- Event Listeners ---
         document.addEventListener('DOMContentLoaded', () => {
-            loadTheme(); // Load theme as soon as DOM is ready
-
+            loadTheme();
             const themeSelect = document.getElementById('theme-select');
             if (themeSelect) {
                 themeSelect.addEventListener('change', (event) => {
                     setTheme(event.target.value);
                 });
             }
-
-            // Check if all required elements exist
             if (participateButton && popupOverlay && popupYesButton) {
-                 // Use setTimeout to ensure layout is complete before getting dimensions
                  setTimeout(() => {
                      initializeButton();
-                     // Clear any previous interval before starting a new one
                      if (animationInterval) clearInterval(animationInterval);
-                     animationInterval = setInterval(updateButtonPosition, 30); // ~33fps
+                     animationInterval = setInterval(updateButtonPosition, 30);
                  }, 0);
-
                 participateButton.addEventListener('click', () => {
-                    participateButton.style.display = 'none'; // Hide button
-                    popupOverlay.style.display = 'flex';    // Show popup
+                    participateButton.style.display = 'none';
+                    popupOverlay.style.display = 'flex';
                     if (animationInterval) {
-                        clearInterval(animationInterval); // Stop animation
-                        animationInterval = null;          // Clear interval ID
+                        clearInterval(animationInterval);
+                        animationInterval = null;
                     }
                 });
-
                 popupYesButton.addEventListener('click', () => {
-                    popupOverlay.style.display = 'none'; // Hide popup
-                    // Optional: Restart the button animation after closing popup
-                    // setTimeout(initializeButton, 500); // Delay restart slightly
-                    // if (!animationInterval) { // Start only if stopped
-                    //     animationInterval = setInterval(updateButtonPosition, 30);
-                    // }
+                    popupOverlay.style.display = 'none';
                 });
             } else {
-                console.warn("Participate button or popup elements not found."); // Add warning if elements are missing
+                console.warn("Participate button or popup elements not found.");
             }
         });
 
-         // Adjust button position on resize if it's currently visible
          window.addEventListener('resize', () => {
               if (participateButton && participateButton.style.display === 'block') {
-                   // Clamp position to new window bounds immediately
                    const buttonWidth = participateButton.offsetWidth;
                    const buttonHeight = participateButton.offsetHeight;
                    buttonX = Math.max(0, Math.min(buttonX, window.innerWidth - buttonWidth));
                    buttonY = Math.max(0, Math.min(buttonY, window.innerHeight - buttonHeight));
                    participateButton.style.left = buttonX + 'px';
                    participateButton.style.top = buttonY + 'px';
-                   // Optional: could re-initialize if drastic resize occurs, but clamping is usually sufficient
-                   // initializeButton();
               }
          });
     </script>
