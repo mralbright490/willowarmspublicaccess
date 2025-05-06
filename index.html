@@ -55,19 +55,34 @@
             transition: color 0.5s ease;
         }
 
-        /* --- New Controls Bar Styling --- */
+        /* --- Updated Controls Bar Styling --- */
         #controls-bar {
             background-color: #1f1f3d; /* Slightly different shade */
             padding: 8px 20px;
             display: flex;
-            justify-content: space-between; /* Space out items */
-            align-items: center;
+            /* justify-content: space-between; Removed */
+            align-items: center; /* Vertically align items */
             border-bottom: 1px solid #005b5b;
             margin-bottom: 30px; /* Add margin below the bar */
             flex-wrap: wrap; /* Allow items to wrap on small screens */
             gap: 10px; /* Add gap between items when wrapping */
             transition: background-color 0.5s ease, border-color 0.5s ease;
         }
+
+        /* New wrapper divs for layout */
+        .bar-left, .bar-right {
+            flex: 1; /* Allow left and right sections to take up space */
+        }
+        .bar-center {
+             flex-shrink: 0; /* Prevent center from shrinking */
+             text-align: center; /* Center the button */
+        }
+        .bar-right {
+            display: flex;
+            justify-content: flex-end; /* Push content (theme switcher) to the right */
+            align-items: center; /* Keep theme switcher vertically centered */
+        }
+
 
         #controls-bar .taplink-button {
             /* Inherits base styles, adjust as needed */
@@ -78,7 +93,7 @@
 
         #controls-bar .theme-switcher {
              /* Remove positioning styles from footer */
-             text-align: right; /* Align to right within its space */
+             /* text-align: right; No longer needed here */
              margin: 0;
              padding: 0;
              border: none;
@@ -93,6 +108,7 @@
             margin-right: 0; /* Remove default margin */
             font-size: 0.85em;
             text-transform: uppercase;
+            white-space: nowrap; /* Prevent label wrapping */
         }
 
         #controls-bar .theme-switcher select {
@@ -392,7 +408,7 @@
              border-color: #00a3a3;
         }
 
-        /* --- Theme Styles (Unchanged) --- */
+        /* --- Theme Styles (Unchanged except for controls bar) --- */
         /* --- Theme: Noire --- */
         body.theme-noire { background-color: #111; color: #eee; }
         body.theme-noire header { background-color: #222; border-bottom-color: #555; }
@@ -409,11 +425,8 @@
         body.theme-noire .show { background-color: #333; border-left-color: #888; }
         body.theme-noire .show h3 { color: #eee; }
         body.theme-noire .show p { color: #ccc; }
-        /* Removed #contact link styles */
         body.theme-noire #tiktok-feed .tiktok-container { border-color: #555; background-color: #222; }
         body.theme-noire #tiktok-feed .tiktok-container p { color: #bbb; }
-        /* Removed standalone taplink button theme styles */
-        /* Removed standalone theme switcher theme styles */
         body.theme-noire footer { background-color: #222; color: #555; border-top-color: #555; }
         body.theme-noire #participate-button { background-color: #555; color: #eee; border-color: #888; }
         body.theme-noire #participate-button:hover { background-color: #888; color: #111; border-color: #eee; }
@@ -437,11 +450,8 @@
         body.theme-slade .show { background-color: #444; border-left-color: #ff9900; }
         body.theme-slade .show h3 { color: #ffcc00; }
         body.theme-slade .show p { color: #ddd; }
-        /* Removed #contact link styles */
         body.theme-slade #tiktok-feed .tiktok-container { border-color: #ff6600; background-color: #333; }
         body.theme-slade #tiktok-feed .tiktok-container p { color: #ccc; }
-        /* Removed standalone taplink button theme styles */
-        /* Removed standalone theme switcher theme styles */
         body.theme-slade footer { background-color: #333; color: #ff6600; border-top-color: #ff6600; }
         body.theme-slade #participate-button { background-color: #ff6600; color: #222; border-color: #ff9900; }
         body.theme-slade #participate-button:hover { background-color: #ff9900; color: #111; border-color: #ffcc00; }
@@ -465,11 +475,8 @@
         body.theme-mr-johnson .show { background-color: rgba(58, 0, 102, 0.9); border-left-color: #00ff00; } /* Added transparency */
         body.theme-mr-johnson .show h3 { color: #32cd32; }
         body.theme-mr-johnson .show p { color: #00dd00; }
-        /* Removed #contact link styles */
         body.theme-mr-johnson #tiktok-feed .tiktok-container { border-color: #008000; background-color: rgba(42, 0, 85, 0.85); } /* Added transparency */
         body.theme-mr-johnson #tiktok-feed .tiktok-container p { color: #00aa00; }
-        /* Removed standalone taplink button theme styles */
-        /* Removed standalone theme switcher theme styles */
         body.theme-mr-johnson footer { background-color: #2a0055; color: #00aa00; border-top-color: #008000; }
         body.theme-mr-johnson #participate-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
         body.theme-mr-johnson #participate-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
@@ -493,11 +500,8 @@
         body.theme-albright .show { background-color: rgba(111, 79, 45, 0.9); border-left: 4px solid #cd7f32; } /* Added transparency */
         body.theme-albright .show h3 { color: #ffd700; }
         body.theme-albright .show p { color: #eee; }
-        /* Removed #contact link styles */
         body.theme-albright #tiktok-feed .tiktok-container { border-color: #b46a00; background-color: rgba(74, 57, 46, 0.85); } /* Added transparency */
         body.theme-albright #tiktok-feed .tiktok-container p { color: #a1887f; }
-        /* Removed standalone taplink button theme styles */
-        /* Removed standalone theme switcher theme styles */
         body.theme-albright footer { background-color: rgba(28, 18, 11, 0.9); color: #a1887f; border-top: 1px solid #4a392e; } /* Added transparency */
         body.theme-albright #participate-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
         body.theme-albright #participate-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
@@ -522,11 +526,8 @@
         body.theme-riggin .show { background-color: #333333; border-left: 4px solid #FFA500; }
         body.theme-riggin .show h3 { color: #FFD700; }
         body.theme-riggin .show p { color: #cccccc; }
-        /* Removed #contact link styles */
         body.theme-riggin #tiktok-feed .tiktok-container { border-color: #FF8C00; background-color: #1a1a1a; }
         body.theme-riggin #tiktok-feed .tiktok-container p { color: #FFD700; }
-        /* Removed standalone taplink button theme styles */
-        /* Removed standalone theme switcher theme styles */
         body.theme-riggin footer { background-color: #1a1a1a; color: #FFD700; border-top: 1px solid #FF8C00; }
         body.theme-riggin #participate-button { background-color: #FFA500; color: #000000; border-color: #FF8C00; }
         body.theme-riggin #participate-button:hover { background-color: #FF8C00; color: #000000; border-color: #FFA500; }
@@ -551,19 +552,25 @@
             main {
                 padding: 0 15px;
             }
-            /* Adjust controls bar for smaller screens */
+            /* Adjust controls bar layout */
             #controls-bar {
                  padding: 8px 15px;
-                 justify-content: center; /* Center items if they wrap */
+                 /* justify-content: center; Removed - flex properties handle this */
             }
-             #controls-bar .theme-switcher {
-                 text-align: center; /* Center theme switcher if it wraps */
-                 width: 100%; /* Allow it to take full width if needed */
-                 justify-content: center;
-             }
-             #controls-bar .taplink-button {
-                 margin-bottom: 5px; /* Add space below button if wrapping */
-             }
+
+             /* Make wrappers stack vertically on small screens if needed, */
+             /* but flex-wrap on parent might be enough. Let's adjust spacing. */
+            .bar-center {
+                order: 1; /* Ensure button comes first if wrapped */
+                width: 100%; /* Allow button to take full width if wrapped */
+                margin-bottom: 8px; /* Add space below button if wrapped */
+            }
+            .bar-left, .bar-right {
+                order: 2; /* Ensure theme switcher comes after */
+                flex-basis: 100%; /* Allow theme switcher container full width */
+                justify-content: center; /* Center theme switcher when wrapped */
+            }
+            .bar-left { display: none; } /* Hide empty left spacer */
 
             section h2, section h3 {
                 font-size: 1.4em;
@@ -601,7 +608,6 @@
                  overflow: hidden;
                  text-overflow: ellipsis;
             }
-             /* Removed theme switcher select adjustments from footer */
         }
 
         @media (max-width: 480px) {
@@ -625,6 +631,11 @@
                  background-position: calc(100% - 6px) center, calc(100% - 3px) center; /* Adjust arrow pos */
                  background-size: 3px 3px, 3px 3px; /* Adjust arrow size */
              }
+             /* Ensure centering on smallest screens */
+             .bar-right {
+                 justify-content: center;
+             }
+
 
             header h2 {
                 font-size: 1.2em;
@@ -656,7 +667,6 @@
                  min-height: 0;
                  padding: 10px;
              }
-             /* Base Taplink button style updated earlier */
              .show h3 {
                  font-size: 0.9em;
                  white-space: nowrap;
@@ -668,7 +678,6 @@
                   overflow: visible;
                   text-overflow: clip;
              }
-             /* Removed theme switcher select adjustments from footer */
         }
     </style>
 </head>
@@ -689,19 +698,23 @@
     </header>
 
     <div id="controls-bar">
-        <a href="https://taplink.cc/wapaccess" class="taplink-button" target="_blank" rel="noopener noreferrer">
-            Links
-        </a>
-        <div class="theme-switcher">
-            <label for="theme-select">Theme:</label>
-            <select id="theme-select">
-                <option value="default">Default</option>
-                <option value="noire">Noire</option>
-                <option value="slade">Slade</option>
-                <option value="mr-johnson">Mr. Johnson</option>
-                <option value="albright">Albright</option>
-                <option value="riggin">Riggin</option>
-            </select>
+        <div class="bar-left"></div> <div class="bar-center">
+             <a href="https://taplink.cc/wapaccess" class="taplink-button" target="_blank" rel="noopener noreferrer">
+                 Links
+             </a>
+        </div>
+        <div class="bar-right">
+             <div class="theme-switcher">
+                 <label for="theme-select">Theme:</label>
+                 <select id="theme-select">
+                     <option value="default">Default</option>
+                     <option value="noire">Noire</option>
+                     <option value="slade">Slade</option>
+                     <option value="mr-johnson">Mr. Johnson</option>
+                     <option value="albright">Albright</option>
+                     <option value="riggin">Riggin</option>
+                 </select>
+             </div>
         </div>
     </div>
     <main>
@@ -758,11 +771,11 @@
             </div>
         </section>
 
-        </main>
+    </main>
 
     <footer>
         <p>&copy; 2025 Willow Arms Public Access. <br> Your source for offbeat internet TV.</p>
-        </footer>
+    </footer>
 
     <script>
         const participateButton = document.getElementById('participate-button');
