@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[ wapa broadcasting ]</title> <meta name="description" content="Tune into Willow Arms Public Access, an offbeat internet TV channel featuring live streams, the Bonfire Podcast, unique music videos ([vibe]rations), experimental shows like 'POV: mom & dad are fighting again', and lo-fi streams ([iinnermission]). Discover weird online broadcasts.">
+    <title>[ wapa broadcasting ]</title>
+    <meta name="description" content="Tune into Willow Arms Public Access, an offbeat internet TV channel featuring live streams, the Bonfire Podcast, unique music videos ([vibe]rations), experimental shows like 'POV: mom & dad are fighting again', and lo-fi streams ([iinnermission]). Discover weird online broadcasts.">
     <link rel="icon" href="wapabroadcastlogo.ico" type="image/x-icon">
     <style>
         body {
@@ -23,7 +24,7 @@
             color: #00e6e6;
             padding: 20px;
             text-align: center;
-            margin-bottom: 30px;
+            /* margin-bottom: 30px; Removed margin-bottom */
             border-bottom: 4px solid #005b5b;
             transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
         }
@@ -53,6 +54,59 @@
             margin-bottom: 0;
             transition: color 0.5s ease;
         }
+
+        /* --- New Controls Bar Styling --- */
+        #controls-bar {
+            background-color: #1f1f3d; /* Slightly different shade */
+            padding: 8px 20px;
+            display: flex;
+            justify-content: space-between; /* Space out items */
+            align-items: center;
+            border-bottom: 1px solid #005b5b;
+            margin-bottom: 30px; /* Add margin below the bar */
+            flex-wrap: wrap; /* Allow items to wrap on small screens */
+            gap: 10px; /* Add gap between items when wrapping */
+            transition: background-color 0.5s ease, border-color 0.5s ease;
+        }
+
+        #controls-bar .taplink-button {
+            /* Inherits base styles, adjust as needed */
+            padding: 6px 15px; /* Make button smaller */
+            font-size: 0.9em;
+            margin: 0; /* Remove extra margins */
+        }
+
+        #controls-bar .theme-switcher {
+             /* Remove positioning styles from footer */
+             text-align: right; /* Align to right within its space */
+             margin: 0;
+             padding: 0;
+             border: none;
+             color: #cccccc; /* Ensure text is visible */
+             display: flex; /* Use flex for label and select */
+             align-items: center;
+             gap: 8px; /* Space between label and select */
+             transition: color 0.5s ease;
+        }
+
+        #controls-bar .theme-switcher label {
+            margin-right: 0; /* Remove default margin */
+            font-size: 0.85em;
+            text-transform: uppercase;
+        }
+
+        #controls-bar .theme-switcher select {
+            /* Inherits base styles, adjust as needed */
+            font-size: 0.85em;
+            padding: 4px 20px 4px 8px; /* Adjust padding */
+            /* Re-apply arrow styling if needed, might inherit */
+             background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
+             background-position: calc(100% - 8px) center, calc(100% - 4px) center;
+             background-size: 4px 4px, 4px 4px;
+             background-repeat: no-repeat;
+        }
+        /* --- End Controls Bar Styling --- */
+
 
         main {
             max-width: 1100px;
@@ -208,35 +262,9 @@
              transition: color 0.5s ease; /* Added */
         }
 
-        #contact ul {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 20px;
-        }
+        /* Removed #contact styles as section is removed */
 
-        #contact li {
-            margin-bottom: 12px;
-        }
-
-        #contact a { /* Base link style in contact */
-            color: #00e6e6;
-            text-decoration: none;
-            border-bottom: 1px dotted #005b5b;
-            padding-bottom: 2px;
-            transition: color 0.3s ease, border-bottom-color 0.3s ease;
-        }
-
-        #contact a:hover {
-            color: #ffffff;
-            border-bottom-color: #ffffff;
-        }
-
-        .contact-button-container {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .taplink-button {
+        .taplink-button { /* Base button style for reuse */
             display: inline-block;
             background-color: #00a3a3;
             color: #1a1a33;
@@ -255,13 +283,11 @@
             border-color: #00e6e6;
         }
 
+        /* Base theme switcher styles, used in controls bar */
         .theme-switcher {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #005b5b;
+            /* No specific positioning here, handled by container */
             color: #cccccc;
-            transition: border-top-color 0.5s ease, color 0.5s ease; /* Added */
+            transition: color 0.5s ease; /* Added */
         }
 
         .theme-switcher label {
@@ -282,17 +308,13 @@
             -moz-appearance: none;
             appearance: none;
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Added */
-        }
-
-        /* Style for dropdown arrow */
-        .theme-switcher select {
+             /* Style for dropdown arrow */
             background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
             background-position: calc(100% - 15px) calc(1em + 2px), calc(100% - 10px) calc(1em + 2px);
             background-size: 5px 5px, 5px 5px;
             background-repeat: no-repeat;
             padding-right: 25px; /* Make space for arrow */
         }
-
 
         .theme-switcher select option {
             background-color: #1a1a33; /* Ensure options have a consistent background */
@@ -370,573 +392,147 @@
              border-color: #00a3a3;
         }
 
+        /* --- Theme Styles (Unchanged) --- */
         /* --- Theme: Noire --- */
-        body.theme-noire {
-            background-color: #111;
-            color: #eee;
-        }
-        body.theme-noire header {
-            background-color: #222;
-            border-bottom-color: #555;
-        }
-        body.theme-noire header h2,
-        body.theme-noire section h2,
-        body.theme-noire section h3 {
-            color: #fff;
-            border-bottom-color: #555;
-        }
-         body.theme-noire header p {
-            color: #bbb;
-        }
-        body.theme-noire section {
-            background-color: #222;
-            border-color: #555;
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
-        }
-        body.theme-noire #livestream .video-container {
-             border-color: #fff;
-             box-shadow: 0 0 10px rgba(255,255,255,0.3);
-        }
-         body.theme-noire .show {
-            background-color: #333;
-            border-left-color: #888;
-        }
-        body.theme-noire .show h3 {
-            color: #eee;
-        }
-         body.theme-noire .show p {
-            color: #ccc;
-        }
-        body.theme-noire #contact a { /* Specificity for links */
-            color: #eee;
-            border-bottom: 1px dotted #555;
-        }
-        body.theme-noire #contact a:hover {
-            color: #fff;
-            border-bottom-color: #eee;
-        }
-        body.theme-noire #tiktok-feed .tiktok-container { /* Added */
-             border-color: #555;
-             background-color: #222;
-        }
-         body.theme-noire #tiktok-feed .tiktok-container p { /* Added */
-             color: #bbb;
-         }
-         body.theme-noire .taplink-button {
-            background-color: #555;
-            color: #eee;
-            border-color: #888;
-        }
-         body.theme-noire .taplink-button:hover {
-            background-color: #888;
-            color: #111;
-            border-color: #eee;
-        }
-         body.theme-noire .theme-switcher select {
-            background-color: #333;
-            color: #eee;
-            border-color: #888;
-        }
-         body.theme-noire .theme-switcher select option {
-             background-color: #333;
-             color: #eee;
-         }
-         body.theme-noire footer {
-            background-color: #222;
-            color: #555;
-            border-top-color: #555;
-        }
-        body.theme-noire #participate-button {
-            background-color: #555;
-            color: #eee;
-            border-color: #888;
-        }
-        body.theme-noire #participate-button:hover {
-            background-color: #888;
-            color: #111;
-            border-color: #eee;
-        }
-        body.theme-noire #popup-content {
-            background-color: #222;
-            border-color: #888;
-            box-shadow: 0 0 20px rgba(136, 136, 136, 0.5);
-            color: #eee;
-        }
-        body.theme-noire #popup-yes-button {
-            background-color: #555;
-            color: #eee;
-            border-color: #888;
-        }
-        body.theme-noire #popup-yes-button:hover {
-             background-color: #888;
-             color: #111;
-             border-color: #eee;
-        }
-        body.theme-noire .theme-switcher { /* Added */
-             border-top-color: #555;
-             color: #bbb; /* Match header p */
-        }
+        body.theme-noire { background-color: #111; color: #eee; }
+        body.theme-noire header { background-color: #222; border-bottom-color: #555; }
+        body.theme-noire #controls-bar { background-color: #2a2a2a; border-bottom-color: #555; } /* Theme Controls Bar */
+        body.theme-noire #controls-bar .theme-switcher { color: #bbb; } /* Theme Controls Bar Text */
+        body.theme-noire #controls-bar .taplink-button { background-color: #555; color: #eee; border-color: #888; }
+        body.theme-noire #controls-bar .taplink-button:hover { background-color: #888; color: #111; border-color: #eee; }
+        body.theme-noire #controls-bar .theme-switcher select { background-color: #333; color: #eee; border-color: #888; }
+        body.theme-noire #controls-bar .theme-switcher select option { background-color: #333; color: #eee; }
+        body.theme-noire header h2, body.theme-noire section h2, body.theme-noire section h3 { color: #fff; border-bottom-color: #555; }
+        body.theme-noire header p { color: #bbb; }
+        body.theme-noire section { background-color: #222; border-color: #555; box-shadow: 5px 5px 15px rgba(0,0,0,0.5); }
+        body.theme-noire #livestream .video-container { border-color: #fff; box-shadow: 0 0 10px rgba(255,255,255,0.3); }
+        body.theme-noire .show { background-color: #333; border-left-color: #888; }
+        body.theme-noire .show h3 { color: #eee; }
+        body.theme-noire .show p { color: #ccc; }
+        /* Removed #contact link styles */
+        body.theme-noire #tiktok-feed .tiktok-container { border-color: #555; background-color: #222; }
+        body.theme-noire #tiktok-feed .tiktok-container p { color: #bbb; }
+        /* Removed standalone taplink button theme styles */
+        /* Removed standalone theme switcher theme styles */
+        body.theme-noire footer { background-color: #222; color: #555; border-top-color: #555; }
+        body.theme-noire #participate-button { background-color: #555; color: #eee; border-color: #888; }
+        body.theme-noire #participate-button:hover { background-color: #888; color: #111; border-color: #eee; }
+        body.theme-noire #popup-content { background-color: #222; border-color: #888; box-shadow: 0 0 20px rgba(136, 136, 136, 0.5); color: #eee; }
+        body.theme-noire #popup-yes-button { background-color: #555; color: #eee; border-color: #888; }
+        body.theme-noire #popup-yes-button:hover { background-color: #888; color: #111; border-color: #eee; }
 
         /* --- Theme: Slade --- */
-        body.theme-slade {
-            background-color: #222; /* Dark Grey */
-            color: #eee; /* Light Grey Text */
-        }
-         body.theme-slade header {
-            background-color: #333; /* Slightly Lighter Grey */
-            border-bottom-color: #ff6600; /* Bright Orange */
-        }
-        body.theme-slade header h2,
-        body.theme-slade section h2,
-        body.theme-slade section h3 {
-            color: #ff9900; /* Lighter Orange */
-            border-bottom-color: #ff6600; /* Bright Orange */
-        }
-         body.theme-slade header p {
-            color: #ccc; /* Medium Grey */
-        }
-        body.theme-slade section {
-            background-color: #333; /* Match Header */
-            border-color: #ff6600; /* Bright Orange */
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
-        }
-         body.theme-slade #livestream .video-container {
-             border-color: #ff9900; /* Lighter Orange */
-             box-shadow: 0 0 10px rgba(255,153,0,0.5); /* Orange Glow */
-        }
-         body.theme-slade .show {
-            background-color: #444; /* Medium Grey */
-            border-left-color: #ff9900; /* Lighter Orange Accent */
-        }
-        body.theme-slade .show h3 {
-            color: #ffcc00; /* Yellowish Orange */
-        }
-         body.theme-slade .show p {
-            color: #ddd; /* Light Grey */
-        }
-        body.theme-slade #contact a { /* Specificity for links */
-            color: #ff9900; /* Lighter Orange */
-            border-bottom: 1px dotted #ff6600; /* Bright Orange */
-        }
-        body.theme-slade #contact a:hover {
-            color: #fff;
-            border-bottom-color: #ffcc00; /* Yellowish Orange */
-        }
-         body.theme-slade #tiktok-feed .tiktok-container { /* Added */
-             border-color: #ff6600;
-             background-color: #333;
-        }
-         body.theme-slade #tiktok-feed .tiktok-container p { /* Added */
-             color: #ccc;
-         }
-         body.theme-slade .taplink-button {
-            background-color: #ff6600; /* Bright Orange */
-            color: #222; /* Dark Text */
-            border-color: #ff9900; /* Lighter Orange Border */
-        }
-         body.theme-slade .taplink-button:hover {
-            background-color: #ff9900; /* Lighter Orange Background */
-            color: #111; /* Very Dark Text */
-            border-color: #ffcc00; /* Yellowish Orange Border */
-        }
-         body.theme-slade .theme-switcher select {
-            background-color: #444; /* Medium Grey */
-            color: #ff9900; /* Lighter Orange Text */
-            border-color: #ff6600; /* Bright Orange Border */
-        }
-         body.theme-slade .theme-switcher select option {
-             background-color: #444;
-             color: #ff9900;
-         }
-         body.theme-slade footer {
-            background-color: #333; /* Match Header */
-            color: #ff6600; /* Bright Orange Text */
-            border-top-color: #ff6600; /* Bright Orange */
-        }
-        body.theme-slade #participate-button {
-            background-color: #ff6600; /* Bright Orange */
-            color: #222; /* Dark Text */
-            border-color: #ff9900; /* Lighter Orange Border */
-        }
-        body.theme-slade #participate-button:hover {
-            background-color: #ff9900; /* Lighter Orange Background */
-            color: #111; /* Very Dark Text */
-            border-color: #ffcc00; /* Yellowish Orange Border */
-        }
-        body.theme-slade #popup-content {
-            background-color: #333; /* Match Header */
-            border-color: #ff9900; /* Lighter Orange Border */
-            box-shadow: 0 0 20px rgba(255, 153, 0, 0.5); /* Orange Glow */
-            color: #eee; /* Light Grey Text */
-        }
-        body.theme-slade #popup-yes-button {
-            background-color: #ff6600; /* Bright Orange */
-            color: #222; /* Dark Text */
-            border-color: #ff9900; /* Lighter Orange Border */
-        }
-        body.theme-slade #popup-yes-button:hover {
-             background-color: #ff9900; /* Lighter Orange Background */
-             color: #111; /* Very Dark Text */
-             border-color: #ffcc00; /* Yellowish Orange Border */
-        }
-         body.theme-slade .theme-switcher { /* Added */
-             border-top-color: #ff6600;
-             color: #ccc; /* Match header p */
-        }
+        body.theme-slade { background-color: #222; color: #eee; }
+        body.theme-slade header { background-color: #333; border-bottom-color: #ff6600; }
+        body.theme-slade #controls-bar { background-color: #3a3a3a; border-bottom-color: #ff6600; } /* Theme Controls Bar */
+        body.theme-slade #controls-bar .theme-switcher { color: #ccc; } /* Theme Controls Bar Text */
+        body.theme-slade #controls-bar .taplink-button { background-color: #ff6600; color: #222; border-color: #ff9900; }
+        body.theme-slade #controls-bar .taplink-button:hover { background-color: #ff9900; color: #111; border-color: #ffcc00; }
+        body.theme-slade #controls-bar .theme-switcher select { background-color: #444; color: #ff9900; border-color: #ff6600; }
+        body.theme-slade #controls-bar .theme-switcher select option { background-color: #444; color: #ff9900; }
+        body.theme-slade header h2, body.theme-slade section h2, body.theme-slade section h3 { color: #ff9900; border-bottom-color: #ff6600; }
+        body.theme-slade header p { color: #ccc; }
+        body.theme-slade section { background-color: #333; border-color: #ff6600; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); }
+        body.theme-slade #livestream .video-container { border-color: #ff9900; box-shadow: 0 0 10px rgba(255,153,0,0.5); }
+        body.theme-slade .show { background-color: #444; border-left-color: #ff9900; }
+        body.theme-slade .show h3 { color: #ffcc00; }
+        body.theme-slade .show p { color: #ddd; }
+        /* Removed #contact link styles */
+        body.theme-slade #tiktok-feed .tiktok-container { border-color: #ff6600; background-color: #333; }
+        body.theme-slade #tiktok-feed .tiktok-container p { color: #ccc; }
+        /* Removed standalone taplink button theme styles */
+        /* Removed standalone theme switcher theme styles */
+        body.theme-slade footer { background-color: #333; color: #ff6600; border-top-color: #ff6600; }
+        body.theme-slade #participate-button { background-color: #ff6600; color: #222; border-color: #ff9900; }
+        body.theme-slade #participate-button:hover { background-color: #ff9900; color: #111; border-color: #ffcc00; }
+        body.theme-slade #popup-content { background-color: #333; border-color: #ff9900; box-shadow: 0 0 20px rgba(255, 153, 0, 0.5); color: #eee; }
+        body.theme-slade #popup-yes-button { background-color: #ff6600; color: #222; border-color: #ff9900; }
+        body.theme-slade #popup-yes-button:hover { background-color: #ff9900; color: #111; border-color: #ffcc00; }
 
         /* --- Theme: Mr. Johnson --- */
-        body.theme-mr-johnson {
-            background-color: #1a0033; /* Dark Purple */
-            color: #00cc00; /* Lighter Green Body Text */
-        
-	/* --- New Background Image Properties --- */
-            background-image: url('garage1.png'); /* <-- Replace with your image path */
-            background-color: #281c12; /* Fallback color if image fails */
-            background-size: cover; /* Scale image to cover */
-            background-repeat: no-repeat; /* Do not tile the image */
-            background-attachment: fixed; /* Keep image fixed during scroll */
-            background-position: center center; /* Center the image */
-            /* --- End New Background Image Properties --- */
-        }
-
-        body.theme-mr-johnson header {
-            background-color: #2a0055; /* Slightly Lighter Purple */
-            border-bottom-color: #008000; /* Medium Green */
-            color: #00ff00; /* Override default header text color */
-        }
-        body.theme-mr-johnson header h2,
-        body.theme-mr-johnson section h2,
-        body.theme-mr-johnson section h3 {
-            color: #00ff00; /* Bright Green */
-            border-bottom-color: #008000; /* Medium Green */
-        }
-         body.theme-mr-johnson header p {
-            color: #00aa00; /* Slightly Lighter Dark Green */
-        }
-        body.theme-mr-johnson section {
-            background-color: #2a0055; /* Match Header */
-            border-color: #008000; /* Medium Green */
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
-        }
-         body.theme-mr-johnson #livestream .video-container {
-             border-color: #00ff00; /* Bright Green */
-             box-shadow: 0 0 10px rgba(0,255,0,0.5); /* Green Glow */
-        }
-         body.theme-mr-johnson .show {
-            background-color: #3a0066; /* Medium Purple */
-            border-left-color: #00ff00; /* Bright Green Accent */
-        }
-        body.theme-mr-johnson .show h3 {
-            color: #32cd32; /* Lime Green */
-        }
-         body.theme-mr-johnson .show p {
-            color: #00dd00; /* Brighter Green */
-        }
-        body.theme-mr-johnson #contact a { /* Specificity for links */
-            color: #00ff00; /* Bright Green */
-            border-bottom: 1px dotted #008000; /* Medium Green */
-        }
-        body.theme-mr-johnson #contact a:hover {
-            color: #ffffff; /* White */
-            border-bottom-color: #00ff00; /* Bright Green */
-        }
-         body.theme-mr-johnson #tiktok-feed .tiktok-container { /* Added */
-             border-color: #008000;
-             background-color: #2a0055;
-        }
-         body.theme-mr-johnson #tiktok-feed .tiktok-container p { /* Added */
-             color: #00aa00;
-         }
-         body.theme-mr-johnson .taplink-button {
-            background-color: #008000; /* Medium Green */
-            color: #1a0033; /* Dark Purple Text */
-            border-color: #00ff00; /* Bright Green Border */
-        }
-         body.theme-mr-johnson .taplink-button:hover {
-            background-color: #00ff00; /* Bright Green Background */
-            color: #ffffff; /* White Text */
-            border-color: #32cd32; /* Lime Green Border */
-        }
-         body.theme-mr-johnson .theme-switcher select {
-            background-color: #3a0066; /* Medium Purple */
-            color: #00ff00; /* Bright Green Text */
-            border-color: #008000; /* Medium Green Border */
-        }
-         body.theme-mr-johnson .theme-switcher select option { /* Corrected */
-             background-color: #3a0066;
-             color: #00ff00;
-         }
-         body.theme-mr-johnson footer {
-            background-color: #2a0055; /* Match Header */
-            color: #00aa00; /* Match Header P */
-            border-top-color: #008000; /* Medium Green */
-        }
-        body.theme-mr-johnson #participate-button {
-            background-color: #008000; /* Medium Green */
-            color: #1a0033; /* Dark Purple Text */
-            border-color: #00ff00; /* Bright Green Border */
-        }
-        body.theme-mr-johnson #participate-button:hover {
-            background-color: #00ff00; /* Bright Green Background */
-            color: #ffffff; /* White Text */
-            border-color: #32cd32; /* Lime Green Border */
-        }
-         body.theme-mr-johnson #popup-content {
-            background-color: #2a0055; /* Match Header */
-            border-color: #00ff00; /* Bright Green Border */
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Green Glow */
-            color: #00dd00; /* Match show p */
-        }
-        body.theme-mr-johnson #popup-yes-button {
-            background-color: #008000; /* Medium Green */
-            color: #1a0033; /* Dark Purple Text */
-            border-color: #00ff00; /* Bright Green Border */
-        }
-        body.theme-mr-johnson #popup-yes-button:hover {
-             background-color: #00ff00; /* Bright Green Background */
-             color: #ffffff; /* White Text */
-             border-color: #32cd32; /* Lime Green Border */
-        }
-        body.theme-mr-johnson .theme-switcher { /* Added */
-             border-top-color: #008000;
-             color: #00aa00; /* Match header p */
-        }
-
+        body.theme-mr-johnson { background-color: #1a0033; color: #00cc00; background-image: url('garage1.png'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
+        body.theme-mr-johnson header { background-color: #2a0055; border-bottom-color: #008000; color: #00ff00; }
+        body.theme-mr-johnson #controls-bar { background-color: #300060; border-bottom-color: #008000; } /* Theme Controls Bar */
+        body.theme-mr-johnson #controls-bar .theme-switcher { color: #00aa00; } /* Theme Controls Bar Text */
+        body.theme-mr-johnson #controls-bar .taplink-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
+        body.theme-mr-johnson #controls-bar .taplink-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
+        body.theme-mr-johnson #controls-bar .theme-switcher select { background-color: #3a0066; color: #00ff00; border-color: #008000; }
+        body.theme-mr-johnson #controls-bar .theme-switcher select option { background-color: #3a0066; color: #00ff00; }
+        body.theme-mr-johnson header h2, body.theme-mr-johnson section h2, body.theme-mr-johnson section h3 { color: #00ff00; border-bottom-color: #008000; }
+        body.theme-mr-johnson header p { color: #00aa00; }
+        body.theme-mr-johnson section { background-color: rgba(42, 0, 85, 0.85); border-color: #008000; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); } /* Added transparency */
+        body.theme-mr-johnson #livestream .video-container { border-color: #00ff00; box-shadow: 0 0 10px rgba(0,255,0,0.5); }
+        body.theme-mr-johnson .show { background-color: rgba(58, 0, 102, 0.9); border-left-color: #00ff00; } /* Added transparency */
+        body.theme-mr-johnson .show h3 { color: #32cd32; }
+        body.theme-mr-johnson .show p { color: #00dd00; }
+        /* Removed #contact link styles */
+        body.theme-mr-johnson #tiktok-feed .tiktok-container { border-color: #008000; background-color: rgba(42, 0, 85, 0.85); } /* Added transparency */
+        body.theme-mr-johnson #tiktok-feed .tiktok-container p { color: #00aa00; }
+        /* Removed standalone taplink button theme styles */
+        /* Removed standalone theme switcher theme styles */
+        body.theme-mr-johnson footer { background-color: #2a0055; color: #00aa00; border-top-color: #008000; }
+        body.theme-mr-johnson #participate-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
+        body.theme-mr-johnson #participate-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
+        body.theme-mr-johnson #popup-content { background-color: #2a0055; border-color: #00ff00; box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); color: #00dd00; }
+        body.theme-mr-johnson #popup-yes-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
+        body.theme-mr-johnson #popup-yes-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
 
         /* --- Theme: Albright (Steampunk - Revised) --- */
-        body.theme-albright {
-            /* background-color: #281c12; /* Fallback color */ */
-            color: #cdc8b1; /* Light Beige/Aged Paper */
-
-            /* --- New Background Image Properties --- */
-            background-image: url('tp1.png'); /* <-- Replace with your image path */
-            background-color: #281c12; /* Fallback color if image fails */
-            background-size: cover; /* Scale image to cover */
-            background-repeat: no-repeat; /* Do not tile the image */
-            background-attachment: fixed; /* Keep image fixed during scroll */
-            background-position: center center; /* Center the image */
-            /* --- End New Background Image Properties --- */
-        }
-        body.theme-albright header {
-            background-color: #4a392e; /* Darker Brown - Currently Opaque */
-            /* Example for semi-transparent: background-color: rgba(74, 57, 46, 0.8); */
-            border-bottom: 4px solid #b46a00; /* Copper */
-             color: #ffc107; /* Override default header text color */
-        }
-        body.theme-albright header h2,
-        body.theme-albright section h2,
-        body.theme-albright section h3 {
-            color: #ffc107; /* Amber/Gold */
-            border-bottom-color: #b46a00; /* Copper */
-        }
-        body.theme-albright header p {
-            color: #a1887f; /* Tarnished Brass */
-        }
-        body.theme-albright section {
-            background-color: #4a392e; /* Darker Brown - Currently Opaque */
-            /* Example for semi-transparent: background-color: rgba(74, 57, 46, 0.8); */
-            border: 1px solid #b46a00; /* Copper */
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
-        }
-         body.theme-albright #livestream .video-container {
-             border-color: #ffc107; /* Amber/Gold */
-             box-shadow: 0 0 10px rgba(255,193,7,0.6); /* Gold Glow */
-             /* Consider adding a slight background to the container if needed */
-             /* background-color: rgba(0, 0, 0, 0.2); */
-        }
-        body.theme-albright .show {
-            background-color: #6f4f2d; /* Bronze - Currently Opaque */
-            /* Example for semi-transparent: background-color: rgba(111, 79, 45, 0.85); */
-            border-left: 4px solid #cd7f32; /* Another Bronze */
-        }
-        body.theme-albright .show h3 {
-            color: #ffd700; /* Gold */
-        }
-        body.theme-albright .show p {
-            color: #eee; /* Light color for readability */
-        }
-        body.theme-albright #contact a { /* Specificity for links */
-            color: #ffc107; /* Amber/Gold */
-            border-bottom: 1px dotted #b46a00; /* Copper */
-        }
-        body.theme-albright #contact a:hover {
-            color: #fff;
-            border-bottom-color: #ffd700; /* Gold */
-        }
-         body.theme-albright #tiktok-feed .tiktok-container { /* Added */
-             border-color: #b46a00;
-             background-color: #4a392e;
-        }
-         body.theme-albright #tiktok-feed .tiktok-container p { /* Added */
-             color: #a1887f;
-         }
-        body.theme-albright .taplink-button {
-            background-color: #b46a00; /* Copper */
-            color: #281c12; /* Very Dark Brown */
-            border-color: #cd7f32; /* Another Bronze */
-        }
-         body.theme-albright .taplink-button:hover {
-            background-color: #cd7f32; /* Another Bronze */
-            color: #4a392e; /* Darker Brown */
-            border-color: #ffd700; /* Gold */
-        }
-        body.theme-albright .theme-switcher select {
-            background-color: #6f4f2d; /* Bronze */
-            color: #ffc107; /* Amber/Gold */
-            border-color: #b46a00; /* Copper */
-        }
-         body.theme-albright .theme-switcher select option {
-             background-color: #6f4f2d; /* Bronze */
-             color: #ffc107; /* Amber/Gold */
-         }
-        body.theme-albright footer {
-            background-color: #1c120b; /* Even Darker Brown - Currently Opaque */
-            /* Example for semi-transparent: background-color: rgba(28, 18, 11, 0.9); */
-            color: #a1887f; /* Match header p */
-            border-top: 1px solid #4a392e; /* Darker Brown */
-        }
-        body.theme-albright #participate-button {
-            background-color: #b46a00; /* Copper */
-            color: #281c12; /* Very Dark Brown */
-            border-color: #cd7f32; /* Another Bronze */
-        }
-        body.theme-albright #participate-button:hover {
-            background-color: #cd7f32; /* Another Bronze */
-            color: #4a392e; /* Darker Brown */
-            border-color: #ffd700; /* Gold */
-        }
-         body.theme-albright #popup-content {
-            background-color: #4a392e; /* Darker Brown - Currently Opaque */
-            border-color: #ffc107; /* Amber/Gold */
-            box-shadow: 0 0 20px rgba(255, 193, 7, 0.6); /* Gold Glow */
-            color: #cdc8b1; /* Light Beige/Aged Paper */
-        }
-        body.theme-albright #popup-yes-button {
-            background-color: #b46a00; /* Copper */
-            color: #281c12; /* Very Dark Brown */
-            border-color: #cd7f32; /* Another Bronze */
-        }
-        body.theme-albright #popup-yes-button:hover {
-             background-color: #cd7f32; /* Another Bronze */
-             color: #4a392e; /* Darker Brown */
-             border-color: #ffd700; /* Gold */
-        }
-        body.theme-albright .theme-switcher { /* Added */
-             border-top-color: #4a392e; /* Match footer border */
-             color: #a1887f; /* Match header p */
-        }
-
+        body.theme-albright { color: #cdc8b1; background-image: url('tp1.png'); background-color: #281c12; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
+        body.theme-albright header { background-color: rgba(74, 57, 46, 0.85); border-bottom: 4px solid #b46a00; color: #ffc107; } /* Added transparency */
+        body.theme-albright #controls-bar { background-color: rgba(90, 70, 55, 0.9); border-bottom-color: #b46a00; } /* Theme Controls Bar + transparency */
+        body.theme-albright #controls-bar .theme-switcher { color: #a1887f; } /* Theme Controls Bar Text */
+        body.theme-albright #controls-bar .taplink-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
+        body.theme-albright #controls-bar .taplink-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
+        body.theme-albright #controls-bar .theme-switcher select { background-color: #6f4f2d; color: #ffc107; border-color: #b46a00; }
+        body.theme-albright #controls-bar .theme-switcher select option { background-color: #6f4f2d; color: #ffc107; }
+        body.theme-albright header h2, body.theme-albright section h2, body.theme-albright section h3 { color: #ffc107; border-bottom-color: #b46a00; }
+        body.theme-albright header p { color: #a1887f; }
+        body.theme-albright section { background-color: rgba(74, 57, 46, 0.85); border: 1px solid #b46a00; box-shadow: 5px 5px 15px rgba(0,0,0,0.6); } /* Added transparency */
+        body.theme-albright #livestream .video-container { border-color: #ffc107; box-shadow: 0 0 10px rgba(255,193,7,0.6); }
+        body.theme-albright .show { background-color: rgba(111, 79, 45, 0.9); border-left: 4px solid #cd7f32; } /* Added transparency */
+        body.theme-albright .show h3 { color: #ffd700; }
+        body.theme-albright .show p { color: #eee; }
+        /* Removed #contact link styles */
+        body.theme-albright #tiktok-feed .tiktok-container { border-color: #b46a00; background-color: rgba(74, 57, 46, 0.85); } /* Added transparency */
+        body.theme-albright #tiktok-feed .tiktok-container p { color: #a1887f; }
+        /* Removed standalone taplink button theme styles */
+        /* Removed standalone theme switcher theme styles */
+        body.theme-albright footer { background-color: rgba(28, 18, 11, 0.9); color: #a1887f; border-top: 1px solid #4a392e; } /* Added transparency */
+        body.theme-albright #participate-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
+        body.theme-albright #participate-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
+        body.theme-albright #popup-content { background-color: rgba(74, 57, 46, 0.95); border-color: #ffc107; box-shadow: 0 0 20px rgba(255, 193, 7, 0.6); color: #cdc8b1; } /* Added transparency */
+        body.theme-albright #popup-yes-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
+        body.theme-albright #popup-yes-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
 
         /* --- Theme: Riggin (Orange & Black) - NEW --- */
-        body.theme-riggin {
-            background-color: #000000; /* Black */
-            color: #FFA500; /* Orange Text */
-        }
-        body.theme-riggin header {
-            background-color: #1a1a1a; /* Dark Grey */
-            border-bottom: 4px solid #FF8C00; /* Dark Orange */
-            color: #FFA500; /* Orange Header Text (override default) */
-        }
-        body.theme-riggin header h2 {
-            color: #FFA500; /* Orange */
-            /* border-bottom-color: #FF8C00; /* Dark Orange - Removed, inherited */
-        }
-         body.theme-riggin header p {
-            color: #FFD700; /* Gold/Lighter Orange */
-        }
-        body.theme-riggin section {
-            background-color: #1a1a1a; /* Dark Grey */
-            border: 1px solid #FF8C00; /* Dark Orange */
-            box-shadow: 5px 5px 15px rgba(50,50,50,0.4); /* Grey shadow */
-        }
-        body.theme-riggin section h2,
-        body.theme-riggin section h3 {
-             color: #FFA500; /* Orange */
-             border-bottom-color: #FF8C00; /* Dark Orange */
-        }
-        body.theme-riggin #livestream .video-container {
-             border-color: #FFA500; /* Orange */
-             box-shadow: 0 0 10px rgba(255,165,0,0.6); /* Orange Glow */
-        }
-        body.theme-riggin .show {
-            background-color: #333333; /* Medium Grey */
-            border-left: 4px solid #FFA500; /* Orange Accent */
-        }
-        body.theme-riggin .show h3 {
-            color: #FFD700; /* Gold/Lighter Orange */
-        }
-        body.theme-riggin .show p {
-            color: #cccccc; /* Light Grey for readability */
-        }
-        body.theme-riggin #contact a { /* Specificity for links */
-            color: #FFA500; /* Orange */
-            border-bottom: 1px dotted #FF8C00; /* Dark Orange */
-        }
-        body.theme-riggin #contact a:hover {
-            color: #ffffff; /* White */
-            border-bottom-color: #FFA500; /* Orange */
-        }
-         body.theme-riggin #tiktok-feed .tiktok-container { /* Added */
-             border-color: #FF8C00;
-             background-color: #1a1a1a;
-        }
-         body.theme-riggin #tiktok-feed .tiktok-container p { /* Added */
-             color: #FFD700;
-         }
-        body.theme-riggin .taplink-button {
-            background-color: #FFA500; /* Orange */
-            color: #000000; /* Black Text */
-            border-color: #FF8C00; /* Dark Orange Border */
-        }
-        body.theme-riggin .taplink-button:hover {
-            background-color: #FF8C00; /* Dark Orange Background */
-            color: #000000; /* Black Text */
-            border-color: #FFA500; /* Orange Border */
-        }
-        body.theme-riggin .theme-switcher select {
-            background-color: #333333; /* Medium Grey */
-            color: #FFA500; /* Orange Text */
-            border-color: #FF8C00; /* Dark Orange Border */
-        }
-        body.theme-riggin .theme-switcher select option {
-             background-color: #333333; /* Medium Grey */
-             color: #FFA500; /* Orange Text */
-         }
-        body.theme-riggin footer {
-            background-color: #1a1a1a; /* Dark Grey */
-            color: #FFD700; /* Match header p */
-            border-top: 1px solid #FF8C00; /* Dark Orange */
-        }
-        body.theme-riggin #participate-button {
-            background-color: #FFA500; /* Orange */
-            color: #000000; /* Black Text */
-            border-color: #FF8C00; /* Dark Orange Border */
-        }
-        body.theme-riggin #participate-button:hover {
-            background-color: #FF8C00; /* Dark Orange Background */
-            color: #000000; /* Black Text */
-            border-color: #FFA500; /* Orange Border */
-        }
-         body.theme-riggin #popup-content {
-            background-color: #1a1a1a; /* Dark Grey */
-            border-color: #FFA500; /* Orange */
-            box-shadow: 0 0 20px rgba(255, 165, 0, 0.6); /* Orange Glow */
-            color: #FFA500; /* Orange Text */
-        }
-        body.theme-riggin #popup-yes-button {
-            background-color: #FFA500; /* Orange */
-            color: #000000; /* Black Text */
-            border-color: #FF8C00; /* Dark Orange Border */
-        }
-        body.theme-riggin #popup-yes-button:hover {
-             background-color: #FF8C00; /* Dark Orange Background */
-             color: #000000; /* Black Text */
-             border-color: #FFA500; /* Orange Border */
-        }
-        body.theme-riggin .theme-switcher {
-             border-top-color: #FF8C00; /* Dark Orange */
-             color: #FFD700; /* Match header p */
-        }
+        body.theme-riggin { background-color: #000000; color: #FFA500; }
+        body.theme-riggin header { background-color: #1a1a1a; border-bottom: 4px solid #FF8C00; color: #FFA500; }
+        body.theme-riggin #controls-bar { background-color: #222222; border-bottom-color: #FF8C00; } /* Theme Controls Bar */
+        body.theme-riggin #controls-bar .theme-switcher { color: #FFD700; } /* Theme Controls Bar Text */
+        body.theme-riggin #controls-bar .taplink-button { background-color: #FFA500; color: #000000; border-color: #FF8C00; }
+        body.theme-riggin #controls-bar .taplink-button:hover { background-color: #FF8C00; color: #000000; border-color: #FFA500; }
+        body.theme-riggin #controls-bar .theme-switcher select { background-color: #333333; color: #FFA500; border-color: #FF8C00; }
+        body.theme-riggin #controls-bar .theme-switcher select option { background-color: #333333; color: #FFA500; }
+        body.theme-riggin header h2 { color: #FFA500; }
+        body.theme-riggin header p { color: #FFD700; }
+        body.theme-riggin section { background-color: #1a1a1a; border: 1px solid #FF8C00; box-shadow: 5px 5px 15px rgba(50,50,50,0.4); }
+        body.theme-riggin section h2, body.theme-riggin section h3 { color: #FFA500; border-bottom-color: #FF8C00; }
+        body.theme-riggin #livestream .video-container { border-color: #FFA500; box-shadow: 0 0 10px rgba(255,165,0,0.6); }
+        body.theme-riggin .show { background-color: #333333; border-left: 4px solid #FFA500; }
+        body.theme-riggin .show h3 { color: #FFD700; }
+        body.theme-riggin .show p { color: #cccccc; }
+        /* Removed #contact link styles */
+        body.theme-riggin #tiktok-feed .tiktok-container { border-color: #FF8C00; background-color: #1a1a1a; }
+        body.theme-riggin #tiktok-feed .tiktok-container p { color: #FFD700; }
+        /* Removed standalone taplink button theme styles */
+        /* Removed standalone theme switcher theme styles */
+        body.theme-riggin footer { background-color: #1a1a1a; color: #FFD700; border-top: 1px solid #FF8C00; }
+        body.theme-riggin #participate-button { background-color: #FFA500; color: #000000; border-color: #FF8C00; }
+        body.theme-riggin #participate-button:hover { background-color: #FF8C00; color: #000000; border-color: #FFA500; }
+        body.theme-riggin #popup-content { background-color: #1a1a1a; border-color: #FFA500; box-shadow: 0 0 20px rgba(255, 165, 0, 0.6); color: #FFA500; }
+        body.theme-riggin #popup-yes-button { background-color: #FFA500; color: #000000; border-color: #FF8C00; }
+        body.theme-riggin #popup-yes-button:hover { background-color: #FF8C00; color: #000000; border-color: #FFA500; }
 
 
         footer {
@@ -950,17 +546,26 @@
             transition: background-color 0.5s ease, color 0.5s ease, border-top-color 0.5s ease;
         }
 
+         /* --- Responsive adjustments --- */
         @media (max-width: 768px) {
             main {
                 padding: 0 15px;
             }
-            section h2 {
-                font-size: 1.4em;
-                 white-space: nowrap;
-                 overflow: hidden;
-                 text-overflow: ellipsis;
+            /* Adjust controls bar for smaller screens */
+            #controls-bar {
+                 padding: 8px 15px;
+                 justify-content: center; /* Center items if they wrap */
             }
-             section h3 {
+             #controls-bar .theme-switcher {
+                 text-align: center; /* Center theme switcher if it wraps */
+                 width: 100%; /* Allow it to take full width if needed */
+                 justify-content: center;
+             }
+             #controls-bar .taplink-button {
+                 margin-bottom: 5px; /* Add space below button if wrapping */
+             }
+
+            section h2, section h3 {
                 font-size: 1.4em;
                  white-space: nowrap;
                  overflow: hidden;
@@ -996,17 +601,31 @@
                  overflow: hidden;
                  text-overflow: ellipsis;
             }
-             .theme-switcher select {
-                 font-size: 0.8em;
-                 padding: 4px;
-                 padding-right: 25px; /* Ensure arrow space */
-             }
+             /* Removed theme switcher select adjustments from footer */
         }
 
         @media (max-width: 480px) {
              main {
                  padding: 0 10px;
              }
+             /* Further adjust controls bar */
+             #controls-bar {
+                 padding: 6px 10px;
+             }
+              #controls-bar .taplink-button {
+                 font-size: 0.8em;
+                 padding: 5px 10px;
+             }
+             #controls-bar .theme-switcher label {
+                 font-size: 0.75em;
+             }
+              #controls-bar .theme-switcher select {
+                 font-size: 0.75em;
+                 padding: 3px 18px 3px 6px; /* Adjust padding */
+                 background-position: calc(100% - 6px) center, calc(100% - 3px) center; /* Adjust arrow pos */
+                 background-size: 3px 3px, 3px 3px; /* Adjust arrow size */
+             }
+
             header h2 {
                 font-size: 1.2em;
                 white-space: nowrap;
@@ -1019,13 +638,7 @@
                 margin-bottom: 15px;
             }
 
-            section h2 {
-                font-size: 1.2em;
-                 white-space: nowrap;
-                 overflow: hidden;
-                 text-overflow: ellipsis;
-            }
-             section h3 {
+            section h2, section h3 {
                 font-size: 1.2em;
                  white-space: nowrap;
                  overflow: hidden;
@@ -1043,10 +656,7 @@
                  min-height: 0;
                  padding: 10px;
              }
-             .taplink-button {
-                 font-size: 1em;
-                 padding: 10px 20px;
-             }
+             /* Base Taplink button style updated earlier */
              .show h3 {
                  font-size: 0.9em;
                  white-space: nowrap;
@@ -1058,11 +668,7 @@
                   overflow: visible;
                   text-overflow: clip;
              }
-             .theme-switcher select {
-                 font-size: 0.7em;
-                 padding: 3px;
-                 padding-right: 25px; /* Ensure arrow space */
-             }
+             /* Removed theme switcher select adjustments from footer */
         }
     </style>
 </head>
@@ -1078,29 +684,61 @@
     </div>
 
     <header>
-        <h2>// WILLOW ARMS PUBLIC ACCESS \\</h2> <p>Indie Online Broadcasts</p> </header>
+        <h2>// WILLOW ARMS PUBLIC ACCESS \\</h2>
+        <p>Indie Online Broadcasts</p>
+    </header>
 
+    <div id="controls-bar">
+        <a href="https://taplink.cc/wapaccess" class="taplink-button" target="_blank" rel="noopener noreferrer">
+            Links
+        </a>
+        <div class="theme-switcher">
+            <label for="theme-select">Theme:</label>
+            <select id="theme-select">
+                <option value="default">Default</option>
+                <option value="noire">Noire</option>
+                <option value="slade">Slade</option>
+                <option value="mr-johnson">Mr. Johnson</option>
+                <option value="albright">Albright</option>
+                <option value="riggin">Riggin</option>
+            </select>
+        </div>
+    </div>
     <main>
         <section id="livestream">
-            <h2>[tune in]</h2> <div class="video-container">
-                 <iframe src="https://player.kick.com/willowarmspublicaccess" height="720" width="1280" frameborder="0" scrolling="no" allowfullscreen="true"></iframe> </div>
+            <h2>[tune in]</h2>
+            <div class="video-container">
+                 <iframe src="https://player.kick.com/willowarmspublicaccess" height="720" width="1280" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
+            </div>
         </section>
 
         <section id="about">
-            <h2>[who are we]</h2> <p>Willow Arms Public Access is your source for truly independent internet television. We're an online broadcast experiment featuring live streams, unique shows, and unfiltered content outside the mainstream. If you're searching for offbeat online TV or a community public access vibe, you've found it.</p> </section>
+            <h2>[who are we]</h2>
+            <p>Willow Arms Public Access is your source for truly independent internet television. We're an online broadcast experiment featuring live streams, unique shows, and unfiltered content outside the mainstream. If you're searching for offbeat online TV or a community public access vibe, you've found it.</p>
+        </section>
 
         <section id="shows">
-            <h2>[lineup]</h2> <p>Explore the programming lineup on Willow Arms Public Access:</p> <div class="show">
-                <h3>:: The Bonfire Podcast :: Live Discussions & Rambling</h3> <p>Tune into The Bonfire Podcast live stream or catch reruns. It's an unfiltered discussion show covering anything and everything, like a digital gathering around a late-night fire. Expect tangents, strong opinions, and maybe a little bit of chaos. It's our main talk show broadcast.</p> </div>
+            <h2>[lineup]</h2>
+            <p>Explore the programming lineup on Willow Arms Public Access:</p>
+            <div class="show">
+                <h3>:: The Bonfire Podcast :: Live Discussions & Rambling</h3>
+                <p>Tune into The Bonfire Podcast live stream or catch reruns. It's an unfiltered discussion show covering anything and everything, like a digital gathering around a late-night fire. Expect tangents, strong opinions, and maybe a little bit of chaos. It's our main talk show broadcast.</p>
+            </div>
 
             <div class="show">
-                <h3>:: [vibe]rations :: Offbeat Music Videos</h3> <p>[vibe]rations brings you a curated selection of unique and offbeat music videos. From lo-fi visuals to experimental sounds, this show is like finding a hidden signal of digital art and music. Great for discovering new vibes on our internet TV channel.</p> </div>
+                <h3>:: [vibe]rations :: Offbeat Music Videos</h3>
+                <p>[vibe]rations brings you a curated selection of unique and offbeat music videos. From lo-fi visuals to experimental sounds, this show is like finding a hidden signal of digital art and music. Great for discovering new vibes on our internet TV channel.</p>
+            </div>
 
             <div class="show">
-                <h3>:: POV: mom & dad are fighting again :: Experimental Broadcast</h3> <p>Experience 'POV: mom & dad are fighting again,' one of our most unique online shows. It's an experimental broadcast blending old TV signals, nostalgic aesthetics, and background ambiance. A lo-fi, dreamlike journey into the uncomfortable familiar.</p> </div>
+                <h3>:: POV: mom & dad are fighting again :: Experimental Broadcast</h3>
+                <p>Experience 'POV: mom & dad are fighting again,' one of our most unique online shows. It's an experimental broadcast blending old TV signals, nostalgic aesthetics, and background ambiance. A lo-fi, dreamlike journey into the uncomfortable familiar.</p>
+            </div>
 
             <div class="show">
-                <h3>:: [iinnermission] :: Lo-fi Live Stream</h3> <p>Need to chill? [iinnermission] is our lo-fi live stream designed for focus, relaxation, or just background ambiance. Calming visuals and sounds from the Willow Arms universe. A perfect stream for downtime on the internet.</p> </div>
+                <h3>:: [iinnermission] :: Lo-fi Live Stream</h3>
+                <p>Need to chill? [iinnermission] is our lo-fi live stream designed for focus, relaxation, or just background ambiance. Calming visuals and sounds from the Willow Arms universe. A perfect stream for downtime on the internet.</p>
+            </div>
         </section>
 
          <section id="merch">
@@ -1114,33 +752,17 @@
         </section>
 
         <section id="tiktok-feed">
-            <h2>[LATEST TIKTOKS]</h2> <div class="tiktok-container">
+            <h2>[LATEST TIKTOKS]</h2>
+            <div class="tiktok-container">
                 <div class='sk-tiktok-feed' data-embed-id='25553721'></div><script src='https://widgets.sociablekit.com/tiktok-feed/widget.js' defer></script>
             </div>
         </section>
 
-        <section id="contact">
-            <h2>[wapa connections]</h2> <p>Find all our links and ways to connect:</p> <div class="contact-button-container">
-                <a href="https://taplink.cc/wapaccess" class="taplink-button" target="_blank" rel="noopener noreferrer">
-                    Links
-                </a>
-            </div>
-        </section>
-    </main>
+        </main>
 
     <footer>
-        <p>&copy; 2025 Willow Arms Public Access. <br> Your source for offbeat internet TV.</p> <div class="theme-switcher">
-            <label for="theme-select">Choose Theme:</label>
-            <select id="theme-select">
-                <option value="default">Default Theme</option>
-                <option value="noire">Noire Theme</option>
-                <option value="slade">Slade Theme</option>
-                <option value="mr-johnson">Mr. Johnson Theme</option>
-                <option value="albright">Albright Theme</option>
-                <option value="riggin">Riggin Theme</option>
-            </select>
-        </div>
-    </footer>
+        <p>&copy; 2025 Willow Arms Public Access. <br> Your source for offbeat internet TV.</p>
+        </footer>
 
     <script>
         const participateButton = document.getElementById('participate-button');
