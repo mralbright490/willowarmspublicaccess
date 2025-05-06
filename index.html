@@ -175,7 +175,7 @@
             border: 1px solid #005b5b; /* Default border */
             box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
             box-sizing: border-box;
-            transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, color 0.5s ease;
+            transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, color 0.5s ease, background 0.5s ease; /* Added background transition */
         }
 
         main section:last-child {
@@ -403,7 +403,7 @@
 
         /* --- Other Theme Styles --- */
         /* --- Theme: Noire --- */
-        body.theme-noire { background-color: #111; color: #eee; background-image: none; } /* Ensure no leftover body image */
+        body.theme-noire { background-color: #111; color: #eee; background-image: none; }
         body.theme-noire header { background-color: #222; border-bottom-color: #555; }
         body.theme-noire #controls-bar { background-color: #2a2a2a; border-bottom-color: #555; }
         body.theme-noire #controls-bar .theme-switcher { color: #bbb; }
@@ -411,7 +411,7 @@
         body.theme-noire #controls-bar .theme-switcher select option { background-color: #333; color: #eee; }
         body.theme-noire header h2, body.theme-noire section h2, body.theme-noire section h3 { color: #fff; border-bottom-color: #555; }
         body.theme-noire header p { color: #bbb; }
-        body.theme-noire section { background-color: #222; border-color: #555; box-shadow: 5px 5px 15px rgba(0,0,0,0.5); color: #eee; background-image: none;}
+        body.theme-noire section { background: #222; border-color: #555; box-shadow: 5px 5px 15px rgba(0,0,0,0.5); color: #eee; } /* Use shorthand background */
         body.theme-noire .iframe-container { border-color: #555; background-color: #222; }
         body.theme-noire .iframe-container p { color: #bbb; }
         body.theme-noire #livestream .video-container { border-color: #fff; box-shadow: 0 0 10px rgba(255,255,255,0.3); }
@@ -426,7 +426,7 @@
         body.theme-noire #popup-yes-button:hover { background-color: #888; color: #111; border-color: #eee; }
 
         /* --- Theme: Slade --- */
-        body.theme-slade { background-color: #222; color: #eee; background-image: none; } /* Ensure no leftover body image */
+        body.theme-slade { background-color: #222; color: #eee; background-image: none; }
         body.theme-slade header { background-color: #333; border-bottom-color: #ff6600; }
         body.theme-slade #controls-bar { background-color: #3a3a3a; border-bottom-color: #ff6600; }
         body.theme-slade #controls-bar .theme-switcher { color: #ccc; }
@@ -434,7 +434,7 @@
         body.theme-slade #controls-bar .theme-switcher select option { background-color: #444; color: #ff9900; }
         body.theme-slade header h2, body.theme-slade section h2, body.theme-slade section h3 { color: #ff9900; border-bottom-color: #ff6600; }
         body.theme-slade header p { color: #ccc; }
-        body.theme-slade section { background-color: #333; border-color: #ff6600; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); color: #eee; background-image: none;}
+        body.theme-slade section { background: #333; border-color: #ff6600; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); color: #eee; } /* Use shorthand background */
         body.theme-slade .iframe-container { border-color: #ff6600; background-color: #333; }
         body.theme-slade .iframe-container p { color: #ccc; }
         body.theme-slade #livestream .video-container { border-color: #ff9900; box-shadow: 0 0 10px rgba(255,153,0,0.5); }
@@ -457,7 +457,7 @@
         body.theme-mr-johnson #controls-bar .theme-switcher select option { background-color: #3a0066; color: #00ff00; }
         body.theme-mr-johnson header h2, body.theme-mr-johnson section h2, body.theme-mr-johnson section h3 { color: #00ff00; border-bottom-color: #008000; }
         body.theme-mr-johnson header p { color: #00aa00; }
-        body.theme-mr-johnson section { background-color: rgba(42, 0, 85, 0.85); border-color: #008000; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); color: #00cc00; background-image: none;} /* Ensure no leftover section image */
+        body.theme-mr-johnson section { background: rgba(42, 0, 85, 0.85); border-color: #008000; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); color: #00cc00; } /* Use shorthand background */
         body.theme-mr-johnson .iframe-container { border-color: #008000; background-color: rgba(42, 0, 85, 0.85); }
         body.theme-mr-johnson .iframe-container p { color: #00aa00; }
         body.theme-mr-johnson #livestream .video-container { border-color: #00ff00; box-shadow: 0 0 10px rgba(0,255,0,0.5); }
@@ -480,11 +480,20 @@
         body.theme-albright #controls-bar .theme-switcher select option { background-color: #6f4f2d; color: #ffc107; }
         body.theme-albright header h2, body.theme-albright section h2, body.theme-albright section h3 { color: #ffc107; border-bottom-color: #b46a00; }
         body.theme-albright header p { color: #a1887f; }
-        body.theme-albright section { background-color: rgba(74, 57, 46, 0.85); border: 1px solid #b46a00; box-shadow: 5px 5px 15px rgba(0,0,0,0.6); color: #cdc8b1; background-image: none;} /* Ensure no leftover section image */
-        body.theme-albright .iframe-container { border-color: #b46a00; background-color: rgba(74, 57, 46, 0.85); }
+        /* MODIFIED Albright Section */
+        body.theme-albright section {
+             /* Layered background: semi-transparent color overlay on top of image */
+             background:
+               linear-gradient(rgba(74, 57, 46, 0.7), rgba(74, 57, 46, 0.7)), /* Brown overlay (70% opaque) - Adjust 0.7 for desired opacity */
+               url('goldtext.png') center center / cover no-repeat; /* <-- REPLACE with your section image */
+             border: 1px solid #b46a00;
+             box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+             color: #cdc8b1; /* Keep text color readable */
+        }
+        body.theme-albright .iframe-container { border-color: #b46a00; background-color: rgba(74, 57, 46, 0.85); } /* Keep iframe container distinct */
         body.theme-albright .iframe-container p { color: #a1887f; }
         body.theme-albright #livestream .video-container { border-color: #ffc107; box-shadow: 0 0 10px rgba(255,193,7,0.6); }
-        body.theme-albright .show { background-color: rgba(111, 79, 45, 0.9); border-left: 4px solid #cd7f32; }
+        body.theme-albright .show { background-color: rgba(111, 79, 45, 0.9); border-left: 4px solid #cd7f32; } /* Keep show background distinct */
         body.theme-albright .show h3 { color: #ffd700; }
         body.theme-albright .show p { color: #eee; }
         body.theme-albright footer { background-color: rgba(28, 18, 11, 0.9); color: #a1887f; border-top: 1px solid #4a392e; }
@@ -495,7 +504,7 @@
         body.theme-albright #popup-yes-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
 
         /* --- Theme: Riggin (Orange & Black) --- */
-        body.theme-riggin { background-color: #000000; color: #FFA500; background-image: none; } /* Ensure no leftover body image */
+        body.theme-riggin { background-color: #000000; color: #FFA500; background-image: none; }
         body.theme-riggin header { background-color: #1a1a1a; border-bottom: 4px solid #FF8C00; color: #FFA500; }
         body.theme-riggin #controls-bar { background-color: #222222; border-bottom-color: #FF8C00; }
         body.theme-riggin #controls-bar .theme-switcher { color: #FFD700; }
@@ -503,7 +512,7 @@
         body.theme-riggin #controls-bar .theme-switcher select option { background-color: #333333; color: #FFA500; }
         body.theme-riggin header h2 { color: #FFA500; }
         body.theme-riggin header p { color: #FFD700; }
-        body.theme-riggin section { background-color: #1a1a1a; border: 1px solid #FF8C00; box-shadow: 5px 5px 15px rgba(50,50,50,0.4); color: #FFA500; background-image: none;}
+        body.theme-riggin section { background: #1a1a1a; border: 1px solid #FF8C00; box-shadow: 5px 5px 15px rgba(50,50,50,0.4); color: #FFA500;} /* Use shorthand background */
         body.theme-riggin .iframe-container { border-color: #FF8C00; background-color: #1a1a1a; }
         body.theme-riggin .iframe-container p { color: #FFD700; }
         body.theme-riggin section h2, body.theme-riggin section h3 { color: #FFA500; border-bottom-color: #FF8C00; }
@@ -645,7 +654,7 @@
         }
     </style>
 </head>
-<body class="theme-afterlounge"> <button id="participate-button">Participate</button>
+<body class="theme-albright"> <button id="participate-button">Participate</button>
 
     <div id="popup-overlay">
         <div id="popup-content">
@@ -663,7 +672,8 @@
          <div class="theme-switcher">
              <label for="theme-select">Theme:</label>
              <select id="theme-select">
-                 <option value="afterlounge">AfterLounge</option> <option value="noire">Noire</option>
+                 <option value="afterlounge">AfterLounge</option>
+                 <option value="noire">Noire</option>
                  <option value="slade">Slade</option>
                  <option value="mr-johnson">Mr. Johnson</option>
                  <option value="albright">Albright</option>
@@ -761,8 +771,8 @@
         }
 
         function loadTheme() {
-            // MODIFIED: Use 'afterlounge' as the default theme
-            const savedTheme = localStorage.getItem('wapTheme') || 'afterlounge';
+            // Default to Albright for testing, or use saved theme, or fallback to afterlounge
+            const savedTheme = localStorage.getItem('wapTheme') || 'albright'; // Changed default here for testing
             setTheme(savedTheme);
         }
 
@@ -823,7 +833,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            loadTheme(); // Load the saved or default theme ('afterlounge')
+            loadTheme(); // Load the saved or default theme
             const themeSelect = document.getElementById('theme-select');
             if (themeSelect) {
                 themeSelect.addEventListener('change', (event) => {
