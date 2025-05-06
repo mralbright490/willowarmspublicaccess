@@ -3,36 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Willow Arms Public Access \\ Indie Internet Broadcasts</title>
-    <meta name="description" content="Tune into Willow Arms Public Access, an offbeat internet TV channel featuring live streams, the Bonfire Podcast, unique music videos ([vibe]rations), experimental shows like 'POV: mom & dad are fighting again', and lo-fi streams ([iinnermission]). Discover weird online broadcasts.">
+    <title>[ wapa broadcasting ]</title> <meta name="description" content="Tune into Willow Arms Public Access, an offbeat internet TV channel featuring live streams, the Bonfire Podcast, unique music videos ([vibe]rations), experimental shows like 'POV: mom & dad are fighting again', and lo-fi streams ([iinnermission]). Discover weird online broadcasts.">
+    <link rel="icon" href="wapabroadcastlogo.ico" type="image/x-icon">
     <style>
-        /* style.css - Default Theme (Modern Lo-fi / 90s TV Vibe) & Riggin Theme */
-
-        /* --- Default Theme Variables --- */
-        :root {
-            --default-bg-color: #0c0c1a; /* Very dark desaturated blue/grey */
-            --default-content-bg-color: #1a1a33; /* Slightly lighter dark blue/purple */
-            --default-accent-color-1: #00e6e6; /* Desaturated Cyan */
-            --default-accent-color-2: #00a3a3; /* Slightly more saturated Cyan */
-            --default-text-color: #cccccc; /* Light grey */
-            --default-secondary-text-color: #999999; /* Muted grey */
-            --default-border-color: #005b5b; /* Dark Cyan/Teal */
-            --default-show-bg-color: #2a2a4d; /* Slightly different dark tone for shows */
-            --default-footer-text-color: #666666; /* Darker grey for footer */
-        }
-
-        /* --- Base Styles (Applied to both themes unless overridden) --- */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #0c0c1a;
+            color: #cccccc;
             line-height: 1.5;
             overflow-x: hidden;
             font-size: 16px;
-            /* Default Theme Colors Applied */
-            background-color: var(--default-bg-color);
-            color: var(--default-text-color);
-            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        header {
+            background-color: #1a1a33;
+            color: #00e6e6;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 4px solid #005b5b;
+            transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
+        }
+
+        header h2 {
+            margin-top: 0;
+            font-size: 2em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #00a3a3;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+            margin-bottom: 0;
+            transition: color 0.5s ease;
+        }
+
+        header p {
+            font-size: 1em;
+            color: #999999;
+            margin-top: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+            margin-bottom: 0;
+            transition: color 0.5s ease;
         }
 
         main {
@@ -43,72 +62,22 @@
         }
 
         section {
+            background-color: #1a1a33;
             padding: 25px;
             margin-bottom: 25px;
+            border: 1px solid #005b5b;
             box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
             box-sizing: border-box;
-            /* Default Theme Colors Applied */
-            background-color: var(--default-content-bg-color);
-            border: 1px solid var(--default-border-color);
-            transition: background-color 0.3s ease, border-color 0.3s ease;
+            transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
         }
 
         main section:last-child {
             margin-bottom: 0;
         }
 
-        p {
-            margin-bottom: 15px;
-            word-break: break-word;
-            /* Default Theme Color Applied */
-            color: var(--default-text-color);
-             transition: color 0.3s ease;
-        }
-
-        /* --- Header --- */
-        header {
-            padding: 20px;
-            text-align: center;
-            margin-bottom: 30px;
-            /* Default Theme Colors Applied */
-            background-color: var(--default-content-bg-color);
-            color: var(--default-accent-color-1);
-            border-bottom: 4px solid var(--default-border-color);
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-        }
-
-        header h2 { /* Using h2 as main header element */
-            margin-top: 0;
-            font-size: 2em;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: block;
-            margin-bottom: 0;
-            /* Default Theme Color Applied */
-            color: var(--default-accent-color-2);
-             transition: color 0.3s ease;
-        }
-
-        header p {
-            font-size: 1em;
-            margin-top: 5px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: block;
-            margin-bottom: 0;
-            /* Default Theme Color Applied */
-            color: var(--default-secondary-text-color);
-             transition: color 0.3s ease;
-        }
-
-        /* --- Section Headings (h2) --- */
-        h2 {
-            border-bottom-style: solid;
-            border-bottom-width: 2px;
+        section h2 {
+            color: #00a3a3;
+            border-bottom: 2px solid #005b5b;
             padding-bottom: 8px;
             margin-top: 0;
             margin-bottom: 20px;
@@ -119,329 +88,845 @@
             text-overflow: ellipsis;
             display: block;
             max-width: 100%;
-            /* Default Theme Colors Applied */
-            color: var(--default-accent-color-2);
-            border-bottom-color: var(--default-border-color);
-            transition: color 0.3s ease, border-color 0.3s ease;
+            transition: color 0.5s ease, border-color 0.5s ease;
         }
 
-        /* --- Video Container Styling --- */
+         section h3 {
+             color: #00a3a3;
+             border-bottom: 2px solid #005b5b;
+             padding-bottom: 8px;
+             margin-top: 0;
+             margin-bottom: 20px;
+             font-size: 1.8em;
+             text-transform: uppercase;
+             white-space: nowrap;
+             overflow: hidden;
+             text-overflow: ellipsis;
+             display: block;
+             max-width: 100%;
+             transition: color 0.5s ease, border-color 0.5s ease;
+         }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            word-break: break-word;
+            transition: color 0.5s ease;
+        }
+
         #livestream .video-container {
             position: relative;
             max-width: 1280px;
             margin: 20px auto;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            border-style: solid;
-            border-width: 2px;
+            background-color: #000;
+            border: 2px solid #00e6e6;
+            box-shadow: 0 0 10px rgba(0, 230, 230, 0.5);
             box-sizing: border-box;
-            /* Default Theme Colors Applied */
-            background-color: #000; /* Keep black for video bg */
-            border-color: var(--default-accent-color-1);
-            box-shadow: 0 0 10px rgba(0, 230, 230, 0.5); /* Cyan glow */
-             transition: border-color 0.3s ease, box-shadow 0.3s ease;
+             transition: border-color 0.5s ease, box-shadow 0.5s ease;
         }
 
         #livestream .video-container iframe {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
-        #livestream .video-container p { /* Placeholder text */
-             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-             display: flex; justify-content: center; align-items: center;
-             font-size: 1.2em; padding: 20px; box-sizing: border-box; text-align: center;
-             /* Default Theme Colors Applied */
-             color: #fff; /* White text on black bg */
-             background-color: #000; /* Black background */
-             z-index: 1; max-width: 100%;
+        #livestream .video-container p {
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             color: #fff;
+             font-size: 1.2em;
+             padding: 20px;
+             box-sizing: border-box;
+             text-align: center;
+             background-color: #000;
+             z-index: 1;
+             max-width: 100%;
         }
 
-        /* --- Shows --- */
         .show {
             margin-bottom: 20px;
             padding: 15px;
-            border-left-style: solid;
-            border-left-width: 4px;
+            background-color: #2a2a4d;
+            border-left: 4px solid #00a3a3;
             box-sizing: border-box;
-            /* Default Theme Colors Applied */
-            background-color: var(--default-show-bg-color);
-            border-left-color: var(--default-accent-color-2);
-             transition: background-color 0.3s ease, border-color 0.3s ease;
+            transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
         }
 
         .show h3 {
-            margin-top: 0; margin-bottom: 8px; font-size: 1.3em;
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block;
-            /* Default Theme Color Applied */
-            color: var(--default-accent-color-1);
-             transition: color 0.3s ease;
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #00e6e6;
+            font-size: 1.3em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+            transition: color 0.5s ease;
         }
 
         .show p {
-            font-size: 0.95em; word-break: break-word;
-            /* Default Theme Color Applied */
-            color: var(--default-text-color); /* Adjusted from bb motions */
-             transition: color 0.3s ease;
+            color: #bbbbbb;
+            font-size: 0.95em;
+             word-break: break-word;
+             transition: color 0.5s ease;
         }
 
-        /* --- Contact Section --- */
-         #contact h3 { /* Specific rule for contact heading */
-             margin-top: 0; margin-bottom: 15px; font-size: 1.3em; /* Match show h3 */
-             /* Default Theme Color Applied */
-             color: var(--default-accent-color-2); /* Use H2 color */
-              transition: color 0.3s ease;
-         }
+        #tiktok-feed .tiktok-container {
+            height: 500px;
+            overflow-y: scroll;
+            border: 1px solid #00a3a3;
+            padding: 10px;
+            background-color: #1a1a33;
+            box-sizing: border-box;
+            width: 100%;
+            max-width: none;
+        }
 
-        #contact ul { list-style: none; padding: 0; margin-bottom: 20px; }
-        #contact li { margin-bottom: 12px; }
+        #tiktok-feed .tiktok-container p {
+             text-align: center;
+             color: #999999;
+             font-size: 0.9em;
+             margin-bottom: 0;
+             position: static;
+             width: auto;
+             height: auto;
+             padding: 0;
+        }
 
-        #contact a { /* Regular links in contact list if added */
+        #contact ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        #contact li {
+            margin-bottom: 12px;
+        }
+
+        #contact a {
+            color: #00e6e6;
             text-decoration: none;
-            border-bottom: 1px dotted;
+            border-bottom: 1px dotted #005b5b;
             padding-bottom: 2px;
-            transition: color 0.3s ease, border-color 0.3s ease;
-            /* Default Theme Colors Applied */
-            color: var(--default-accent-color-1);
-            border-bottom-color: var(--default-border-color);
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
         }
 
         #contact a:hover {
-            /* Default Theme Colors Applied */
-            color: #ffffff; /* White on hover */
+            color: #ffffff;
             border-bottom-color: #ffffff;
         }
 
-        .contact-button-container { text-align: center; margin-top: 20px; }
+        .contact-button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
 
         .taplink-button {
-            display: inline-block; padding: 12px 25px;
-            text-decoration: none; text-transform: uppercase; font-size: 1.1em;
-            border-radius: 5px; border-style: solid; border-width: 2px;
+            display: inline-block;
+            background-color: #00a3a3;
+            color: #1a1a33;
+            padding: 12px 25px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 1.1em;
+            border-radius: 5px;
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-            /* Default Theme Colors Applied */
-            background-color: var(--default-accent-color-2);
-            color: var(--default-content-bg-color); /* Dark text */
-            border-color: var(--default-accent-color-2);
+            border: 2px solid #00a3a3;
         }
 
         .taplink-button:hover {
-            /* Default Theme Colors Applied */
-            background-color: var(--default-content-bg-color);
-            color: var(--default-accent-color-1);
-            border-color: var(--default-accent-color-1);
+            background-color: #1a1a33;
+            color: #00e6e6;
+            border-color: #00e6e6;
         }
 
-        /* --- Footer --- */
-        footer {
-            text-align: center; padding: 20px; margin-top: 30px;
-            font-size: 0.85em; border-top-style: solid; border-top-width: 1px;
-            /* Default Theme Colors Applied */
-            background-color: var(--default-content-bg-color);
-            color: var(--default-footer-text-color);
-            border-top-color: var(--default-border-color);
+        .theme-switcher {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #005b5b;
+            color: #cccccc;
+        }
+
+        .theme-switcher label {
+            margin-right: 10px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .theme-switcher select {
+            background-color: #1a1a33;
+            color: #00e6e6;
+            border: 1px solid #00a3a3;
+            padding: 5px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            cursor: pointer;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        .theme-switcher select option {
+            background-color: #1a1a33;
+            color: #00e6e6;
+        }
+
+        #participate-button {
+            position: fixed;
+            z-index: 1000;
+            display: none;
+            padding: 10px 15px;
+            background-color: #00a3a3;
+            color: #1a1a33;
+            border: 2px solid #00e6e6;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 1em;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
-        /* --- Theme Switcher Style --- */
-        .theme-switcher-container {
-            margin-top: 15px; /* Space above the switcher */
-        }
-        .theme-switcher-container label {
-            margin-right: 8px;
-            font-size: 0.9em;
-            color: var(--default-secondary-text-color); /* Muted grey label */
-        }
-        #theme-switcher {
-             background-color: var(--default-show-bg-color); /* Dark background */
-             color: var(--default-text-color); /* Light text */
-             border: 1px solid var(--default-border-color);
-             padding: 5px 8px;
-             border-radius: 4px;
-             font-size: 0.9em;
-             cursor: pointer;
+        #participate-button:hover {
+             background-color: #00e6e6;
+             color: #1a1a33;
+             border-color: #00a3a3;
         }
 
-        /* ====================================================== */
-        /* --- Riggin Theme Overrides (Black & Orange) --- */
-        /* ====================================================== */
-
-        body[data-theme='riggin'] {
-            --riggin-main-bg-color: #000000;
-            --riggin-content-bg-color: #111111;
-            --riggin-accent-color: #FF9900;
-            --riggin-text-color: #FFFFFF;
-            --riggin-secondary-text-color: #CCCCCC;
-            --riggin-border-color: #444444;
-            --riggin-accent-border-color: #FF9900;
-
-            background-color: var(--riggin-main-bg-color);
-            color: var(--riggin-secondary-text-color);
+        #popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
         }
 
-        body[data-theme='riggin'] header {
-            background-color: var(--riggin-main-bg-color);
-            color: var(--riggin-accent-color);
-            border-bottom-color: var(--riggin-accent-border-color);
+        #popup-content {
+            background-color: #1a1a33;
+            padding: 30px;
+            border: 2px solid #00a3a3;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 163, 163, 0.5);
+            color: #cccccc;
         }
 
-        body[data-theme='riggin'] header h2 {
-            color: var(--riggin-accent-color);
+        #popup-content p {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.2em;
         }
 
-        body[data-theme='riggin'] header p {
-            color: var(--riggin-secondary-text-color);
+        #popup-yes-button {
+            background-color: #00a3a3;
+            color: #1a1a33;
+            border: 2px solid #00e6e6;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 1em;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
-        body[data-theme='riggin'] section {
-            background-color: var(--riggin-content-bg-color);
-            border-color: var(--riggin-border-color);
+        #popup-yes-button:hover {
+             background-color: #00e6e6;
+             color: #1a1a33;
+             border-color: #00a3a3;
         }
 
-        body[data-theme='riggin'] h2 { /* Section headings */
-            color: var(--riggin-accent-color);
-            border-bottom-color: var(--riggin-accent-border-color);
+        body.theme-noire {
+            background-color: #111;
+            color: #eee;
         }
-
-        body[data-theme='riggin'] p {
-            color: var(--riggin-secondary-text-color);
+        body.theme-noire header {
+            background-color: #222;
+            border-bottom-color: #555;
         }
-
-        body[data-theme='riggin'] #livestream .video-container {
-            border-color: var(--riggin-accent-border-color);
-            box-shadow: 0 0 10px rgba(255, 153, 0, 0.5); /* Orange glow */
+        body.theme-noire header h2,
+        body.theme-noire section h2,
+        body.theme-noire section h3 {
+            color: #fff;
         }
-         /* Placeholder text color already white, bg black - no change needed */
-
-        body[data-theme='riggin'] .show {
-            background-color: var(--riggin-main-bg-color); /* Use main black */
-            border-left-color: var(--riggin-accent-border-color);
+         body.theme-noire header p {
+            color: #bbb;
         }
-
-        body[data-theme='riggin'] .show h3 {
-            color: var(--riggin-accent-color);
+        body.theme-noire section {
+            background-color: #222;
+            border-color: #555;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
         }
-
-        body[data-theme='riggin'] .show p {
-            color: var(--riggin-secondary-text-color);
+        body.theme-noire #livestream .video-container {
+             border-color: #fff;
+             box-shadow: 0 0 10px rgba(255,255,255,0.3);
         }
-
-        body[data-theme='riggin'] #contact h3 {
-             color: var(--riggin-accent-color);
+         body.theme-noire .show {
+            background-color: #333;
+            border-left-color: #888;
         }
-
-        body[data-theme='riggin'] #contact a {
-            color: var(--riggin-secondary-text-color);
-            border-bottom-color: var(--riggin-border-color);
+        body.theme-noire .show h3 {
+            color: #eee;
         }
-
-        body[data-theme='riggin'] #contact a:hover {
-            color: var(--riggin-accent-color);
-            border-bottom-color: var(--riggin-accent-color);
+         body.theme-noire .show p {
+            color: #ccc;
         }
-
-        body[data-theme='riggin'] .taplink-button {
-            background-color: var(--riggin-accent-color);
-            color: var(--riggin-main-bg-color); /* Black text */
-            border-color: var(--riggin-accent-border-color);
-            font-weight: bold;
+        body.theme-noire a {
+            color: #eee;
+            text-decoration: none;
+            border-bottom: 1px dotted #555;
+            padding-bottom: 2px;
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
         }
-
-        body[data-theme='riggin'] .taplink-button:hover {
-            background-color: var(--riggin-main-bg-color);
-            color: var(--riggin-accent-color);
-            border-color: var(--riggin-accent-border-color);
+        body.theme-noire a:hover {
+            color: #fff;
+            border-bottom-color: #eee;
         }
-
-        body[data-theme='riggin'] footer {
-            background-color: var(--riggin-main-bg-color);
-            color: #666666; /* Keep footer text dark grey */
-            border-top-color: var(--riggin-border-color);
+         body.theme-noire .taplink-button {
+            background-color: #555;
+            color: #eee;
+            border-color: #888;
         }
-
-         /* --- Riggin Theme Switcher Style Override --- */
-         body[data-theme='riggin'] .theme-switcher-container label {
-             color: var(--riggin-secondary-text-color);
+         body.theme-noire .taplink-button:hover {
+            background-color: #888;
+            color: #111;
+            border-color: #eee;
+        }
+         body.theme-noire .theme-switcher select {
+            background-color: #333;
+            color: #eee;
+            border-color: #888;
+        }
+         body.theme-noire .theme-switcher select option {
+             background-color: #333;
+             color: #eee;
          }
-         body[data-theme='riggin'] #theme-switcher {
-              background-color: var(--riggin-content-bg-color); /* Dark Grey */
-              color: var(--riggin-text-color); /* White text */
-              border-color: var(--riggin-border-color);
-         }
+         body.theme-noire footer {
+            background-color: #222;
+            color: #555;
+            border-top-color: #555;
+        }
+        body.theme-noire #participate-button {
+            background-color: #555;
+            color: #eee;
+            border-color: #888;
+        }
+        body.theme-noire #participate-button:hover {
+            background-color: #888;
+            color: #111;
+            border-color: #eee;
+        }
+        body.theme-noire #popup-content {
+            background-color: #222;
+            border-color: #888;
+            box-shadow: 0 0 20px rgba(136, 136, 136, 0.5);
+            color: #eee;
+        }
+        body.theme-noire #popup-yes-button {
+            background-color: #555;
+            color: #eee;
+            border-color: #888;
+        }
+        body.theme-noire #popup-yes-button:hover {
+             background-color: #888;
+             color: #111;
+             border-color: #eee;
+        }
 
-        /* --- Responsive adjustments --- */
-        /* (Keep existing @media queries - they should work with both themes) */
+        body.theme-slade {
+            background-color: #222;
+            color: #eee;
+        }
+         body.theme-slade header {
+            background-color: #333;
+            border-bottom-color: #ff6600;
+        }
+        body.theme-slade header h2,
+        body.theme-slade section h2,
+        body.theme-slade section h3 {
+            color: #ff9900;
+        }
+         body.theme-slade header p {
+            color: #ccc;
+        }
+        body.theme-slade section {
+            background-color: #333;
+            border-color: #ff6600;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+        }
+         body.theme-slade #livestream .video-container {
+             border-color: #ff9900;
+             box-shadow: 0 0 10px rgba(255,153,0,0.5);
+        }
+         body.theme-slade .show {
+            background-color: #444;
+            border-left-color: #ff9900;
+        }
+        body.theme-slade .show h3 {
+            color: #ffcc00;
+        }
+         body.theme-slade .show p {
+            color: #ddd;
+        }
+        body.theme-slade a {
+            color: #ff9900;
+            text-decoration: none;
+            border-bottom: 1px dotted #ff6600;
+            padding-bottom: 2px;
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
+        }
+        body.theme-slade a:hover {
+            color: #fff;
+            border-bottom-color: #ffcc00;
+        }
+         body.theme-slade .taplink-button {
+            background-color: #ff6600;
+            color: #222;
+            border-color: #ff9900;
+        }
+         body.theme-slade .taplink-button:hover {
+            background-color: #ff9900;
+            color: #111;
+            border-color: #ffcc00;
+        }
+         body.theme-slade .theme-switcher select {
+            background-color: #444;
+            color: #ff9900;
+            border-color: #ff6600;
+        }
+         body.theme-slade .theme-switcher select option {
+             background-color: #444;
+             color: #ff9900;
+         }
+         body.theme-slade footer {
+            background-color: #333;
+            color: #ff6600;
+            border-top-color: #ff6600;
+        }
+        body.theme-slade #participate-button {
+            background-color: #ff6600;
+            color: #222;
+            border-color: #ff9900;
+        }
+        body.theme-slade #participate-button:hover {
+            background-color: #ff9900;
+            color: #111;
+            border-color: #ffcc00;
+        }
+        body.theme-slade #popup-content {
+            background-color: #333;
+            border-color: #ff9900;
+            box-shadow: 0 0 20px rgba(255, 153, 0, 0.5);
+            color: #eee;
+        }
+        body.theme-slade #popup-yes-button {
+            background-color: #ff6600;
+            color: #222;
+            border-color: #ff9900;
+        }
+        body.theme-slade #popup-yes-button:hover {
+             background-color: #ff9900;
+             color: #111;
+             border-color: #ffcc00;
+        }
+
+
+        body.theme-mr-johnson {
+            background-color: #1a0033;
+            color: #006400;
+        }
+        body.theme-mr-johnson header {
+            background-color: #2a0055;
+            border-bottom-color: #008000;
+        }
+        body.theme-mr-johnson header h2,
+        body.theme-mr-johnson section h2,
+        body.theme-mr-johnson section h3 {
+            color: #00ff00;
+        }
+         body.theme-mr-johnson header p {
+            color: #00aa00;
+        }
+        body.theme-mr-johnson section {
+            background-color: #2a0055;
+            border-color: #008000;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+        }
+         body.theme-mr-johnson #livestream .video-container {
+             border-color: #00ff00;
+             box-shadow: 0 0 10px rgba(0,255,0,0.5);
+        }
+         body.theme-mr-johnson .show {
+            background-color: #3a0066;
+            border-left-color: #00ff00;
+        }
+        body.theme-mr-johnson .show h3 {
+            color: #32cd32;
+        }
+         body.theme-mr-johnson .show p {
+            color: #00cc00;
+        }
+        body.theme-mr-johnson a {
+            color: #00ff00;
+            text-decoration: none;
+            border-bottom: 1px dotted #008000;
+            padding-bottom: 2px;
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
+        }
+        body.theme-mr-johnson a:hover {
+            color: #ffffff;
+            border-bottom-color: #00ff00;
+        }
+         body.theme-mr-johnson .taplink-button {
+            background-color: #008000;
+            color: #1a0033;
+            border-color: #00ff00;
+        }
+         body.theme-mr-johnson .taplink-button:hover {
+            background-color: #00ff00;
+            color: #ffffff;
+            border-color: #32cd32;
+        }
+         body.theme-mr-johnson .theme-switcher select {
+            background-color: #3a0066;
+            color: #00ff00;
+            border-color: #008000;
+        }
+         body.theme-mr-johnson select option {
+             background-color: #3a0066;
+             color: #00ff00;
+         }
+         body.theme-mr-johnson footer {
+            background-color: #2a0055;
+            color: #006400;
+            border-top-color: #008000;
+        }
+        body.theme-mr-johnson #participate-button {
+            background-color: #008000;
+            color: #1a0033;
+            border-color: #00ff00;
+        }
+        body.theme-mr-johnson #participate-button:hover {
+            background-color: #00ff00;
+            color: #ffffff;
+            border-color: #32cd32;
+        }
+         body.theme-mr-johnson #popup-content {
+            background-color: #2a0055;
+            border-color: #00ff00;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            color: #00cc00;
+        }
+        body.theme-mr-johnson #popup-yes-button {
+            background-color: #008000;
+            color: #1a0033;
+            border-color: #00ff00;
+        }
+        body.theme-mr-johnson #popup-yes-button:hover {
+             background-color: #00ff00;
+             color: #ffffff;
+             border-color: #32cd32;
+        }
+
+        /* Albright Theme (Steampunk - Revised) */
+        body.theme-albright {
+            background-color: #281c12; /* Very Dark Brown */
+            color: #cdc8b1; /* Light Beige/Aged Paper */
+        }
+        body.theme-albright header {
+            background-color: #4a392e; /* Darker Brown */
+            border-bottom: 4px solid #b46a00; /* Copper */
+        }
+        body.theme-albright header h2,
+        body.theme-albright section h2,
+        body.theme-albright section h3 {
+            color: #ffc107; /* Amber/Gold */
+            border-bottom-color: #b46a00; /* Copper */
+        }
+        body.theme-albright header p {
+            color: #a1887f; /* Tarnished Brass */
+        }
+        body.theme-albright section {
+            background-color: #4a392e; /* Darker Brown */
+            border: 1px solid #b46a00; /* Copper */
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+        }
+         body.theme-albright #livestream .video-container {
+             border-color: #ffc107; /* Amber/Gold */
+             box-shadow: 0 0 10px rgba(255,193,7,0.6);
+        }
+        body.theme-albright .show {
+            background-color: #6f4f2d; /* Bronze */
+            border-left: 4px solid #cd7f32; /* Another Bronze */
+        }
+        body.theme-albright .show h3 {
+            color: #ffd700; /* Gold */
+        }
+        body.theme-albright .show p {
+            color: #eee; /* Light color for readability */
+        }
+        body.theme-albright a {
+            color: #ffc107; /* Amber/Gold */
+            text-decoration: none;
+            border-bottom: 1px dotted #b46a00; /* Copper */
+            padding-bottom: 2px;
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
+        }
+        body.theme-albright a:hover {
+            color: #fff;
+            border-bottom-color: #ffd700; /* Gold */
+        }
+        body.theme-albright .taplink-button {
+            background-color: #b46a00; /* Copper */
+            color: #281c12; /* Very Dark Brown */
+            border-color: #cd7f32; /* Another Bronze */
+        }
+         body.theme-albright .taplink-button:hover {
+            background-color: #cd7f32; /* Another Bronze */
+            color: #4a392e; /* Darker Brown */
+            border-color: #ffd700; /* Gold */
+        }
+        body.theme-albright .theme-switcher select {
+            background-color: #6f4f2d; /* Bronze */
+            color: #ffc107; /* Amber/Gold */
+            border-color: #b46a00; /* Copper */
+        }
+         body.theme-albright .theme-switcher select option {
+             background-color: #6f4f2d; /* Bronze */
+             color: #ffc107; /* Amber/Gold */
+         }
+        body.theme-albright footer {
+            background-color: #1c120b; /* Even Darker Brown */
+            color: #b46a00; /* Copper */
+            border-top: 1px solid #4a392e; /* Darker Brown */
+        }
+        body.theme-albright #participate-button {
+            background-color: #b46a00; /* Copper */
+            color: #281c12; /* Very Dark Brown */
+            border-color: #cd7f32; /* Another Bronze */
+        }
+        body.theme-albright #participate-button:hover {
+            background-color: #cd7f32; /* Another Bronze */
+            color: #4a392e; /* Darker Brown */
+            border-color: #ffd700; /* Gold */
+        }
+         body.theme-albright #popup-content {
+            background-color: #4a392e; /* Darker Brown */
+            border-color: #ffc107; /* Amber/Gold */
+            box-shadow: 0 0 20px rgba(255, 193, 7, 0.6);
+            color: #cdc8b1; /* Light Beige/Aged Paper */
+        }
+        body.theme-albright #popup-yes-button {
+            background-color: #b46a00; /* Copper */
+            color: #281c12; /* Very Dark Brown */
+            border-color: #cd7f32; /* Another Bronze */
+        }
+        body.theme-albright #popup-yes-button:hover {
+             background-color: #cd7f32; /* Another Bronze */
+             color: #4a392e; /* Darker Brown */
+             border-color: #ffd700; /* Gold */
+        }
+
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            background-color: #1a1a33;
+            color: #666666;
+            font-size: 0.85em;
+            border-top: 1px solid #005b5b;
+            transition: background-color 0.5s ease, color 0.5s ease, border-top-color 0.5s ease;
+        }
+
         @media (max-width: 768px) {
-            main { padding: 0 15px; }
-            h2 { font-size: 1.4em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-            section { padding: 20px; margin-bottom: 20px; }
-            .show { padding: 12px; }
-            .show h3 { font-size: 1em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-            .show p { white-space: normal; overflow: visible; text-overflow: clip; }
-            header h2 { font-size: 1.4em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-            header p { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        }
-        @media (max-width: 480px) {
-             main { padding: 0 10px; }
-            header h2 { font-size: 1.2em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-            section { padding: 15px; margin-bottom: 15px; }
-            h2 { font-size: 1.2em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-             #livestream .video-container { max-width: 100%; margin-left: 0; margin-right: 0; border-left: none; border-right: none; box-shadow: none; }
-             /* Riggin theme shadow override needed for small screens */
-             body[data-theme='riggin'] #livestream .video-container {
-                 box-shadow: none; /* Ensure no glow on mobile for Riggin either */
+            main {
+                padding: 0 15px;
+            }
+            section h2 {
+                font-size: 1.4em;
+                 white-space: nowrap;
+                 overflow: hidden;
+                 text-overflow: ellipsis;
+            }
+             section h3 {
+                font-size: 1.4em;
+                 white-space: nowrap;
+                 overflow: hidden;
+                 text-overflow: ellipsis;
+            }
+            section {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+            .show {
+                padding: 12px;
+            }
+
+            .show h3 {
+                font-size: 1em;
+                 white-space: nowrap;
+                 overflow: hidden;
+                 text-overflow: ellipsis;
+            }
+            .show p {
+                 white-space: normal;
+                 overflow: visible;
+                 text-overflow: clip;
+            }
+            header h2 {
+                 font-size: 1.4em;
+                 white-space: nowrap;
+                 overflow: hidden;
+                 text-overflow: ellipsis;
+            }
+            header p {
+                 white-space: nowrap;
+                 overflow: hidden;
+                 text-overflow: ellipsis;
+            }
+             .theme-switcher select {
+                 font-size: 0.8em;
+                 padding: 4px;
              }
-             #livestream .video-container p { min-height: 0; padding: 10px; }
-             .taplink-button { font-size: 1em; padding: 10px 20px; }
-             .show h3 { font-size: 0.9em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-             .show p { white-space: normal; overflow: visible; text-overflow: clip; }
         }
 
+        @media (max-width: 480px) {
+             main {
+                 padding: 0 10px;
+             }
+            header h2 {
+                font-size: 1.2em;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            section {
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+
+            section h2 {
+                font-size: 1.2em;
+                 white-space: nowrap;
+                 overflow: hidden;
+                 text-overflow: ellipsis;
+            }
+             section h3 {
+                font-size: 1.2em;
+                 white-space: nowrap;
+                 overflow: hidden;
+                 text-overflow: ellipsis;
+            }
+             #livestream .video-container {
+                 max-width: 100%;
+                 margin-left: 0;
+                 margin-right: 0;
+                 border-left: none;
+                 border-right: none;
+                 box-shadow: none;
+            }
+             #livestream .video-container p {
+                 min-height: 0;
+                 padding: 10px;
+             }
+             .taplink-button {
+                 font-size: 1em;
+                 padding: 10px 20px;
+             }
+             .show h3 {
+                 font-size: 0.9em;
+                 white-space: nowrap;
+                 overflow: hidden;
+                 text-overflow: ellipsis;
+             }
+             .show p {
+                  white-space: normal;
+                  overflow: visible;
+                  text-overflow: clip;
+             }
+             .theme-switcher select {
+                 font-size: 0.7em;
+                 padding: 3px;
+             }
+        }
     </style>
 </head>
-<body> <header>
-        <h2>// WILLOW ARMS PUBLIC ACCESS \\</h2>
-        <p>Indie Online Broadcasts</p>
-    </header>
+<body>
+
+    <button id="participate-button">Participate</button>
+
+    <div id="popup-overlay">
+        <div id="popup-content">
+            <p>You've come here in search of release, huh?</p>
+            <button id="popup-yes-button">Yes</button>
+        </div>
+    </div>
+
+    <header>
+        <h2>// WILLOW ARMS PUBLIC ACCESS \\</h2> <p>Indie Online Broadcasts</p> </header>
 
     <main>
         <section id="livestream">
-            <h2>[tune in]</h2>
-            <div class="video-container">
-                 <iframe src="https://player.kick.com/willowarmspublicaccess" height="720" width="1280" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
-            </div>
+            <h2>[tune in]</h2> <div class="video-container">
+                 <iframe src="https://player.kick.com/willowarmspublicaccess" height="720" width="1280" frameborder="0" scrolling="no" allowfullscreen="true"></iframe> </div>
         </section>
 
         <section id="about">
-            <h2>[who are we]</h2>
-            <p>Willow Arms Public Access is your source for truly independent internet television. We're an online broadcast experiment featuring live streams, unique shows, and unfiltered content outside the mainstream. If you're searching for offbeat online TV or a community public access vibe, you've found it.</p>
-        </section>
+            <h2>[who are we]</h2> <p>Willow Arms Public Access is your source for truly independent internet television. We're an online broadcast experiment featuring live streams, unique shows, and unfiltered content outside the mainstream. If you're searching for offbeat online TV or a community public access vibe, you've found it.</p> </section>
 
         <section id="shows">
-            <h2>[lineup]</h2>
-            <p>Explore the programming lineup on Willow Arms Public Access:</p>
+            <h2>[lineup]</h2> <p>Explore the programming lineup on Willow Arms Public Access:</p> <div class="show">
+                <h3>:: The Bonfire Podcast :: Live Discussions & Rambling</h3> <p>Tune into The Bonfire Podcast live stream or catch reruns. It's an unfiltered discussion show covering anything and everything, like a digital gathering around a late-night fire. Expect tangents, strong opinions, and maybe a little bit of chaos. It's our main talk show broadcast.</p> </div>
+
             <div class="show">
-                <h3>:: The Bonfire Podcast :: Live Discussions & Rambling</h3>
-                <p>Tune into The Bonfire Podcast live stream or catch reruns. It's an unfiltered discussion show covering anything and everything, like a digital gathering around a late-night fire. Expect tangents, strong opinions, and maybe a little bit of chaos. It's our main talk show broadcast.</p>
+                <h3>:: [vibe]rations :: Offbeat Music Videos</h3> <p>[vibe]rations brings you a curated selection of unique and offbeat music videos. From lo-fi visuals to experimental sounds, this show is like finding a hidden signal of digital art and music. Great for discovering new vibes on our internet TV channel.</p> </div>
+
+            <div class="show">
+                <h3>:: POV: mom & dad are fighting again :: Experimental Broadcast</h3> <p>Experience 'POV: mom & dad are fighting again,' one of our most unique online shows. It's an experimental broadcast blending old TV signals, nostalgic aesthetics, and background ambiance. A lo-fi, dreamlike journey into the uncomfortable familiar.</p> </div>
+
+            <div class="show">
+                <h3>:: [iinnermission] :: Lo-fi Live Stream</h3> <p>Need to chill? [iinnermission] is our lo-fi live stream designed for focus, relaxation, or just background ambiance. Calming visuals and sounds from the Willow Arms universe. A perfect stream for downtime on the internet.</p> </div>
+        </section>
+
+         <section id="merch">
+            <h2>[MERCH]</h2>
+            <div style="border: 1px solid #00a3a3; padding: 10px; background-color: #1a1a33; box-sizing: border-box; width: 100%; overflow: hidden;">
+                <iframe src="https://wapashop.printify.me"
+                        style="width: 100%; height: 600px; border: none;">
+                    <p>Your browser does not support iframes. Please visit the <a href="https://wapashop.printify.me">Merch Store</a> directly.</p>
+                </iframe>
             </div>
-            <div class="show">
-                <h3>:: [vibe]rations :: Offbeat Music Videos</h3>
-                <p>[vibe]rations brings you a curated selection of unique and offbeat music videos. From lo-fi visuals to experimental sounds, this show is like finding a hidden signal of digital art and music. Great for discovering new vibes on our internet TV channel.</p>
-            </div>
-            <div class="show">
-                <h3>:: POV: mom & dad are fighting again :: Experimental Broadcast</h3>
-                <p>Experience 'POV: mom & dad are fighting again,' one of our most unique online shows. It's an experimental broadcast blending old TV signals, nostalgic aesthetics, and background ambiance. A lo-fi, dreamlike journey into the uncomfortable familiar.</p>
-            </div>
-            <div class="show">
-                <h3>:: [iinnermission] :: Lo-fi Live Stream</h3>
-                <p>Need to chill? [iinnermission] is our lo-fi live stream designed for focus, relaxation, or just background ambiance. Calming visuals and sounds from the Willow Arms universe. A perfect stream for downtime on the internet.</p>
+        </section>
+
+        <section id="tiktok-feed">
+            <h2>[LATEST TIKTOKS]</h2> <div class="tiktok-container">
+                <div class='sk-tiktok-feed' data-embed-id='25553721'></div><script src='https://widgets.sociablekit.com/tiktok-feed/widget.js' defer></script>
             </div>
         </section>
 
         <section id="contact">
-            <h3>[wapa connections]</h3>
-            <p>Find all our links and ways to connect:</p>
-            <div class="contact-button-container">
+            <h2>[wapa connections]</h2> <p>Find all our links and ways to connect:</p> <div class="contact-button-container">
                 <a href="https://taplink.cc/wapaccess" class="taplink-button" target="_blank" rel="noopener noreferrer">
                     Links
                 </a>
@@ -450,50 +935,133 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Willow Arms Public Access. Your source for offbeat internet TV.</p>
-
-        <div class="theme-switcher-container">
-            <label for="theme-switcher">Theme:</label>
-            <select id="theme-switcher">
-                <option value="default">Default</option>
-                <option value="riggin">Riggin</option>
-                </select>
+        <p>&copy; 2025 Willow Arms Public Access. <br> Your source for offbeat internet TV.</p> <div class="theme-switcher">
+            <label for="theme-select">Choose Theme:</label>
+            <select id="theme-select">
+                <option value="default">Default Theme</option>
+                <option value="noire">Noire Theme</option>
+                <option value="slade">Slade Theme</option>
+                <option value="mr-johnson">Mr. Johnson Theme</option>
+                <option value="albright">Albright Theme</option>
+                <option value="riggin">Riggin Theme</option>
+            </select>
         </div>
     </footer>
 
     <script>
-        const themeSwitcher = document.getElementById('theme-switcher');
-        const body = document.body;
-        const currentTheme = localStorage.getItem('wapaTheme'); // Check local storage for saved theme
+        const participateButton = document.getElementById('participate-button');
+        const popupOverlay = document.getElementById('popup-overlay');
+        const popupYesButton = document.getElementById('popup-yes-button');
+        let buttonX, buttonY, dx, dy;
+        const buttonSize = 60;
+        const speed = 3;
 
-        // Function to apply the theme
-        function applyTheme(theme) {
-            if (theme === 'riggin') {
-                body.dataset.theme = 'riggin';
-            } else {
-                // Default theme - remove the attribute
-                body.removeAttribute('data-theme');
+        function setTheme(themeName) {
+            document.body.classList.remove('theme-noire', 'theme-slade', 'theme-mr-johnson', 'theme-albright', 'theme-riggin');
+            if (themeName !== 'default') {
+                document.body.classList.add('theme-' + themeName);
             }
-            // Update the dropdown to reflect the current theme
-            themeSwitcher.value = theme;
+            localStorage.setItem('wapTheme', themeName);
+            const themeSelect = document.getElementById('theme-select');
+            if (themeSelect) {
+                 themeSelect.value = themeName;
+            }
         }
 
-        // Apply saved theme on page load
-        if (currentTheme) {
-            applyTheme(currentTheme);
-        } else {
-            // Default to 'default' if no theme saved
-             applyTheme('default');
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('wapTheme');
+            if (savedTheme) {
+                setTheme(savedTheme);
+            } else {
+                setTheme('default');
+            }
         }
 
-        // Event listener for theme changes
-        themeSwitcher.addEventListener('change', function() {
-            const selectedTheme = this.value;
-            applyTheme(selectedTheme);
-            // Save the selected theme to local storage
-            localStorage.setItem('wapaTheme', selectedTheme);
+        function initializeButton() {
+            const maxAttempts = 10;
+            let attempts = 0;
+
+            while (attempts < maxAttempts) {
+                buttonX = Math.random() * (window.innerWidth - buttonSize);
+                buttonY = Math.random() * (window.innerHeight - buttonSize);
+
+                const distanceToBottomRight = Math.sqrt(
+                    Math.pow(window.innerWidth - buttonSize - buttonX, 2) +
+                    Math.pow(window.innerHeight - buttonSize - buttonY, 2)
+                );
+
+                if (distanceToBottomRight > 100) {
+                    break;
+                }
+                attempts++;
+            }
+
+            dx = (Math.random() - 0.5) * 2 * speed;
+            dy = (Math.random() - 0.5) * 2 * speed;
+            if (dx === 0 && dy === 0) {
+                 dx = speed;
+            }
+
+            participateButton.style.left = buttonX + 'px';
+            participateButton.style.top = buttonY + 'px';
+            participateButton.style.display = 'block';
+        }
+
+        function updateButtonPosition() {
+            buttonX += dx;
+            buttonY += dy;
+
+            if (buttonX + buttonSize > window.innerWidth || buttonX < 0) {
+                dx = -dx;
+                if (buttonX < 0) buttonX = 0;
+                if (buttonX + buttonSize > window.innerWidth) buttonX = window.innerWidth - buttonSize;
+            }
+
+            if (buttonY + buttonSize > window.innerHeight || buttonY < 0) {
+                dy = -dy;
+                if (buttonY < 0) buttonY = 0;
+                if (buttonY + buttonSize > window.innerHeight) buttonY = window.innerHeight - buttonSize;
+            }
+
+            participateButton.style.left = buttonX + 'px';
+            participateButton.style.top = buttonY + 'px';
+        }
+
+        let animationInterval;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeSelect = document.getElementById('theme-select');
+
+            if (themeSelect) {
+                themeSelect.addEventListener('change', (event) => {
+                    const selectedTheme = event.target.value;
+                    setTheme(selectedTheme);
+                });
+            }
+
+            if (participateButton && popupOverlay && popupYesButton) {
+                initializeButton();
+                animationInterval = setInterval(updateButtonPosition, 30);
+
+                participateButton.addEventListener('click', () => {
+                    participateButton.style.display = 'none';
+                    popupOverlay.style.display = 'flex';
+                    clearInterval(animationInterval);
+                });
+
+                popupYesButton.addEventListener('click', () => {
+                    popupOverlay.style.display = 'none';
+                });
+            }
+
+            loadTheme();
         });
-    </script>
 
+         window.addEventListener('resize', () => {
+              if (participateButton && participateButton.style.display !== 'none') {
+                   initializeButton();
+              }
+         });
+    </script>
 </body>
 </html>
