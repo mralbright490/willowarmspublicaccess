@@ -68,12 +68,8 @@
             transition: background-color 0.5s ease, border-color 0.5s ease;
         }
 
-        /* Removed .bar-left, .bar-center, .bar-right styles */
-
-        /* Removed button styles from controls bar */
 
         #controls-bar .theme-switcher {
-             /* Styles remain largely the same, ensure proper alignment */
              margin: 0;
              padding: 0;
              border: none;
@@ -98,7 +94,20 @@
              background-position: calc(100% - 8px) center, calc(100% - 4px) center;
              background-size: 4px 4px, 4px 4px;
              background-repeat: no-repeat;
-             /* Inherits base background/border/color from .theme-switcher select */
+             /* Inherits base background/border/color */
+             appearance: none; /* Standard property */
+             -webkit-appearance: none; /* Safari/Chrome */
+             -moz-appearance: none; /* Firefox */
+             cursor: pointer;
+             border-radius: 4px;
+             border: 1px solid #00a3a3; /* Base border */
+             background-color: #1a1a33; /* Base background */
+             color: #00e6e6; /* Base text color */
+             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+        #controls-bar .theme-switcher select option {
+             background-color: #1a1a33;
+             color: #00e6e6;
         }
         /* --- End Controls Bar Styling --- */
 
@@ -233,23 +242,28 @@
              transition: color 0.5s ease;
         }
 
-        /* --- Styling for Iframe Containers (Merch, TikTok, Links) --- */
-        .iframe-container { /* Generic container for embedded content */
+        /* --- Styling for Iframe Containers (Merch, TikTok, Links, Discord) --- */
+        .iframe-container {
             border: 1px solid #00a3a3;
             padding: 10px;
             background-color: #1a1a33;
             box-sizing: border-box;
             width: 100%;
-            overflow: hidden; /* Hide scrollbars on container */
-             transition: border-color 0.5s ease, background-color 0.5s ease;
+            overflow: hidden;
+            transition: border-color 0.5s ease, background-color 0.5s ease;
         }
 
         .iframe-container iframe {
             width: 100%;
-            height: 600px; /* Default height, adjust per section if needed */
+            height: 600px; /* Default height */
             border: none;
-            display: block; /* Prevent extra space below iframe */
+            display: block;
         }
+         /* Specific height for Discord Widget */
+         #discord-widget .iframe-container iframe {
+             height: 500px;
+         }
+
 
         .iframe-container p { /* Fallback text style */
              text-align: center;
@@ -259,9 +273,9 @@
              transition: color 0.5s ease;
         }
 
-        #tiktok-feed .iframe-container { /* Specific adjustments for TikTok if needed */
-             height: 500px; /* Override default height */
-             overflow-y: scroll; /* Allow scrolling *within* TikTok container */
+        #tiktok-feed .iframe-container { /* Specific adjustments for TikTok */
+             height: 500px;
+             overflow-y: scroll;
         }
          #tiktok-feed .iframe-container p { /* TikTok specific fallback adjustments */
              position: static;
@@ -379,19 +393,19 @@
         }
 
         /* --- Theme Styles --- */
+        /* Add .iframe-container theme styles */
         /* --- Theme: Noire --- */
         body.theme-noire { background-color: #111; color: #eee; }
         body.theme-noire header { background-color: #222; border-bottom-color: #555; }
         body.theme-noire #controls-bar { background-color: #2a2a2a; border-bottom-color: #555; }
         body.theme-noire #controls-bar .theme-switcher { color: #bbb; }
-        /* Removed button theme styles from controls bar */
         body.theme-noire #controls-bar .theme-switcher select { background-color: #333; color: #eee; border-color: #888; }
         body.theme-noire #controls-bar .theme-switcher select option { background-color: #333; color: #eee; }
         body.theme-noire header h2, body.theme-noire section h2, body.theme-noire section h3 { color: #fff; border-bottom-color: #555; }
         body.theme-noire header p { color: #bbb; }
         body.theme-noire section { background-color: #222; border-color: #555; box-shadow: 5px 5px 15px rgba(0,0,0,0.5); }
-        body.theme-noire .iframe-container { border-color: #555; background-color: #222; } /* Theme iframe container */
-        body.theme-noire .iframe-container p { color: #bbb; } /* Theme iframe fallback text */
+        body.theme-noire .iframe-container { border-color: #555; background-color: #222; }
+        body.theme-noire .iframe-container p { color: #bbb; }
         body.theme-noire #livestream .video-container { border-color: #fff; box-shadow: 0 0 10px rgba(255,255,255,0.3); }
         body.theme-noire .show { background-color: #333; border-left-color: #888; }
         body.theme-noire .show h3 { color: #eee; }
@@ -408,14 +422,13 @@
         body.theme-slade header { background-color: #333; border-bottom-color: #ff6600; }
         body.theme-slade #controls-bar { background-color: #3a3a3a; border-bottom-color: #ff6600; }
         body.theme-slade #controls-bar .theme-switcher { color: #ccc; }
-        /* Removed button theme styles from controls bar */
         body.theme-slade #controls-bar .theme-switcher select { background-color: #444; color: #ff9900; border-color: #ff6600; }
         body.theme-slade #controls-bar .theme-switcher select option { background-color: #444; color: #ff9900; }
         body.theme-slade header h2, body.theme-slade section h2, body.theme-slade section h3 { color: #ff9900; border-bottom-color: #ff6600; }
         body.theme-slade header p { color: #ccc; }
         body.theme-slade section { background-color: #333; border-color: #ff6600; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); }
-        body.theme-slade .iframe-container { border-color: #ff6600; background-color: #333; } /* Theme iframe container */
-        body.theme-slade .iframe-container p { color: #ccc; } /* Theme iframe fallback text */
+        body.theme-slade .iframe-container { border-color: #ff6600; background-color: #333; }
+        body.theme-slade .iframe-container p { color: #ccc; }
         body.theme-slade #livestream .video-container { border-color: #ff9900; box-shadow: 0 0 10px rgba(255,153,0,0.5); }
         body.theme-slade .show { background-color: #444; border-left-color: #ff9900; }
         body.theme-slade .show h3 { color: #ffcc00; }
@@ -432,14 +445,13 @@
         body.theme-mr-johnson header { background-color: #2a0055; border-bottom-color: #008000; color: #00ff00; }
         body.theme-mr-johnson #controls-bar { background-color: #300060; border-bottom-color: #008000; }
         body.theme-mr-johnson #controls-bar .theme-switcher { color: #00aa00; }
-        /* Removed button theme styles from controls bar */
         body.theme-mr-johnson #controls-bar .theme-switcher select { background-color: #3a0066; color: #00ff00; border-color: #008000; }
         body.theme-mr-johnson #controls-bar .theme-switcher select option { background-color: #3a0066; color: #00ff00; }
         body.theme-mr-johnson header h2, body.theme-mr-johnson section h2, body.theme-mr-johnson section h3 { color: #00ff00; border-bottom-color: #008000; }
         body.theme-mr-johnson header p { color: #00aa00; }
         body.theme-mr-johnson section { background-color: rgba(42, 0, 85, 0.85); border-color: #008000; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); }
-        body.theme-mr-johnson .iframe-container { border-color: #008000; background-color: rgba(42, 0, 85, 0.85); } /* Theme iframe container */
-        body.theme-mr-johnson .iframe-container p { color: #00aa00; } /* Theme iframe fallback text */
+        body.theme-mr-johnson .iframe-container { border-color: #008000; background-color: rgba(42, 0, 85, 0.85); }
+        body.theme-mr-johnson .iframe-container p { color: #00aa00; }
         body.theme-mr-johnson #livestream .video-container { border-color: #00ff00; box-shadow: 0 0 10px rgba(0,255,0,0.5); }
         body.theme-mr-johnson .show { background-color: rgba(58, 0, 102, 0.9); border-left-color: #00ff00; }
         body.theme-mr-johnson .show h3 { color: #32cd32; }
@@ -456,14 +468,13 @@
         body.theme-albright header { background-color: rgba(74, 57, 46, 0.85); border-bottom: 4px solid #b46a00; color: #ffc107; }
         body.theme-albright #controls-bar { background-color: rgba(90, 70, 55, 0.9); border-bottom-color: #b46a00; }
         body.theme-albright #controls-bar .theme-switcher { color: #a1887f; }
-        /* Removed button theme styles from controls bar */
         body.theme-albright #controls-bar .theme-switcher select { background-color: #6f4f2d; color: #ffc107; border-color: #b46a00; }
         body.theme-albright #controls-bar .theme-switcher select option { background-color: #6f4f2d; color: #ffc107; }
         body.theme-albright header h2, body.theme-albright section h2, body.theme-albright section h3 { color: #ffc107; border-bottom-color: #b46a00; }
         body.theme-albright header p { color: #a1887f; }
         body.theme-albright section { background-color: rgba(74, 57, 46, 0.85); border: 1px solid #b46a00; box-shadow: 5px 5px 15px rgba(0,0,0,0.6); }
-        body.theme-albright .iframe-container { border-color: #b46a00; background-color: rgba(74, 57, 46, 0.85); } /* Theme iframe container */
-        body.theme-albright .iframe-container p { color: #a1887f; } /* Theme iframe fallback text */
+        body.theme-albright .iframe-container { border-color: #b46a00; background-color: rgba(74, 57, 46, 0.85); }
+        body.theme-albright .iframe-container p { color: #a1887f; }
         body.theme-albright #livestream .video-container { border-color: #ffc107; box-shadow: 0 0 10px rgba(255,193,7,0.6); }
         body.theme-albright .show { background-color: rgba(111, 79, 45, 0.9); border-left: 4px solid #cd7f32; }
         body.theme-albright .show h3 { color: #ffd700; }
@@ -480,14 +491,13 @@
         body.theme-riggin header { background-color: #1a1a1a; border-bottom: 4px solid #FF8C00; color: #FFA500; }
         body.theme-riggin #controls-bar { background-color: #222222; border-bottom-color: #FF8C00; }
         body.theme-riggin #controls-bar .theme-switcher { color: #FFD700; }
-        /* Removed button theme styles from controls bar */
         body.theme-riggin #controls-bar .theme-switcher select { background-color: #333333; color: #FFA500; border-color: #FF8C00; }
         body.theme-riggin #controls-bar .theme-switcher select option { background-color: #333333; color: #FFA500; }
         body.theme-riggin header h2 { color: #FFA500; }
         body.theme-riggin header p { color: #FFD700; }
         body.theme-riggin section { background-color: #1a1a1a; border: 1px solid #FF8C00; box-shadow: 5px 5px 15px rgba(50,50,50,0.4); }
-        body.theme-riggin .iframe-container { border-color: #FF8C00; background-color: #1a1a1a; } /* Theme iframe container */
-        body.theme-riggin .iframe-container p { color: #FFD700; } /* Theme iframe fallback text */
+        body.theme-riggin .iframe-container { border-color: #FF8C00; background-color: #1a1a1a; }
+        body.theme-riggin .iframe-container p { color: #FFD700; }
         body.theme-riggin section h2, body.theme-riggin section h3 { color: #FFA500; border-bottom-color: #FF8C00; }
         body.theme-riggin #livestream .video-container { border-color: #FFA500; box-shadow: 0 0 10px rgba(255,165,0,0.6); }
         body.theme-riggin .show { background-color: #333333; border-left: 4px solid #FFA500; }
@@ -517,12 +527,10 @@
             main {
                 padding: 0 15px;
             }
-            /* Adjust controls bar layout */
             #controls-bar {
                  padding: 8px 15px;
-                 justify-content: center; /* Center theme switcher when wrapped */
+                 justify-content: center;
             }
-            /* Removed responsive styles for bar wrappers */
 
             section h2, section h3 {
                 font-size: 1.4em;
@@ -537,7 +545,6 @@
             .show {
                 padding: 12px;
             }
-
             .show h3 {
                 font-size: 1em;
                  white-space: nowrap;
@@ -566,12 +573,10 @@
              main {
                  padding: 0 10px;
              }
-             /* Further adjust controls bar */
              #controls-bar {
                  padding: 6px 10px;
-                 justify-content: center; /* Ensure centering */
+                 justify-content: center;
              }
-              /* Removed button adjustments */
              #controls-bar .theme-switcher label {
                  font-size: 0.75em;
              }
@@ -581,7 +586,6 @@
                  background-position: calc(100% - 6px) center, calc(100% - 3px) center;
                  background-size: 3px 3px, 3px 3px;
              }
-             /* Removed wrapper adjustments */
 
             header h2 {
                 font-size: 1.2em;
@@ -602,10 +606,13 @@
                  text-overflow: ellipsis;
             }
              .iframe-container iframe {
-                 height: 500px; /* Adjust height for smaller screens if needed */
+                 height: 500px;
              }
+              #discord-widget .iframe-container iframe {
+                  height: 450px; /* Slightly shorter for Discord widget on small screens */
+              }
              #tiktok-feed .iframe-container {
-                 height: 400px; /* Adjust TikTok height too */
+                 height: 400px;
              }
              #livestream .video-container {
                  max-width: 100%;
@@ -682,17 +689,14 @@
                 <h3>:: The Bonfire Podcast :: Live Discussions & Rambling</h3>
                 <p>Tune into The Bonfire Podcast live stream or catch reruns. It's an unfiltered discussion show covering anything and everything, like a digital gathering around a late-night fire. Expect tangents, strong opinions, and maybe a little bit of chaos. It's our main talk show broadcast.</p>
             </div>
-
             <div class="show">
                 <h3>:: [vibe]rations :: Offbeat Music Videos</h3>
                 <p>[vibe]rations brings you a curated selection of unique and offbeat music videos. From lo-fi visuals to experimental sounds, this show is like finding a hidden signal of digital art and music. Great for discovering new vibes on our internet TV channel.</p>
             </div>
-
             <div class="show">
                 <h3>:: POV: mom & dad are fighting again :: Experimental Broadcast</h3>
                 <p>Experience 'POV: mom & dad are fighting again,' one of our most unique online shows. It's an experimental broadcast blending old TV signals, nostalgic aesthetics, and background ambiance. A lo-fi, dreamlike journey into the uncomfortable familiar.</p>
             </div>
-
             <div class="show">
                 <h3>:: [iinnermission] :: Lo-fi Live Stream</h3>
                 <p>Need to chill? [iinnermission] is our lo-fi live stream designed for focus, relaxation, or just background ambiance. Calming visuals and sounds from the Willow Arms universe. A perfect stream for downtime on the internet.</p>
@@ -710,18 +714,30 @@
 
         <section id="tiktok-feed">
             <h2>[LATEST TIKTOKS]</h2>
-            <div class="iframe-container">
+             <div class="iframe-container">
                 <div class='sk-tiktok-feed' data-embed-id='25553721'></div><script src='https://widgets.sociablekit.com/tiktok-feed/widget.js' defer></script>
-                </div>
+             </div>
         </section>
 
         <section id="links-embed">
             <h2>[links]</h2>
-             <div class="iframe-container">
+            <div class="iframe-container">
                 <iframe src="https://taplink.cc/wapaccess">
                     <p>Your browser does not support iframes. Please visit our <a href="https://taplink.cc/wapaccess">Links Page</a> directly.</p>
                 </iframe>
             </div>
+        </section>
+
+        <section id="discord-widget">
+            <h2>[discord]</h2>
+             <div class="iframe-container">
+
+                 <iframe src="https://discord.com/widget?id=1224858781863907419&theme=dark"
+                         allowtransparency="true" frameborder="0"
+                         sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+                    <p>Your browser does not support iframes, or the widget is not enabled. <a href="#">Join our Discord!</a></p> </iframe>
+
+                 </div>
         </section>
         </main>
 
@@ -730,7 +746,7 @@
     </footer>
 
     <script>
-        // Javascript remains the same as previous version
+        // Javascript remains the same
         const participateButton = document.getElementById('participate-button');
         const popupOverlay = document.getElementById('popup-overlay');
         const popupYesButton = document.getElementById('popup-yes-button');
