@@ -457,7 +457,13 @@
         body.theme-mr-johnson #controls-bar .theme-switcher select option { background-color: #3a0066; color: #00ff00; }
         body.theme-mr-johnson header h2, body.theme-mr-johnson section h2, body.theme-mr-johnson section h3 { color: #00ff00; border-bottom-color: #008000; }
         body.theme-mr-johnson header p { color: #00aa00; }
-        body.theme-mr-johnson section { background: rgba(42, 0, 85, 0.85); border-color: #008000; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); color: #00cc00; } /* Use shorthand background */
+        /* MODIFIED Mr. Johnson Section */
+        body.theme-mr-johnson section {
+            background: linear-gradient(rgba(42, 0, 85, 0.85), rgba(42, 0, 85, 0.85)), url('purpmarb.png') center center / cover no-repeat; /* <-- REPLACE with your section image */
+            border-color: #008000;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+            color: #00cc00;
+        }
         body.theme-mr-johnson .iframe-container { border-color: #008000; background-color: rgba(42, 0, 85, 0.85); }
         body.theme-mr-johnson .iframe-container p { color: #00aa00; }
         body.theme-mr-johnson #livestream .video-container { border-color: #00ff00; box-shadow: 0 0 10px rgba(0,255,0,0.5); }
