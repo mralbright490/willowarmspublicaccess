@@ -4,71 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>[ wapa broadcasting ]</title>
-    <meta name="description" content="Tune into Willow Arms Public Access, an offbeat internet TV channel featuring live streams, the Bonfire Podcast, unique music videos ([vibe]rations), experimental shows like 'POV: mom & dad are fighting again', and lo-fi streams ([iinnermission]). Discover weird online broadcasts.">
+    <meta name="description" content="Tune into Willow Arms Public Access, an offbeat internet TV channel featuring live streams, The Bonfire Podcast, DogPound, unique music videos ([vibe]rations), experimental shows like 'POV: mom & dad are fighting again', and lo-fi streams ([iinnermission]). Discover weird online broadcasts.">
     <link rel="icon" href="wapabroadcastlogo.ico" type="image/x-icon">
     <script src="https://w.soundcloud.com/player/api.js"></script>
     <style>
-
-    
     body.theme-afterlounge {
-        background-image: url('afterlounge.png'); 
+        background-image: url('afterlounge.png');
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center center;
-        background-color: #0c0c1a; 
+        background-color: #0c0c1a;
     }
-
-    
     body.theme-afterlounge section {
-        
-        background-color: rgba(26, 26, 51, 0.85); 
-        color: #ffffff; 
-        border: 1px solid #008b8b; 
-        
+        background-color: rgba(26, 26, 51, 0.85);
+        color: #ffffff;
+        border: 1px solid #008b8b;
     }
-
-    
     body.theme-afterlounge section h2,
     body.theme-afterlounge section h3 {
-        color: #00e6e6; 
+        color: #00e6e6;
         border-bottom-color: #00a3a3;
     }
     body.theme-afterlounge .show {
-        background-color: rgba(42, 42, 77, 0.9); 
-        border-left-color: #00e6e6; 
+        background-color: rgba(42, 42, 77, 0.9);
+        border-left-color: #00e6e6;
     }
     body.theme-afterlounge .show h3 {
-        color: #00e6e6; 
+        color: #00e6e6;
     }
      body.theme-afterlounge .show p {
-        color: #dddddd; 
+        color: #dddddd;
     }
-    body.theme-afterlounge .iframe-container { 
+    body.theme-afterlounge .iframe-container {
         background-color: rgba(26, 26, 51, 0.85);
         border-color: #008b8b;
     }
      body.theme-afterlounge .iframe-container p {
         color: #dddddd;
     }
-     body.theme-afterlounge #livestream .video-container { 
+     body.theme-afterlounge #livestream .video-container {
         border-color: #00e6e6;
         box-shadow: 0 0 10px rgba(0, 230, 230, 0.5);
      }
-    
 
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0c0c1a; 
+            background-color: #0c0c1a;
             color: #cccccc;
             line-height: 1.5;
             overflow-x: hidden;
             font-size: 16px;
-            transition: background-color 0.5s ease, color 0.5s ease, background-image 0.5s ease; 
+            transition: background-color 0.5s ease, color 0.5s ease, background-image 0.5s ease;
         }
-
         header {
             background-color: #1a1a33;
             color: #00e6e6;
@@ -77,7 +67,6 @@
             border-bottom: 4px solid #005b5b;
             transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
         }
-
         header h2 {
             margin-top: 0;
             font-size: 2em;
@@ -91,7 +80,6 @@
             margin-bottom: 0;
             transition: color 0.5s ease;
         }
-
         header p {
             font-size: 1em;
             color: #999999;
@@ -103,13 +91,11 @@
             margin-bottom: 0;
             transition: color 0.5s ease;
         }
-
-        
         #controls-bar {
             background-color: #1f1f3d;
             padding: 8px 20px;
             display: flex;
-            justify-content: flex-end; 
+            justify-content: flex-end;
             align-items: center;
             border-bottom: 1px solid #005b5b;
             margin-bottom: 30px;
@@ -117,7 +103,6 @@
             gap: 10px;
             transition: background-color 0.5s ease, border-color 0.5s ease;
         }
-
         #controls-bar .theme-switcher {
              margin: 0;
              padding: 0;
@@ -128,14 +113,12 @@
              gap: 8px;
              transition: color 0.5s ease;
         }
-
         #controls-bar .theme-switcher label {
             margin-right: 0;
             font-size: 0.85em;
             text-transform: uppercase;
             white-space: nowrap;
         }
-
         #controls-bar .theme-switcher select {
             font-size: 0.85em;
             padding: 4px 20px 4px 8px;
@@ -157,33 +140,27 @@
              background-color: #1a1a33;
              color: #00e6e6;
         }
-        
-
         main {
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
             box-sizing: border-box;
         }
-
         section {
-            
             background-color: #1a1a33;
             padding: 25px;
             margin-bottom: 25px;
-            border: 1px solid #005b5b; 
+            border: 1px solid #005b5b;
             box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
             box-sizing: border-box;
-            transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, color 0.5s ease, background 0.5s ease; 
+            transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, color 0.5s ease, background 0.5s ease;
         }
-
         main section:last-child {
             margin-bottom: 0;
         }
-
         section h2 {
-            color: #00a3a3; 
-            border-bottom: 2px solid #005b5b; 
+            color: #00a3a3;
+            border-bottom: 2px solid #005b5b;
             padding-bottom: 8px;
             margin-top: 0;
             margin-bottom: 20px;
@@ -196,10 +173,9 @@
             max-width: 100%;
             transition: color 0.5s ease, border-color 0.5s ease;
         }
-
          section h3 {
-             color: #00a3a3; 
-             border-bottom: 2px solid #005b5b; 
+             color: #00a3a3;
+             border-bottom: 2px solid #005b5b;
              padding-bottom: 8px;
              margin-top: 0;
              margin-bottom: 20px;
@@ -212,14 +188,12 @@
              max-width: 100%;
              transition: color 0.5s ease, border-color 0.5s ease;
          }
-
         p {
-            color: #cccccc; 
+            color: #cccccc;
             margin-bottom: 15px;
             word-break: break-word;
             transition: color 0.5s ease;
         }
-
         #livestream .video-container {
             position: relative;
             max-width: 1280px;
@@ -228,12 +202,11 @@
             height: 0;
             overflow: hidden;
             background-color: #000;
-            border: 2px solid #00e6e6; 
-            box-shadow: 0 0 10px rgba(0, 230, 230, 0.5); 
+            border: 2px solid #00e6e6;
+            box-shadow: 0 0 10px rgba(0, 230, 230, 0.5);
             box-sizing: border-box;
             transition: border-color 0.5s ease, box-shadow 0.5s ease;
         }
-
         #livestream .video-container iframe {
             position: absolute;
             top: 0;
@@ -242,7 +215,6 @@
             height: 100%;
             border: none;
         }
-
         #livestream .video-container p {
              position: absolute;
              top: 0;
@@ -261,20 +233,18 @@
              z-index: 1;
              max-width: 100%;
         }
-
         .show {
             margin-bottom: 20px;
             padding: 15px;
-            background-color: #2a2a4d; 
-            border-left: 4px solid #00a3a3; 
+            background-color: #2a2a4d;
+            border-left: 4px solid #00a3a3;
             box-sizing: border-box;
             transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
         }
-
         .show h3 {
             margin-top: 0;
             margin-bottom: 8px;
-            color: #00e6e6; 
+            color: #00e6e6;
             font-size: 1.3em;
             white-space: nowrap;
             overflow: hidden;
@@ -282,57 +252,48 @@
             display: block;
             transition: color 0.5s ease;
         }
-
         .show p {
-            color: #bbbbbb; 
+            color: #bbbbbb;
             font-size: 0.95em;
              word-break: break-word;
              transition: color 0.5s ease;
         }
-
-        
         .iframe-container {
-            border: 1px solid #00a3a3; 
+            border: 1px solid #00a3a3;
             padding: 10px;
-            background-color: #1a1a33; 
+            background-color: #1a1a33;
             box-sizing: border-box;
             width: 100%;
             overflow: hidden;
             transition: border-color 0.5s ease, background-color 0.5s ease;
         }
-
         .iframe-container iframe {
             width: 100%;
-            height: 600px; 
+            height: 600px;
             border: none;
             display: block;
         }
-
-        .iframe-container p { 
+        .iframe-container p {
              text-align: center;
-             color: #999999; 
+             color: #999999;
              font-size: 0.9em;
              margin-bottom: 0;
              transition: color 0.5s ease;
         }
-
-        #tiktok-feed .iframe-container { 
+        #tiktok-feed .iframe-container {
              height: 500px;
              overflow-y: scroll;
         }
-         #tiktok-feed .iframe-container p { 
+         #tiktok-feed .iframe-container p {
              position: static;
              width: auto;
              height: auto;
              padding: 0;
          }
-
-        
-
         #participate-button {
             position: fixed;
             z-index: 1000;
-            display: none; 
+            display: none;
             padding: 10px 15px;
             background-color: #00a3a3;
             color: #1a1a33;
@@ -344,13 +305,11 @@
             box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
-
         #participate-button:hover {
              background-color: #00e6e6;
              color: #1a1a33;
              border-color: #00a3a3;
         }
-
         #popup-overlay {
             position: fixed;
             top: 0;
@@ -358,12 +317,11 @@
             right: 0;
             bottom: 0;
             background-color: rgba(0, 0, 0, 0.7);
-            display: none; 
+            display: none;
             justify-content: center;
             align-items: center;
             z-index: 2000;
         }
-
         #popup-content {
             background-color: #1a1a33;
             padding: 30px;
@@ -375,13 +333,11 @@
             color: #cccccc;
             transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
         }
-
         #popup-content p {
             margin-top: 0;
             margin-bottom: 20px;
             font-size: 1.2em;
         }
-
         #popup-yes-button {
             background-color: #00a3a3;
             color: #1a1a33;
@@ -393,15 +349,11 @@
             font-size: 1em;
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
-
         #popup-yes-button:hover {
              background-color: #00e6e6;
              color: #1a1a33;
              border-color: #00a3a3;
         }
-
-        
-        
         body.theme-noire { background-color: #111; color: #eee; background-image: none; }
         body.theme-noire header { background-color: #222; border-bottom-color: #555; }
         body.theme-noire #controls-bar { background-color: #2a2a2a; border-bottom-color: #555; }
@@ -410,7 +362,7 @@
         body.theme-noire #controls-bar .theme-switcher select option { background-color: #333; color: #eee; }
         body.theme-noire header h2, body.theme-noire section h2, body.theme-noire section h3 { color: #fff; border-bottom-color: #555; }
         body.theme-noire header p { color: #bbb; }
-        body.theme-noire section { background: #222; border-color: #555; box-shadow: 5px 5px 15px rgba(0,0,0,0.5); color: #eee; } 
+        body.theme-noire section { background: #222; border-color: #555; box-shadow: 5px 5px 15px rgba(0,0,0,0.5); color: #eee; }
         body.theme-noire .iframe-container { border-color: #555; background-color: #222; }
         body.theme-noire .iframe-container p { color: #bbb; }
         body.theme-noire #livestream .video-container { border-color: #fff; box-shadow: 0 0 10px rgba(255,255,255,0.3); }
@@ -423,8 +375,6 @@
         body.theme-noire #popup-content { background-color: #222; border-color: #888; box-shadow: 0 0 20px rgba(136, 136, 136, 0.5); color: #eee; }
         body.theme-noire #popup-yes-button { background-color: #555; color: #eee; border-color: #888; }
         body.theme-noire #popup-yes-button:hover { background-color: #888; color: #111; border-color: #eee; }
-
-        
         body.theme-slade { background-color: #222; color: #eee; background-image: none; }
         body.theme-slade header { background-color: #333; border-bottom-color: #ff6600; }
         body.theme-slade #controls-bar { background-color: #3a3a3a; border-bottom-color: #ff6600; }
@@ -433,7 +383,7 @@
         body.theme-slade #controls-bar .theme-switcher select option { background-color: #444; color: #ff9900; }
         body.theme-slade header h2, body.theme-slade section h2, body.theme-slade section h3 { color: #ff9900; border-bottom-color: #ff6600; }
         body.theme-slade header p { color: #ccc; }
-        body.theme-slade section { background: #333; border-color: #ff6600; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); color: #eee; } 
+        body.theme-slade section { background: #333; border-color: #ff6600; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); color: #eee; }
         body.theme-slade .iframe-container { border-color: #ff6600; background-color: #333; }
         body.theme-slade .iframe-container p { color: #ccc; }
         body.theme-slade #livestream .video-container { border-color: #ff9900; box-shadow: 0 0 10px rgba(255,153,0,0.5); }
@@ -446,8 +396,6 @@
         body.theme-slade #popup-content { background-color: #333; border-color: #ff9900; box-shadow: 0 0 20px rgba(255, 153, 0, 0.5); color: #eee; }
         body.theme-slade #popup-yes-button { background-color: #ff6600; color: #222; border-color: #ff9900; }
         body.theme-slade #popup-yes-button:hover { background-color: #ff9900; color: #111; border-color: #ffcc00; }
-
-        
         body.theme-mr-johnson { color: #00cc00; background-image: url('garage1.png'); background-color: #1a0033; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
         body.theme-mr-johnson header { background-color: #2a0055; border-bottom-color: #008000; color: #00ff00; }
         body.theme-mr-johnson #controls-bar { background-color: #300060; border-bottom-color: #008000; }
@@ -456,9 +404,8 @@
         body.theme-mr-johnson #controls-bar .theme-switcher select option { background-color: #3a0066; color: #00ff00; }
         body.theme-mr-johnson header h2, body.theme-mr-johnson section h2, body.theme-mr-johnson section h3 { color: #00ff00; border-bottom-color: #008000; }
         body.theme-mr-johnson header p { color: #00aa00; }
-        
         body.theme-mr-johnson section {
-            background: linear-gradient(rgba(42, 0, 85, 0.85), rgba(42, 0, 85, 0.85)), url('purpmarb.png') center center / cover no-repeat; 
+            background: linear-gradient(rgba(42, 0, 85, 0.85), rgba(42, 0, 85, 0.85)), url('purpmarb.png') center center / cover no-repeat;
             border-color: #008000;
             box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
             color: #00cc00;
@@ -475,8 +422,6 @@
         body.theme-mr-johnson #popup-content { background-color: #2a0055; border-color: #00ff00; box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); color: #00dd00; }
         body.theme-mr-johnson #popup-yes-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
         body.theme-mr-johnson #popup-yes-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
-
-        
         body.theme-albright { color: #cdc8b1; background-image: url('tp1.png'); background-color: #281c12; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
         body.theme-albright header { background-color: rgba(74, 57, 46, 0.85); border-bottom: 4px solid #b46a00; color: #ffc107; }
         body.theme-albright #controls-bar { background-color: rgba(90, 70, 55, 0.9); border-bottom-color: #b46a00; }
@@ -485,20 +430,18 @@
         body.theme-albright #controls-bar .theme-switcher select option { background-color: #6f4f2d; color: #ffc107; }
         body.theme-albright header h2, body.theme-albright section h2, body.theme-albright section h3 { color: #ffc107; border-bottom-color: #b46a00; }
         body.theme-albright header p { color: #a1887f; }
-        
         body.theme-albright section {
-             
              background:
-               linear-gradient(rgba(74, 57, 46, 0.7), rgba(74, 57, 46, 0.7)), 
-               url('goldtext.png') center center / cover no-repeat; 
+               linear-gradient(rgba(74, 57, 46, 0.7), rgba(74, 57, 46, 0.7)),
+               url('goldtext.png') center center / cover no-repeat;
              border: 1px solid #b46a00;
              box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
-             color: #cdc8b1; 
+             color: #cdc8b1;
         }
-        body.theme-albright .iframe-container { border-color: #b46a00; background-color: rgba(74, 57, 46, 0.85); } 
+        body.theme-albright .iframe-container { border-color: #b46a00; background-color: rgba(74, 57, 46, 0.85); }
         body.theme-albright .iframe-container p { color: #a1887f; }
         body.theme-albright #livestream .video-container { border-color: #ffc107; box-shadow: 0 0 10px rgba(255,193,7,0.6); }
-        body.theme-albright .show { background-color: rgba(111, 79, 45, 0.9); border-left: 4px solid #cd7f32; } 
+        body.theme-albright .show { background-color: rgba(111, 79, 45, 0.9); border-left: 4px solid #cd7f32; }
         body.theme-albright .show h3 { color: #ffd700; }
         body.theme-albright .show p { color: #eee; }
         body.theme-albright footer { background-color: rgba(28, 18, 11, 0.9); color: #a1887f; border-top: 1px solid #4a392e; }
@@ -507,8 +450,6 @@
         body.theme-albright #popup-content { background-color: rgba(74, 57, 46, 0.95); border-color: #ffc107; box-shadow: 0 0 20px rgba(255, 193, 7, 0.6); color: #cdc8b1; }
         body.theme-albright #popup-yes-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
         body.theme-albright #popup-yes-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
-
-        
         body.theme-riggin { background-color: #000000; color: #FFA500; background-image: none; }
         body.theme-riggin header { background-color: #1a1a1a; border-bottom: 4px solid #FF8C00; color: #FFA500; }
         body.theme-riggin #controls-bar { background-color: #222222; border-bottom-color: #FF8C00; }
@@ -517,7 +458,7 @@
         body.theme-riggin #controls-bar .theme-switcher select option { background-color: #333333; color: #FFA500; }
         body.theme-riggin header h2 { color: #FFA500; }
         body.theme-riggin header p { color: #FFD700; }
-        body.theme-riggin section { background: #1a1a1a; border: 1px solid #FF8C00; box-shadow: 5px 5px 15px rgba(50,50,50,0.4); color: #FFA500;} 
+        body.theme-riggin section { background: #1a1a1a; border: 1px solid #FF8C00; box-shadow: 5px 5px 15px rgba(50,50,50,0.4); color: #FFA500;}
         body.theme-riggin .iframe-container { border-color: #FF8C00; background-color: #1a1a1a; }
         body.theme-riggin .iframe-container p { color: #FFD700; }
         body.theme-riggin section h2, body.theme-riggin section h3 { color: #FFA500; border-bottom-color: #FF8C00; }
@@ -531,20 +472,16 @@
         body.theme-riggin #popup-content { background-color: #1a1a1a; border-color: #FFA500; box-shadow: 0 0 20px rgba(255, 165, 0, 0.6); color: #FFA500; }
         body.theme-riggin #popup-yes-button { background-color: #FFA500; color: #000000; border-color: #FF8C00; }
         body.theme-riggin #popup-yes-button:hover { background-color: #FF8C00; color: #000000; border-color: #FFA500; }
-
-
         footer {
             text-align: center;
             padding: 20px;
             margin-top: 30px;
-            background-color: #1a1a33; 
-            color: #666666; 
+            background-color: #1a1a33;
+            color: #666666;
             font-size: 0.85em;
-            border-top: 1px solid #005b5b; 
+            border-top: 1px solid #005b5b;
             transition: background-color 0.5s ease, color 0.5s ease, border-top-color 0.5s ease;
         }
-
-         
         @media (max-width: 768px) {
             main {
                 padding: 0 15px;
@@ -553,7 +490,6 @@
                  padding: 8px 15px;
                  justify-content: center;
             }
-
             section h2, section h3 {
                 font-size: 1.4em;
                  white-space: nowrap;
@@ -590,7 +526,6 @@
                  text-overflow: ellipsis;
             }
         }
-
         @media (max-width: 480px) {
              main {
                  padding: 0 10px;
@@ -608,19 +543,16 @@
                  background-position: calc(100% - 6px) center, calc(100% - 3px) center;
                  background-size: 3px 3px, 3px 3px;
              }
-
             header h2 {
                 font-size: 1.2em;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
             }
-
             section {
                 padding: 15px;
                 margin-bottom: 15px;
             }
-
             section h2, section h3 {
                 font-size: 1.2em;
                  white-space: nowrap;
@@ -694,17 +626,16 @@
             </div>
         </section>
 
-        <section id="about">
-            <h2>[who are we]</h2>
-            <p>Willow Arms Public Access is your source for truly independent internet television. We're an online broadcast experiment featuring live streams, unique shows, and unfiltered content outside the mainstream. If you're searching for offbeat online TV or a community public access vibe, you've found it.</p>
-        </section>
-
         <section id="shows">
             <h2>[lineup]</h2>
             <p>Explore the programming lineup on Willow Arms Public Access:</p>
             <div class="show">
                 <h3>:: The Bonfire Podcast :: Live Discussions & Rambling</h3>
                 <p>Tune into The Bonfire Podcast live stream or catch reruns. It's an unfiltered discussion show covering anything and everything, like a digital gathering around a late-night fire. Expect tangents, strong opinions, and maybe a little bit of chaos. It's our main talk show broadcast.</p>
+            </div>
+            <div class="show">
+                <h3>:: DogPound :: Recovered Transmissions</h3>
+                <p>The city never sleeps, and neither do the cameras. DogPound presents a stark look at life through recovered dash and body camera footage, allegedly from the Willow Arms municipal archives. From daylight disturbances to after-hours altercations, experience the raw, unfiltered reality of the streets. What you're about to see is not a drill. Only on WAPA.</p>
             </div>
             <div class="show">
                 <h3>:: [vibe]rations :: Offbeat Music Videos</h3>
@@ -757,7 +688,6 @@
     </footer>
 
     <script>
-        
         const participateButton = document.getElementById('participate-button');
         const popupOverlay = document.getElementById('popup-overlay');
         const popupYesButton = document.getElementById('popup-yes-button');
@@ -767,12 +697,8 @@
         let animationInterval = null;
 
         function setTheme(themeName) {
-            
             document.body.className = document.body.className.replace(/theme-\S+/g, '').trim();
-
-            
-            document.body.classList.add('theme-' + themeName); 
-
+            document.body.classList.add('theme-' + themeName);
             localStorage.setItem('wapTheme', themeName);
             const themeSelect = document.getElementById('theme-select');
             if (themeSelect) {
@@ -781,8 +707,7 @@
         }
 
         function loadTheme() {
-            
-            const savedTheme = localStorage.getItem('wapTheme') || 'albright'; 
+            const savedTheme = localStorage.getItem('wapTheme') || 'albright';
             setTheme(savedTheme);
         }
 
@@ -843,7 +768,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            loadTheme(); 
+            loadTheme();
             const themeSelect = document.getElementById('theme-select');
             if (themeSelect) {
                 themeSelect.addEventListener('change', (event) => {
@@ -871,30 +796,22 @@
                 console.warn("Participate button or popup elements not found.");
             }
 
-            
             const soundcloud_iframe = document.getElementById('soundcloud-widget');
-            if (soundcloud_iframe && typeof SC !== 'undefined' && SC.Widget) { 
+            if (soundcloud_iframe && typeof SC !== 'undefined' && SC.Widget) {
                 const widget = SC.Widget(soundcloud_iframe);
-
                 widget.bind(SC.Widget.Events.READY, function() {
                     console.log('SoundCloud Widget Ready!');
-                    widget.setVolume(0); 
-                    
-                    
-                    widget.play(); 
-
-                    
+                    widget.setVolume(0);
+                    widget.play();
                     widget.bind(SC.Widget.Events.FINISH, function() {
                         console.log('Playlist finished, attempting to loop.');
-                        widget.seekTo(0); 
-                        widget.play();    
+                        widget.seekTo(0);
+                        widget.play();
                     });
                 });
-
                 widget.bind(SC.Widget.Events.PLAY, function() {
                     console.log('SoundCloud Widget Playing');
                 });
-
                 widget.bind(SC.Widget.Events.ERROR, function(err) {
                     console.error('SoundCloud Widget Error:', err);
                 });
