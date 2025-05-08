@@ -6,68 +6,67 @@
     <title>[ wapa broadcasting ]</title>
     <meta name="description" content="Tune into Willow Arms Public Access, an offbeat internet TV channel featuring live streams, the Bonfire Podcast, unique music videos ([vibe]rations), experimental shows like 'POV: mom & dad are fighting again', and lo-fi streams ([iinnermission]). Discover weird online broadcasts.">
     <link rel="icon" href="wapabroadcastlogo.ico" type="image/x-icon">
-    <script src="https://w.soundcloud.com/player/api.js"></script> {/* */}
+    <script src="https://w.soundcloud.com/player/api.js"></script>
     <style>
 
-    /* --- Theme: AfterLounge Body Background --- */
+    
     body.theme-afterlounge {
-        background-image: url('afterlounge.png'); /* <-- REPLACE WITH YOUR BODY BACKGROUND IMAGE */
+        background-image: url('afterlounge.png'); 
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center center;
-        background-color: #0c0c1a; /* Fallback color */
+        background-color: #0c0c1a; 
     }
 
-    /* --- Theme: AfterLounge Sections --- */
+    
     body.theme-afterlounge section {
-        /* Sections have a semi-transparent background over the body image */
-        background-color: rgba(26, 26, 51, 0.85); /* Semi-transparent dark blue/purple (85% opacity) */
-        color: #ffffff; /* White text for readability */
-        border: 1px solid #008b8b; /* Optional: slightly brighter border */
-        /* Inherits other section styles like padding, margin, box-shadow */
+        
+        background-color: rgba(26, 26, 51, 0.85); 
+        color: #ffffff; 
+        border: 1px solid #008b8b; 
+        
     }
 
-    /* --- Theme: AfterLounge Specific Element Styling --- */
+    
     body.theme-afterlounge section h2,
     body.theme-afterlounge section h3 {
-        color: #00e6e6; /* Bright headings */
+        color: #00e6e6; 
         border-bottom-color: #00a3a3;
     }
     body.theme-afterlounge .show {
-        background-color: rgba(42, 42, 77, 0.9); /* Slightly more opaque background for show boxes */
-        border-left-color: #00e6e6; /* Bright accent border */
+        background-color: rgba(42, 42, 77, 0.9); 
+        border-left-color: #00e6e6; 
     }
     body.theme-afterlounge .show h3 {
-        color: #00e6e6; /* Match section headings */
+        color: #00e6e6; 
     }
      body.theme-afterlounge .show p {
-        color: #dddddd; /* Lighter text for show descriptions */
+        color: #dddddd; 
     }
-    body.theme-afterlounge .iframe-container { /* Ensure iframe containers also fit */
+    body.theme-afterlounge .iframe-container { 
         background-color: rgba(26, 26, 51, 0.85);
         border-color: #008b8b;
     }
      body.theme-afterlounge .iframe-container p {
         color: #dddddd;
     }
-     body.theme-afterlounge #livestream .video-container { /* Adjust video border if needed */
+     body.theme-afterlounge #livestream .video-container { 
         border-color: #00e6e6;
         box-shadow: 0 0 10px rgba(0, 230, 230, 0.5);
      }
-    /* --- End Theme: AfterLounge --- */
-
+    
 
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0c0c1a; /* Default background */
+            background-color: #0c0c1a; 
             color: #cccccc;
             line-height: 1.5;
             overflow-x: hidden;
             font-size: 16px;
-            transition: background-color 0.5s ease, color 0.5s ease, background-image 0.5s ease; /* Added background-image transition */
+            transition: background-color 0.5s ease, color 0.5s ease, background-image 0.5s ease; 
         }
 
         header {
@@ -105,12 +104,12 @@
             transition: color 0.5s ease;
         }
 
-        /* --- Simplified Controls Bar Styling --- */
+        
         #controls-bar {
             background-color: #1f1f3d;
             padding: 8px 20px;
             display: flex;
-            justify-content: flex-end; /* Push content (theme switcher) to the right */
+            justify-content: flex-end; 
             align-items: center;
             border-bottom: 1px solid #005b5b;
             margin-bottom: 30px;
@@ -158,8 +157,7 @@
              background-color: #1a1a33;
              color: #00e6e6;
         }
-        /* --- End Controls Bar Styling --- */
-
+        
 
         main {
             max-width: 1100px;
@@ -169,14 +167,14 @@
         }
 
         section {
-            /* Default section background color (used if no theme overrides it) */
+            
             background-color: #1a1a33;
             padding: 25px;
             margin-bottom: 25px;
-            border: 1px solid #005b5b; /* Default border */
+            border: 1px solid #005b5b; 
             box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
             box-sizing: border-box;
-            transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, color 0.5s ease, background 0.5s ease; /* Added background transition */
+            transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, color 0.5s ease, background 0.5s ease; 
         }
 
         main section:last-child {
@@ -184,8 +182,8 @@
         }
 
         section h2 {
-            color: #00a3a3; /* Default heading color */
-            border-bottom: 2px solid #005b5b; /* Default heading border */
+            color: #00a3a3; 
+            border-bottom: 2px solid #005b5b; 
             padding-bottom: 8px;
             margin-top: 0;
             margin-bottom: 20px;
@@ -200,8 +198,8 @@
         }
 
          section h3 {
-             color: #00a3a3; /* Default heading color */
-             border-bottom: 2px solid #005b5b; /* Default heading border */
+             color: #00a3a3; 
+             border-bottom: 2px solid #005b5b; 
              padding-bottom: 8px;
              margin-top: 0;
              margin-bottom: 20px;
@@ -216,7 +214,7 @@
          }
 
         p {
-            color: #cccccc; /* Default paragraph color */
+            color: #cccccc; 
             margin-bottom: 15px;
             word-break: break-word;
             transition: color 0.5s ease;
@@ -230,8 +228,8 @@
             height: 0;
             overflow: hidden;
             background-color: #000;
-            border: 2px solid #00e6e6; /* Default video border */
-            box-shadow: 0 0 10px rgba(0, 230, 230, 0.5); /* Default video shadow */
+            border: 2px solid #00e6e6; 
+            box-shadow: 0 0 10px rgba(0, 230, 230, 0.5); 
             box-sizing: border-box;
             transition: border-color 0.5s ease, box-shadow 0.5s ease;
         }
@@ -267,8 +265,8 @@
         .show {
             margin-bottom: 20px;
             padding: 15px;
-            background-color: #2a2a4d; /* Default show background */
-            border-left: 4px solid #00a3a3; /* Default show border */
+            background-color: #2a2a4d; 
+            border-left: 4px solid #00a3a3; 
             box-sizing: border-box;
             transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
         }
@@ -276,7 +274,7 @@
         .show h3 {
             margin-top: 0;
             margin-bottom: 8px;
-            color: #00e6e6; /* Default show title color */
+            color: #00e6e6; 
             font-size: 1.3em;
             white-space: nowrap;
             overflow: hidden;
@@ -286,17 +284,17 @@
         }
 
         .show p {
-            color: #bbbbbb; /* Default show description color */
+            color: #bbbbbb; 
             font-size: 0.95em;
              word-break: break-word;
              transition: color 0.5s ease;
         }
 
-        /* --- Styling for Iframe Containers (Merch, TikTok, Links) --- */
+        
         .iframe-container {
-            border: 1px solid #00a3a3; /* Default iframe border */
+            border: 1px solid #00a3a3; 
             padding: 10px;
-            background-color: #1a1a33; /* Default iframe background */
+            background-color: #1a1a33; 
             box-sizing: border-box;
             width: 100%;
             overflow: hidden;
@@ -305,36 +303,36 @@
 
         .iframe-container iframe {
             width: 100%;
-            height: 600px; /* Default height */
+            height: 600px; 
             border: none;
             display: block;
         }
 
-        .iframe-container p { /* Fallback text style */
+        .iframe-container p { 
              text-align: center;
-             color: #999999; /* Default fallback text color */
+             color: #999999; 
              font-size: 0.9em;
              margin-bottom: 0;
              transition: color 0.5s ease;
         }
 
-        #tiktok-feed .iframe-container { /* Specific adjustments for TikTok */
+        #tiktok-feed .iframe-container { 
              height: 500px;
              overflow-y: scroll;
         }
-         #tiktok-feed .iframe-container p { /* TikTok specific fallback adjustments */
+         #tiktok-feed .iframe-container p { 
              position: static;
              width: auto;
              height: auto;
              padding: 0;
          }
 
-        /* --- Theme Switcher (already styled above in #controls-bar) --- */
+        
 
         #participate-button {
             position: fixed;
             z-index: 1000;
-            display: none; /* Hidden initially */
+            display: none; 
             padding: 10px 15px;
             background-color: #00a3a3;
             color: #1a1a33;
@@ -360,7 +358,7 @@
             right: 0;
             bottom: 0;
             background-color: rgba(0, 0, 0, 0.7);
-            display: none; /* Hidden initially */
+            display: none; 
             justify-content: center;
             align-items: center;
             z-index: 2000;
@@ -402,8 +400,8 @@
              border-color: #00a3a3;
         }
 
-        /* --- Other Theme Styles --- */
-        /* --- Theme: Noire --- */
+        
+        
         body.theme-noire { background-color: #111; color: #eee; background-image: none; }
         body.theme-noire header { background-color: #222; border-bottom-color: #555; }
         body.theme-noire #controls-bar { background-color: #2a2a2a; border-bottom-color: #555; }
@@ -412,7 +410,7 @@
         body.theme-noire #controls-bar .theme-switcher select option { background-color: #333; color: #eee; }
         body.theme-noire header h2, body.theme-noire section h2, body.theme-noire section h3 { color: #fff; border-bottom-color: #555; }
         body.theme-noire header p { color: #bbb; }
-        body.theme-noire section { background: #222; border-color: #555; box-shadow: 5px 5px 15px rgba(0,0,0,0.5); color: #eee; } /* Use shorthand background */
+        body.theme-noire section { background: #222; border-color: #555; box-shadow: 5px 5px 15px rgba(0,0,0,0.5); color: #eee; } 
         body.theme-noire .iframe-container { border-color: #555; background-color: #222; }
         body.theme-noire .iframe-container p { color: #bbb; }
         body.theme-noire #livestream .video-container { border-color: #fff; box-shadow: 0 0 10px rgba(255,255,255,0.3); }
@@ -426,7 +424,7 @@
         body.theme-noire #popup-yes-button { background-color: #555; color: #eee; border-color: #888; }
         body.theme-noire #popup-yes-button:hover { background-color: #888; color: #111; border-color: #eee; }
 
-        /* --- Theme: Slade --- */
+        
         body.theme-slade { background-color: #222; color: #eee; background-image: none; }
         body.theme-slade header { background-color: #333; border-bottom-color: #ff6600; }
         body.theme-slade #controls-bar { background-color: #3a3a3a; border-bottom-color: #ff6600; }
@@ -435,7 +433,7 @@
         body.theme-slade #controls-bar .theme-switcher select option { background-color: #444; color: #ff9900; }
         body.theme-slade header h2, body.theme-slade section h2, body.theme-slade section h3 { color: #ff9900; border-bottom-color: #ff6600; }
         body.theme-slade header p { color: #ccc; }
-        body.theme-slade section { background: #333; border-color: #ff6600; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); color: #eee; } /* Use shorthand background */
+        body.theme-slade section { background: #333; border-color: #ff6600; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); color: #eee; } 
         body.theme-slade .iframe-container { border-color: #ff6600; background-color: #333; }
         body.theme-slade .iframe-container p { color: #ccc; }
         body.theme-slade #livestream .video-container { border-color: #ff9900; box-shadow: 0 0 10px rgba(255,153,0,0.5); }
@@ -449,7 +447,7 @@
         body.theme-slade #popup-yes-button { background-color: #ff6600; color: #222; border-color: #ff9900; }
         body.theme-slade #popup-yes-button:hover { background-color: #ff9900; color: #111; border-color: #ffcc00; }
 
-        /* --- Theme: Mr. Johnson --- */
+        
         body.theme-mr-johnson { color: #00cc00; background-image: url('garage1.png'); background-color: #1a0033; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
         body.theme-mr-johnson header { background-color: #2a0055; border-bottom-color: #008000; color: #00ff00; }
         body.theme-mr-johnson #controls-bar { background-color: #300060; border-bottom-color: #008000; }
@@ -458,9 +456,9 @@
         body.theme-mr-johnson #controls-bar .theme-switcher select option { background-color: #3a0066; color: #00ff00; }
         body.theme-mr-johnson header h2, body.theme-mr-johnson section h2, body.theme-mr-johnson section h3 { color: #00ff00; border-bottom-color: #008000; }
         body.theme-mr-johnson header p { color: #00aa00; }
-        /* MODIFIED Mr. Johnson Section */
+        
         body.theme-mr-johnson section {
-            background: linear-gradient(rgba(42, 0, 85, 0.85), rgba(42, 0, 85, 0.85)), url('purpmarb.png') center center / cover no-repeat; /* <-- User already replaced this from my previous instruction */
+            background: linear-gradient(rgba(42, 0, 85, 0.85), rgba(42, 0, 85, 0.85)), url('purpmarb.png') center center / cover no-repeat; 
             border-color: #008000;
             box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
             color: #00cc00;
@@ -478,7 +476,7 @@
         body.theme-mr-johnson #popup-yes-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
         body.theme-mr-johnson #popup-yes-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
 
-        /* --- Theme: Albright (Steampunk - Revised) --- */
+        
         body.theme-albright { color: #cdc8b1; background-image: url('tp1.png'); background-color: #281c12; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
         body.theme-albright header { background-color: rgba(74, 57, 46, 0.85); border-bottom: 4px solid #b46a00; color: #ffc107; }
         body.theme-albright #controls-bar { background-color: rgba(90, 70, 55, 0.9); border-bottom-color: #b46a00; }
@@ -487,20 +485,20 @@
         body.theme-albright #controls-bar .theme-switcher select option { background-color: #6f4f2d; color: #ffc107; }
         body.theme-albright header h2, body.theme-albright section h2, body.theme-albright section h3 { color: #ffc107; border-bottom-color: #b46a00; }
         body.theme-albright header p { color: #a1887f; }
-        /* MODIFIED Albright Section */
+        
         body.theme-albright section {
-             /* Layered background: semi-transparent color overlay on top of image */
+             
              background:
-               linear-gradient(rgba(74, 57, 46, 0.7), rgba(74, 57, 46, 0.7)), /* Brown overlay (70% opaque) - Adjust 0.7 for desired opacity */
-               url('goldtext.png') center center / cover no-repeat; /* <-- User already replaced this */
+               linear-gradient(rgba(74, 57, 46, 0.7), rgba(74, 57, 46, 0.7)), 
+               url('goldtext.png') center center / cover no-repeat; 
              border: 1px solid #b46a00;
              box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
-             color: #cdc8b1; /* Keep text color readable */
+             color: #cdc8b1; 
         }
-        body.theme-albright .iframe-container { border-color: #b46a00; background-color: rgba(74, 57, 46, 0.85); } /* Keep iframe container distinct */
+        body.theme-albright .iframe-container { border-color: #b46a00; background-color: rgba(74, 57, 46, 0.85); } 
         body.theme-albright .iframe-container p { color: #a1887f; }
         body.theme-albright #livestream .video-container { border-color: #ffc107; box-shadow: 0 0 10px rgba(255,193,7,0.6); }
-        body.theme-albright .show { background-color: rgba(111, 79, 45, 0.9); border-left: 4px solid #cd7f32; } /* Keep show background distinct */
+        body.theme-albright .show { background-color: rgba(111, 79, 45, 0.9); border-left: 4px solid #cd7f32; } 
         body.theme-albright .show h3 { color: #ffd700; }
         body.theme-albright .show p { color: #eee; }
         body.theme-albright footer { background-color: rgba(28, 18, 11, 0.9); color: #a1887f; border-top: 1px solid #4a392e; }
@@ -510,7 +508,7 @@
         body.theme-albright #popup-yes-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
         body.theme-albright #popup-yes-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
 
-        /* --- Theme: Riggin (Orange & Black) --- */
+        
         body.theme-riggin { background-color: #000000; color: #FFA500; background-image: none; }
         body.theme-riggin header { background-color: #1a1a1a; border-bottom: 4px solid #FF8C00; color: #FFA500; }
         body.theme-riggin #controls-bar { background-color: #222222; border-bottom-color: #FF8C00; }
@@ -519,7 +517,7 @@
         body.theme-riggin #controls-bar .theme-switcher select option { background-color: #333333; color: #FFA500; }
         body.theme-riggin header h2 { color: #FFA500; }
         body.theme-riggin header p { color: #FFD700; }
-        body.theme-riggin section { background: #1a1a1a; border: 1px solid #FF8C00; box-shadow: 5px 5px 15px rgba(50,50,50,0.4); color: #FFA500;} /* Use shorthand background */
+        body.theme-riggin section { background: #1a1a1a; border: 1px solid #FF8C00; box-shadow: 5px 5px 15px rgba(50,50,50,0.4); color: #FFA500;} 
         body.theme-riggin .iframe-container { border-color: #FF8C00; background-color: #1a1a1a; }
         body.theme-riggin .iframe-container p { color: #FFD700; }
         body.theme-riggin section h2, body.theme-riggin section h3 { color: #FFA500; border-bottom-color: #FF8C00; }
@@ -539,14 +537,14 @@
             text-align: center;
             padding: 20px;
             margin-top: 30px;
-            background-color: #1a1a33; /* Default footer background */
-            color: #666666; /* Default footer text color */
+            background-color: #1a1a33; 
+            color: #666666; 
             font-size: 0.85em;
-            border-top: 1px solid #005b5b; /* Default footer border */
+            border-top: 1px solid #005b5b; 
             transition: background-color 0.5s ease, color 0.5s ease, border-top-color 0.5s ease;
         }
 
-         /* --- Responsive adjustments --- */
+         
         @media (max-width: 768px) {
             main {
                 padding: 0 15px;
@@ -759,7 +757,7 @@
     </footer>
 
     <script>
-        // Javascript elements
+        
         const participateButton = document.getElementById('participate-button');
         const popupOverlay = document.getElementById('popup-overlay');
         const popupYesButton = document.getElementById('popup-yes-button');
@@ -769,11 +767,11 @@
         let animationInterval = null;
 
         function setTheme(themeName) {
-            // Remove any existing theme classes first
+            
             document.body.className = document.body.className.replace(/theme-\S+/g, '').trim();
 
-            // Add the new theme class (e.g., 'theme-afterlounge', 'theme-noire')
-            document.body.classList.add('theme-' + themeName); // MODIFIED: Always add the class
+            
+            document.body.classList.add('theme-' + themeName); 
 
             localStorage.setItem('wapTheme', themeName);
             const themeSelect = document.getElementById('theme-select');
@@ -783,8 +781,8 @@
         }
 
         function loadTheme() {
-            // Default to Albright for testing, or use saved theme, or fallback to afterlounge
-            const savedTheme = localStorage.getItem('wapTheme') || 'albright'; // Changed default here for testing
+            
+            const savedTheme = localStorage.getItem('wapTheme') || 'albright'; 
             setTheme(savedTheme);
         }
 
@@ -845,7 +843,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            loadTheme(); // Load the saved or default theme
+            loadTheme(); 
             const themeSelect = document.getElementById('theme-select');
             if (themeSelect) {
                 themeSelect.addEventListener('change', (event) => {
@@ -873,23 +871,23 @@
                 console.warn("Participate button or popup elements not found.");
             }
 
-            // SoundCloud Player Logic
+            
             const soundcloud_iframe = document.getElementById('soundcloud-widget');
-            if (soundcloud_iframe && typeof SC !== 'undefined' && SC.Widget) { // Check if SC and SC.Widget are defined
+            if (soundcloud_iframe && typeof SC !== 'undefined' && SC.Widget) { 
                 const widget = SC.Widget(soundcloud_iframe);
 
                 widget.bind(SC.Widget.Events.READY, function() {
                     console.log('SoundCloud Widget Ready!');
-                    widget.setVolume(0); // Start muted
-                    // Attempt to play if auto_play parameter is in the iframe src
-                    // User needs to ensure auto_play=true in the pasted iframe src.
+                    widget.setVolume(0); 
+                    
+                    
                     widget.play(); 
 
-                    // For looping the playlist:
+                    
                     widget.bind(SC.Widget.Events.FINISH, function() {
                         console.log('Playlist finished, attempting to loop.');
-                        widget.seekTo(0); // Go to the beginning
-                        widget.play();    // Play again
+                        widget.seekTo(0); 
+                        widget.play();    
                     });
                 });
 
