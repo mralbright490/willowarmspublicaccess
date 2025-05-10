@@ -482,6 +482,23 @@
             border-top: 1px solid #005b5b;
             transition: background-color 0.5s ease, color 0.5s ease, border-top-color 0.5s ease;
         }
+        /* Style for the new link in the footer */
+        footer a.staff-link {
+            color: #00e6e6; /* Default theme link color */
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a.staff-link:hover {
+            text-decoration: underline;
+        }
+        body.theme-noire footer a.staff-link { color: #eee; }
+        body.theme-slade footer a.staff-link { color: #ff9900; }
+        body.theme-mr-johnson footer a.staff-link { color: #00ff00; }
+        body.theme-albright footer a.staff-link { color: #ffc107; }
+        body.theme-riggin footer a.staff-link { color: #FFA500; }
+        body.theme-afterlounge footer a.staff-link { color: #00e6e6; }
+
+
         @media (max-width: 768px) {
             main {
                 padding: 0 15px;
@@ -684,7 +701,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Willow Arms Public Access. <br> Your source for offbeat internet TV.</p>
+        <p>&copy; 2025 Willow Arms Public Access. <a href="meet-the-staff.html" class="staff-link">Meet The Staff</a> <br> Your source for offbeat internet TV.</p>
     </footer>
 
     <script>
@@ -707,7 +724,7 @@
         }
 
         function loadTheme() {
-            const savedTheme = localStorage.getItem('wapTheme') || 'albright';
+            const savedTheme = localStorage.getItem('wapTheme') || 'albright'; // Default to albright or your preferred
             setTheme(savedTheme);
         }
 
@@ -775,7 +792,8 @@
                     setTheme(event.target.value);
                 });
             }
-            if (participateButton && popupOverlay && popupYesButton) {
+            // Only initialize participate button and popup if they exist on the page
+            if (document.getElementById('participate-button') && document.getElementById('popup-overlay') && document.getElementById('popup-yes-button')) {
                  setTimeout(() => {
                      initializeButton();
                      if (animationInterval) clearInterval(animationInterval);
@@ -792,17 +810,16 @@
                 popupYesButton.addEventListener('click', () => {
                     popupOverlay.style.display = 'none';
                 });
-            } else {
-                console.warn("Participate button or popup elements not found.");
             }
 
-            const soundcloud_iframe = document.getElementById('soundcloud-widget');
+
+            const soundcloud_iframe = document.querySelector('#soundcloud-vibes iframe'); // More specific selector
             if (soundcloud_iframe && typeof SC !== 'undefined' && SC.Widget) {
                 const widget = SC.Widget(soundcloud_iframe);
                 widget.bind(SC.Widget.Events.READY, function() {
                     console.log('SoundCloud Widget Ready!');
-                    widget.setVolume(0);
-                    widget.play();
+                    // widget.setVolume(0); // You might want to control volume or remove auto-play
+                    // widget.play();
                     widget.bind(SC.Widget.Events.FINISH, function() {
                         console.log('Playlist finished, attempting to loop.');
                         widget.seekTo(0);
@@ -817,7 +834,7 @@
                 });
             } else {
                 if (!soundcloud_iframe) {
-                    console.warn("SoundCloud iframe with id 'soundcloud-widget' not found. Player will not be initialized.");
+                    console.warn("SoundCloud iframe for vibes not found. Player will not be initialized.");
                 }
                 if (typeof SC === 'undefined' || typeof SC.Widget === 'undefined') {
                      console.warn("SoundCloud Widget API (SC.Widget) not available. Player will not be initialized. Ensure api.js is loaded correctly.");
