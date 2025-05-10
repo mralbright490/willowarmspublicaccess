@@ -8,7 +8,7 @@
     <link rel="icon" href="wapabroadcastlogo.ico" type="image/x-icon">
     <script src="https://w.soundcloud.com/player/api.js"></script>
     <style>
-    /* === START OF CSS FROM YOUR ORIGINAL INDEX.HTML === */
+    /* --- Theme: AfterLounge (Existing) --- */
     body.theme-afterlounge {
         background-image: url('afterlounge.png');
         background-size: cover;
@@ -17,7 +17,7 @@
         background-position: center center;
         background-color: #0c0c1a;
     }
-    body.theme-afterlounge section { /* Applied to normal page sections */
+    body.theme-afterlounge section {
         background-color: rgba(26, 26, 51, 0.85);
         color: #ffffff;
         border: 1px solid #008b8b;
@@ -31,24 +31,18 @@
         background-color: rgba(42, 42, 77, 0.9);
         border-left-color: #00e6e6;
     }
-    body.theme-afterlounge .show h3 {
-        color: #00e6e6;
-    }
-     body.theme-afterlounge .show p {
-        color: #dddddd;
-    }
+    body.theme-afterlounge .show h3 { color: #00e6e6; }
+    body.theme-afterlounge .show p { color: #dddddd; }
     body.theme-afterlounge .iframe-container {
         background-color: rgba(26, 26, 51, 0.85);
         border-color: #008b8b;
     }
-     body.theme-afterlounge .iframe-container p {
-        color: #dddddd;
-    }
-     body.theme-afterlounge #livestream .video-container {
+    body.theme-afterlounge .iframe-container p { color: #dddddd; }
+    body.theme-afterlounge #livestream .video-container {
         border-color: #00e6e6;
         box-shadow: 0 0 10px rgba(0, 230, 230, 0.5);
-     }
-    body.theme-afterlounge .live-chat-button { /* MODIFIED: .irc-chat-button to .live-chat-button */
+    }
+    body.theme-afterlounge .live-chat-button {
         background-color: #1a1a33;
         color: #00e6e6;
         border-color: #00a3a3;
@@ -57,23 +51,23 @@
         background-color: #00e6e6;
         color: #1a1a33;
     }
-    /* AfterLounge Modal Styles */
     body.theme-afterlounge #discord-chat-modal-content {
-        background-color: rgba(20, 20, 40, 0.97); /* Slightly more opaque */
+        background-color: rgba(20, 20, 40, 0.97);
         border: 2px solid #00e6e6;
         box-shadow: 0 0 25px rgba(0, 230, 230, 0.7);
     }
     body.theme-afterlounge #discord-chat-modal-content h2 { color: #00e6e6; border-bottom-color: #00a3a3;}
     body.theme-afterlounge .discord-modal-close { color: #00e6e6; }
     body.theme-afterlounge .discord-modal-close:hover { color: #ffffff; }
+    body.theme-afterlounge footer a.staff-link { color: #00e6e6; }
 
 
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0c0c1a;
-            color: #cccccc;
+            background-color: #0c0c1a; /* Default base background */
+            color: #cccccc; /* Default base text color */
             line-height: 1.5;
             overflow-x: hidden;
             font-size: 16px;
@@ -81,10 +75,10 @@
         }
         header {
             background-color: #1a1a33;
-            color: #00e6e6;
+            color: #00e6e6; /* Default header text (not h2/p) */
             padding: 20px;
             text-align: center;
-            border-bottom: 4px solid #005b5b;
+            border-bottom: 4px solid #005b5b; /* Default header border */
             transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
         }
         header h2 {
@@ -92,7 +86,7 @@
             font-size: 2em;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #00a3a3;
+            color: #00a3a3; /* Default header h2 color */
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -102,7 +96,7 @@
         }
         header p {
             font-size: 1em;
-            color: #999999;
+            color: #999999; /* Default header p color */
             margin-top: 5px;
             white-space: nowrap;
             overflow: hidden;
@@ -112,12 +106,12 @@
             transition: color 0.5s ease;
         }
         #controls-bar {
-            background-color: #1f1f3d;
+            background-color: #1f1f3d; /* Default controls bar background */
             padding: 8px 20px;
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            border-bottom: 1px solid #005b5b;
+            border-bottom: 1px solid #005b5b; /* Default controls bar border */
             margin-bottom: 30px;
             flex-wrap: wrap;
             gap: 10px;
@@ -127,7 +121,7 @@
              margin: 0;
              padding: 0;
              border: none;
-             color: #cccccc;
+             color: #cccccc; /* Default theme switcher label color */
              display: flex;
              align-items: center;
              gap: 8px;
@@ -151,14 +145,14 @@
              -moz-appearance: none;
              cursor: pointer;
              border-radius: 4px;
-             border: 1px solid #00a3a3;
-             background-color: #1a1a33;
-             color: #00e6e6;
+             border: 1px solid #00a3a3; /* Default select border */
+             background-color: #1a1a33; /* Default select background */
+             color: #00e6e6; /* Default select text color */
              transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
         #controls-bar .theme-switcher select option {
-             background-color: #1a1a33;
-             color: #00e6e6;
+             background-color: #1a1a33; /* Default option background */
+             color: #00e6e6; /* Default option text */
         }
         main {
             max-width: 1100px;
@@ -166,21 +160,22 @@
             padding: 0 20px;
             box-sizing: border-box;
         }
-        section { /* This applies to your main content sections */
-            background-color: #1a1a33;
+        section {
+            background-color: #1a1a33; /* Default section background */
             padding: 25px;
             margin-bottom: 25px;
-            border: 1px solid #005b5b;
+            border: 1px solid #005b5b; /* Default section border */
             box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
             box-sizing: border-box;
             transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, color 0.5s ease, background 0.5s ease;
+            color: #cccccc; /* Default section text color */
         }
         main section:last-child {
             margin-bottom: 0;
         }
         section h2 {
-            color: #00a3a3;
-            border-bottom: 2px solid #005b5b;
+            color: #00a3a3; /* Default section h2 color */
+            border-bottom: 2px solid #005b5b; /* Default section h2 border */
             padding-bottom: 8px;
             margin-top: 0;
             margin-bottom: 20px;
@@ -194,8 +189,8 @@
             transition: color 0.5s ease, border-color 0.5s ease;
         }
          section h3 {
-             color: #00a3a3;
-             border-bottom: 2px solid #005b5b;
+             color: #00a3a3; /* Default section h3 color */
+             border-bottom: 2px solid #005b5b; /* Default section h3 border */
              padding-bottom: 8px;
              margin-top: 0;
              margin-bottom: 20px;
@@ -209,7 +204,7 @@
              transition: color 0.5s ease, border-color 0.5s ease;
          }
         p {
-            color: #cccccc;
+            color: #cccccc; /* Default p color */
             margin-bottom: 15px;
             word-break: break-word;
             transition: color 0.5s ease;
@@ -222,8 +217,8 @@
             height: 0;
             overflow: hidden;
             background-color: #000;
-            border: 2px solid #00e6e6;
-            box-shadow: 0 0 10px rgba(0, 230, 230, 0.5);
+            border: 2px solid #00e6e6; /* Default video container border */
+            box-shadow: 0 0 10px rgba(0, 230, 230, 0.5); /* Default video container shadow */
             box-sizing: border-box;
             transition: border-color 0.5s ease, box-shadow 0.5s ease;
         }
@@ -256,15 +251,15 @@
         .show {
             margin-bottom: 20px;
             padding: 15px;
-            background-color: #2a2a4d;
-            border-left: 4px solid #00a3a3;
+            background-color: #2a2a4d; /* Default .show background */
+            border-left: 4px solid #00a3a3; /* Default .show border */
             box-sizing: border-box;
             transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
         }
         .show h3 {
             margin-top: 0;
             margin-bottom: 8px;
-            color: #00e6e6;
+            color: #00e6e6; /* Default .show h3 color */
             font-size: 1.3em;
             white-space: nowrap;
             overflow: hidden;
@@ -273,15 +268,15 @@
             transition: color 0.5s ease;
         }
         .show p {
-            color: #bbbbbb;
+            color: #bbbbbb; /* Default .show p color */
             font-size: 0.95em;
              word-break: break-word;
              transition: color 0.5s ease;
         }
-        .iframe-container {
-            border: 1px solid #00a3a3;
+        .iframe-container { /* General iframe container style */
+            border: 1px solid #00a3a3; /* Default border */
             padding: 10px;
-            background-color: #1a1a33;
+            background-color: #1a1a33; /* Default background */
             box-sizing: border-box;
             width: 100%;
             overflow: hidden;
@@ -295,7 +290,7 @@
         }
         .iframe-container p {
              text-align: center;
-             color: #999999;
+             color: #999999; /* Default text color */
              font-size: 0.9em;
              margin-bottom: 0;
              transition: color 0.5s ease;
@@ -312,12 +307,12 @@
          }
         #participate-button {
             position: fixed;
-            z-index: 1000; /* Below discord modal overlay */
+            z-index: 1000;
             display: none;
             padding: 10px 15px;
-            background-color: #00a3a3;
-            color: #1a1a33;
-            border: 2px solid #00e6e6;
+            background-color: #00a3a3; /* Default */
+            color: #1a1a33; /* Default */
+            border: 2px solid #00e6e6; /* Default */
             border-radius: 5px;
             cursor: pointer;
             text-transform: uppercase;
@@ -326,11 +321,11 @@
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
         #participate-button:hover {
-             background-color: #00e6e6;
-             color: #1a1a33;
-             border-color: #00a3a3;
+             background-color: #00e6e6; /* Default */
+             color: #1a1a33; /* Default */
+             border-color: #00a3a3; /* Default */
         }
-        #popup-overlay { /* For the "participate" button */
+        #popup-overlay {
             position: fixed;
             top: 0;
             left: 0;
@@ -340,17 +335,17 @@
             display: none;
             justify-content: center;
             align-items: center;
-            z-index: 2000; /* Below discord modal overlay */
+            z-index: 2000;
         }
         #popup-content {
-            background-color: #1a1a33;
+            background-color: #1a1a33; /* Default */
             padding: 30px;
-            border: 2px solid #00a3a3;
+            border: 2px solid #00a3a3; /* Default */
             border-radius: 8px;
             text-align: center;
             max-width: 400px;
-            box-shadow: 0 0 20px rgba(0, 163, 163, 0.5);
-            color: #cccccc;
+            box-shadow: 0 0 20px rgba(0, 163, 163, 0.5); /* Default */
+            color: #cccccc; /* Default */
             transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
         }
         #popup-content p {
@@ -359,9 +354,9 @@
             font-size: 1.2em;
         }
         #popup-yes-button {
-            background-color: #00a3a3;
-            color: #1a1a33;
-            border: 2px solid #00e6e6;
+            background-color: #00a3a3; /* Default */
+            color: #1a1a33; /* Default */
+            border: 2px solid #00e6e6; /* Default */
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
@@ -370,12 +365,12 @@
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
         #popup-yes-button:hover {
-             background-color: #00e6e6;
-             color: #1a1a33;
-             border-color: #00a3a3;
+             background-color: #00e6e6; /* Default */
+             color: #1a1a33; /* Default */
+             border-color: #00a3a3; /* Default */
         }
 
-    /* Live Chat Button Style (was .irc-chat-button) */
+    /* Live Chat Button Style */
     .live-chat-button {
         font-size: 0.85em;
         padding: 4px 12px;
@@ -384,74 +379,72 @@
         white-space: nowrap;
         cursor: pointer;
         border-radius: 4px;
-        border: 1px solid #00a3a3; /* Default theme border */
-        background-color: #1a1a33; /* Default theme background */
-        color: #00e6e6; /* Default theme text color */
+        border: 1px solid #00a3a3;
+        background-color: #1a1a33;
+        color: #00e6e6;
         transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         display: inline-block;
     }
     .live-chat-button:hover {
-        background-color: #00e6e6; /* Default theme hover background */
-        color: #1a1a33; /* Default theme hover text color */
+        background-color: #00e6e6;
+        color: #1a1a33;
     }
 
-    /* ----- NEW DISCORD MODAL STYLES ----- */
+    /* Discord Modal Styles */
     .discord-modal-overlay {
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgba(0, 0, 0, 0.8); /* Darker overlay for more focus */
-        display: none; /* Hidden by default */
+        background-color: rgba(0, 0, 0, 0.8);
+        display: none;
         justify-content: center;
         align-items: center;
-        z-index: 3000; /* Ensures it's on top of other content */
-        padding: 20px; /* Provides spacing from viewport edges */
+        z-index: 3000;
+        padding: 20px;
         box-sizing: border-box;
     }
     #discord-chat-modal-content {
         position: relative;
-        background-color: #1a1a33; /* Default theme background */
+        background-color: #1a1a33;
         padding: 20px;
-        border: 2px solid #00a3a3; /* Default theme border */
+        border: 2px solid #00a3a3;
         border-radius: 8px;
-        box-shadow: 0 5px 25px rgba(0, 163, 163, 0.5); /* Softer shadow */
-        color: #cccccc; /* Default theme text color */
+        box-shadow: 0 5px 25px rgba(0, 163, 163, 0.5);
+        color: #cccccc;
         width: auto;
-        min-width: 300px; /* Minimum width for the Discord widget */
-        max-width: 450px; /* Max width for the modal, can be adjusted */
-        max-height: 85vh; /* Max height relative to viewport */
+        min-width: 300px;
+        max-width: 450px;
+        max-height: 85vh;
         display: flex;
         flex-direction: column;
-        overflow: hidden; /* Important for iframe behavior */
+        overflow: hidden;
     }
     #discord-chat-modal-content h2 {
-        color: #00a3a3; /* Default theme */
-        border-bottom: 2px solid #005b5b; /* Default theme */
+        color: #00a3a3;
+        border-bottom: 2px solid #005b5b;
         padding-bottom: 10px;
         margin-top: 0;
         margin-bottom: 15px;
-        font-size: 1.5em; /* Slightly smaller title for modal */
+        font-size: 1.5em;
         text-align: center;
     }
     .discord-modal-close {
         position: absolute;
         top: 8px;
         right: 12px;
-        font-size: 1.8em; /* Slightly smaller close button */
+        font-size: 1.8em;
         font-weight: bold;
-        color: #00a3a3; /* Default theme */
+        color: #00a3a3;
         cursor: pointer;
         line-height: 1;
     }
-    .discord-modal-close:hover {
-        color: #00e6e6; /* Default theme */
-    }
+    .discord-modal-close:hover { color: #00e6e6; }
     .discord-widget-container {
         width: 100%;
-        height: 65vh; /* Default height, adjust as needed */
-        min-height: 350px; /* Ensure usability */
+        height: 65vh;
+        min-height: 350px;
         overflow: hidden;
     }
     .discord-widget-container iframe {
@@ -459,64 +452,85 @@
         height: 100%;
         border: none;
     }
-    /* ----- END NEW DISCORD MODAL STYLES ----- */
+
+    /* --- Theme: Noire (Modified) --- */
+    body.theme-noire { background-color: #000000; color: #ffffff; background-image: none; }
+    body.theme-noire header { background-color: #0a0a0a; border-bottom-color: #1a1a1a; color: #ffffff;}
+    body.theme-noire header h2 { color: #ffffff; }
+    body.theme-noire header p { color: #e0e0e0; }
+    body.theme-noire #controls-bar { background-color: #0a0a0a; border-bottom-color: #1a1a1a; }
+    body.theme-noire #controls-bar .theme-switcher { color: #e0e0e0; }
+    body.theme-noire #controls-bar .theme-switcher select { background-color: #111111; color: #ffffff; border-color: #333333; }
+    body.theme-noire #controls-bar .theme-switcher select option { background-color: #111111; color: #ffffff; }
+    body.theme-noire .live-chat-button { background-color: #111111; color: #ffffff; border-color: #333333; }
+    body.theme-noire .live-chat-button:hover { background-color: #ffffff; color: #111111; }
+    body.theme-noire #discord-chat-modal-content { background-color: #050505; border-color: #222222; box-shadow: 0 5px 25px rgba(50,50,50,0.5); color: #ffffff;}
+    body.theme-noire #discord-chat-modal-content h2 { color: #ffffff; border-bottom-color: #222222; }
+    body.theme-noire .discord-modal-close { color: #bbbbbb; }
+    body.theme-noire .discord-modal-close:hover { color: #ffffff; }
+    body.theme-noire section { background: #000000; border-color: #1a1a1a; box-shadow: 5px 5px 15px rgba(0,0,0,0.7); color: #ffffff; }
+    body.theme-noire section h2, body.theme-noire section h3 { color: #ffffff; border-bottom-color: #1a1a1a; }
+    body.theme-noire .iframe-container { border-color: #1a1a1a; background-color: #050505; }
+    body.theme-noire .iframe-container p { color: #e0e0e0; }
+    body.theme-noire #livestream .video-container { border-color: #ffffff; box-shadow: 0 0 10px rgba(255,255,255,0.3); }
+    body.theme-noire .show { background-color: #0a0a0a; border-left-color: #333333; }
+    body.theme-noire .show h3 { color: #ffffff; }
+    body.theme-noire .show p { color: #e0e0e0; }
+    body.theme-noire footer { background-color: #0a0a0a; color: #555555; border-top-color: #1a1a1a; }
+    body.theme-noire footer a.staff-link { color: #ffffff; }
+    body.theme-noire #participate-button { background-color: #1a1a1a; color: #ffffff; border-color: #333333; }
+    body.theme-noire #participate-button:hover { background-color: #333333; color: #000000; border-color: #ffffff; }
+    body.theme-noire #popup-content { background-color: #0a0a0a; border-color: #333333; box-shadow: 0 0 20px rgba(50, 50, 50, 0.5); color: #ffffff; }
+    body.theme-noire #popup-yes-button { background-color: #1a1a1a; color: #ffffff; border-color: #333333; }
+    body.theme-noire #popup-yes-button:hover { background-color: #333333; color: #000000; border-color: #ffffff; }
+
+    /* --- Theme: Darryl (Formerly Slade, Modified) --- */
+    body.theme-darryl {
+        background-color: #404040; /* Grey background */
+        color: #f0f0f0; /* Light grey/white text */
+        background-image: url('darryl-bg.png'); /* ADD YOUR IMAGE URL HERE */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+    }
+    body.theme-darryl header { background-color: #2a2a2a; border-bottom-color: #8B0000; /* Dark Red */ }
+    body.theme-darryl header h2 { color: #f0f0f0; }
+    body.theme-darryl header p { color: #cccccc; }
+    body.theme-darryl #controls-bar { background-color: #333333; border-bottom-color: #8B0000; }
+    body.theme-darryl #controls-bar .theme-switcher { color: #cccccc; }
+    body.theme-darryl #controls-bar .theme-switcher select { background-color: #505050; color: #f0f0f0; border-color: #8B0000; }
+    body.theme-darryl #controls-bar .theme-switcher select option { background-color: #505050; color: #f0f0f0; }
+    body.theme-darryl .live-chat-button { background-color: #505050; color: #f0f0f0; border-color: #8B0000; }
+    body.theme-darryl .live-chat-button:hover { background-color: #8B0000; color: #ffffff; }
+    body.theme-darryl #discord-chat-modal-content { background-color: #383838; border-color: #8B0000; box-shadow: 0 5px 25px rgba(139,0,0,0.5); color: #f0f0f0; }
+    body.theme-darryl #discord-chat-modal-content h2 { color: #f0f0f0; border-bottom-color: #700000; }
+    body.theme-darryl .discord-modal-close { color: #f0f0f0; }
+    body.theme-darryl .discord-modal-close:hover { color: #ff7f7f; /* Lighter red for hover */ }
+    body.theme-darryl section {
+        background-color: rgba(64, 64, 64, 0.85); /* Semi-transparent grey for sections if body has bg image */
+        border: 2px solid #8B0000; /* Dark Red lining */
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+        color: #f0f0f0;
+        /* No specific background image for sections as requested */
+    }
+    body.theme-darryl section h2, body.theme-darryl section h3 { color: #f0f0f0; border-bottom-color: #700000; }
+    body.theme-darryl .iframe-container { border-color: #8B0000; background-color: rgba(50,50,50,0.85); }
+    body.theme-darryl .iframe-container p { color: #cccccc; }
+    body.theme-darryl #livestream .video-container { border-color: #8B0000; box-shadow: 0 0 10px rgba(139,0,0,0.5); }
+    body.theme-darryl .show { background-color: #484848; border-left: 4px solid #8B0000; }
+    body.theme-darryl .show h3 { color: #f0f0f0; }
+    body.theme-darryl .show p { color: #e0e0e0; }
+    body.theme-darryl footer { background-color: #2a2a2a; color: #cccccc; border-top-color: #8B0000; }
+    body.theme-darryl footer a.staff-link { color: #f0f0f0; }
+    body.theme-darryl #participate-button { background-color: #8B0000; color: #ffffff; border-color: #A04040; }
+    body.theme-darryl #participate-button:hover { background-color: #A04040; color: #2a2a2a; border-color: #f0f0f0; }
+    body.theme-darryl #popup-content { background-color: #333333; border-color: #8B0000; box-shadow: 0 0 20px rgba(139,0,0,0.5); color: #f0f0f0; }
+    body.theme-darryl #popup-yes-button { background-color: #8B0000; color: #ffffff; border-color: #A04040; }
+    body.theme-darryl #popup-yes-button:hover { background-color: #A04040; color: #2a2a2a; border-color: #f0f0f0; }
 
 
-    /* === THEME SPECIFIC STYLES (from your original index.html, with additions) === */
-    body.theme-noire { background-color: #111; color: #eee; background-image: none; }
-    body.theme-noire header { background-color: #222; border-bottom-color: #555; }
-    body.theme-noire #controls-bar { background-color: #2a2a2a; border-bottom-color: #555; }
-    body.theme-noire #controls-bar .theme-switcher { color: #bbb; }
-    body.theme-noire #controls-bar .theme-switcher select { background-color: #333; color: #eee; border-color: #888; }
-    body.theme-noire .live-chat-button { background-color: #333; color: #eee; border-color: #888; }
-    body.theme-noire .live-chat-button:hover { background-color: #eee; color: #333; }
-    body.theme-noire #discord-chat-modal-content { background-color: #222; border-color: #666; box-shadow: 0 5px 25px rgba(100,100,100,0.5); }
-    body.theme-noire #discord-chat-modal-content h2 { color: #eee; border-bottom-color: #444; }
-    body.theme-noire .discord-modal-close { color: #777; }
-    body.theme-noire .discord-modal-close:hover { color: #ccc; }
-    body.theme-noire header h2, body.theme-noire section h2, body.theme-noire section h3 { color: #fff; border-bottom-color: #555; }
-    body.theme-noire header p { color: #bbb; }
-    body.theme-noire section { background: #222; border-color: #555; box-shadow: 5px 5px 15px rgba(0,0,0,0.5); color: #eee; }
-    body.theme-noire .iframe-container { border-color: #555; background-color: #222; }
-    body.theme-noire .iframe-container p { color: #bbb; }
-    body.theme-noire #livestream .video-container { border-color: #fff; box-shadow: 0 0 10px rgba(255,255,255,0.3); }
-    body.theme-noire .show { background-color: #333; border-left-color: #888; }
-    body.theme-noire .show h3 { color: #eee; }
-    body.theme-noire .show p { color: #ccc; }
-    body.theme-noire footer { background-color: #222; color: #555; border-top-color: #555; }
-    body.theme-noire #participate-button { background-color: #555; color: #eee; border-color: #888; }
-    body.theme-noire #participate-button:hover { background-color: #888; color: #111; border-color: #eee; }
-    body.theme-noire #popup-content { background-color: #222; border-color: #888; box-shadow: 0 0 20px rgba(136, 136, 136, 0.5); color: #eee; }
-    body.theme-noire #popup-yes-button { background-color: #555; color: #eee; border-color: #888; }
-    body.theme-noire #popup-yes-button:hover { background-color: #888; color: #111; border-color: #eee; }
-
-    body.theme-slade { background-color: #222; color: #eee; background-image: none; }
-    body.theme-slade header { background-color: #333; border-bottom-color: #ff6600; }
-    body.theme-slade #controls-bar { background-color: #3a3a3a; border-bottom-color: #ff6600; }
-    body.theme-slade #controls-bar .theme-switcher { color: #ccc; }
-    body.theme-slade #controls-bar .theme-switcher select { background-color: #444; color: #ff9900; border-color: #ff6600; }
-    body.theme-slade .live-chat-button { background-color: #444; color: #ff9900; border-color: #ff6600; }
-    body.theme-slade .live-chat-button:hover { background-color: #ff9900; color: #444; }
-    body.theme-slade #discord-chat-modal-content { background-color: #333; border-color: #ff9900; box-shadow: 0 5px 25px rgba(255,153,0,0.5); }
-    body.theme-slade #discord-chat-modal-content h2 { color: #ff9900; border-bottom-color: #ff6600; }
-    body.theme-slade .discord-modal-close { color: #ff9900; }
-    body.theme-slade .discord-modal-close:hover { color: #ffcc00; }
-    body.theme-slade header h2, body.theme-slade section h2, body.theme-slade section h3 { color: #ff9900; border-bottom-color: #ff6600; }
-    body.theme-slade header p { color: #ccc; }
-    body.theme-slade section { background: #333; border-color: #ff6600; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); color: #eee; }
-    body.theme-slade .iframe-container { border-color: #ff6600; background-color: #333; }
-    body.theme-slade .iframe-container p { color: #ccc; }
-    body.theme-slade #livestream .video-container { border-color: #ff9900; box-shadow: 0 0 10px rgba(255,153,0,0.5); }
-    body.theme-slade .show { background-color: #444; border-left-color: #ff9900; }
-    body.theme-slade .show h3 { color: #ffcc00; }
-    body.theme-slade .show p { color: #ddd; }
-    body.theme-slade footer { background-color: #333; color: #ff6600; border-top-color: #ff6600; }
-    body.theme-slade #participate-button { background-color: #ff6600; color: #222; border-color: #ff9900; }
-    body.theme-slade #participate-button:hover { background-color: #ff9900; color: #111; border-color: #ffcc00; }
-    body.theme-slade #popup-content { background-color: #333; border-color: #ff9900; box-shadow: 0 0 20px rgba(255, 153, 0, 0.5); color: #eee; }
-    body.theme-slade #popup-yes-button { background-color: #ff6600; color: #222; border-color: #ff9900; }
-    body.theme-slade #popup-yes-button:hover { background-color: #ff9900; color: #111; border-color: #ffcc00; }
-
+    /* --- Theme: Mr. Johnson (Existing) --- */
     body.theme-mr-johnson { color: #00cc00; background-image: url('garage1.png'); background-color: #1a0033; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
     body.theme-mr-johnson header { background-color: #2a0055; border-bottom-color: #008000; color: #00ff00; }
     body.theme-mr-johnson #controls-bar { background-color: #300060; border-bottom-color: #008000; }
@@ -543,12 +557,14 @@
     body.theme-mr-johnson .show h3 { color: #32cd32; }
     body.theme-mr-johnson .show p { color: #00dd00; }
     body.theme-mr-johnson footer { background-color: #2a0055; color: #00aa00; border-top-color: #008000; }
+    body.theme-mr-johnson footer a.staff-link { color: #00ff00; }
     body.theme-mr-johnson #participate-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
     body.theme-mr-johnson #participate-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
     body.theme-mr-johnson #popup-content { background-color: #2a0055; border-color: #00ff00; box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); color: #00dd00; }
     body.theme-mr-johnson #popup-yes-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
     body.theme-mr-johnson #popup-yes-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
 
+    /* --- Theme: Albright (Existing) --- */
     body.theme-albright { color: #cdc8b1; background-image: url('tp1.png'); background-color: #281c12; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
     body.theme-albright header { background-color: rgba(74, 57, 46, 0.85); border-bottom: 4px solid #b46a00; color: #ffc107; }
     body.theme-albright #controls-bar { background-color: rgba(90, 70, 55, 0.9); border-bottom-color: #b46a00; }
@@ -577,12 +593,14 @@
     body.theme-albright .show h3 { color: #ffd700; }
     body.theme-albright .show p { color: #eee; }
     body.theme-albright footer { background-color: rgba(28, 18, 11, 0.9); color: #a1887f; border-top: 1px solid #4a392e; }
+    body.theme-albright footer a.staff-link { color: #ffc107; }
     body.theme-albright #participate-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
     body.theme-albright #participate-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
     body.theme-albright #popup-content { background-color: rgba(74, 57, 46, 0.95); border-color: #ffc107; box-shadow: 0 0 20px rgba(255, 193, 7, 0.6); color: #cdc8b1; }
     body.theme-albright #popup-yes-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
     body.theme-albright #popup-yes-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
 
+    /* --- Theme: Riggin (Existing) --- */
     body.theme-riggin { background-color: #000000; color: #FFA500; background-image: none; }
     body.theme-riggin header { background-color: #1a1a1a; border-bottom: 4px solid #FF8C00; color: #FFA500; }
     body.theme-riggin #controls-bar { background-color: #222222; border-bottom-color: #FF8C00; }
@@ -605,6 +623,7 @@
     body.theme-riggin .show h3 { color: #FFD700; }
     body.theme-riggin .show p { color: #cccccc; }
     body.theme-riggin footer { background-color: #1a1a1a; color: #FFD700; border-top: 1px solid #FF8C00; }
+    body.theme-riggin footer a.staff-link { color: #FFA500; }
     body.theme-riggin #participate-button { background-color: #FFA500; color: #000000; border-color: #FF8C00; }
     body.theme-riggin #participate-button:hover { background-color: #FF8C00; color: #000000; border-color: #FFA500; }
     body.theme-riggin #popup-content { background-color: #1a1a1a; border-color: #FFA500; box-shadow: 0 0 20px rgba(255, 165, 0, 0.6); color: #FFA500; }
@@ -615,26 +634,21 @@
         text-align: center;
         padding: 20px;
         margin-top: 30px;
-        background-color: #1a1a33;
-        color: #666666;
+        background-color: #1a1a33; /* Default footer background */
+        color: #666666; /* Default footer text */
         font-size: 0.85em;
-        border-top: 1px solid #005b5b;
+        border-top: 1px solid #005b5b; /* Default footer border */
         transition: background-color 0.5s ease, color 0.5s ease, border-top-color 0.5s ease;
     }
     footer a.staff-link {
-        color: #00e6e6;
+        color: #00e6e6; /* Default footer link color */
         text-decoration: none;
         margin: 0 10px;
     }
     footer a.staff-link:hover {
         text-decoration: underline;
     }
-    body.theme-noire footer a.staff-link { color: #eee; }
-    body.theme-slade footer a.staff-link { color: #ff9900; }
-    body.theme-mr-johnson footer a.staff-link { color: #00ff00; }
-    body.theme-albright footer a.staff-link { color: #ffc107; }
-    body.theme-riggin footer a.staff-link { color: #FFA500; }
-    body.theme-afterlounge footer a.staff-link { color: #00e6e6; }
+    /* Note: Theme-specific footer a.staff-link colors are already defined in each theme block above */
 
 
     @media (max-width: 768px) {
@@ -687,7 +701,7 @@
             <span class="discord-modal-close" id="discordModalClose">&times;</span>
             <h2>WAPA Live Chat</h2>
             <div class="discord-widget-container">
-                <p style="text-align:center; padding: 20px; color: #ccc;">Your Discord Widget Will Load Here!</p>
+                <p style="text-align:center; padding: 20px; color: #ccc;">Discord Widget Loads Here!</p>
             </div>
         </div>
     </div>
@@ -704,7 +718,7 @@
              <select id="theme-select">
                  <option value="afterlounge">AfterLounge</option>
                  <option value="noire">Noire</option>
-                 <option value="slade">Slade</option>
+                 <option value="darryl">Darryl</option>
                  <option value="mr-johnson">Mr. Johnson</option>
                  <option value="albright">Albright</option>
                  <option value="riggin">Riggin</option>
@@ -862,7 +876,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            loadTheme(); // Load theme first
+            loadTheme();
 
             const themeSelect = document.getElementById('theme-select');
             if (themeSelect) {
@@ -871,9 +885,8 @@
                 });
             }
 
-            // Initialize participate button if it exists
             if (participateButton && popupOverlay && popupYesButton) {
-                 setTimeout(() => { // timeout 0 to ensure DOM is fully ready for offsetWidth/Height
+                 setTimeout(() => {
                      initializeButton();
                      if (animationInterval) clearInterval(animationInterval);
                      animationInterval = setInterval(updateButtonPosition, 30);
@@ -891,14 +904,12 @@
                 });
             }
 
-            // SoundCloud Widget Logic
             const soundcloud_iframe = document.getElementById('soundcloud-widget');
             if (soundcloud_iframe && typeof SC !== 'undefined' && SC.Widget) {
                 const widget = SC.Widget(soundcloud_iframe);
                 widget.bind(SC.Widget.Events.READY, function() {
                     console.log('SoundCloud Widget Ready!');
                     widget.bind(SC.Widget.Events.FINISH, function() {
-                        console.log('Playlist finished, attempting to loop.');
                         widget.seekTo(0);
                         widget.play();
                     });
@@ -910,7 +921,6 @@
                 if (typeof SC === 'undefined' || !SC.Widget) { console.warn("SoundCloud Widget API not available."); }
             }
 
-            // ----- DISCORD MODAL SCRIPT -----
             const discordModal = document.getElementById('discordModal');
             const discordChatBtn = document.getElementById('discordChatBtn');
             const discordModalClose = document.getElementById('discordModalClose');
@@ -919,25 +929,19 @@
                 discordChatBtn.onclick = function() {
                     discordModal.style.display = "flex";
                 }
-            } else {
-                if (!discordChatBtn) console.error("Button with id 'discordChatBtn' not found!");
-                if (!discordModal) console.error("Element with id 'discordModal' not found!");
             }
-
             if (discordModalClose && discordModal) {
                 discordModalClose.onclick = function() {
                     discordModal.style.display = "none";
                 }
             }
-
             if (discordModal) {
                 discordModal.onclick = function(event) {
-                    if (event.target == discordModal) { // Only if the click is directly on the overlay
+                    if (event.target == discordModal) {
                         discordModal.style.display = "none";
                     }
                 }
             }
-            // ----- END DISCORD MODAL SCRIPT -----
         });
 
          window.addEventListener('resize', () => {
