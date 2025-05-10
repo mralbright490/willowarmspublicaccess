@@ -11,7 +11,6 @@
         /* PLUS the .staff-profile rules and their theme variations I provided) */
         /* should go in HERE. Only one <style> block. */
 
-        /* For example, it starts with: */
         body.theme-afterlounge {
             background-image: url('afterlounge.png');
             background-size: cover;
@@ -26,7 +25,7 @@
             border: 1px solid #008b8b;
         }
         body.theme-afterlounge section h2,
-        body.theme-afterlounge section h3 { /* This now includes titles */
+        body.theme-afterlounge section h3 {
             color: #00e6e6;
             border-bottom-color: #00a3a3;
         }
@@ -34,7 +33,7 @@
             background-color: rgba(42, 42, 77, 0.9);
             border-left-color: #00e6e6;
         }
-        body.theme-afterlounge .show h3, body.theme-afterlounge .staff-profile h3 { /* This now includes titles */
+        body.theme-afterlounge .show h3, body.theme-afterlounge .staff-profile h3 {
             color: #00e6e6;
         }
         body.theme-afterlounge .show p, body.theme-afterlounge .staff-profile p {
@@ -47,7 +46,7 @@
         body.theme-afterlounge .iframe-container p {
             color: #dddddd;
         }
-        body.theme-afterlounge #livestream .video-container { /* Assuming this isn't on staff page, but good to keep consistent */
+        body.theme-afterlounge #livestream .video-container {
             border-color: #00e6e6;
             box-shadow: 0 0 10px rgba(0, 230, 230, 0.5);
         }
@@ -177,9 +176,9 @@
             max-width: 100%;
             transition: color 0.5s ease, border-color 0.5s ease;
         }
-        section h3 { /* General section h3 for titles within sections, not staff names */
+        section h3 {
              color: #00a3a3;
-             border-bottom: 2px solid #005b5b; /* Keep border for general section subheadings if any */
+             border-bottom: 2px solid #005b5b;
              padding-bottom: 8px;
              margin-top: 0;
              margin-bottom: 20px;
@@ -198,17 +197,14 @@
             word-break: break-word;
             transition: color 0.5s ease;
         }
-        /* Styles for staff profiles */
         .staff-profile {
             margin-bottom: 30px;
             padding: 20px;
-            background-color: #2a2a4d; /* Default theme */
-            border-left: 4px solid #00a3a3; /* Default theme */
+            background-color: #2a2a4d;
+            border-left: 4px solid #00a3a3;
             box-sizing: border-box;
             transition: background-color 0.5s ease, border-color 0.5s ease;
         }
-        /* .staff-profile img.profile-pic IS NO LONGER NEEDED FOR MR. ALBRIGHT but keep if other profiles might use images */
-        /* If no profiles use images, this class can be removed */
         .staff-profile img.profile-pic {
             max-width: 150px;
             height: auto;
@@ -216,39 +212,36 @@
             margin-bottom: 15px;
             border: 2px solid #00a3a3;
         }
-        .staff-profile h3 { /* Specific styling for staff names + titles */
+        .staff-profile h3 {
             margin-top: 0;
             margin-bottom: 10px;
-            color: #00e6e6; /* Default theme */
-            font-size: 1.6em; /* You might want to adjust this if titles make it too long */
-            border-bottom: none; /* No bottom border for names */
-            /* Allow wrapping for name + title */
+            color: #00e6e6;
+            font-size: 1.6em;
+            border-bottom: none;
             white-space: normal;
             overflow: visible;
             text-overflow: clip;
         }
         .staff-profile p {
-            color: #bbbbbb; /* Default theme */
+            color: #bbbbbb;
             font-size: 1em;
             line-height: 1.6;
         }
 
-        /* --- Theme Specific Styles for Staff Page --- */
         body.theme-noire { background-color: #111; color: #eee; background-image: none; }
         body.theme-noire header { background-color: #222; border-bottom-color: #555; }
         body.theme-noire #controls-bar { background-color: #2a2a2a; border-bottom-color: #555; }
         body.theme-noire #controls-bar .theme-switcher { color: #bbb; }
         body.theme-noire #controls-bar .theme-switcher select { background-color: #333; color: #eee; border-color: #888; }
         body.theme-noire #controls-bar .theme-switcher select option { background-color: #333; color: #eee; }
-        body.theme-noire header h2, body.theme-noire section h2, body.theme-noire section h3 { color: #fff; border-bottom-color: #555; } /* General h3 */
+        body.theme-noire header h2, body.theme-noire section h2, body.theme-noire section h3 { color: #fff; border-bottom-color: #555; }
         body.theme-noire header p { color: #bbb; }
         body.theme-noire section { background: #222; border-color: #555; box-shadow: 5px 5px 15px rgba(0,0,0,0.5); color: #eee; }
         body.theme-noire .staff-profile { background-color: #333; border-left-color: #888; }
-        body.theme-noire .staff-profile h3 { color: #eee; } /* Staff name + title */
+        body.theme-noire .staff-profile h3 { color: #eee; }
         body.theme-noire .staff-profile p { color: #ccc; }
         body.theme-noire .staff-profile img.profile-pic { border-color: #888; }
         body.theme-noire footer { background-color: #222; color: #555; border-top-color: #555; }
-
 
         body.theme-slade { background-color: #222; color: #eee; background-image: none; }
         body.theme-slade header { background-color: #333; border-bottom-color: #ff6600; }
@@ -256,11 +249,11 @@
         body.theme-slade #controls-bar .theme-switcher { color: #ccc; }
         body.theme-slade #controls-bar .theme-switcher select { background-color: #444; color: #ff9900; border-color: #ff6600; }
         body.theme-slade #controls-bar .theme-switcher select option { background-color: #444; color: #ff9900; }
-        body.theme-slade header h2, body.theme-slade section h2, body.theme-slade section h3 { color: #ff9900; border-bottom-color: #ff6600; } /* General h3 */
+        body.theme-slade header h2, body.theme-slade section h2, body.theme-slade section h3 { color: #ff9900; border-bottom-color: #ff6600; }
         body.theme-slade header p { color: #ccc; }
         body.theme-slade section { background: #333; border-color: #ff6600; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); color: #eee; }
         body.theme-slade .staff-profile { background-color: #444; border-left-color: #ff9900; }
-        body.theme-slade .staff-profile h3 { color: #ffcc00; } /* Staff name + title */
+        body.theme-slade .staff-profile h3 { color: #ffcc00; }
         body.theme-slade .staff-profile p { color: #ddd; }
         body.theme-slade .staff-profile img.profile-pic { border-color: #ff9900; }
         body.theme-slade footer { background-color: #333; color: #ff6600; border-top-color: #ff6600; }
@@ -271,11 +264,11 @@
         body.theme-mr-johnson #controls-bar .theme-switcher { color: #00aa00; }
         body.theme-mr-johnson #controls-bar .theme-switcher select { background-color: #3a0066; color: #00ff00; border-color: #008000; }
         body.theme-mr-johnson #controls-bar .theme-switcher select option { background-color: #3a0066; color: #00ff00; }
-        body.theme-mr-johnson header h2, body.theme-mr-johnson section h2, body.theme-mr-johnson section h3 { color: #00ff00; border-bottom-color: #008000; } /* General h3 */
+        body.theme-mr-johnson header h2, body.theme-mr-johnson section h2, body.theme-mr-johnson section h3 { color: #00ff00; border-bottom-color: #008000; }
         body.theme-mr-johnson header p { color: #00aa00; }
         body.theme-mr-johnson section { background: linear-gradient(rgba(42, 0, 85, 0.85), rgba(42, 0, 85, 0.85)), url('purpmarb.png') center center / cover no-repeat; border-color: #008000; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); color: #00cc00; }
         body.theme-mr-johnson .staff-profile { background-color: rgba(58, 0, 102, 0.9); border-left-color: #00ff00; }
-        body.theme-mr-johnson .staff-profile h3 { color: #32cd32; } /* Staff name + title */
+        body.theme-mr-johnson .staff-profile h3 { color: #32cd32; }
         body.theme-mr-johnson .staff-profile p { color: #00dd00; }
         body.theme-mr-johnson .staff-profile img.profile-pic { border-color: #00ff00; }
         body.theme-mr-johnson footer { background-color: #2a0055; color: #00aa00; border-top-color: #008000; }
@@ -286,11 +279,11 @@
         body.theme-albright #controls-bar .theme-switcher { color: #a1887f; }
         body.theme-albright #controls-bar .theme-switcher select { background-color: #6f4f2d; color: #ffc107; border-color: #b46a00; }
         body.theme-albright #controls-bar .theme-switcher select option { background-color: #6f4f2d; color: #ffc107; }
-        body.theme-albright header h2, body.theme-albright section h2, body.theme-albright section h3 { color: #ffc107; border-bottom-color: #b46a00; } /* General h3 */
+        body.theme-albright header h2, body.theme-albright section h2, body.theme-albright section h3 { color: #ffc107; border-bottom-color: #b46a00; }
         body.theme-albright header p { color: #a1887f; }
         body.theme-albright section { background: linear-gradient(rgba(74, 57, 46, 0.7), rgba(74, 57, 46, 0.7)), url('goldtext.png') center center / cover no-repeat; border: 1px solid #b46a00; box-shadow: 5px 5px 15px rgba(0,0,0,0.6); color: #cdc8b1; }
         body.theme-albright .staff-profile { background-color: rgba(111, 79, 45, 0.9); border-left: 4px solid #cd7f32; }
-        body.theme-albright .staff-profile h3 { color: #ffd700; } /* Staff name + title */
+        body.theme-albright .staff-profile h3 { color: #ffd700; }
         body.theme-albright .staff-profile p { color: #eee; }
         body.theme-albright .staff-profile img.profile-pic { border-color: #cd7f32; }
         body.theme-albright footer { background-color: rgba(28, 18, 11, 0.9); color: #a1887f; border-top: 1px solid #4a392e; }
@@ -301,22 +294,20 @@
         body.theme-riggin #controls-bar .theme-switcher { color: #FFD700; }
         body.theme-riggin #controls-bar .theme-switcher select { background-color: #333333; color: #FFA500; border-color: #FF8C00; }
         body.theme-riggin #controls-bar .theme-switcher select option { background-color: #333333; color: #FFA500; }
-        body.theme-riggin header h2, body.theme-riggin section h2, body.theme-riggin section h3 { color: #FFA500; border-bottom-color: #FF8C00; } /* General h3 */
+        body.theme-riggin header h2, body.theme-riggin section h2, body.theme-riggin section h3 { color: #FFA500; border-bottom-color: #FF8C00; }
         body.theme-riggin header p { color: #FFD700; }
         body.theme-riggin section { background: #1a1a1a; border: 1px solid #FF8C00; box-shadow: 5px 5px 15px rgba(50,50,50,0.4); color: #FFA500;}
         body.theme-riggin .staff-profile { background-color: #333333; border-left: 4px solid #FFA500; }
-        body.theme-riggin .staff-profile h3 { color: #FFD700; } /* Staff name + title */
+        body.theme-riggin .staff-profile h3 { color: #FFD700; }
         body.theme-riggin .staff-profile p { color: #cccccc; }
         body.theme-riggin .staff-profile img.profile-pic { border-color: #FFA500; }
         body.theme-riggin footer { background-color: #1a1a1a; color: #FFD700; border-top: 1px solid #FF8C00; }
 
-        /* Afterlounge Theme specifics for staff profile if not covered by default WAPA theme */
         body.theme-afterlounge .staff-profile { background-color: rgba(42, 42, 77, 0.9); border-left-color: #00e6e6; }
-        body.theme-afterlounge .staff-profile h3 { color: #00e6e6; } /* Staff name + title */
+        body.theme-afterlounge .staff-profile h3 { color: #00e6e6; }
         body.theme-afterlounge .staff-profile p { color: #dddddd; }
         body.theme-afterlounge .staff-profile img.profile-pic { border-color: #00e6e6; }
         body.theme-afterlounge footer { background-color: #1a1a33; color: #666666; border-top: 1px solid #005b5b; }
-
 
         footer {
             text-align: center;
@@ -343,12 +334,11 @@
         body.theme-riggin footer a.home-link { color: #FFA500; }
         body.theme-afterlounge footer a.home-link { color: #00e6e6; }
 
-
         @media (max-width: 768px) {
             main { padding: 0 15px; }
             #controls-bar { padding: 8px 15px; justify-content: center;}
             section h2 { font-size: 1.4em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-            .staff-profile h3 { font-size: 1.3em; } /* Adjust profile name + title size for mobile */
+            .staff-profile h3 { font-size: 1.3em; }
             section { padding: 20px; margin-bottom: 20px; }
             header h2 { font-size: 1.4em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
             header p { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -361,11 +351,13 @@
             header h2 { font-size: 1.2em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
             section { padding: 15px; margin-bottom: 15px; }
             section h2 { font-size: 1.2em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-            .staff-profile h3 { font-size: 1.1em; } /* Further adjust for smaller screens */
+            .staff-profile h3 { font-size: 1.1em; }
         }
     </style>
 </head>
-<body class="theme-albright"> <header>
+<body class="theme-albright">
+
+    <header>
         <h2>// WILLOW ARMS PUBLIC ACCESS \\</h2>
         <p>Meet The Crew Behind The Chaos</p>
     </header>
@@ -401,7 +393,7 @@
 
             <div class="staff-profile">
                 <h3>Mr. Johnson - Community Cultivator</h3>
-                <p>The social pulse and marketing guru of Willow Arms Public Access, Mr. Johnson ensures the world knows about the network's unique offerings. Often found burning the midnight oil with Mr. Albright in their Discord "waybackbooth," Mr. Johnson is a dedicated partner and an avid gamer. He masterfully handles the network's outreach, ensuring the community is engaged and the Willow Arms message is heard far and wide (when he's not deep in a gaming session, that is!).</p>
+                <p>The social pulse and marketing guru of Willow Arms Public Access, Mr. Johnson ensures the world knows about the network's unique offerings. A familiar voice on the network, he co-hosts The Bonfire Podcast with Mr. Albright, where his hilarious ideas often take center stage. Often found burning the midnight oil with Mr. Albright in their Discord "waybackbooth," Mr. Johnson is a dedicated partner and an avid gamer. He masterfully handles the network's outreach, ensuring the community is engaged and the Willow Arms message is heard far and wide (when he's not deep in a gaming session, that is!).</p>
             </div>
         </section>
     </main>
@@ -411,7 +403,6 @@
     </footer>
 
     <script>
-        // Re-using the same theme-switching script from index.html
         function setTheme(themeName) {
             document.body.className = document.body.className.replace(/theme-\S+/g, '').trim();
             document.body.classList.add('theme-' + themeName);
@@ -423,7 +414,7 @@
         }
 
         function loadTheme() {
-            const savedTheme = localStorage.getItem('wapTheme') || 'albright'; // Default to albright or your preferred
+            const savedTheme = localStorage.getItem('wapTheme') || 'albright';
             setTheme(savedTheme);
         }
 
