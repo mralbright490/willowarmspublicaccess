@@ -1,46 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<style>
-    body.theme-afterlounge {
-        background-image: url('afterlounge.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center center;
-        background-color: #0c0c1a;
-    }
-    body.theme-afterlounge section {
-        background-color: rgba(26, 26, 51, 0.85);
-        color: #ffffff;
-        border: 1px solid #008b8b;
-    }
-    body.theme-afterlounge section h2,
-    body.theme-afterlounge section h3 {
-        color: #00e6e6;
-        border-bottom-color: #00a3a3;
-    }
-    body.theme-afterlounge .show {
-        background-color: rgba(42, 42, 77, 0.9);
-        border-left-color: #00e6e6;
-    }
-    body.theme-afterlounge .show h3 {
-        color: #00e6e6;
-    }
-     body.theme-afterlounge .show p {
-        color: #dddddd;
-    }
-    body.theme-afterlounge .iframe-container {
-        background-color: rgba(26, 26, 51, 0.85);
-        border-color: #008b8b;
-    }
-     body.theme-afterlounge .iframe-container p {
-        color: #dddddd;
-    }
-     body.theme-afterlounge #livestream .video-container {
-        border-color: #00e6e6;
-        box-shadow: 0 0 10px rgba(0, 230, 230, 0.5);
-     }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[ Meet The Staff - WAPA ]</title>
+    <meta name="description" content="Meet the team behind Willow Arms Public Access: Mr. Albright, Ari Grovenstein, and Mr. Johnson.">
+    <link rel="icon" href="wapabroadcastlogo.ico" type="image/x-icon">
+    <style>
+        /* ALL your CSS rules (the complete block from index.html, */
+        /* PLUS the .staff-profile rules and their theme variations I provided) */
+        /* should go in HERE. Only one <style> block. */
+
+        /* For example, it starts with: */
+        body.theme-afterlounge {
+            background-image: url('afterlounge.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+            background-color: #0c0c1a;
+        }
+        body.theme-afterlounge section {
+            background-color: rgba(26, 26, 51, 0.85);
+            color: #ffffff;
+            border: 1px solid #008b8b;
+        }
+        body.theme-afterlounge section h2,
+        body.theme-afterlounge section h3 { /* This now includes titles */
+            color: #00e6e6;
+            border-bottom-color: #00a3a3;
+        }
+        body.theme-afterlounge .show, body.theme-afterlounge .staff-profile {
+            background-color: rgba(42, 42, 77, 0.9);
+            border-left-color: #00e6e6;
+        }
+        body.theme-afterlounge .show h3, body.theme-afterlounge .staff-profile h3 { /* This now includes titles */
+            color: #00e6e6;
+        }
+        body.theme-afterlounge .show p, body.theme-afterlounge .staff-profile p {
+            color: #dddddd;
+        }
+        body.theme-afterlounge .iframe-container {
+            background-color: rgba(26, 26, 51, 0.85);
+            border-color: #008b8b;
+        }
+        body.theme-afterlounge .iframe-container p {
+            color: #dddddd;
+        }
+        body.theme-afterlounge #livestream .video-container { /* Assuming this isn't on staff page, but good to keep consistent */
+            border-color: #00e6e6;
+            box-shadow: 0 0 10px rgba(0, 230, 230, 0.5);
+        }
 
         body {
             font-family: 'Arial', sans-serif;
@@ -167,9 +177,9 @@
             max-width: 100%;
             transition: color 0.5s ease, border-color 0.5s ease;
         }
-         section h3 {
+        section h3 { /* General section h3 for titles within sections, not staff names */
              color: #00a3a3;
-             border-bottom: 2px solid #005b5b;
+             border-bottom: 2px solid #005b5b; /* Keep border for general section subheadings if any */
              padding-bottom: 8px;
              margin-top: 0;
              margin-bottom: 20px;
@@ -188,284 +198,126 @@
             word-break: break-word;
             transition: color 0.5s ease;
         }
-        #livestream .video-container {
-            position: relative;
-            max-width: 1280px;
-            margin: 20px auto;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            background-color: #000;
-            border: 2px solid #00e6e6;
-            box-shadow: 0 0 10px rgba(0, 230, 230, 0.5);
+        /* Styles for staff profiles */
+        .staff-profile {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #2a2a4d; /* Default theme */
+            border-left: 4px solid #00a3a3; /* Default theme */
             box-sizing: border-box;
-            transition: border-color 0.5s ease, box-shadow 0.5s ease;
+            transition: background-color 0.5s ease, border-color 0.5s ease;
         }
-        #livestream .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        #livestream .video-container p {
-             position: absolute;
-             top: 0;
-             left: 0;
-             width: 100%;
-             height: 100%;
-             display: flex;
-             justify-content: center;
-             align-items: center;
-             color: #fff;
-             font-size: 1.2em;
-             padding: 20px;
-             box-sizing: border-box;
-             text-align: center;
-             background-color: #000;
-             z-index: 1;
-             max-width: 100%;
-        }
-        .show {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #2a2a4d;
-            border-left: 4px solid #00a3a3;
-            box-sizing: border-box;
-            transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
-        }
-        .show h3 {
-            margin-top: 0;
-            margin-bottom: 8px;
-            color: #00e6e6;
-            font-size: 1.3em;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: block;
-            transition: color 0.5s ease;
-        }
-        .show p {
-            color: #bbbbbb;
-            font-size: 0.95em;
-             word-break: break-word;
-             transition: color 0.5s ease;
-        }
-        .iframe-container {
-            border: 1px solid #00a3a3;
-            padding: 10px;
-            background-color: #1a1a33;
-            box-sizing: border-box;
-            width: 100%;
-            overflow: hidden;
-            transition: border-color 0.5s ease, background-color 0.5s ease;
-        }
-        .iframe-container iframe {
-            width: 100%;
-            height: 600px;
-            border: none;
-            display: block;
-        }
-        .iframe-container p {
-             text-align: center;
-             color: #999999;
-             font-size: 0.9em;
-             margin-bottom: 0;
-             transition: color 0.5s ease;
-        }
-        #tiktok-feed .iframe-container {
-             height: 500px;
-             overflow-y: scroll;
-        }
-         #tiktok-feed .iframe-container p {
-             position: static;
-             width: auto;
-             height: auto;
-             padding: 0;
-         }
-        #participate-button {
-            position: fixed;
-            z-index: 1000;
-            display: none;
-            padding: 10px 15px;
-            background-color: #00a3a3;
-            color: #1a1a33;
-            border: 2px solid #00e6e6;
-            border-radius: 5px;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-size: 1em;
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-        }
-        #participate-button:hover {
-             background-color: #00e6e6;
-             color: #1a1a33;
-             border-color: #00a3a3;
-        }
-        #popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-        }
-        #popup-content {
-            background-color: #1a1a33;
-            padding: 30px;
-            border: 2px solid #00a3a3;
+        /* .staff-profile img.profile-pic IS NO LONGER NEEDED FOR MR. ALBRIGHT but keep if other profiles might use images */
+        /* If no profiles use images, this class can be removed */
+        .staff-profile img.profile-pic {
+            max-width: 150px;
+            height: auto;
             border-radius: 8px;
-            text-align: center;
-            max-width: 400px;
-            box-shadow: 0 0 20px rgba(0, 163, 163, 0.5);
-            color: #cccccc;
-            transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+            margin-bottom: 15px;
+            border: 2px solid #00a3a3;
         }
-        #popup-content p {
+        .staff-profile h3 { /* Specific styling for staff names + titles */
             margin-top: 0;
-            margin-bottom: 20px;
-            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #00e6e6; /* Default theme */
+            font-size: 1.6em; /* You might want to adjust this if titles make it too long */
+            border-bottom: none; /* No bottom border for names */
+            /* Allow wrapping for name + title */
+            white-space: normal;
+            overflow: visible;
+            text-overflow: clip;
         }
-        #popup-yes-button {
-            background-color: #00a3a3;
-            color: #1a1a33;
-            border: 2px solid #00e6e6;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            text-transform: uppercase;
+        .staff-profile p {
+            color: #bbbbbb; /* Default theme */
             font-size: 1em;
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            line-height: 1.6;
         }
-        #popup-yes-button:hover {
-             background-color: #00e6e6;
-             color: #1a1a33;
-             border-color: #00a3a3;
-        }
+
+        /* --- Theme Specific Styles for Staff Page --- */
         body.theme-noire { background-color: #111; color: #eee; background-image: none; }
         body.theme-noire header { background-color: #222; border-bottom-color: #555; }
         body.theme-noire #controls-bar { background-color: #2a2a2a; border-bottom-color: #555; }
         body.theme-noire #controls-bar .theme-switcher { color: #bbb; }
         body.theme-noire #controls-bar .theme-switcher select { background-color: #333; color: #eee; border-color: #888; }
         body.theme-noire #controls-bar .theme-switcher select option { background-color: #333; color: #eee; }
-        body.theme-noire header h2, body.theme-noire section h2, body.theme-noire section h3 { color: #fff; border-bottom-color: #555; }
+        body.theme-noire header h2, body.theme-noire section h2, body.theme-noire section h3 { color: #fff; border-bottom-color: #555; } /* General h3 */
         body.theme-noire header p { color: #bbb; }
         body.theme-noire section { background: #222; border-color: #555; box-shadow: 5px 5px 15px rgba(0,0,0,0.5); color: #eee; }
-        body.theme-noire .iframe-container { border-color: #555; background-color: #222; }
-        body.theme-noire .iframe-container p { color: #bbb; }
-        body.theme-noire #livestream .video-container { border-color: #fff; box-shadow: 0 0 10px rgba(255,255,255,0.3); }
-        body.theme-noire .show { background-color: #333; border-left-color: #888; }
-        body.theme-noire .show h3 { color: #eee; }
-        body.theme-noire .show p { color: #ccc; }
+        body.theme-noire .staff-profile { background-color: #333; border-left-color: #888; }
+        body.theme-noire .staff-profile h3 { color: #eee; } /* Staff name + title */
+        body.theme-noire .staff-profile p { color: #ccc; }
+        body.theme-noire .staff-profile img.profile-pic { border-color: #888; }
         body.theme-noire footer { background-color: #222; color: #555; border-top-color: #555; }
-        body.theme-noire #participate-button { background-color: #555; color: #eee; border-color: #888; }
-        body.theme-noire #participate-button:hover { background-color: #888; color: #111; border-color: #eee; }
-        body.theme-noire #popup-content { background-color: #222; border-color: #888; box-shadow: 0 0 20px rgba(136, 136, 136, 0.5); color: #eee; }
-        body.theme-noire #popup-yes-button { background-color: #555; color: #eee; border-color: #888; }
-        body.theme-noire #popup-yes-button:hover { background-color: #888; color: #111; border-color: #eee; }
+
+
         body.theme-slade { background-color: #222; color: #eee; background-image: none; }
         body.theme-slade header { background-color: #333; border-bottom-color: #ff6600; }
         body.theme-slade #controls-bar { background-color: #3a3a3a; border-bottom-color: #ff6600; }
         body.theme-slade #controls-bar .theme-switcher { color: #ccc; }
         body.theme-slade #controls-bar .theme-switcher select { background-color: #444; color: #ff9900; border-color: #ff6600; }
         body.theme-slade #controls-bar .theme-switcher select option { background-color: #444; color: #ff9900; }
-        body.theme-slade header h2, body.theme-slade section h2, body.theme-slade section h3 { color: #ff9900; border-bottom-color: #ff6600; }
+        body.theme-slade header h2, body.theme-slade section h2, body.theme-slade section h3 { color: #ff9900; border-bottom-color: #ff6600; } /* General h3 */
         body.theme-slade header p { color: #ccc; }
         body.theme-slade section { background: #333; border-color: #ff6600; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); color: #eee; }
-        body.theme-slade .iframe-container { border-color: #ff6600; background-color: #333; }
-        body.theme-slade .iframe-container p { color: #ccc; }
-        body.theme-slade #livestream .video-container { border-color: #ff9900; box-shadow: 0 0 10px rgba(255,153,0,0.5); }
-        body.theme-slade .show { background-color: #444; border-left-color: #ff9900; }
-        body.theme-slade .show h3 { color: #ffcc00; }
-        body.theme-slade .show p { color: #ddd; }
+        body.theme-slade .staff-profile { background-color: #444; border-left-color: #ff9900; }
+        body.theme-slade .staff-profile h3 { color: #ffcc00; } /* Staff name + title */
+        body.theme-slade .staff-profile p { color: #ddd; }
+        body.theme-slade .staff-profile img.profile-pic { border-color: #ff9900; }
         body.theme-slade footer { background-color: #333; color: #ff6600; border-top-color: #ff6600; }
-        body.theme-slade #participate-button { background-color: #ff6600; color: #222; border-color: #ff9900; }
-        body.theme-slade #participate-button:hover { background-color: #ff9900; color: #111; border-color: #ffcc00; }
-        body.theme-slade #popup-content { background-color: #333; border-color: #ff9900; box-shadow: 0 0 20px rgba(255, 153, 0, 0.5); color: #eee; }
-        body.theme-slade #popup-yes-button { background-color: #ff6600; color: #222; border-color: #ff9900; }
-        body.theme-slade #popup-yes-button:hover { background-color: #ff9900; color: #111; border-color: #ffcc00; }
+
         body.theme-mr-johnson { color: #00cc00; background-image: url('garage1.png'); background-color: #1a0033; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
         body.theme-mr-johnson header { background-color: #2a0055; border-bottom-color: #008000; color: #00ff00; }
         body.theme-mr-johnson #controls-bar { background-color: #300060; border-bottom-color: #008000; }
         body.theme-mr-johnson #controls-bar .theme-switcher { color: #00aa00; }
         body.theme-mr-johnson #controls-bar .theme-switcher select { background-color: #3a0066; color: #00ff00; border-color: #008000; }
         body.theme-mr-johnson #controls-bar .theme-switcher select option { background-color: #3a0066; color: #00ff00; }
-        body.theme-mr-johnson header h2, body.theme-mr-johnson section h2, body.theme-mr-johnson section h3 { color: #00ff00; border-bottom-color: #008000; }
+        body.theme-mr-johnson header h2, body.theme-mr-johnson section h2, body.theme-mr-johnson section h3 { color: #00ff00; border-bottom-color: #008000; } /* General h3 */
         body.theme-mr-johnson header p { color: #00aa00; }
-        body.theme-mr-johnson section {
-            background: linear-gradient(rgba(42, 0, 85, 0.85), rgba(42, 0, 85, 0.85)), url('purpmarb.png') center center / cover no-repeat;
-            border-color: #008000;
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
-            color: #00cc00;
-        }
-        body.theme-mr-johnson .iframe-container { border-color: #008000; background-color: rgba(42, 0, 85, 0.85); }
-        body.theme-mr-johnson .iframe-container p { color: #00aa00; }
-        body.theme-mr-johnson #livestream .video-container { border-color: #00ff00; box-shadow: 0 0 10px rgba(0,255,0,0.5); }
-        body.theme-mr-johnson .show { background-color: rgba(58, 0, 102, 0.9); border-left-color: #00ff00; }
-        body.theme-mr-johnson .show h3 { color: #32cd32; }
-        body.theme-mr-johnson .show p { color: #00dd00; }
+        body.theme-mr-johnson section { background: linear-gradient(rgba(42, 0, 85, 0.85), rgba(42, 0, 85, 0.85)), url('purpmarb.png') center center / cover no-repeat; border-color: #008000; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); color: #00cc00; }
+        body.theme-mr-johnson .staff-profile { background-color: rgba(58, 0, 102, 0.9); border-left-color: #00ff00; }
+        body.theme-mr-johnson .staff-profile h3 { color: #32cd32; } /* Staff name + title */
+        body.theme-mr-johnson .staff-profile p { color: #00dd00; }
+        body.theme-mr-johnson .staff-profile img.profile-pic { border-color: #00ff00; }
         body.theme-mr-johnson footer { background-color: #2a0055; color: #00aa00; border-top-color: #008000; }
-        body.theme-mr-johnson #participate-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
-        body.theme-mr-johnson #participate-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
-        body.theme-mr-johnson #popup-content { background-color: #2a0055; border-color: #00ff00; box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); color: #00dd00; }
-        body.theme-mr-johnson #popup-yes-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
-        body.theme-mr-johnson #popup-yes-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
+
         body.theme-albright { color: #cdc8b1; background-image: url('tp1.png'); background-color: #281c12; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
         body.theme-albright header { background-color: rgba(74, 57, 46, 0.85); border-bottom: 4px solid #b46a00; color: #ffc107; }
         body.theme-albright #controls-bar { background-color: rgba(90, 70, 55, 0.9); border-bottom-color: #b46a00; }
         body.theme-albright #controls-bar .theme-switcher { color: #a1887f; }
         body.theme-albright #controls-bar .theme-switcher select { background-color: #6f4f2d; color: #ffc107; border-color: #b46a00; }
         body.theme-albright #controls-bar .theme-switcher select option { background-color: #6f4f2d; color: #ffc107; }
-        body.theme-albright header h2, body.theme-albright section h2, body.theme-albright section h3 { color: #ffc107; border-bottom-color: #b46a00; }
+        body.theme-albright header h2, body.theme-albright section h2, body.theme-albright section h3 { color: #ffc107; border-bottom-color: #b46a00; } /* General h3 */
         body.theme-albright header p { color: #a1887f; }
-        body.theme-albright section {
-             background:
-               linear-gradient(rgba(74, 57, 46, 0.7), rgba(74, 57, 46, 0.7)),
-               url('goldtext.png') center center / cover no-repeat;
-             border: 1px solid #b46a00;
-             box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
-             color: #cdc8b1;
-        }
-        body.theme-albright .iframe-container { border-color: #b46a00; background-color: rgba(74, 57, 46, 0.85); }
-        body.theme-albright .iframe-container p { color: #a1887f; }
-        body.theme-albright #livestream .video-container { border-color: #ffc107; box-shadow: 0 0 10px rgba(255,193,7,0.6); }
-        body.theme-albright .show { background-color: rgba(111, 79, 45, 0.9); border-left: 4px solid #cd7f32; }
-        body.theme-albright .show h3 { color: #ffd700; }
-        body.theme-albright .show p { color: #eee; }
+        body.theme-albright section { background: linear-gradient(rgba(74, 57, 46, 0.7), rgba(74, 57, 46, 0.7)), url('goldtext.png') center center / cover no-repeat; border: 1px solid #b46a00; box-shadow: 5px 5px 15px rgba(0,0,0,0.6); color: #cdc8b1; }
+        body.theme-albright .staff-profile { background-color: rgba(111, 79, 45, 0.9); border-left: 4px solid #cd7f32; }
+        body.theme-albright .staff-profile h3 { color: #ffd700; } /* Staff name + title */
+        body.theme-albright .staff-profile p { color: #eee; }
+        body.theme-albright .staff-profile img.profile-pic { border-color: #cd7f32; }
         body.theme-albright footer { background-color: rgba(28, 18, 11, 0.9); color: #a1887f; border-top: 1px solid #4a392e; }
-        body.theme-albright #participate-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
-        body.theme-albright #participate-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
-        body.theme-albright #popup-content { background-color: rgba(74, 57, 46, 0.95); border-color: #ffc107; box-shadow: 0 0 20px rgba(255, 193, 7, 0.6); color: #cdc8b1; }
-        body.theme-albright #popup-yes-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
-        body.theme-albright #popup-yes-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
+
         body.theme-riggin { background-color: #000000; color: #FFA500; background-image: none; }
         body.theme-riggin header { background-color: #1a1a1a; border-bottom: 4px solid #FF8C00; color: #FFA500; }
         body.theme-riggin #controls-bar { background-color: #222222; border-bottom-color: #FF8C00; }
         body.theme-riggin #controls-bar .theme-switcher { color: #FFD700; }
         body.theme-riggin #controls-bar .theme-switcher select { background-color: #333333; color: #FFA500; border-color: #FF8C00; }
         body.theme-riggin #controls-bar .theme-switcher select option { background-color: #333333; color: #FFA500; }
-        body.theme-riggin header h2 { color: #FFA500; }
+        body.theme-riggin header h2, body.theme-riggin section h2, body.theme-riggin section h3 { color: #FFA500; border-bottom-color: #FF8C00; } /* General h3 */
         body.theme-riggin header p { color: #FFD700; }
         body.theme-riggin section { background: #1a1a1a; border: 1px solid #FF8C00; box-shadow: 5px 5px 15px rgba(50,50,50,0.4); color: #FFA500;}
-        body.theme-riggin .iframe-container { border-color: #FF8C00; background-color: #1a1a1a; }
-        body.theme-riggin .iframe-container p { color: #FFD700; }
-        body.theme-riggin section h2, body.theme-riggin section h3 { color: #FFA500; border-bottom-color: #FF8C00; }
-        body.theme-riggin #livestream .video-container { border-color: #FFA500; box-shadow: 0 0 10px rgba(255,165,0,0.6); }
-        body.theme-riggin .show { background-color: #333333; border-left: 4px solid #FFA500; }
-        body.theme-riggin .show h3 { color: #FFD700; }
-        body.theme-riggin .show p { color: #cccccc; }
+        body.theme-riggin .staff-profile { background-color: #333333; border-left: 4px solid #FFA500; }
+        body.theme-riggin .staff-profile h3 { color: #FFD700; } /* Staff name + title */
+        body.theme-riggin .staff-profile p { color: #cccccc; }
+        body.theme-riggin .staff-profile img.profile-pic { border-color: #FFA500; }
         body.theme-riggin footer { background-color: #1a1a1a; color: #FFD700; border-top: 1px solid #FF8C00; }
-        body.theme-riggin #participate-button { background-color: #FFA500; color: #000000; border-color: #FF8C00; }
-        body.theme-riggin #participate-button:hover { background-color: #FF8C00; color: #000000; border-color: #FFA500; }
-        body.theme-riggin #popup-content { background-color: #1a1a1a; border-color: #FFA500; box-shadow: 0 0 20px rgba(255, 165, 0, 0.6); color: #FFA500; }
-        body.theme-riggin #popup-yes-button { background-color: #FFA500; color: #000000; border-color: #FF8C00; }
-        body.theme-riggin #popup-yes-button:hover { background-color: #FF8C00; color: #000000; border-color: #FFA500; }
+
+        /* Afterlounge Theme specifics for staff profile if not covered by default WAPA theme */
+        body.theme-afterlounge .staff-profile { background-color: rgba(42, 42, 77, 0.9); border-left-color: #00e6e6; }
+        body.theme-afterlounge .staff-profile h3 { color: #00e6e6; } /* Staff name + title */
+        body.theme-afterlounge .staff-profile p { color: #dddddd; }
+        body.theme-afterlounge .staff-profile img.profile-pic { border-color: #00e6e6; }
+        body.theme-afterlounge footer { background-color: #1a1a33; color: #666666; border-top: 1px solid #005b5b; }
+
+
         footer {
             text-align: center;
             padding: 20px;
@@ -476,472 +328,41 @@
             border-top: 1px solid #005b5b;
             transition: background-color 0.5s ease, color 0.5s ease, border-top-color 0.5s ease;
         }
-        /* Style for the new link in the footer */
-        footer a.staff-link {
-            color: #00e6e6; /* Default theme link color */
+        footer a.home-link {
+            color: #00e6e6;
             text-decoration: none;
             margin: 0 10px;
         }
-        footer a.staff-link:hover {
+        footer a.home-link:hover {
             text-decoration: underline;
         }
-        body.theme-noire footer a.staff-link { color: #eee; }
-        body.theme-slade footer a.staff-link { color: #ff9900; }
-        body.theme-mr-johnson footer a.staff-link { color: #00ff00; }
-        body.theme-albright footer a.staff-link { color: #ffc107; }
-        body.theme-riggin footer a.staff-link { color: #FFA500; }
-        body.theme-afterlounge footer a.staff-link { color: #00e6e6; }
+        body.theme-noire footer a.home-link { color: #eee; }
+        body.theme-slade footer a.home-link { color: #ff9900; }
+        body.theme-mr-johnson footer a.home-link { color: #00ff00; }
+        body.theme-albright footer a.home-link { color: #ffc107; }
+        body.theme-riggin footer a.home-link { color: #FFA500; }
+        body.theme-afterlounge footer a.home-link { color: #00e6e6; }
 
 
         @media (max-width: 768px) {
-            main {
-                padding: 0 15px;
-            }
-            #controls-bar {
-                 padding: 8px 15px;
-                 justify-content: center;
-            }
-            section h2, section h3 {
-                font-size: 1.4em;
-                 white-space: nowrap;
-                 overflow: hidden;
-                 text-overflow: ellipsis;
-            }
-            section {
-                padding: 20px;
-                margin-bottom: 20px;
-            }
-            .show {
-                padding: 12px;
-            }
-            .show h3 {
-                font-size: 1em;
-                 white-space: nowrap;
-                 overflow: hidden;
-                 text-overflow: ellipsis;
-            }
-            .show p {
-                 white-space: normal;
-                 overflow: visible;
-                 text-overflow: clip;
-            }
-            header h2 {
-                 font-size: 1.4em;
-                 white-space: nowrap;
-                 overflow: hidden;
-                 text-overflow: ellipsis;
-            }
-            header p {
-                 white-space: nowrap;
-                 overflow: hidden;
-                 text-overflow: ellipsis;
-            }
+            main { padding: 0 15px; }
+            #controls-bar { padding: 8px 15px; justify-content: center;}
+            section h2 { font-size: 1.4em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+            .staff-profile h3 { font-size: 1.3em; } /* Adjust profile name + title size for mobile */
+            section { padding: 20px; margin-bottom: 20px; }
+            header h2 { font-size: 1.4em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+            header p { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         }
         @media (max-width: 480px) {
-             main {
-                 padding: 0 10px;
-             }
-             #controls-bar {
-                 padding: 6px 10px;
-                 justify-content: center;
-             }
-             #controls-bar .theme-switcher label {
-                 font-size: 0.75em;
-             }
-              #controls-bar .theme-switcher select {
-                 font-size: 0.75em;
-                 padding: 3px 18px 3px 6px;
-                 background-position: calc(100% - 6px) center, calc(100% - 3px) center;
-                 background-size: 3px 3px, 3px 3px;
-             }
-            header h2 {
-                font-size: 1.2em;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-            section {
-                padding: 15px;
-                margin-bottom: 15px;
-            }
-            section h2, section h3 {
-                font-size: 1.2em;
-                 white-space: nowrap;
-                 overflow: hidden;
-                 text-overflow: ellipsis;
-            }
-             .iframe-container iframe {
-                 height: 500px;
-             }
-             #tiktok-feed .iframe-container {
-                 height: 400px;
-             }
-             #livestream .video-container {
-                 max-width: 100%;
-                 margin-left: 0;
-                 margin-right: 0;
-                 border-left: none;
-                 border-right: none;
-                 box-shadow: none;
-            }
-             #livestream .video-container p {
-                 min-height: 0;
-                 padding: 10px;
-             }
-             .show h3 {
-                 font-size: 0.9em;
-                 white-space: nowrap;
-                 overflow: hidden;
-                 text-overflow: ellipsis;
-             }
-             .show p {
-                  white-space: normal;
-                  overflow: visible;
-                  text-overflow: clip;
-             }
+             main { padding: 0 10px; }
+             #controls-bar { padding: 6px 10px; justify-content: center; }
+             #controls-bar .theme-switcher label { font-size: 0.75em; }
+             #controls-bar .theme-switcher select { font-size: 0.75em; padding: 3px 18px 3px 6px; background-position: calc(100% - 6px) center, calc(100% - 3px) center; background-size: 3px 3px, 3px 3px; }
+            header h2 { font-size: 1.2em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+            section { padding: 15px; margin-bottom: 15px; }
+            section h2 { font-size: 1.2em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+            .staff-profile h3 { font-size: 1.1em; } /* Further adjust for smaller screens */
         }
-    </style>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[ Meet The Staff - WAPA ]</title>
-    <meta name="description" content="Meet the team behind Willow Arms Public Access: Mr. Albright, Ari Grovenstein, and Mr. Johnson.">
-    <link rel="icon" href="wapabroadcastlogo.ico" type="image/x-icon">
-    <style>
-    body.theme-afterlounge {
-        background-image: url('afterlounge.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center center;
-        background-color: #0c0c1a;
-    }
-    body.theme-afterlounge section {
-        background-color: rgba(26, 26, 51, 0.85);
-        color: #ffffff;
-        border: 1px solid #008b8b;
-    }
-    body.theme-afterlounge section h2,
-    body.theme-afterlounge section h3 {
-        color: #00e6e6;
-        border-bottom-color: #00a3a3;
-    }
-    body.theme-afterlounge .show, body.theme-afterlounge .staff-profile { /* Added .staff-profile */
-        background-color: rgba(42, 42, 77, 0.9);
-        border-left-color: #00e6e6;
-    }
-    body.theme-afterlounge .show h3, body.theme-afterlounge .staff-profile h3 { /* Added .staff-profile */
-        color: #00e6e6;
-    }
-     body.theme-afterlounge .show p, body.theme-afterlounge .staff-profile p { /* Added .staff-profile */
-        color: #dddddd;
-    }
-    /* ... (ALL OTHER CSS FROM YOUR INDEX.HTML GOES HERE) ... */
-    /* Copy ALL styles from your index.html's <style> block and paste them here, */
-    /* ensuring any general styles also apply or are adapted for this page. */
-    /* For brevity, I'm not repeating all 400+ lines of CSS here, but YOU MUST COPY IT. */
-    /* Example of what needs to be here: */
-    body {
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #0c0c1a;
-        color: #cccccc;
-        line-height: 1.5;
-        overflow-x: hidden;
-        font-size: 16px;
-        transition: background-color 0.5s ease, color 0.5s ease, background-image 0.5s ease;
-    }
-    header {
-        background-color: #1a1a33;
-        color: #00e6e6;
-        padding: 20px;
-        text-align: center;
-        border-bottom: 4px solid #005b5b;
-        transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
-    }
-    header h2 {
-        margin-top: 0;
-        font-size: 2em;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        color: #00a3a3;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: block;
-        margin-bottom: 0;
-        transition: color 0.5s ease;
-    }
-    header p {
-        font-size: 1em;
-        color: #999999;
-        margin-top: 5px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: block;
-        margin-bottom: 0;
-        transition: color 0.5s ease;
-    }
-    #controls-bar {
-        background-color: #1f1f3d;
-        padding: 8px 20px;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        border-bottom: 1px solid #005b5b;
-        margin-bottom: 30px;
-        flex-wrap: wrap;
-        gap: 10px;
-        transition: background-color 0.5s ease, border-color 0.5s ease;
-    }
-    #controls-bar .theme-switcher {
-         margin: 0;
-         padding: 0;
-         border: none;
-         color: #cccccc;
-         display: flex;
-         align-items: center;
-         gap: 8px;
-         transition: color 0.5s ease;
-    }
-    #controls-bar .theme-switcher label {
-        margin-right: 0;
-        font-size: 0.85em;
-        text-transform: uppercase;
-        white-space: nowrap;
-    }
-    #controls-bar .theme-switcher select {
-        font-size: 0.85em;
-        padding: 4px 20px 4px 8px;
-         background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
-         background-position: calc(100% - 8px) center, calc(100% - 4px) center;
-         background-size: 4px 4px, 4px 4px;
-         background-repeat: no-repeat;
-         appearance: none;
-         -webkit-appearance: none;
-         -moz-appearance: none;
-         cursor: pointer;
-         border-radius: 4px;
-         border: 1px solid #00a3a3;
-         background-color: #1a1a33;
-         color: #00e6e6;
-         transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-    }
-    #controls-bar .theme-switcher select option {
-         background-color: #1a1a33;
-         color: #00e6e6;
-    }
-    main {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 0 20px;
-        box-sizing: border-box;
-    }
-    section { /* General section styling */
-        background-color: #1a1a33;
-        padding: 25px;
-        margin-bottom: 25px;
-        border: 1px solid #005b5b;
-        box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
-        box-sizing: border-box;
-        transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, color 0.5s ease, background 0.5s ease;
-    }
-    main section:last-child {
-        margin-bottom: 0;
-    }
-    section h2 { /* General section h2 styling */
-        color: #00a3a3;
-        border-bottom: 2px solid #005b5b;
-        padding-bottom: 8px;
-        margin-top: 0;
-        margin-bottom: 20px;
-        font-size: 1.8em;
-        text-transform: uppercase;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: block;
-        max-width: 100%;
-        transition: color 0.5s ease, border-color 0.5s ease;
-    }
-     section h3 { /* General section h3 styling, also used for staff profile titles */
-         color: #00a3a3;
-         /* border-bottom: 2px solid #005b5b; */ /* You might not want a border for profile names */
-         padding-bottom: 8px;
-         margin-top: 0;
-         margin-bottom: 20px;
-         font-size: 1.5em; /* Slightly adjusted for profile names */
-         text-transform: uppercase;
-         /* white-space: nowrap; */ /* Allowing wrap for longer names if needed */
-         /* overflow: hidden; */
-         /* text-overflow: ellipsis; */
-         display: block;
-         max-width: 100%;
-         transition: color 0.5s ease, border-color 0.5s ease;
-     }
-    p {
-        color: #cccccc;
-        margin-bottom: 15px;
-        word-break: break-word;
-        transition: color 0.5s ease;
-    }
-    /* Styles for staff profiles, similar to .show but can be distinct */
-    .staff-profile {
-        margin-bottom: 30px; /* More spacing between profiles */
-        padding: 20px;
-        background-color: #2a2a4d; /* Default theme */
-        border-left: 4px solid #00a3a3; /* Default theme */
-        box-sizing: border-box;
-        transition: background-color 0.5s ease, border-color 0.5s ease;
-    }
-    .staff-profile img.profile-pic {
-        max-width: 150px;
-        height: auto;
-        border-radius: 8px;
-        margin-bottom: 15px;
-        border: 2px solid #00a3a3; /* Default theme border for image */
-    }
-    .staff-profile h3 { /* Specific styling for staff names if different from section h3 */
-        margin-top: 0;
-        margin-bottom: 10px;
-        color: #00e6e6; /* Default theme */
-        font-size: 1.6em;
-         border-bottom: none; /* No bottom border for names */
-    }
-    .staff-profile p {
-        color: #bbbbbb; /* Default theme */
-        font-size: 1em;
-        line-height: 1.6;
-    }
-
-    /* --- Theme Specific Styles for Staff Page --- */
-    /* Noire Theme */
-    body.theme-noire .staff-profile { background-color: #333; border-left-color: #888; }
-    body.theme-noire .staff-profile h3 { color: #eee; }
-    body.theme-noire .staff-profile p { color: #ccc; }
-    body.theme-noire .staff-profile img.profile-pic { border-color: #888; }
-
-    /* Slade Theme */
-    body.theme-slade .staff-profile { background-color: #444; border-left-color: #ff9900; }
-    body.theme-slade .staff-profile h3 { color: #ffcc00; }
-    body.theme-slade .staff-profile p { color: #ddd; }
-    body.theme-slade .staff-profile img.profile-pic { border-color: #ff9900; }
-
-    /* Mr. Johnson Theme */
-    body.theme-mr-johnson .staff-profile { background-color: rgba(58, 0, 102, 0.9); border-left-color: #00ff00; }
-    body.theme-mr-johnson .staff-profile h3 { color: #32cd32; }
-    body.theme-mr-johnson .staff-profile p { color: #00dd00; }
-    body.theme-mr-johnson .staff-profile img.profile-pic { border-color: #00ff00; }
-     body.theme-mr-johnson section { /* Ensure section background applies if needed */
-            background: linear-gradient(rgba(42, 0, 85, 0.85), rgba(42, 0, 85, 0.85)), url('purpmarb.png') center center / cover no-repeat;
-            border-color: #008000; color: #00cc00;
-    }
-
-
-    /* Albright Theme */
-    body.theme-albright .staff-profile { background-color: rgba(111, 79, 45, 0.9); border-left-color: #cd7f32; }
-    body.theme-albright .staff-profile h3 { color: #ffd700; }
-    body.theme-albright .staff-profile p { color: #eee; }
-    body.theme-albright .staff-profile img.profile-pic { border-color: #cd7f32; }
-     body.theme-albright section { /* Ensure section background applies if needed */
-         background: linear-gradient(rgba(74, 57, 46, 0.7), rgba(74, 57, 46, 0.7)), url('goldtext.png') center center / cover no-repeat;
-         border: 1px solid #b46a00; color: #cdc8b1;
-    }
-
-
-    /* Riggin Theme */
-    body.theme-riggin .staff-profile { background-color: #333333; border-left-color: #FFA500; }
-    body.theme-riggin .staff-profile h3 { color: #FFD700; }
-    body.theme-riggin .staff-profile p { color: #cccccc; }
-    body.theme-riggin .staff-profile img.profile-pic { border-color: #FFA500; }
-
-    /* Afterlounge Theme (already partially covered, adding specifics) */
-    body.theme-afterlounge .staff-profile { background-color: rgba(42, 42, 77, 0.9); border-left-color: #00e6e6; }
-    body.theme-afterlounge .staff-profile h3 { color: #00e6e6; }
-    body.theme-afterlounge .staff-profile p { color: #dddddd; }
-    body.theme-afterlounge .staff-profile img.profile-pic { border-color: #00e6e6; }
-     body.theme-afterlounge section { /* Ensure section background applies if needed */
-        background-color: rgba(26, 26, 51, 0.85); color: #ffffff; border: 1px solid #008b8b;
-    }
-
-
-    footer {
-        text-align: center;
-        padding: 20px;
-        margin-top: 30px;
-        background-color: #1a1a33;
-        color: #666666;
-        font-size: 0.85em;
-        border-top: 1px solid #005b5b;
-        transition: background-color 0.5s ease, color 0.5s ease, border-top-color 0.5s ease;
-    }
-    /* Style for the links in the footer on this page */
-    footer a.home-link { /* Different class for the link back to index */
-        color: #00e6e6; /* Default theme link color */
-        text-decoration: none;
-        margin: 0 10px;
-    }
-    footer a.home-link:hover {
-        text-decoration: underline;
-    }
-    body.theme-noire footer a.home-link { color: #eee; }
-    body.theme-slade footer a.home-link { color: #ff9900; }
-    body.theme-mr-johnson footer a.home-link { color: #00ff00; }
-    body.theme-albright footer a.home-link { color: #ffc107; }
-    body.theme-riggin footer a.home-link { color: #FFA500; }
-    body.theme-afterlounge footer a.home-link { color: #00e6e6; }
-
-
-    /* ALL THE @media queries from index.html CSS should be here too */
-    @media (max-width: 768px) {
-        main { padding: 0 15px; }
-        #controls-bar { padding: 8px 15px; justify-content: center;}
-        section h2, section h3 { font-size: 1.4em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .staff-profile h3 { font-size: 1.3em; } /* Adjust profile name size for mobile */
-        section { padding: 20px; margin-bottom: 20px; }
-        header h2 { font-size: 1.4em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        header p { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    }
-    @media (max-width: 480px) {
-         main { padding: 0 10px; }
-         #controls-bar { padding: 6px 10px; justify-content: center; }
-         #controls-bar .theme-switcher label { font-size: 0.75em; }
-         #controls-bar .theme-switcher select { font-size: 0.75em; padding: 3px 18px 3px 6px; background-position: calc(100% - 6px) center, calc(100% - 3px) center; background-size: 3px 3px, 3px 3px; }
-        header h2 { font-size: 1.2em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
-        section { padding: 15px; margin-bottom: 15px; }
-        section h2, section h3 { font-size: 1.2em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .staff-profile h3 { font-size: 1.1em; } /* Further adjust for smaller screens */
-        .staff-profile img.profile-pic { max-width: 100px; }
-    }
-    /* Ensure ALL theme-specific CSS from index.html is also included here */
-    /* For example: */
-    body.theme-noire { background-color: #111; color: #eee; background-image: none; }
-    body.theme-noire header { background-color: #222; border-bottom-color: #555; }
-    /* ... and so on for all themes and all elements ... */
-    /* It is CRUCIAL that this style block is a complete copy of the one in index.html, */
-    /* plus the new .staff-profile and .staff-profile img styles and their theme variations. */
-
-    /* PASTE FULL CSS FROM INDEX.HTML HERE, THEN ADD/MODIFY AS ABOVE */
-
-    /* Fallback section styling for themes if not overridden */
-    body.theme-noire section { background: #222; border-color: #555; box-shadow: 5px 5px 15px rgba(0,0,0,0.5); color: #eee; }
-    body.theme-slade section { background: #333; border-color: #ff6600; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); color: #eee; }
-    /* Albright theme section already defined above */
-    /* Mr Johnson theme section already defined above */
-    /* Riggin theme section already defined above */
-    /* Afterlounge theme section already defined above */
-
-
-    body.theme-noire footer { background-color: #222; color: #555; border-top-color: #555; }
-    body.theme-slade footer { background-color: #333; color: #ff6600; border-top-color: #ff6600; }
-    body.theme-mr-johnson footer { background-color: #2a0055; color: #00aa00; border-top-color: #008000; }
-    body.theme-albright footer { background-color: rgba(28, 18, 11, 0.9); color: #a1887f; border-top: 1px solid #4a392e; }
-    body.theme-riggin footer { background-color: #1a1a1a; color: #FFD700; border-top: 1px solid #FF8C00; }
-    body.theme-afterlounge footer { /* This is the default from index.html if not overridden */
-        background-color: #1a1a33; color: #666666; border-top: 1px solid #005b5b;
-    }
     </style>
 </head>
 <body class="theme-albright"> <header>
@@ -969,18 +390,17 @@
             <p>Get to know the minds behind your favorite public access network!</p>
 
             <div class="staff-profile">
-                <img src="mr_albright_persona.png" alt="Mr. Albright" class="profile-pic">
-                <h3>Mr. Albright</h3>
+                <h3>Mr. Albright - Visionary Conduit</h3>
                 <p>The visionary force behind Willow Arms Public Access, Mr. Albright is the creative engine that turns inside jokes and late-night musings into tangible, often physical, television shows. He's the one who brings the chaos to life, ensuring that the unique humor and spirit of the network are always front and center. Mr. Albright works closely with his partners to steer the ship and keep the content fresh and engaging.</p>
             </div>
 
             <div class="staff-profile">
-                <h3>Ari Grovenstein</h3>
+                <h3>Ari Grovenstein - Visual Architect</h3>
                 <p>Ari is a cornerstone of Willow Arms Public Access and Mr. Albright's main partner. A prolific creator, Ari is the mastermind behind many of the advertisements that grace the network's airwaves. His collaborative spirit with Mr. Albright is legendary, with their back-and-forth banter often sparking the very concepts that become beloved TV shows. If you've laughed at a WAPA commercial, you've likely experienced Ari's genius.</p>
             </div>
 
             <div class="staff-profile">
-                <h3>Mr. Johnson</h3>
+                <h3>Mr. Johnson - Community Cultivator</h3>
                 <p>The social pulse and marketing guru of Willow Arms Public Access, Mr. Johnson ensures the world knows about the network's unique offerings. Often found burning the midnight oil with Mr. Albright in their Discord "waybackbooth," Mr. Johnson is a dedicated partner and an avid gamer. He masterfully handles the network's outreach, ensuring the community is engaged and the Willow Arms message is heard far and wide (when he's not deep in a gaming session, that is!).</p>
             </div>
         </section>
@@ -1015,7 +435,6 @@
                     setTheme(event.target.value);
                 });
             }
-            // No "participate" button or SoundCloud widget on this page, so no need for that part of the script.
         });
     </script>
 </body>
