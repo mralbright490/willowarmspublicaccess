@@ -8,7 +8,6 @@
     <link rel="icon" href="wapabroadcastlogo.ico" type="image/x-icon">
     <script src="https://w.soundcloud.com/player/api.js"></script>
     <style>
-    /* --- Theme: AfterLounge (Existing) --- */
     body.theme-afterlounge {
         background-image: url('afterlounge.png');
         background-size: cover;
@@ -61,13 +60,12 @@
     body.theme-afterlounge .discord-modal-close:hover { color: #ffffff; }
     body.theme-afterlounge footer a.staff-link { color: #00e6e6; }
 
-
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0c0c1a; /* Default base background */
-            color: #cccccc; /* Default base text color */
+            background-color: #0c0c1a;
+            color: #cccccc;
             line-height: 1.5;
             overflow-x: hidden;
             font-size: 16px;
@@ -75,10 +73,10 @@
         }
         header {
             background-color: #1a1a33;
-            color: #00e6e6; /* Default header text (not h2/p) */
+            color: #00e6e6;
             padding: 20px;
             text-align: center;
-            border-bottom: 4px solid #005b5b; /* Default header border */
+            border-bottom: 4px solid #005b5b;
             transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
         }
         header h2 {
@@ -86,7 +84,7 @@
             font-size: 2em;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #00a3a3; /* Default header h2 color */
+            color: #00a3a3;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -96,7 +94,7 @@
         }
         header p {
             font-size: 1em;
-            color: #999999; /* Default header p color */
+            color: #999999;
             margin-top: 5px;
             white-space: nowrap;
             overflow: hidden;
@@ -106,12 +104,12 @@
             transition: color 0.5s ease;
         }
         #controls-bar {
-            background-color: #1f1f3d; /* Default controls bar background */
+            background-color: #1f1f3d;
             padding: 8px 20px;
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            border-bottom: 1px solid #005b5b; /* Default controls bar border */
+            border-bottom: 1px solid #005b5b;
             margin-bottom: 30px;
             flex-wrap: wrap;
             gap: 10px;
@@ -121,7 +119,7 @@
              margin: 0;
              padding: 0;
              border: none;
-             color: #cccccc; /* Default theme switcher label color */
+             color: #cccccc;
              display: flex;
              align-items: center;
              gap: 8px;
@@ -145,14 +143,14 @@
              -moz-appearance: none;
              cursor: pointer;
              border-radius: 4px;
-             border: 1px solid #00a3a3; /* Default select border */
-             background-color: #1a1a33; /* Default select background */
-             color: #00e6e6; /* Default select text color */
+             border: 1px solid #00a3a3;
+             background-color: #1a1a33;
+             color: #00e6e6;
              transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
         #controls-bar .theme-switcher select option {
-             background-color: #1a1a33; /* Default option background */
-             color: #00e6e6; /* Default option text */
+             background-color: #1a1a33;
+             color: #00e6e6;
         }
         main {
             max-width: 1100px;
@@ -161,21 +159,21 @@
             box-sizing: border-box;
         }
         section {
-            background-color: #1a1a33; /* Default section background */
+            background-color: #1a1a33;
             padding: 25px;
             margin-bottom: 25px;
-            border: 1px solid #005b5b; /* Default section border */
+            border: 1px solid #005b5b;
             box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
             box-sizing: border-box;
             transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, color 0.5s ease, background 0.5s ease;
-            color: #cccccc; /* Default section text color */
+            color: #cccccc;
         }
         main section:last-child {
             margin-bottom: 0;
         }
         section h2 {
-            color: #00a3a3; /* Default section h2 color */
-            border-bottom: 2px solid #005b5b; /* Default section h2 border */
+            color: #00a3a3;
+            border-bottom: 2px solid #005b5b;
             padding-bottom: 8px;
             margin-top: 0;
             margin-bottom: 20px;
@@ -189,8 +187,8 @@
             transition: color 0.5s ease, border-color 0.5s ease;
         }
          section h3 {
-             color: #00a3a3; /* Default section h3 color */
-             border-bottom: 2px solid #005b5b; /* Default section h3 border */
+             color: #00a3a3;
+             border-bottom: 2px solid #005b5b;
              padding-bottom: 8px;
              margin-top: 0;
              margin-bottom: 20px;
@@ -204,7 +202,7 @@
              transition: color 0.5s ease, border-color 0.5s ease;
          }
         p {
-            color: #cccccc; /* Default p color */
+            color: #cccccc;
             margin-bottom: 15px;
             word-break: break-word;
             transition: color 0.5s ease;
@@ -217,8 +215,8 @@
             height: 0;
             overflow: hidden;
             background-color: #000;
-            border: 2px solid #00e6e6; /* Default video container border */
-            box-shadow: 0 0 10px rgba(0, 230, 230, 0.5); /* Default video container shadow */
+            border: 2px solid #00e6e6;
+            box-shadow: 0 0 10px rgba(0, 230, 230, 0.5);
             box-sizing: border-box;
             transition: border-color 0.5s ease, box-shadow 0.5s ease;
         }
@@ -251,15 +249,15 @@
         .show {
             margin-bottom: 20px;
             padding: 15px;
-            background-color: #2a2a4d; /* Default .show background */
-            border-left: 4px solid #00a3a3; /* Default .show border */
+            background-color: #2a2a4d;
+            border-left: 4px solid #00a3a3;
             box-sizing: border-box;
             transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
         }
         .show h3 {
             margin-top: 0;
             margin-bottom: 8px;
-            color: #00e6e6; /* Default .show h3 color */
+            color: #00e6e6;
             font-size: 1.3em;
             white-space: nowrap;
             overflow: hidden;
@@ -268,15 +266,15 @@
             transition: color 0.5s ease;
         }
         .show p {
-            color: #bbbbbb; /* Default .show p color */
+            color: #bbbbbb;
             font-size: 0.95em;
              word-break: break-word;
              transition: color 0.5s ease;
         }
-        .iframe-container { /* General iframe container style */
-            border: 1px solid #00a3a3; /* Default border */
+        .iframe-container {
+            border: 1px solid #00a3a3;
             padding: 10px;
-            background-color: #1a1a33; /* Default background */
+            background-color: #1a1a33;
             box-sizing: border-box;
             width: 100%;
             overflow: hidden;
@@ -290,7 +288,7 @@
         }
         .iframe-container p {
              text-align: center;
-             color: #999999; /* Default text color */
+             color: #999999;
              font-size: 0.9em;
              margin-bottom: 0;
              transition: color 0.5s ease;
@@ -310,9 +308,9 @@
             z-index: 1000;
             display: none;
             padding: 10px 15px;
-            background-color: #00a3a3; /* Default */
-            color: #1a1a33; /* Default */
-            border: 2px solid #00e6e6; /* Default */
+            background-color: #00a3a3;
+            color: #1a1a33;
+            border: 2px solid #00e6e6;
             border-radius: 5px;
             cursor: pointer;
             text-transform: uppercase;
@@ -321,9 +319,9 @@
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
         #participate-button:hover {
-             background-color: #00e6e6; /* Default */
-             color: #1a1a33; /* Default */
-             border-color: #00a3a3; /* Default */
+             background-color: #00e6e6;
+             color: #1a1a33;
+             border-color: #00a3a3;
         }
         #popup-overlay {
             position: fixed;
@@ -338,14 +336,14 @@
             z-index: 2000;
         }
         #popup-content {
-            background-color: #1a1a33; /* Default */
+            background-color: #1a1a33;
             padding: 30px;
-            border: 2px solid #00a3a3; /* Default */
+            border: 2px solid #00a3a3;
             border-radius: 8px;
             text-align: center;
             max-width: 400px;
-            box-shadow: 0 0 20px rgba(0, 163, 163, 0.5); /* Default */
-            color: #cccccc; /* Default */
+            box-shadow: 0 0 20px rgba(0, 163, 163, 0.5);
+            color: #cccccc;
             transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
         }
         #popup-content p {
@@ -354,9 +352,9 @@
             font-size: 1.2em;
         }
         #popup-yes-button {
-            background-color: #00a3a3; /* Default */
-            color: #1a1a33; /* Default */
-            border: 2px solid #00e6e6; /* Default */
+            background-color: #00a3a3;
+            color: #1a1a33;
+            border: 2px solid #00e6e6;
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
@@ -365,12 +363,11 @@
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
         #popup-yes-button:hover {
-             background-color: #00e6e6; /* Default */
-             color: #1a1a33; /* Default */
-             border-color: #00a3a3; /* Default */
+             background-color: #00e6e6;
+             color: #1a1a33;
+             border-color: #00a3a3;
         }
 
-    /* Live Chat Button Style */
     .live-chat-button {
         font-size: 0.85em;
         padding: 4px 12px;
@@ -390,7 +387,6 @@
         color: #1a1a33;
     }
 
-    /* Discord Modal Styles */
     .discord-modal-overlay {
         position: fixed;
         top: 0;
@@ -453,7 +449,6 @@
         border: none;
     }
 
-    /* --- Theme: Noire (Modified) --- */
     body.theme-noire { background-color: #000000; color: #ffffff; background-image: none; }
     body.theme-noire header { background-color: #0a0a0a; border-bottom-color: #1a1a1a; color: #ffffff;}
     body.theme-noire header h2 { color: #ffffff; }
@@ -484,17 +479,16 @@
     body.theme-noire #popup-yes-button { background-color: #1a1a1a; color: #ffffff; border-color: #333333; }
     body.theme-noire #popup-yes-button:hover { background-color: #333333; color: #000000; border-color: #ffffff; }
 
-    /* --- Theme: Darryl (Formerly Slade, Modified) --- */
     body.theme-darryl {
-        background-color: #404040; /* Grey background */
-        color: #f0f0f0; /* Light grey/white text */
-        background-image: url('dogs.png'); /* ADD YOUR IMAGE URL HERE */
+        background-color: #404040;
+        color: #f0f0f0;
+        background-image: url('dogs.png');
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center center;
     }
-    body.theme-darryl header { background-color: #2a2a2a; border-bottom-color: #8B0000; /* Dark Red */ }
+    body.theme-darryl header { background-color: #2a2a2a; border-bottom-color: #8B0000; }
     body.theme-darryl header h2 { color: #f0f0f0; }
     body.theme-darryl header p { color: #cccccc; }
     body.theme-darryl #controls-bar { background-color: #333333; border-bottom-color: #8B0000; }
@@ -506,13 +500,12 @@
     body.theme-darryl #discord-chat-modal-content { background-color: #383838; border-color: #8B0000; box-shadow: 0 5px 25px rgba(139,0,0,0.5); color: #f0f0f0; }
     body.theme-darryl #discord-chat-modal-content h2 { color: #f0f0f0; border-bottom-color: #700000; }
     body.theme-darryl .discord-modal-close { color: #f0f0f0; }
-    body.theme-darryl .discord-modal-close:hover { color: #ff7f7f; /* Lighter red for hover */ }
+    body.theme-darryl .discord-modal-close:hover { color: #ff7f7f; }
     body.theme-darryl section {
-        background-color: rgba(64, 64, 64, 0.85); /* Semi-transparent grey for sections if body has bg image */
-        border: 2px solid #8B0000; /* Dark Red lining */
+        background-color: rgba(64, 64, 64, 0.85);
+        border: 2px solid #8B0000;
         box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
         color: #f0f0f0;
-        /* No specific background image for sections as requested */
     }
     body.theme-darryl section h2, body.theme-darryl section h3 { color: #f0f0f0; border-bottom-color: #700000; }
     body.theme-darryl .iframe-container { border-color: #8B0000; background-color: rgba(50,50,50,0.85); }
@@ -529,8 +522,6 @@
     body.theme-darryl #popup-yes-button { background-color: #8B0000; color: #ffffff; border-color: #A04040; }
     body.theme-darryl #popup-yes-button:hover { background-color: #A04040; color: #2a2a2a; border-color: #f0f0f0; }
 
-
-    /* --- Theme: Mr. Johnson (Existing) --- */
     body.theme-mr-johnson { color: #00cc00; background-image: url('garage1.png'); background-color: #1a0033; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
     body.theme-mr-johnson header { background-color: #2a0055; border-bottom-color: #008000; color: #00ff00; }
     body.theme-mr-johnson #controls-bar { background-color: #300060; border-bottom-color: #008000; }
@@ -564,7 +555,6 @@
     body.theme-mr-johnson #popup-yes-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
     body.theme-mr-johnson #popup-yes-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
 
-    /* --- Theme: Albright (Existing) --- */
     body.theme-albright { color: #cdc8b1; background-image: url('tp1.png'); background-color: #281c12; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
     body.theme-albright header { background-color: rgba(74, 57, 46, 0.85); border-bottom: 4px solid #b46a00; color: #ffc107; }
     body.theme-albright #controls-bar { background-color: rgba(90, 70, 55, 0.9); border-bottom-color: #b46a00; }
@@ -600,7 +590,6 @@
     body.theme-albright #popup-yes-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
     body.theme-albright #popup-yes-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
 
-    /* --- Theme: Riggin (Existing) --- */
     body.theme-riggin { background-color: #000000; color: #FFA500; background-image: none; }
     body.theme-riggin header { background-color: #1a1a1a; border-bottom: 4px solid #FF8C00; color: #FFA500; }
     body.theme-riggin #controls-bar { background-color: #222222; border-bottom-color: #FF8C00; }
@@ -634,22 +623,20 @@
         text-align: center;
         padding: 20px;
         margin-top: 30px;
-        background-color: #1a1a33; /* Default footer background */
-        color: #666666; /* Default footer text */
+        background-color: #1a1a33;
+        color: #666666;
         font-size: 0.85em;
-        border-top: 1px solid #005b5b; /* Default footer border */
+        border-top: 1px solid #005b5b;
         transition: background-color 0.5s ease, color 0.5s ease, border-top-color 0.5s ease;
     }
     footer a.staff-link {
-        color: #00e6e6; /* Default footer link color */
+        color: #00e6e6;
         text-decoration: none;
         margin: 0 10px;
     }
     footer a.staff-link:hover {
         text-decoration: underline;
     }
-    /* Note: Theme-specific footer a.staff-link colors are already defined in each theme block above */
-
 
     @media (max-width: 768px) {
         main { padding: 0 15px; }
@@ -793,7 +780,6 @@
     </footer>
 
     <script>
-        // Original functions from your index.html
         const participateButton = document.getElementById('participate-button');
         const popupOverlay = document.getElementById('popup-overlay');
         const popupYesButton = document.getElementById('popup-yes-button');
