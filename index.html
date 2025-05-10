@@ -47,6 +47,17 @@
         border-color: #00e6e6;
         box-shadow: 0 0 10px rgba(0, 230, 230, 0.5);
      }
+     /* For AfterLounge theme Live Chat Button */
+    body.theme-afterlounge .irc-chat-button {
+        background-color: #1a1a33;
+        color: #00e6e6;
+        border-color: #00a3a3;
+    }
+    body.theme-afterlounge .irc-chat-button:hover {
+        background-color: #00e6e6;
+        color: #1a1a33;
+    }
+
 
         body {
             font-family: 'Arial', sans-serif;
@@ -95,16 +106,16 @@
             background-color: #1f1f3d;
             padding: 8px 20px;
             display: flex;
-            justify-content: flex-end;
+            justify-content: flex-end; /* Keeps items to the right */
             align-items: center;
             border-bottom: 1px solid #005b5b;
             margin-bottom: 30px;
-            flex-wrap: wrap;
-            gap: 10px;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+            gap: 10px; /* Adds space between items if they wrap or are side-by-side */
             transition: background-color 0.5s ease, border-color 0.5s ease;
         }
         #controls-bar .theme-switcher {
-             margin: 0;
+             margin: 0; /* Removed margin-left to use gap from parent */
              padding: 0;
              border: none;
              color: #cccccc;
@@ -114,7 +125,7 @@
              transition: color 0.5s ease;
         }
         #controls-bar .theme-switcher label {
-            margin-right: 0;
+            margin-right: 0; /* Was margin-right: 5px */
             font-size: 0.85em;
             text-transform: uppercase;
             white-space: nowrap;
@@ -140,6 +151,26 @@
              background-color: #1a1a33;
              color: #00e6e6;
         }
+        /* New Button Style for IRC Chat Link */
+        .irc-chat-button {
+            font-size: 0.85em;
+            padding: 4px 12px; /* Similar padding to select */
+            text-decoration: none;
+            text-transform: uppercase;
+            white-space: nowrap;
+            cursor: pointer;
+            border-radius: 4px;
+            border: 1px solid #00a3a3; /* Default theme border */
+            background-color: #1a1a33; /* Default theme background */
+            color: #00e6e6; /* Default theme text color */
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            display: inline-block; /* To behave like a button */
+        }
+        .irc-chat-button:hover {
+            background-color: #00e6e6; /* Default theme hover background */
+            color: #1a1a33; /* Default theme hover text color */
+        }
+
         main {
             max-width: 1100px;
             margin: 0 auto;
@@ -360,6 +391,8 @@
         body.theme-noire #controls-bar .theme-switcher { color: #bbb; }
         body.theme-noire #controls-bar .theme-switcher select { background-color: #333; color: #eee; border-color: #888; }
         body.theme-noire #controls-bar .theme-switcher select option { background-color: #333; color: #eee; }
+        body.theme-noire .irc-chat-button { background-color: #333; color: #eee; border-color: #888; } /* Noire IRC Button */
+        body.theme-noire .irc-chat-button:hover { background-color: #eee; color: #333; }
         body.theme-noire header h2, body.theme-noire section h2, body.theme-noire section h3 { color: #fff; border-bottom-color: #555; }
         body.theme-noire header p { color: #bbb; }
         body.theme-noire section { background: #222; border-color: #555; box-shadow: 5px 5px 15px rgba(0,0,0,0.5); color: #eee; }
@@ -375,12 +408,15 @@
         body.theme-noire #popup-content { background-color: #222; border-color: #888; box-shadow: 0 0 20px rgba(136, 136, 136, 0.5); color: #eee; }
         body.theme-noire #popup-yes-button { background-color: #555; color: #eee; border-color: #888; }
         body.theme-noire #popup-yes-button:hover { background-color: #888; color: #111; border-color: #eee; }
+
         body.theme-slade { background-color: #222; color: #eee; background-image: none; }
         body.theme-slade header { background-color: #333; border-bottom-color: #ff6600; }
         body.theme-slade #controls-bar { background-color: #3a3a3a; border-bottom-color: #ff6600; }
         body.theme-slade #controls-bar .theme-switcher { color: #ccc; }
         body.theme-slade #controls-bar .theme-switcher select { background-color: #444; color: #ff9900; border-color: #ff6600; }
         body.theme-slade #controls-bar .theme-switcher select option { background-color: #444; color: #ff9900; }
+        body.theme-slade .irc-chat-button { background-color: #444; color: #ff9900; border-color: #ff6600; } /* Slade IRC Button */
+        body.theme-slade .irc-chat-button:hover { background-color: #ff9900; color: #444; }
         body.theme-slade header h2, body.theme-slade section h2, body.theme-slade section h3 { color: #ff9900; border-bottom-color: #ff6600; }
         body.theme-slade header p { color: #ccc; }
         body.theme-slade section { background: #333; border-color: #ff6600; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); color: #eee; }
@@ -396,12 +432,15 @@
         body.theme-slade #popup-content { background-color: #333; border-color: #ff9900; box-shadow: 0 0 20px rgba(255, 153, 0, 0.5); color: #eee; }
         body.theme-slade #popup-yes-button { background-color: #ff6600; color: #222; border-color: #ff9900; }
         body.theme-slade #popup-yes-button:hover { background-color: #ff9900; color: #111; border-color: #ffcc00; }
+
         body.theme-mr-johnson { color: #00cc00; background-image: url('garage1.png'); background-color: #1a0033; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
         body.theme-mr-johnson header { background-color: #2a0055; border-bottom-color: #008000; color: #00ff00; }
         body.theme-mr-johnson #controls-bar { background-color: #300060; border-bottom-color: #008000; }
         body.theme-mr-johnson #controls-bar .theme-switcher { color: #00aa00; }
         body.theme-mr-johnson #controls-bar .theme-switcher select { background-color: #3a0066; color: #00ff00; border-color: #008000; }
         body.theme-mr-johnson #controls-bar .theme-switcher select option { background-color: #3a0066; color: #00ff00; }
+        body.theme-mr-johnson .irc-chat-button { background-color: #3a0066; color: #00ff00; border-color: #008000; } /* Mr. Johnson IRC Button */
+        body.theme-mr-johnson .irc-chat-button:hover { background-color: #00ff00; color: #3a0066; }
         body.theme-mr-johnson header h2, body.theme-mr-johnson section h2, body.theme-mr-johnson section h3 { color: #00ff00; border-bottom-color: #008000; }
         body.theme-mr-johnson header p { color: #00aa00; }
         body.theme-mr-johnson section {
@@ -422,12 +461,15 @@
         body.theme-mr-johnson #popup-content { background-color: #2a0055; border-color: #00ff00; box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); color: #00dd00; }
         body.theme-mr-johnson #popup-yes-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
         body.theme-mr-johnson #popup-yes-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
+
         body.theme-albright { color: #cdc8b1; background-image: url('tp1.png'); background-color: #281c12; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
         body.theme-albright header { background-color: rgba(74, 57, 46, 0.85); border-bottom: 4px solid #b46a00; color: #ffc107; }
         body.theme-albright #controls-bar { background-color: rgba(90, 70, 55, 0.9); border-bottom-color: #b46a00; }
         body.theme-albright #controls-bar .theme-switcher { color: #a1887f; }
         body.theme-albright #controls-bar .theme-switcher select { background-color: #6f4f2d; color: #ffc107; border-color: #b46a00; }
         body.theme-albright #controls-bar .theme-switcher select option { background-color: #6f4f2d; color: #ffc107; }
+        body.theme-albright .irc-chat-button { background-color: #6f4f2d; color: #ffc107; border-color: #b46a00; } /* Albright IRC Button */
+        body.theme-albright .irc-chat-button:hover { background-color: #ffc107; color: #6f4f2d; }
         body.theme-albright header h2, body.theme-albright section h2, body.theme-albright section h3 { color: #ffc107; border-bottom-color: #b46a00; }
         body.theme-albright header p { color: #a1887f; }
         body.theme-albright section {
@@ -450,12 +492,15 @@
         body.theme-albright #popup-content { background-color: rgba(74, 57, 46, 0.95); border-color: #ffc107; box-shadow: 0 0 20px rgba(255, 193, 7, 0.6); color: #cdc8b1; }
         body.theme-albright #popup-yes-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
         body.theme-albright #popup-yes-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
+
         body.theme-riggin { background-color: #000000; color: #FFA500; background-image: none; }
         body.theme-riggin header { background-color: #1a1a1a; border-bottom: 4px solid #FF8C00; color: #FFA500; }
         body.theme-riggin #controls-bar { background-color: #222222; border-bottom-color: #FF8C00; }
         body.theme-riggin #controls-bar .theme-switcher { color: #FFD700; }
         body.theme-riggin #controls-bar .theme-switcher select { background-color: #333333; color: #FFA500; border-color: #FF8C00; }
         body.theme-riggin #controls-bar .theme-switcher select option { background-color: #333333; color: #FFA500; }
+        body.theme-riggin .irc-chat-button { background-color: #333333; color: #FFA500; border-color: #FF8C00; } /* Riggin IRC Button */
+        body.theme-riggin .irc-chat-button:hover { background-color: #FFA500; color: #333333; }
         body.theme-riggin header h2 { color: #FFA500; }
         body.theme-riggin header p { color: #FFD700; }
         body.theme-riggin section { background: #1a1a1a; border: 1px solid #FF8C00; box-shadow: 5px 5px 15px rgba(50,50,50,0.4); color: #FFA500;}
@@ -472,6 +517,7 @@
         body.theme-riggin #popup-content { background-color: #1a1a1a; border-color: #FFA500; box-shadow: 0 0 20px rgba(255, 165, 0, 0.6); color: #FFA500; }
         body.theme-riggin #popup-yes-button { background-color: #FFA500; color: #000000; border-color: #FF8C00; }
         body.theme-riggin #popup-yes-button:hover { background-color: #FF8C00; color: #000000; border-color: #FFA500; }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -482,9 +528,8 @@
             border-top: 1px solid #005b5b;
             transition: background-color 0.5s ease, color 0.5s ease, border-top-color 0.5s ease;
         }
-        /* Style for the new link in the footer */
-        footer a.staff-link {
-            color: #00e6e6; /* Default theme link color */
+        footer a.staff-link { /* Keep staff link styles if still used */
+            color: #00e6e6;
             text-decoration: none;
             margin: 0 10px;
         }
@@ -505,7 +550,7 @@
             }
             #controls-bar {
                  padding: 8px 15px;
-                 justify-content: center;
+                 /* Removed justify-content: center to allow default flex behavior or space-between */
             }
             section h2, section h3 {
                 font-size: 1.4em;
@@ -549,9 +594,9 @@
              }
              #controls-bar {
                  padding: 6px 10px;
-                 justify-content: center;
+                 /* Removed justify-content: center */
              }
-             #controls-bar .theme-switcher label {
+             #controls-bar .theme-switcher label, .irc-chat-button { /* Apply to button too */
                  font-size: 0.75em;
              }
               #controls-bar .theme-switcher select {
@@ -559,6 +604,9 @@
                  padding: 3px 18px 3px 6px;
                  background-position: calc(100% - 6px) center, calc(100% - 3px) center;
                  background-size: 3px 3px, 3px 3px;
+             }
+             .irc-chat-button { /* Specific mobile adjustments for new button */
+                 padding: 3px 8px;
              }
             header h2 {
                 font-size: 1.2em;
@@ -623,6 +671,7 @@
     </header>
 
     <div id="controls-bar">
+         <a href="irc-chat.html" class="irc-chat-button">Live Chat</a>
          <div class="theme-switcher">
              <label for="theme-select">Theme:</label>
              <select id="theme-select">
@@ -695,13 +744,13 @@
         
         <section id="soundcloud-vibes">
             <h2>[BACKGROUND VIBES]</h2>
-           <iframe width="100%" height="600" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2016641082&color=%230d0c0c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #242424;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/djsl34z" title="[wapa]" target="_blank" style="color: #242424; text-decoration: none;">[wapa]</a> · <a href="https://soundcloud.com/djsl34z/sets/willow-arms-public-broadcast-midwestern-ost" title="Willow Arms Public Broadcast Midwestern OST" target="_blank" style="color: #242424; text-decoration: none;">Willow Arms Public Broadcast Midwestern OST</a></div>
+           <iframe id="soundcloud-widget" width="100%" height="600" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2016641082&color=%230d0c0c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #242424;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/djsl34z" title="[wapa]" target="_blank" style="color: #242424; text-decoration: none;">[wapa]</a> · <a href="https://soundcloud.com/djsl34z/sets/willow-arms-public-broadcast-midwestern-ost" title="Willow Arms Public Broadcast Midwestern OST" target="_blank" style="color: #242424; text-decoration: none;">Willow Arms Public Broadcast Midwestern OST</a></div>
         </section>
 
     </main>
 
     <footer>
-        <p>&copy; 2025 Willow Arms Public Access. <a href="staffpage.html" class="staff-link">Meet The Staff</a> <br> Your source for offbeat internet TV.</p>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Willow Arms Public Access. <a href="staffpage.html" class="staff-link">Meet The Staff</a> <br> Your source for offbeat internet TV.</p>
     </footer>
 
     <script>
@@ -813,7 +862,7 @@
             }
 
 
-            const soundcloud_iframe = document.querySelector('#soundcloud-vibes iframe'); // More specific selector
+            const soundcloud_iframe = document.getElementById('soundcloud-widget'); // Using the ID for the SoundCloud iframe
             if (soundcloud_iframe && typeof SC !== 'undefined' && SC.Widget) {
                 const widget = SC.Widget(soundcloud_iframe);
                 widget.bind(SC.Widget.Events.READY, function() {
@@ -834,7 +883,7 @@
                 });
             } else {
                 if (!soundcloud_iframe) {
-                    console.warn("SoundCloud iframe for vibes not found. Player will not be initialized.");
+                    console.warn("SoundCloud iframe with id 'soundcloud-widget' not found. Player will not be initialized.");
                 }
                 if (typeof SC === 'undefined' || typeof SC.Widget === 'undefined') {
                      console.warn("SoundCloud Widget API (SC.Widget) not available. Player will not be initialized. Ensure api.js is loaded correctly.");
