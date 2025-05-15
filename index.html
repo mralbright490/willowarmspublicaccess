@@ -142,7 +142,7 @@
              -webkit-appearance: none;
              -moz-appearance: none;
              cursor: pointer;
-             border-radius: 4px;
+             border-radius: 4瀘px;
              border: 1px solid #00a3a3;
              background-color: #1a1a33;
              color: #00e6e6;
@@ -638,6 +638,28 @@
         text-decoration: underline;
     }
 
+    #back-to-top {
+        display: none; /* Hidden by default */
+        position: fixed; /* Fixed position */
+        bottom: 90px; /* Adjust as needed, above the footer */
+        right: 30px; /* Adjust as needed */
+        z-index: 99; /* Ensure it's above other content */
+        cursor: pointer; /* Add a mouse pointer on hover */
+        padding: 10px; /* Add some padding around the image */
+        border-radius: 4px; /* Optional: round the corners */
+        transition: background-color 0.3s ease; /* Smooth transition */
+    }
+
+    #back-to-top img {
+        width: 40px; /* Adjust size as needed */
+        height: auto; /* Maintain aspect ratio */
+        display: block; /* Remove extra space below the image */
+    }
+
+    #back-to-top:hover {
+        background-color: rgba(0, 163, 163, 0.5); /* Subtle hover effect */
+    }
+
     @media (max-width: 768px) {
         main { padding: 0 15px; }
         #controls-bar { padding: 8px 15px; }
@@ -651,6 +673,13 @@
         #discord-chat-modal-content { max-width: 95%; padding: 15px; max-height: 80vh;}
         #discord-chat-modal-content h2 { font-size: 1.4em; }
         .discord-widget-container { height: 60vh; }
+        #back-to-top {
+            bottom: 80px; /* Adjust for smaller screens */
+            right: 15px; /* Adjust for smaller screens */
+        }
+        #back-to-top img {
+            width: 30px; /* Adjust size for smaller screens */
+        }
     }
     @media (max-width: 480px) {
          main { padding: 0 10px; }
@@ -671,6 +700,13 @@
          #discord-chat-modal-content h2 { font-size: 1.2em; margin-bottom: 10px; }
          .discord-modal-close { font-size: 1.8em; top: 5px; right: 10px; }
          .discord-widget-container { height: 60vh; }
+         #back-to-top {
+            bottom: 70px; /* Adjust for even smaller screens */
+            right: 10px; /* Adjust for even smaller screens */
+         }
+         #back-to-top img {
+            width: 25px; /* Adjust size for even smaller screens */
+         }
     }
     </style>
 </head>
@@ -767,13 +803,17 @@
                 </iframe>
             </div>
         </section>
-        
+
         <section id="soundcloud-vibes">
             <h2>[BACKGROUND VIBES]</h2>
            <iframe id="soundcloud-widget" width="100%" height="600" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2016641082&color=%230d0c0c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #242424;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/djsl34z" title="[wapa]" target="_blank" style="color: #242424; text-decoration: none;">[wapa]</a> · <a href="https://soundcloud.com/djsl34z/sets/willow-arms-public-broadcast-midwestern-ost" title="Willow Arms Public Broadcast Midwestern OST" target="_blank" style="color: #242424; text-decoration: none;">Willow Arms Public Broadcast Midwestern OST</a></div>
         </section>
 
     </main>
+
+    <a href="#" id="back-to-top" title="Back to top">
+        <img src="path/to/your/image.png" alt="Back to top">
+    </a>
 
     <footer>
         <p>&copy; <script>document.write(new Date().getFullYear())</script> Willow Arms Public Access. <a href="staffpage.html" class="staff-link">Meet The Staff</a> <br> Your source for offbeat internet TV.</p>
@@ -926,6 +966,25 @@
                     }
                 }
             }
+
+            // Back to top button functionality
+            const backToTopButton = document.getElementById('back-to-top');
+
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 100) { // Show button after scrolling down 100px
+                    backToTopButton.style.display = 'block';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+
+            backToTopButton.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevent default anchor behavior
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth' // Smooth scroll
+                });
+            });
         });
 
          window.addEventListener('resize', () => {
