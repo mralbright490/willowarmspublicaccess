@@ -305,16 +305,22 @@
     body.theme-albright {
         color: #cdc8b1;
         background-image: url('tp2.png'); /* Albright background */
-        background-color: #281c12;
+        background-color: #281c12; /* Corrected Albright background color */
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center center;
     }
+    body.theme-albright header {
+        background-color: rgba(28, 18, 11, 0.9); /* Corrected Albright header background to match footer */
+        border-bottom: 4px solid #b46a00;
+        color: #ffc107;
+    }
     body.theme-albright header h2,
     body.theme-albright header p {
         color: #ffc107; /* Albright header text color */
     }
+    body.theme-albright #controls-bar { background-color: rgba(90, 70, 55, 0.9); border-bottom-color: #b46a00; }
     body.theme-albright #controls-bar a,
     body.theme-albright .live-chat-button,
     body.theme-albright #controls-bar .theme-switcher select,
@@ -333,14 +339,16 @@
 
 
     body.theme-riggin {
-        background-color: #000000;
         color: #FFA500;
+        background-color: #000000;
         background-image: none; /* Riggin background */
     }
+    body.theme-riggin header { background-color: #1a1a1a; border-bottom: 4px solid #FF8C00; color: #FFA500; }
     body.theme-riggin header h2,
     body.theme-riggin header p {
         color: #FFA500; /* Riggin header text color */
     }
+    body.theme-riggin #controls-bar { background-color: #222222; border-bottom-color: #FF8C00; }
     body.theme-riggin #controls-bar a,
     body.theme-riggin .live-chat-button,
     body.theme-riggin #controls-bar .theme-switcher select,
@@ -356,7 +364,6 @@
     }
     body.theme-riggin #controls-bar .theme-switcher label { color: #FFD700; } /* Theme switcher label color */
     body.theme-riggin #controls-bar .theme-switcher select option { background-color: #333333; color: #FFA500; } /* Option colors */
-
 
     /* --- Existing styles for sections and other elements --- */
 
@@ -491,6 +498,10 @@
     body.theme-albright #popup-content { background-color: rgba(74, 57, 46, 0.95); border-color: #ffc107; box-shadow: 0 0 20px rgba(255, 193, 7, 0.6); color: #cdc8b1; }
     body.theme-albright #popup-yes-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
     body.theme-albright #popup-yes-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
+    body.theme-albright #discord-chat-modal-content { background-color: rgba(74,57,46,0.97); border-color: #ffc107; box-shadow: 0 5px 25px rgba(255,193,7,0.6); }
+    body.theme-albright #discord-chat-modal-content h2 { color: #ffc107; border-bottom-color: #b46a00; }
+    body.theme-albright .discord-modal-close { color: #ffc107; }
+    body.theme-albright .discord-modal-close:hover { color: #ffd700; }
 
     body.theme-riggin section { background: #1a1a1a; border: 1px solid #FF8C00; box-shadow: 5px 5px 15px rgba(50,50,50,0.4); color: #FFA500;}
     body.theme-riggin section h2, body.theme-riggin section h3 { color: #FFA500; border-bottom-color: #FF8C00; }
@@ -508,7 +519,6 @@
     body.theme-riggin #popup-content { background-color: #1a1a1a; border-color: #FFA500; box-shadow: 0 0 20px rgba(255, 165, 0, 0.6); color: #FFA500; }
     body.theme-riggin #popup-yes-button { background-color: #FFA500; color: #000000; border-color: #FF8C00; }
     body.theme-riggin #popup-yes-button:hover { background-color: #FF8C00; color: #000000; border-color: #FFA500; }
-
 
     main {
         max-width: 1100px;
@@ -1115,8 +1125,9 @@
             const header = document.querySelector('header');
             const controlsBar = document.getElementById('controls-bar');
             const body = document.body;
-            const headerHeight = header.offsetHeight;
-            const controlsHeight = controlsBar.offsetHeight;
+            // Use clientHeight to get the rendered height including padding and border
+            const headerHeight = header.clientHeight;
+            const controlsHeight = controlsBar.clientHeight;
             const totalHeaderHeight = headerHeight + controlsHeight;
 
 
