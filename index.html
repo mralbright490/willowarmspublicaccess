@@ -39,7 +39,7 @@
         font-size: 2em;
         text-transform: uppercase;
         letter-spacing: 2px;
-        color: #00a3a3;
+        color: #00a3a3; /* Default color */
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -49,7 +49,7 @@
     }
     header p {
         font-size: 1em;
-        color: #999999;
+        color: #999999; /* Default color */
         margin-top: 5px;
         margin-bottom: 0;
         white-space: nowrap;
@@ -186,35 +186,132 @@
       transform: translateX(15px); /* Adjusted translation */
     }
 
-    /* --- Theme specific styles for links and buttons --- */
-    body.theme-afterlounge #controls-bar a, body.theme-afterlounge .live-chat-button, body.theme-afterlounge #controls-bar .theme-switcher select, body.theme-afterlounge .header-toggle label { color: #00e6e6; border-color: #00a3a3; background-color: #1a1a33;}
-    body.theme-afterlounge #controls-bar a:hover, body.theme-afterlounge .live-chat-button:hover { background-color: #00e6e6; color: #1a1a33; }
+    /* --- Theme specific styles for header text, links, buttons, and select --- */
+    body.theme-afterlounge header h2,
+    body.theme-afterlounge header p {
+        color: #00a3a3; /* AfterLounge header text color */
+    }
+    body.theme-afterlounge #controls-bar a,
+    body.theme-afterlounge .live-chat-button,
+    body.theme-afterlounge #controls-bar .theme-switcher select,
+    body.theme-afterlounge .header-toggle label {
+        color: #00e6e6;
+        border-color: #00a3a3;
+        background-color: #1a1a33;
+    }
+    body.theme-afterlounge #controls-bar a:hover,
+    body.theme-afterlounge .live-chat-button:hover {
+        background-color: #00e6e6;
+        color: #1a1a33;
+    }
     body.theme-afterlounge #controls-bar .theme-switcher label { color: #cccccc; } /* Theme switcher label color */
+    body.theme-afterlounge #controls-bar .theme-switcher select option { background-color: #1a1a33; color: #00e6e6; } /* Option colors */
 
 
-    body.theme-noire #controls-bar a, body.theme-noire .live-chat-button, body.theme-noire #controls-bar .theme-switcher select, body.theme-noire .header-toggle label { color: #ffffff; border-color: #333333; background-color: #111111; }
-    body.theme-noire #controls-bar a:hover, body.theme-noire .live-chat-button:hover { background-color: #ffffff; color: #1a1a1a; }
+    body.theme-noire header h2,
+    body.theme-noire header p {
+        color: #ffffff; /* Noire header text color */
+    }
+    body.theme-noire #controls-bar a,
+    body.theme-noire .live-chat-button,
+    body.theme-noire #controls-bar .theme-switcher select,
+    body.theme-noire .header-toggle label {
+        color: #ffffff;
+        border-color: #333333;
+        background-color: #111111;
+    }
+    body.theme-noire #controls-bar a:hover,
+    body.theme-noire .live-chat-button:hover {
+        background-color: #ffffff;
+        color: #1a1a1a;
+    }
      body.theme-noire #controls-bar .theme-switcher label { color: #e0e0e0; } /* Theme switcher label color */
+     body.theme-noire #controls-bar .theme-switcher select option { background-color: #111111; color: #ffffff; } /* Option colors */
 
 
-    body.theme-darryl #controls-bar a, body.theme-darryl .live-chat-button, body.theme-darryl #controls-bar .theme-switcher select, body.theme-darryl .header-toggle label { color: #f0f0f0; border-color: #8B0000; background-color: #505050; }
-    body.theme-darryl #controls-bar a:hover, body.theme-darryl .live-chat-button:hover { background-color: #8B0000; color: #ffffff; }
+    body.theme-darryl header h2,
+    body.theme-darryl header p {
+        color: #f0f0f0; /* Darryl header text color */
+    }
+    body.theme-darryl #controls-bar a,
+    body.theme-darryl .live-chat-button,
+    body.theme-darryl #controls-bar .theme-switcher select,
+    body.theme-darryl .header-toggle label {
+        color: #f0f0f0;
+        border-color: #8B0000;
+        background-color: #505050;
+    }
+    body.theme-darryl #controls-bar a:hover,
+    body.theme-darryl .live-chat-button:hover {
+        background-color: #8B0000;
+        color: #ffffff;
+    }
     body.theme-darryl #controls-bar .theme-switcher label { color: #cccccc; } /* Theme switcher label color */
+    body.theme-darryl #controls-bar .theme-switcher select option { background-color: #505050; color: #f0f0f0; } /* Option colors */
 
 
-    body.theme-mr-johnson #controls-bar a, body.theme-mr-johnson .live-chat-button, body.theme-mr-johnson #controls-bar .theme-switcher select, body.theme-mr-johnson .header-toggle label { color: #00ff00; border-color: #008000; background-color: #3a0066; }
-    body.theme-mr-johnson #controls-bar a:hover, body.theme-mr-johnson .live-chat-button:hover { background-color: #00ff00; color: #3a0066; }
+    body.theme-mr-johnson header h2,
+    body.theme-mr-johnson header p {
+        color: #00ff00; /* Mr. Johnson header text color */
+    }
+    body.theme-mr-johnson #controls-bar a,
+    body.theme-mr-johnson .live-chat-button,
+    body.theme-mr-johnson #controls-bar .theme-switcher select,
+    body.theme-mr-johnson .header-toggle label {
+        color: #00ff00;
+        border-color: #008000;
+        background-color: #3a0066;
+    }
+    body.theme-mr-johnson #controls-bar a:hover,
+    body.theme-mr-johnson .live-chat-button:hover {
+        background-color: #00ff00;
+        color: #3a0066;
+    }
     body.theme-mr-johnson #controls-bar .theme-switcher label { color: #00aa00; } /* Theme switcher label color */
+    body.theme-mr-johnson #controls-bar .theme-switcher select option { background-color: #3a0066; color: #00ff00; } /* Option colors */
 
 
-    body.theme-albright #controls-bar a, body.theme-albright .live-chat-button, body.theme-albright #controls-bar .theme-switcher select, body.theme-albright .header-toggle label { color: #ffc107; border-color: #b46a00; background-color: #6f4f2d; }
-    body.theme-albright #controls-bar a:hover, body.theme-albright .live-chat-button:hover { background-color: #ffc107; color: #6f4f2d; }
+    body.theme-albright header h2,
+    body.theme-albright header p {
+        color: #ffc107; /* Albright header text color */
+    }
+    body.theme-albright #controls-bar a,
+    body.theme-albright .live-chat-button,
+    body.theme-albright #controls-bar .theme-switcher select,
+    body.theme-albright .header-toggle label {
+        color: #ffc107;
+        border-color: #b46a00;
+        background-color: #6f4f2d;
+    }
+    body.theme-albright #controls-bar a:hover,
+    body.theme-albright .live-chat-button:hover {
+        background-color: #ffc107;
+        color: #6f4f2d;
+    }
     body.theme-albright #controls-bar .theme-switcher label { color: #a1887f; } /* Theme switcher label color */
+    body.theme-albright #controls-bar .theme-switcher select option { background-color: #6f4f2d; color: #ffc107; } /* Option colors */
 
 
-    body.theme-riggin #controls-bar a, body.theme-riggin .live-chat-button, body.theme-riggin #controls-bar .theme-switcher select, body.theme-riggin .header-toggle label { color: #FFA500; border-color: #FF8C00; background-color: #333333; }
-    body.theme-riggin #controls-bar a:hover, body.theme-riggin .live-chat-button:hover { background-color: #FFA500; color: #333333; }
+    body.theme-riggin header h2,
+    body.theme-riggin header p {
+        color: #FFA500; /* Riggin header text color */
+    }
+    body.theme-riggin #controls-bar a,
+    body.theme-riggin .live-chat-button,
+    body.theme-riggin #controls-bar .theme-switcher select,
+    body.theme-riggin .header-toggle label {
+        color: #FFA500;
+        border-color: #FF8C00;
+        background-color: #333333;
+    }
+    body.theme-riggin #controls-bar a:hover,
+    body.theme-riggin .live-chat-button:hover {
+        background-color: #FFA500;
+        color: #333333;
+    }
     body.theme-riggin #controls-bar .theme-switcher label { color: #FFD700; } /* Theme switcher label color */
+    body.theme-riggin #controls-bar .theme-switcher select option { background-color: #333333; color: #FFA500; } /* Option colors */
+
 
     /* --- Existing styles below --- */
 
@@ -275,22 +372,6 @@
     body.theme-noire .discord-modal-close:hover { color: #ffffff; }
 
 
-    body.theme-darryl {
-        background-color: #404040;
-        color: #f0f0f0;
-        background-image: url('dogs.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center center;
-    }
-    body.theme-darryl header { background-color: #2a2a2a; border-bottom-color: #8B0000; }
-    body.theme-darryl header h2 { color: #f0f0f0; }
-    body.theme-darryl header p { color: #cccccc; }
-    body.theme-darryl #controls-bar { background-color: #333333; border-bottom-color: #8B0000; }
-    body.theme-darryl #controls-bar .theme-switcher { color: #cccccc; }
-    body.theme-darryl #controls-bar .theme-switcher select { background-color: #505050; color: #f0f0f0; border-color: #8B0000; }
-    body.theme-darryl #controls-bar .theme-switcher select option { background-color: #505050; color: #f0f0f0; }
     body.theme-darryl section {
         background-color: rgba(64, 64, 64, 0.85);
         border: 2px solid #8B0000;
@@ -316,11 +397,6 @@
     body.theme-darryl .discord-modal-close { color: #f0f0f0; }
     body.theme-darryl .discord-modal-close:hover { color: #ff7f7f; }
 
-    body.theme-mr-johnson { color: #00cc00; background-image: url('garage1.png'); background-color: #1a0033; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
-    body.theme-mr-johnson header { background-color: #2a0055; border-bottom-color: #008000; color: #00ff00; }
-    body.theme-mr-johnson #controls-bar { background-color: #300060; border-bottom-color: #008000; }
-    body.theme-mr-johnson #controls-bar .theme-switcher { color: #00aa00; }
-    body.theme-mr-johnson #controls-bar .theme-switcher select { background-color: #3a0066; color: #00ff00; border-color: #008000; }
     body.theme-mr-johnson section {
         background: linear-gradient(rgba(42, 0, 85, 0.85), rgba(42, 0, 85, 0.85)), url('purpmarb.png') center center / cover no-repeat;
         border-color: #008000;
@@ -347,11 +423,6 @@
     body.theme-mr-johnson .discord-modal-close { color: #00ff00; }
     body.theme-mr-johnson .discord-modal-close:hover { color: #32cd32; }
 
-    body.theme-albright { color: #cdc8b1; background-image: url('tp2.png'); background-color: #281c12; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
-    body.theme-albright header { background-color: rgba(74, 57, 46, 0.85); border-bottom: 4px solid #b46a00; color: #ffc107; }
-    body.theme-albright #controls-bar { background-color: rgba(90, 70, 55, 0.9); border-bottom-color: #b46a00; }
-    body.theme-albright #controls-bar .theme-switcher { color: #a1887f; }
-    body.theme-albright #controls-bar .theme-switcher select { background-color: #6f4f2d; color: #ffc107; border-color: #b46a00; }
     body.theme-albright section {
          background:
            linear-gradient(rgba(74, 57, 46, 0.7), rgba(74, 57, 46, 0.7)),
@@ -381,11 +452,6 @@
     body.theme-albright .discord-modal-close:hover { color: #ffd700; }
 
 
-    body.theme-riggin { background-color: #000000; color: #FFA500; background-image: none; }
-    body.theme-riggin header { background-color: #1a1a1a; border-bottom: 4px solid #FF8C00; color: #FFA500; }
-    body.theme-riggin #controls-bar { background-color: #222222; border-bottom-color: #FF8C00; }
-    body.theme-riggin #controls-bar .theme-switcher { color: #FFD700; }
-    body.theme-riggin #controls-bar .theme-switcher select { background-color: #333333; color: #FFA500; border-color: #FF8C00; }
     body.theme-riggin section { background: #1a1a1a; border: 1px solid #FF8C00; box-shadow: 5px 5px 15px rgba(50,50,50,0.4); color: #FFA500;}
     body.theme-riggin section h2, body.theme-riggin section h3 { color: #FFA500; border-bottom-color: #FF8C00; }
     body.theme-riggin header p { color: #FFD700; }
@@ -964,7 +1030,6 @@
             }
             participateButton.style.left = buttonX + 'px';
             participateButton.style.top = buttonY + 'px';
-            participateButton.style.display = 'block';
         }
 
         function updateButtonPosition() {
@@ -1036,6 +1101,7 @@
                  setTimeout(() => setHeaderFixed(true), 10);
             }
         }
+
 
         document.addEventListener('DOMContentLoaded', () => {
             loadTheme();
