@@ -65,7 +65,7 @@
         justify-content: center;
         align-items: center;
         border-bottom: 1px solid #005b5b;
-        margin-bottom: 30px;
+        margin-bottom: 30px; /* Keep margin for spacing below the fixed bar */
         flex-wrap: wrap;
         gap: 10px;
         position: fixed; /* Fixed by default */
@@ -187,31 +187,37 @@
     }
 
     /* --- Theme specific styles for links and buttons --- */
-    body.theme-afterlounge #controls-bar a, body.theme-afterlounge .live-chat-button, body.theme-afterlounge #controls-bar .theme-switcher select { color: #00e6e6; border-color: #00a3a3; background-color: #1a1a33;}
+    body.theme-afterlounge #controls-bar a, body.theme-afterlounge .live-chat-button, body.theme-afterlounge #controls-bar .theme-switcher select, body.theme-afterlounge .header-toggle label { color: #00e6e6; border-color: #00a3a3; background-color: #1a1a33;}
     body.theme-afterlounge #controls-bar a:hover, body.theme-afterlounge .live-chat-button:hover { background-color: #00e6e6; color: #1a1a33; }
-    body.theme-afterlounge #controls-bar .theme-switcher { color: #cccccc; } /* Label color */
+    body.theme-afterlounge #controls-bar .theme-switcher label { color: #cccccc; } /* Theme switcher label color */
 
-    body.theme-noire #controls-bar a, body.theme-noire .live-chat-button, body.theme-noire #controls-bar .theme-switcher select { color: #ffffff; border-color: #333333; background-color: #111111; }
+
+    body.theme-noire #controls-bar a, body.theme-noire .live-chat-button, body.theme-noire #controls-bar .theme-switcher select, body.theme-noire .header-toggle label { color: #ffffff; border-color: #333333; background-color: #111111; }
     body.theme-noire #controls-bar a:hover, body.theme-noire .live-chat-button:hover { background-color: #ffffff; color: #1a1a1a; }
-     body.theme-noire #controls-bar .theme-switcher { color: #e0e0e0; } /* Label color */
+     body.theme-noire #controls-bar .theme-switcher label { color: #e0e0e0; } /* Theme switcher label color */
 
-    body.theme-darryl #controls-bar a, body.theme-darryl .live-chat-button, body.theme-darryl #controls-bar .theme-switcher select { color: #f0f0f0; border-color: #8B0000; background-color: #505050; }
+
+    body.theme-darryl #controls-bar a, body.theme-darryl .live-chat-button, body.theme-darryl #controls-bar .theme-switcher select, body.theme-darryl .header-toggle label { color: #f0f0f0; border-color: #8B0000; background-color: #505050; }
     body.theme-darryl #controls-bar a:hover, body.theme-darryl .live-chat-button:hover { background-color: #8B0000; color: #ffffff; }
-    body.theme-darryl #controls-bar .theme-switcher { color: #cccccc; } /* Label color */
+    body.theme-darryl #controls-bar .theme-switcher label { color: #cccccc; } /* Theme switcher label color */
 
-    body.theme-mr-johnson #controls-bar a, body.theme-mr-johnson .live-chat-button, body.theme-mr-johnson #controls-bar .theme-switcher select { color: #00ff00; border-color: #008000; background-color: #3a0066; }
+
+    body.theme-mr-johnson #controls-bar a, body.theme-mr-johnson .live-chat-button, body.theme-mr-johnson #controls-bar .theme-switcher select, body.theme-mr-johnson .header-toggle label { color: #00ff00; border-color: #008000; background-color: #3a0066; }
     body.theme-mr-johnson #controls-bar a:hover, body.theme-mr-johnson .live-chat-button:hover { background-color: #00ff00; color: #3a0066; }
-    body.theme-mr-johnson #controls-bar .theme-switcher { color: #00aa00; } /* Label color */
+    body.theme-mr-johnson #controls-bar .theme-switcher label { color: #00aa00; } /* Theme switcher label color */
 
-    body.theme-albright #controls-bar a, body.theme-albright .live-chat-button, body.theme-albright #controls-bar .theme-switcher select { color: #ffc107; border-color: #b46a00; background-color: #6f4f2d; }
+
+    body.theme-albright #controls-bar a, body.theme-albright .live-chat-button, body.theme-albright #controls-bar .theme-switcher select, body.theme-albright .header-toggle label { color: #ffc107; border-color: #b46a00; background-color: #6f4f2d; }
     body.theme-albright #controls-bar a:hover, body.theme-albright .live-chat-button:hover { background-color: #ffc107; color: #6f4f2d; }
-    body.theme-albright #controls-bar .theme-switcher { color: #a1887f; } /* Label color */
+    body.theme-albright #controls-bar .theme-switcher label { color: #a1887f; } /* Theme switcher label color */
 
-    body.theme-riggin #controls-bar a, body.theme-riggin .live-chat-button, body.theme-riggin #controls-bar .theme-switcher select { color: #FFA500; border-color: #FF8C00; background-color: #333333; }
+
+    body.theme-riggin #controls-bar a, body.theme-riggin .live-chat-button, body.theme-riggin #controls-bar .theme-switcher select, body.theme-riggin .header-toggle label { color: #FFA500; border-color: #FF8C00; background-color: #333333; }
     body.theme-riggin #controls-bar a:hover, body.theme-riggin .live-chat-button:hover { background-color: #FFA500; color: #333333; }
-    body.theme-riggin #controls-bar .theme-switcher { color: #FFD700; } /* Label color */
+    body.theme-riggin #controls-bar .theme-switcher label { color: #FFD700; } /* Theme switcher label color */
 
     /* --- Existing styles below --- */
+
     body.theme-afterlounge section {
         background-color: rgba(26, 26, 51, 0.85);
         color: #ffffff;
@@ -735,6 +741,8 @@
         .show { padding: 12px; }
         .show h3 { font-size: 1em; }
         .show p { white-space: normal; overflow: visible; text-overflow: clip; }
+        header h2 { font-size: 1.4em; }
+        header p { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         #discord-chat-modal-content { max-width: 95%; padding: 15px; max-height: 80vh;}
         #discord-chat-modal-content h2 { font-size: 1.4em; }
         .discord-widget-container { height: 60vh; }
@@ -824,7 +832,7 @@
              </select>
          </div>
          <div class="header-toggle">
-            <label for="header-fix-toggle">Fixed Header:</label>
+            <label for="header-fix-toggle">Hide/Show Header:</label>
             <label class="switch">
                 <input type="checkbox" id="header-fix-toggle" checked> <span class="slider round"></span>
             </label>
@@ -987,21 +995,30 @@
             const header = document.querySelector('header');
             const controlsBar = document.getElementById('controls-bar');
             const body = document.body;
+            const headerHeight = header.offsetHeight;
+            const controlsHeight = controlsBar.offsetHeight;
+            const totalHeaderHeight = headerHeight + controlsHeight;
+
 
             if (isFixed) {
                 header.style.position = 'fixed';
                 header.style.top = '0';
+                header.style.width = '100%'; // Ensure width is set for fixed positioning
                 controlsBar.style.position = 'fixed';
-                controlsBar.style.top = '96px'; // Adjust if header height changes
-                body.style.paddingTop = '130px'; // Adjust if header/controls height changes
+                controlsBar.style.top = headerHeight + 'px'; // Position below header
+                controlsBar.style.width = '100%'; // Ensure width is set for fixed positioning
+                body.style.paddingTop = totalHeaderHeight + 'px'; // Adjust padding
             } else {
-                header.style.position = 'static'; // or 'relative'
+                header.style.position = 'static';
                 header.style.top = 'auto';
-                controlsBar.style.position = 'static'; // or 'relative'
+                header.style.width = 'auto'; // Revert width for static positioning
+                controlsBar.style.position = 'static';
                 controlsBar.style.top = 'auto';
+                controlsBar.style.width = 'auto'; // Revert width for static positioning
                 body.style.paddingTop = '0';
             }
-            localStorage.setItem('wapHeaderFixed', isFixed);
+             // Save the state correctly as a boolean
+            localStorage.setItem('wapHeaderFixed', JSON.stringify(isFixed));
         }
 
         function loadHeaderState() {
@@ -1011,14 +1028,14 @@
             if (savedState !== null) {
                 const isFixed = JSON.parse(savedState);
                 headerFixToggle.checked = isFixed;
-                setHeaderFixed(isFixed);
+                // Use a slight delay to ensure elements have rendered before calculating height
+                 setTimeout(() => setHeaderFixed(isFixed), 10);
             } else {
                 // Default state is fixed
                 headerFixToggle.checked = true;
-                setHeaderFixed(true);
+                 setTimeout(() => setHeaderFixed(true), 10);
             }
         }
-
 
         document.addEventListener('DOMContentLoaded', () => {
             loadTheme();
