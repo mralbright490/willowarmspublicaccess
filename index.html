@@ -186,7 +186,15 @@
       transform: translateX(15px); /* Adjusted translation */
     }
 
-    /* --- Theme specific styles for header text, links, buttons, and select --- */
+    /* --- Theme specific styles for body background, header text, links, buttons, and select --- */
+    body.theme-afterlounge {
+        background-image: url('afterlounge.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+        background-color: #0c0c1a;
+    }
     body.theme-afterlounge header h2,
     body.theme-afterlounge header p {
         color: #00a3a3; /* AfterLounge header text color */
@@ -208,6 +216,11 @@
     body.theme-afterlounge #controls-bar .theme-switcher select option { background-color: #1a1a33; color: #00e6e6; } /* Option colors */
 
 
+    body.theme-noire {
+        background-color: #000000;
+        color: #ffffff;
+        background-image: none; /* Noire background */
+    }
     body.theme-noire header h2,
     body.theme-noire header p {
         color: #ffffff; /* Noire header text color */
@@ -229,6 +242,15 @@
      body.theme-noire #controls-bar .theme-switcher select option { background-color: #111111; color: #ffffff; } /* Option colors */
 
 
+    body.theme-darryl {
+        background-color: #404040;
+        color: #f0f0f0;
+        background-image: url('darryl-bg.png'); /* Darryl background */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+    }
     body.theme-darryl header h2,
     body.theme-darryl header p {
         color: #f0f0f0; /* Darryl header text color */
@@ -250,6 +272,15 @@
     body.theme-darryl #controls-bar .theme-switcher select option { background-color: #505050; color: #f0f0f0; } /* Option colors */
 
 
+    body.theme-mr-johnson {
+        color: #00cc00;
+        background-image: url('garage1.png'); /* Mr. Johnson background */
+        background-color: #1a0033;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+    }
     body.theme-mr-johnson header h2,
     body.theme-mr-johnson header p {
         color: #00ff00; /* Mr. Johnson header text color */
@@ -271,6 +302,15 @@
     body.theme-mr-johnson #controls-bar .theme-switcher select option { background-color: #3a0066; color: #00ff00; } /* Option colors */
 
 
+    body.theme-albright {
+        color: #cdc8b1;
+        background-image: url('tp2.png'); /* Albright background */
+        background-color: #281c12;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+    }
     body.theme-albright header h2,
     body.theme-albright header p {
         color: #ffc107; /* Albright header text color */
@@ -292,6 +332,11 @@
     body.theme-albright #controls-bar .theme-switcher select option { background-color: #6f4f2d; color: #ffc107; } /* Option colors */
 
 
+    body.theme-riggin {
+        background-color: #000000;
+        color: #FFA500;
+        background-image: none; /* Riggin background */
+    }
     body.theme-riggin header h2,
     body.theme-riggin header p {
         color: #FFA500; /* Riggin header text color */
@@ -451,7 +496,6 @@
     body.theme-albright .discord-modal-close { color: #ffc107; }
     body.theme-albright .discord-modal-close:hover { color: #ffd700; }
 
-
     body.theme-riggin section { background: #1a1a1a; border: 1px solid #FF8C00; box-shadow: 5px 5px 15px rgba(50,50,50,0.4); color: #FFA500;}
     body.theme-riggin section h2, body.theme-riggin section h3 { color: #FFA500; border-bottom-color: #FF8C00; }
     body.theme-riggin header p { color: #FFD700; }
@@ -468,11 +512,6 @@
     body.theme-riggin #popup-content { background-color: #1a1a1a; border-color: #FFA500; box-shadow: 0 0 20px rgba(255, 165, 0, 0.6); color: #FFA500; }
     body.theme-riggin #popup-yes-button { background-color: #FFA500; color: #000000; border-color: #FF8C00; }
     body.theme-riggin #popup-yes-button:hover { background-color: #FF8C00; color: #000000; border-color: #FFA500; }
-    body.theme-riggin #discord-chat-modal-content { background-color: #1a1a1a; border-color: #FFA500; box-shadow: 0 5px 25px rgba(255,165,0,0.6); }
-    body.theme-riggin #discord-chat-modal-content h2 { color: #FFA500; border-bottom-color: #FF8C00; }
-    body.theme-riggin .discord-modal-close { color: #FFA500; }
-    body.theme-riggin .discord-modal-close:hover { color: #FFD700; }
-
 
     main {
         max-width: 1100px;
@@ -690,6 +729,25 @@
          border-color: #00a3a3;
     }
 
+    .live-chat-button {
+        font-size: 0.85em;
+        padding: 4px 12px;
+        text-decoration: none;
+        text-transform: uppercase;
+        white-space: nowrap;
+        cursor: pointer;
+        border-radius: 4px;
+        border: 1px solid #00a3a3;
+        background-color: #1a1a33;
+        color: #00e6e6;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        display: inline-block;
+    }
+    .live-chat-button:hover {
+        background-color: #00e6e6;
+        color: #1a1a33;
+    }
+
     .discord-modal-overlay {
         position: fixed;
         top: 0;
@@ -753,25 +811,25 @@
     }
 
     #back-to-top {
-        display: none;
-        position: fixed;
-        bottom: 20px;
-        right: 30px;
-        z-index: 99;
-        cursor: pointer;
-        padding: 10px;
-        border-radius: 4px;
-        transition: background-color 0.3s ease;
+        display: none; /* Hidden by default */
+        position: fixed; /* Fixed position */
+        bottom: 20px; /* Adjust as needed */
+        right: 30px; /* Adjust as needed */
+        z-index: 99; /* Ensure it's above other content */
+        cursor: pointer; /* Add a mouse pointer on hover */
+        padding: 10px; /* Add some padding around the image */
+        border-radius: 4px; /* Optional: round the corners */
+        transition: background-color 0.3s ease; /* Smooth transition */
     }
 
     #back-to-top img {
-        width: 40px;
-        height: auto;
-        display: block;
+        width: 40px; /* Adjust size as needed */
+        height: auto; /* Maintain aspect ratio */
+        display: block; /* Remove extra space below the image */
     }
 
     #back-to-top:hover {
-        background-color: rgba(0, 163, 163, 0.5);
+        background-color: rgba(0, 163, 163, 0.5); /* Subtle hover effect */
     }
 
     footer {
@@ -924,292 +982,4 @@
                 <p>The city never sleeps, and neither do the cameras. DogPound presents a stark look at life through recovered dash and body camera footage, allegedly from the Willow Arms municipal archives. From daylight disturbances to after-hours altercations, experience the raw, unfiltered reality of the streets. What you're about to see is not a drill. Only on WAPA.</p>
             </div>
             <div class="show">
-                <h3>:: [vibe]rations :: Offbeat Music Videos</h3>
-                <p>[vibe]rations brings you a curated selection of unique and offbeat music videos. From lo-fi visuals to experimental sounds, this show is like finding a hidden signal of digital art and music. Great for discovering new vibes on our internet TV channel.</p>
-            </div>
-            <div class="show">
-                <h3>:: POV: mom & dad are fighting again :: Experimental Broadcast</h3>
-                <p>Experience 'POV: mom & dad are fighting again,' one of our most unique online shows. It's an experimental broadcast blending old TV signals, nostalgic aesthetics, and background ambiance. A lo-fi, dreamlike journey into the uncomfortable familiar.</p>
-            </div>
-            <div class="show">
-                <h3>:: [iinnermission] :: Lo-fi Live Stream</h3>
-                <p>Need to chill? [iinnermission] is our lo-fi live stream designed for focus, relaxation, or just background ambiance. Calming visuals and sounds from the Willow Arms universe. A perfect stream for downtime on the internet.</p>
-            </div>
-        </section>
-
-         <section id="merch">
-            <h2>[MERCH]</h2>
-            <div class="iframe-container">
-                <iframe src="https://wapashop.printify.me">
-                    <p>Your browser does not support iframes. Please visit the <a href="https://wapashop.printify.me">Merch Store</a> directly.</p>
-                </iframe>
-            </div>
-        </section>
-
-        <section id="tiktok-feed">
-            <h2>[LATEST TIKTOKS]</h2>
-             <div class="iframe-container">
-                <div class='sk-tiktok-feed' data-embed-id='25553721'></div><script src='https://widgets.sociablekit.com/tiktok-feed/widget.js' defer></script>
-             </div>
-        </section>
-
-        <section id="links-embed">
-            <h2>[links]</h2>
-            <div class="iframe-container">
-                <iframe src="https://taplink.cc/wapaccess">
-                    <p>Your browser does not support iframes. Please visit our <a href="https://taplink.cc/wapaccess">Links Page</a> directly.</p>
-                </iframe>
-            </div>
-        </section>
-
-        <section id="soundcloud-vibes">
-            <h2>[BACKGROUND VIBES]</h2>
-           <iframe id="soundcloud-widget" width="100%" height="600" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2016641082&color=%230d0c0c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #242424;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/djsl34z" title="[wapa]" target="_blank" style="color: #242424; text-decoration: none;">[wapa]</a> · <a href="https://soundcloud.com/djsl34z/sets/willow-arms-public-broadcast-midwestern-ost" title="Willow Arms Public Broadcast Midwestern OST" target="_blank" style="color: #242424; text-decoration: none;">Willow Arms Public Broadcast Midwestern OST</a></div>
-        </section>
-
-    </main>
-
-    <a href="#" id="back-to-top" title="Back to top">
-        <img src="backtotop.png" alt="Back to top">
-    </a>
-
-    <footer>
-        <p>&copy; <script>document.write(new Date().getFullYear())</script> Willow Arms Public Access. <a href="staffpage.html" class="staff-link">Meet The Staff</a> <br> Your source for offbeat internet TV.</p>
-    </footer>
-
-    <script>
-        const participateButton = document.getElementById('participate-button');
-        const popupOverlay = document.getElementById('popup-overlay');
-        const popupYesButton = document.getElementById('popup-yes-button');
-        let buttonX, buttonY, dx, dy;
-        const defaultButtonSize = 60;
-        const speed = 3;
-        let animationInterval = null;
-
-        function setTheme(themeName) {
-            document.body.className = document.body.className.replace(/theme-\S+/g, '').trim();
-            document.body.classList.add('theme-' + themeName);
-            localStorage.setItem('wapTheme', themeName);
-            const themeSelect = document.getElementById('theme-select');
-            if (themeSelect) {
-                 themeSelect.value = themeName;
-            }
-        }
-
-        function loadTheme() {
-            const savedTheme = localStorage.getItem('wapTheme') || 'albright';
-            setTheme(savedTheme);
-        }
-
-        function initializeButton() {
-            if (!participateButton) return;
-            const maxAttempts = 10;
-            let attempts = 0;
-            const buttonWidth = participateButton.offsetWidth || defaultButtonSize;
-            const buttonHeight = participateButton.offsetHeight || defaultButtonSize;
-            while (attempts < maxAttempts) {
-                buttonX = Math.random() * (window.innerWidth - buttonWidth);
-                buttonY = Math.random() * (window.innerHeight - buttonHeight);
-                const distanceToBottomRight = Math.sqrt(
-                    Math.pow(window.innerWidth - buttonWidth - buttonX, 2) +
-                    Math.pow(window.innerHeight - buttonHeight - buttonY, 2)
-                );
-                if (distanceToBottomRight > 150) { break; }
-                attempts++;
-            }
-             if (attempts === maxAttempts) {
-                 buttonX = Math.max(0, Math.min(50, window.innerWidth - buttonWidth));
-                 buttonY = Math.max(0, Math.min(50, window.innerHeight - buttonHeight));
-             }
-            dx = (Math.random() - 0.5) * 2 * speed;
-            dy = (Math.random() - 0.5) * 2 * speed;
-            if (Math.abs(dx) < 0.1 && Math.abs(dy) < 0.1) {
-                 dx = (Math.random() < 0.5 ? -1 : 1) * speed;
-                 dy = (Math.random() < 0.5 ? -1 : 1) * speed;
-                 if (Math.abs(dx) < 0.1 && Math.abs(dy) < 0.1) dx = speed;
-            }
-            participateButton.style.left = buttonX + 'px';
-            participateButton.style.top = buttonY + 'px';
-        }
-
-        function updateButtonPosition() {
-             if (!participateButton) return;
-             const buttonWidth = participateButton.offsetWidth;
-             const buttonHeight = participateButton.offsetHeight;
-            buttonX += dx;
-            buttonY += dy;
-            if (buttonX + buttonWidth > window.innerWidth) {
-                dx = -Math.abs(dx);
-                buttonX = window.innerWidth - buttonWidth;
-            } else if (buttonX < 0) {
-                dx = Math.abs(dx);
-                buttonX = 0;
-            }
-            if (buttonY + buttonHeight > window.innerHeight) {
-                dy = -Math.abs(dy);
-                buttonY = window.innerHeight - buttonHeight;
-            } else if (buttonY < 0) {
-                dy = Math.abs(dy);
-                buttonY = 0;
-            }
-            participateButton.style.left = buttonX + 'px';
-            participateButton.style.top = buttonY + 'px';
-        }
-
-        function setHeaderFixed(isFixed) {
-            const header = document.querySelector('header');
-            const controlsBar = document.getElementById('controls-bar');
-            const body = document.body;
-            const headerHeight = header.offsetHeight;
-            const controlsHeight = controlsBar.offsetHeight;
-            const totalHeaderHeight = headerHeight + controlsHeight;
-
-
-            if (isFixed) {
-                header.style.position = 'fixed';
-                header.style.top = '0';
-                header.style.width = '100%'; // Ensure width is set for fixed positioning
-                controlsBar.style.position = 'fixed';
-                controlsBar.style.top = headerHeight + 'px'; // Position below header
-                controlsBar.style.width = '100%'; // Ensure width is set for fixed positioning
-                body.style.paddingTop = totalHeaderHeight + 'px'; // Adjust padding
-            } else {
-                header.style.position = 'static';
-                header.style.top = 'auto';
-                header.style.width = 'auto'; // Revert width for static positioning
-                controlsBar.style.position = 'static';
-                controlsBar.style.top = 'auto';
-                controlsBar.style.width = 'auto'; // Revert width for static positioning
-                body.style.paddingTop = '0';
-            }
-             // Save the state correctly as a boolean
-            localStorage.setItem('wapHeaderFixed', JSON.stringify(isFixed));
-        }
-
-        function loadHeaderState() {
-            const savedState = localStorage.getItem('wapHeaderFixed');
-            const headerFixToggle = document.getElementById('header-fix-toggle');
-
-            if (savedState !== null) {
-                const isFixed = JSON.parse(savedState);
-                headerFixToggle.checked = isFixed;
-                // Use a slight delay to ensure elements have rendered before calculating height
-                 setTimeout(() => setHeaderFixed(isFixed), 10);
-            } else {
-                // Default state is fixed
-                headerFixToggle.checked = true;
-                 setTimeout(() => setHeaderFixed(true), 10);
-            }
-        }
-
-
-        document.addEventListener('DOMContentLoaded', () => {
-            loadTheme();
-            loadHeaderState(); // Load header state onDOMContentLoaded
-
-            const themeSelect = document.getElementById('theme-select');
-            if (themeSelect) {
-                themeSelect.addEventListener('change', (event) => {
-                    setTheme(event.target.value);
-                });
-            }
-
-            const headerFixToggle = document.getElementById('header-fix-toggle');
-            if (headerFixToggle) {
-                headerFixToggle.addEventListener('change', (event) => {
-                    setHeaderFixed(event.target.checked);
-                });
-            }
-
-
-            if (participateButton && popupOverlay && popupYesButton) {
-                 setTimeout(() => {
-                     initializeButton();
-                     if (animationInterval) clearInterval(animationInterval);
-                     animationInterval = setInterval(updateButtonPosition, 30);
-                 }, 0);
-                participateButton.addEventListener('click', () => {
-                    participateButton.style.display = 'none';
-                    popupOverlay.style.display = 'flex';
-                    if (animationInterval) {
-                        clearInterval(animationInterval);
-                        animationInterval = null;
-                    }
-                });
-                popupYesButton.addEventListener('click', () => {
-                    popupOverlay.style.display = 'none';
-                });
-            }
-
-            const soundcloud_iframe = document.getElementById('soundcloud-widget');
-            if (soundcloud_iframe && typeof SC !== 'undefined' && SC.Widget) {
-                const widget = SC.Widget(soundcloud_iframe);
-                widget.bind(SC.Widget.Events.READY, function() {
-                    console.log('SoundCloud Widget Ready!');
-                    widget.bind(SC.Widget.Events.FINISH, function() {
-                        widget.seekTo(0);
-                        widget.play();
-                    });
-                });
-                widget.bind(SC.Widget.Events.PLAY, function() { console.log('SoundCloud Widget Playing'); });
-                widget.bind(SC.Widget.Events.ERROR, function(err) { console.error('SoundCloud Widget Error:', err); });
-            } else {
-                if (!soundcloud_iframe) { console.warn("SoundCloud iframe with id 'soundcloud-widget' not found."); }
-                if (typeof SC === 'undefined' || !SC.Widget) { console.warn("SoundCloud Widget API not available."); }
-            }
-
-            const discordModal = document.getElementById('discordModal');
-            const discordChatBtn = document.getElementById('discordChatBtn');
-            const discordModalClose = document.getElementById('discordModalClose');
-
-            if (discordChatBtn && discordModal) {
-                discordChatBtn.onclick = function() {
-                    discordModal.style.display = "flex";
-                }
-            }
-            if (discordModalClose && discordModal) {
-                discordModalClose.onclick = function() {
-                    discordModal.style.display = "none";
-                }
-            }
-            if (discordModal) {
-                discordModal.onclick = function(event) {
-                    if (event.target == discordModal) {
-                        discordModal.style.display = "none";
-                    }
-                }
-            }
-
-            // Back to top button functionality
-            const backToTopButton = document.getElementById('back-to-top');
-
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 100) { // Show button after scrolling down 100px
-                    backToTopButton.style.display = 'block';
-                } else {
-                    backToTopButton.style.display = 'none';
-                }
-            });
-
-            backToTopButton.addEventListener('click', (event) => {
-                event.preventDefault(); // Prevent default anchor behavior
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth' // Smooth scroll
-                });
-            });
-        });
-
-         window.addEventListener('resize', () => {
-              if (participateButton && participateButton.style.display === 'block') {
-                   const buttonWidth = participateButton.offsetWidth;
-                   const buttonHeight = participateButton.offsetHeight;
-                   buttonX = Math.max(0, Math.min(buttonX, window.innerWidth - buttonWidth));
-                   buttonY = Math.max(0, Math.min(buttonY, window.innerHeight - buttonHeight));
-                   participateButton.style.left = buttonX + 'px';
-                   participateButton.style.top = buttonY + 'px';
-              }
-         });
-    </script>
-</body>
-</html>
+                <h3>:: [vibe]rations :: Offbeat Music Videos
