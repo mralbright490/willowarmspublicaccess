@@ -17,8 +17,8 @@
         line-height: 1.5;
         overflow-x: hidden;
         font-size: 16px;
-        transition: background-color 0.5s ease, color 0.5s ease, background-image 0.5s ease, padding-top 0.3s ease; /* Added padding-top transition */
-        padding-top: 130px; /* Default padding for fixed header */
+        transition: background-color 0.5s ease, color 0.5s ease, background-image 0.5s ease; /* Removed padding-top transition as it's no longer dynamic */
+        padding-top: 130px; /* Padding for fixed header and controls bar */
     }
 
     header {
@@ -27,12 +27,12 @@
         padding: 20px;
         text-align: center;
         border-bottom: 4px solid #005b5b;
-        position: fixed; /* Fixed by default */
+        position: fixed; /* Fixed header */
         width: 100%;
         top: 0;
         left: 0;
         z-index: 100;
-        transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease, position 0.3s ease, top 0.3s ease; /* Added position and top transitions */
+        transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease; /* Removed position and top transitions as it's fixed */
     }
     header h2 {
         margin-top: 0;
@@ -68,14 +68,14 @@
         margin-bottom: 30px; /* Keep margin for spacing below the fixed bar */
         flex-wrap: wrap;
         gap: 10px;
-        position: fixed; /* Fixed by default */
+        position: fixed; /* Fixed controls bar */
         width: 100%;
-        top: 96px; /* Position below header */
+        top: 96px; /* Position below header (adjust if header height changes) */
         left: 0;
         z-index: 100;
-        transition: background-color 0.5s ease, border-color 0.5s ease, position 0.3s ease, top 0.3s ease; /* Added position and top transitions */
+        transition: background-color 0.5s ease, border-color 0.5s ease; /* Removed position and top transitions as it's fixed */
     }
-    #controls-bar .theme-switcher, #controls-bar .header-toggle {
+    #controls-bar .theme-switcher { /* Keep theme-switcher styles */
          margin: 0;
          padding: 0;
          border: none;
@@ -84,15 +84,15 @@
          align-items: center;
          gap: 8px;
          transition: color 0.5s ease;
-         white-space: nowrap; /* Prevent wrapping for toggles */
+         white-space: nowrap;
     }
-    #controls-bar .theme-switcher label, #controls-bar .header-toggle label {
+    #controls-bar .theme-switcher label { /* Keep theme-switcher label styles */
         margin-right: 0;
         font-size: 0.85em;
         text-transform: uppercase;
         white-space: nowrap;
     }
-    #controls-bar .theme-switcher select {
+    #controls-bar .theme-switcher select { /* Keep theme-switcher select styles */
         font-size: 0.85em;
         padding: 4px 20px 4px 8px;
          background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
@@ -109,7 +109,7 @@
          color: #00e6e6;
          transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     }
-    #controls-bar .theme-switcher select option {
+    #controls-bar .theme-switcher select option { /* Keep theme-switcher select option styles */
          background-color: #1a1a33;
          color: #00e6e6;
     }
@@ -132,59 +132,7 @@
         color: #1a1a33;
     }
 
-    /* Toggle switch styling */
-    .switch {
-      position: relative;
-      display: inline-block;
-      width: 35px; /* Smaller width */
-      height: 20px; /* Smaller height */
-    }
-
-    .switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ccc;
-      -webkit-transition: .4s;
-      transition: .4s;
-      border-radius: 20px; /* Rounded slider */
-    }
-
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 12px; /* Smaller circle */
-      width: 12px; /* Smaller circle */
-      left: 4px; /* Adjusted position */
-      bottom: 4px; /* Adjusted position */
-      background-color: white;
-      -webkit-transition: .4s;
-      transition: .4s;
-      border-radius: 50%;
-    }
-
-    input:checked + .slider {
-      background-color: #2196F3;
-    }
-
-    input:focus + .slider {
-      box-shadow: 0 0 1px #2196F3;
-    }
-
-    input:checked + .slider:before {
-      -webkit-transform: translateX(15px); /* Adjusted translation */
-      -ms-transform: translateX(15px); /* Adjusted translation */
-      transform: translateX(15px); /* Adjusted translation */
-    }
+    /* --- Removed Toggle switch styling --- */
 
     /* --- Theme specific styles for body background, header text, links, buttons, and select --- */
     body.theme-afterlounge {
@@ -202,7 +150,7 @@
     body.theme-afterlounge #controls-bar a,
     body.theme-afterlounge .live-chat-button,
     body.theme-afterlounge #controls-bar .theme-switcher select,
-    body.theme-afterlounge .header-toggle label {
+    body.theme-afterlounge .header-toggle label { /* Keep header-toggle label style for consistency just in case */
         color: #00e6e6;
         border-color: #00a3a3;
         background-color: #1a1a33;
@@ -228,7 +176,7 @@
     body.theme-noire #controls-bar a,
     body.theme-noire .live-chat-button,
     body.theme-noire #controls-bar .theme-switcher select,
-    body.theme-noire .header-toggle label {
+    body.theme-noire .header-toggle label { /* Keep header-toggle label style for consistency just in case */
         color: #ffffff;
         border-color: #333333;
         background-color: #111111;
@@ -258,7 +206,7 @@
     body.theme-darryl #controls-bar a,
     body.theme-darryl .live-chat-button,
     body.theme-darryl #controls-bar .theme-switcher select,
-    body.theme-darryl .header-toggle label {
+    body.theme-darryl .header-toggle label { /* Keep header-toggle label style for consistency just in case */
         color: #f0f0f0;
         border-color: #8B0000;
         background-color: #505050;
@@ -288,7 +236,7 @@
     body.theme-mr-johnson #controls-bar a,
     body.theme-mr-johnson .live-chat-button,
     body.theme-mr-johnson #controls-bar .theme-switcher select,
-    body.theme-mr-johnson .header-toggle label {
+    body.theme-mr-johnson .header-toggle label { /* Keep header-toggle label style for consistency just in case */
         color: #00ff00;
         border-color: #008000;
         background-color: #3a0066;
@@ -324,7 +272,7 @@
     body.theme-albright #controls-bar a,
     body.theme-albright .live-chat-button,
     body.theme-albright #controls-bar .theme-switcher select,
-    body.theme-albright .header-toggle label {
+    body.theme-albright .header-toggle label { /* Keep header-toggle label style for consistency just in case */
         color: #ffc107;
         border-color: #b46a00;
         background-color: #6f4f2d;
@@ -352,7 +300,7 @@
     body.theme-riggin #controls-bar a,
     body.theme-riggin .live-chat-button,
     body.theme-riggin #controls-bar .theme-switcher select,
-    body.theme-riggin .header-toggle label {
+    body.theme-riggin .header-toggle label { /* Keep header-toggle label style for consistency just in case */
         color: #FFA500;
         border-color: #FF8C00;
         background-color: #333333;
@@ -364,6 +312,7 @@
     }
     body.theme-riggin #controls-bar .theme-switcher label { color: #FFD700; } /* Theme switcher label color */
     body.theme-riggin #controls-bar .theme-switcher select option { background-color: #333333; color: #FFA500; } /* Option colors */
+
 
     /* --- Existing styles for sections and other elements --- */
 
@@ -864,7 +813,7 @@
         header h2 { font-size: 1.4em; }
         header p { font-size: 0.9em; }
         #controls-bar { padding: 8px 15px; justify-content: center; top: 75px; } /* Adjusted top position */
-        #controls-bar a, .live-chat-button, #controls-bar .theme-switcher label, #controls-bar .theme-switcher select, #controls-bar .header-toggle label { font-size: 0.8em; padding: 3px 10px;}
+        #controls-bar a, .live-chat-button, #controls-bar .theme-switcher label, #controls-bar .theme-switcher select { font-size: 0.8em; padding: 3px 10px;}
          #controls-bar .theme-switcher select { padding: 3px 18px 3px 6px; background-position: calc(100% - 6px) center, calc(100% - 3px) center; background-size: 3px 3px, 3px 3px; }
         main { padding: 0 15px; }
         section h2, section h3 { font-size: 1.4em; }
@@ -884,16 +833,13 @@
         #back-to-top img {
             width: 30px;
         }
-        .switch { width: 30px; height: 18px; } /* Adjust toggle size for mobile */
-        .slider:before { height: 10px; width: 10px; left: 4px; bottom: 4px; } /* Adjust toggle circle size and position */
-         input:checked + .slider:before { -webkit-transform: translateX(12px); -ms-transform: translateX(12px); transform: translateX(12px); } /* Adjust toggle circle translation */
     }
     @media (max-width: 480px) {
          body { padding-top: 100px; } /* Adjusted padding for smaller header on mobile */
          header { padding: 10px; } /* Adjusted padding */
          header h2 { font-size: 1.2em; }
          #controls-bar { padding: 6px 10px; justify-content: center; top: 62px; } /* Adjusted top position */
-         #controls-bar a, .live-chat-button, #controls-bar .theme-switcher label, #controls-bar .theme-switcher select, #controls-bar .header-toggle label { font-size: 0.75em; padding: 3px 8px; }
+         #controls-bar a, .live-chat-button, #controls-bar .theme-switcher label, #controls-bar .theme-switcher select { font-size: 0.75em; padding: 3px 8px; }
          #controls-bar .theme-switcher select { padding: 3px 18px 3px 6px; background-position: calc(100% - 6px) center, calc(100% - 3px) center; background-size: 3px 3px, 3px 3px; }
         main { padding: 0 10px; }
         section { padding: 15px; margin-bottom: 15px; }
@@ -915,9 +861,6 @@
          #back-to-top img {
             width: 25px;
          }
-         .switch { width: 25px; height: 15px; } /* Adjust toggle size for extra small mobile */
-         .slider:before { height: 8px; width: 8px; left: 3px; bottom: 3.5px; } /* Adjust toggle circle size and position */
-          input:checked + .slider:before { -webkit-transform: translateX(10px); -ms-transform: translateX(10px); transform: translateX(10px); } /* Adjust toggle circle translation */
     }
     </style>
 </head>
@@ -962,13 +905,7 @@
                  <option value="riggin">Riggin</option>
              </select>
          </div>
-         <div class="header-toggle">
-            <label for="header-fix-toggle">Hide/Show Header:</label>
-            <label class="switch">
-                <input type="checkbox" id="header-fix-toggle" checked> <span class="slider round"></span>
-            </label>
          </div>
-    </div>
     <main>
         <section id="livestream">
             <h2>[tune in]</h2>
@@ -1123,56 +1060,11 @@
             participateButton.style.top = buttonY + 'px';
         }
 
-        function setHeaderFixed(isFixed) {
-            const header = document.querySelector('header');
-            const controlsBar = document.getElementById('controls-bar');
-            const body = document.body;
-            // Use clientHeight to get the rendered height including padding and border
-            const headerHeight = header.clientHeight;
-            const controlsHeight = controlsBar.clientHeight;
-            const totalHeaderHeight = headerHeight + controlsHeight;
-
-
-            if (isFixed) {
-                header.style.position = 'fixed';
-                header.style.top = '0';
-                header.style.width = '100%'; // Ensure width is set for fixed positioning
-                controlsBar.style.position = 'fixed';
-                controlsBar.style.top = headerHeight + 'px'; // Position below header
-                controlsBar.style.width = '100%'; // Ensure width is set for fixed positioning
-                body.style.paddingTop = totalHeaderHeight + 'px'; // Adjust padding
-            } else {
-                header.style.position = 'static';
-                header.style.top = 'auto';
-                header.style.width = 'auto'; // Revert width for static positioning
-                controlsBar.style.position = 'static';
-                controlsBar.style.top = 'auto';
-                controlsBar.style.width = 'auto'; // Revert width for static positioning
-                body.style.paddingTop = '0';
-            }
-             // Save the state correctly as a boolean
-            localStorage.setItem('wapHeaderFixed', JSON.stringify(isFixed));
-        }
-
-        function loadHeaderState() {
-            const savedState = localStorage.getItem('wapHeaderFixed');
-            const headerFixToggle = document.getElementById('header-fix-toggle');
-
-            if (savedState !== null) {
-                const isFixed = JSON.parse(savedState);
-                headerFixToggle.checked = isFixed;
-                // Use a slight delay to ensure elements have rendered before calculating height
-                 setTimeout(() => setHeaderFixed(isFixed), 10);
-            } else {
-                // Default state is fixed
-                headerFixToggle.checked = true;
-                 setTimeout(() => setHeaderFixed(true), 10);
-            }
-        }
+        // Removed setHeaderFixed and loadHeaderState functions
 
         document.addEventListener('DOMContentLoaded', () => {
             loadTheme();
-            loadHeaderState(); // Load header state onDOMContentLoaded
+            // Removed loadHeaderState call
 
             const themeSelect = document.getElementById('theme-select');
             if (themeSelect) {
@@ -1181,12 +1073,7 @@
                 });
             }
 
-            const headerFixToggle = document.getElementById('header-fix-toggle');
-            if (headerFixToggle) {
-                headerFixToggle.addEventListener('change', (event) => {
-                    setHeaderFixed(event.target.checked);
-                });
-            }
+            // Removed Header Toggle event listener
 
 
             if (participateButton && popupOverlay && popupYesButton) {
