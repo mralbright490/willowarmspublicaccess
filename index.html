@@ -305,7 +305,7 @@
     body.theme-albright {
         color: #cdc8b1;
         background-image: url('tp2.png'); /* Albright background */
-        background-color: #281c12; /* Corrected Albright background color */
+        background-color: #281c12;
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -674,11 +674,11 @@
     #participate-button {
         position: fixed;
         z-index: 1000;
-        display: none;
+        display: none; /* Hidden by default */
         padding: 10px 15px;
-        background-color: #00a3a3;
-        color: #1a1a33;
-        border: 2px solid #00e6e6;
+        background-color: #00a3a3; /* Default color, overridden by theme styles */
+        color: #1a1a33; /* Default color, overridden by theme styles */
+        border: 2px solid #00e6e6; /* Default color, overridden by theme styles */
         border-radius: 5px;
         cursor: pointer;
         text-transform: uppercase;
@@ -687,9 +687,9 @@
         transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     }
     #participate-button:hover {
-         background-color: #00e6e6;
-         color: #1a1a33;
-         border-color: #00a3a3;
+         background-color: #00e6e6; /* Default hover color, overridden by theme styles */
+         color: #1a1a33; /* Default hover color, overridden by theme styles */
+         border-color: #00a3a3; /* Default hover color, overridden by theme styles */
     }
     #popup-overlay {
         position: fixed;
@@ -704,14 +704,14 @@
         z-index: 2000;
     }
     #popup-content {
-        background-color: #1a1a33;
+        background-color: #1a1a33; /* Default color, overridden by theme styles */
         padding: 30px;
-        border: 2px solid #00a3a3;
+        border: 2px solid #00a3a3; /* Default color, overridden by theme styles */
         border-radius: 8px;
         text-align: center;
         max-width: 400px;
-        box-shadow: 0 0 20px rgba(0, 163, 163, 0.5);
-        color: #cccccc;
+        box-shadow: 0 0 20px rgba(0, 163, 163, 0.5); /* Default color, overridden by theme styles */
+        color: #cccccc; /* Default color, overridden by theme styles */
         transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
     }
     #popup-content p {
@@ -720,9 +720,9 @@
         font-size: 1.2em;
     }
     #popup-yes-button {
-        background-color: #00a3a3;
-        color: #1a1a33;
-        border: 2px solid #00e6e6;
+        background-color: #00a3a3; /* Default color, overridden by theme styles */
+        color: #1a1a33; /* Default color, overridden by theme styles */
+        border: 2px solid #00e6e6; /* Default color, overridden by theme styles */
         padding: 10px 20px;
         border-radius: 5px;
         cursor: pointer;
@@ -731,9 +731,9 @@
         transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     }
     #popup-yes-button:hover {
-         background-color: #00e6e6;
-         color: #1a1a33;
-         border-color: #00a3a3;
+         background-color: #00e6e6; /* Default hover color, overridden by theme styles */
+         color: #1a1a33; /* Default hover color, overridden by theme styles */
+         border-color: #00a3a3; /* Default hover color, overridden by theme styles */
     }
 
     .live-chat-button {
@@ -1095,6 +1095,8 @@
             }
             participateButton.style.left = buttonX + 'px';
             participateButton.style.top = buttonY + 'px';
+             // Make sure the button is initially visible if needed, or controlled by your popup logic
+             // participateButton.style.display = 'block'; // Uncomment if you want it always visible
         }
 
         function updateButtonPosition() {
@@ -1188,11 +1190,15 @@
 
 
             if (participateButton && popupOverlay && popupYesButton) {
+                 // Initial state: button is hidden by default via CSS. Show it after a delay and start animation.
                  setTimeout(() => {
+                     participateButton.style.display = 'block';
                      initializeButton();
                      if (animationInterval) clearInterval(animationInterval);
                      animationInterval = setInterval(updateButtonPosition, 30);
-                 }, 0);
+                 }, 5000); // Show after 5 seconds
+
+
                 participateButton.addEventListener('click', () => {
                     participateButton.style.display = 'none';
                     popupOverlay.style.display = 'flex';
@@ -1203,7 +1209,29 @@
                 });
                 popupYesButton.addEventListener('click', () => {
                     popupOverlay.style.display = 'none';
+                     // Optionally re-initialize button after popup is closed
+                     setTimeout(() => {
+                         participateButton.style.display = 'block';
+                         initializeButton();
+                         if (animationInterval) clearInterval(animationInterval);
+                         animationInterval = setInterval(updateButtonPosition, 30);
+                     }, 10000); // Reappear after 10 seconds
                 });
+                 // Close popup if clicking outside of it
+                 popupOverlay.addEventListener('click', (event) => {
+                     if(event.target === popupOverlay) {
+                         popupOverlay.style.display = 'none';
+                         // Optionally re-initialize button after popup is closed
+                          setTimeout(() => {
+                              participateButton.style.display = 'block';
+                              initializeButton();
+                              if (animationInterval) clearInterval(animationInterval);
+                              animationInterval = setInterval(updateButtonPosition, 30);
+                          }, 10000); // Reappear after 10 seconds
+                     }
+                 });
+            } else {
+                console.error("Participate button or popup elements not found!");
             }
 
             const soundcloud_iframe = document.getElementById('soundcloud-widget');
