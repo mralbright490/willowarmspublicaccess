@@ -50,6 +50,14 @@
         background-color: #00e6e6;
         color: #1a1a33;
     }
+     body.theme-afterlounge #controls-bar a {
+        color: #00e6e6;
+        border-color: #00a3a3;
+    }
+    body.theme-afterlounge #controls-bar a:hover {
+        background-color: #00e6e6;
+        color: #1a1a33;
+    }
     body.theme-afterlounge #discord-chat-modal-content {
         background-color: rgba(20, 20, 40, 0.97);
         border: 2px solid #00e6e6;
@@ -96,23 +104,23 @@
             font-size: 1em;
             color: #999999;
             margin-top: 5px;
+            margin-bottom: 0;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             display: block;
-            margin-bottom: 0;
             transition: color 0.5s ease;
         }
         #controls-bar {
             background-color: #1f1f3d;
             padding: 8px 20px;
             display: flex;
-            justify-content: flex-end;
+            justify-content: center; /* Center the items */
             align-items: center;
             border-bottom: 1px solid #005b5b;
             margin-bottom: 30px;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 10px; /* Space between items */
             transition: background-color 0.5s ease, border-color 0.5s ease;
         }
         #controls-bar .theme-switcher {
@@ -142,7 +150,7 @@
              -webkit-appearance: none;
              -moz-appearance: none;
              cursor: pointer;
-             border-radius: 4瀘px;
+             border-radius: 4px;
              border: 1px solid #00a3a3;
              background-color: #1a1a33;
              color: #00e6e6;
@@ -151,6 +159,24 @@
         #controls-bar .theme-switcher select option {
              background-color: #1a1a33;
              color: #00e6e6;
+        }
+         #controls-bar a {
+            font-size: 0.85em;
+            padding: 4px 12px;
+            text-decoration: none;
+            text-transform: uppercase;
+            white-space: nowrap;
+            cursor: pointer;
+            border-radius: 4px;
+            border: 1px solid #00a3a3;
+            background-color: #1a1a33;
+            color: #00e6e6;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            display: inline-block;
+        }
+        #controls-bar a:hover {
+            background-color: #00e6e6;
+            color: #1a1a33;
         }
         main {
             max-width: 1100px;
@@ -449,6 +475,8 @@
         border: none;
     }
 
+    body.theme-noire #controls-bar a { color: #ffffff; border-color: #333333; }
+    body.theme-noire #controls-bar a:hover { background-color: #ffffff; color: #1a1a1a; }
     body.theme-noire { background-color: #000000; color: #ffffff; background-image: none; }
     body.theme-noire header { background-color: #0a0a0a; border-bottom-color: #1a1a1a; color: #ffffff;}
     body.theme-noire header h2 { color: #ffffff; }
@@ -479,6 +507,8 @@
     body.theme-noire #popup-yes-button { background-color: #1a1a1a; color: #ffffff; border-color: #333333; }
     body.theme-noire #popup-yes-button:hover { background-color: #333333; color: #000000; border-color: #ffffff; }
 
+    body.theme-darryl #controls-bar a { color: #f0f0f0; border-color: #8B0000; }
+    body.theme-darryl #controls-bar a:hover { background-color: #8B0000; color: #ffffff; }
     body.theme-darryl {
         background-color: #404040;
         color: #f0f0f0;
@@ -522,6 +552,8 @@
     body.theme-darryl #popup-yes-button { background-color: #8B0000; color: #ffffff; border-color: #A04040; }
     body.theme-darryl #popup-yes-button:hover { background-color: #A04040; color: #2a2a2a; border-color: #f0f0f0; }
 
+    body.theme-mr-johnson #controls-bar a { color: #00ff00; border-color: #008000; }
+    body.theme-mr-johnson #controls-bar a:hover { background-color: #00ff00; color: #3a0066; }
     body.theme-mr-johnson { color: #00cc00; background-image: url('garage1.png'); background-color: #1a0033; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
     body.theme-mr-johnson header { background-color: #2a0055; border-bottom-color: #008000; color: #00ff00; }
     body.theme-mr-johnson #controls-bar { background-color: #300060; border-bottom-color: #008000; }
@@ -555,6 +587,8 @@
     body.theme-mr-johnson #popup-yes-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
     body.theme-mr-johnson #popup-yes-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
 
+    body.theme-albright #controls-bar a { color: #ffc107; border-color: #b46a00; }
+    body.theme-albright #controls-bar a:hover { background-color: #ffc107; color: #6f4f2d; }
     body.theme-albright { color: #cdc8b1; background-image: url('tp2.png'); background-color: #281c12; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
     body.theme-albright header { background-color: rgba(74, 57, 46, 0.85); border-bottom: 4px solid #b46a00; color: #ffc107; }
     body.theme-albright #controls-bar { background-color: rgba(90, 70, 55, 0.9); border-bottom-color: #b46a00; }
@@ -590,6 +624,8 @@
     body.theme-albright #popup-yes-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
     body.theme-albright #popup-yes-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
 
+    body.theme-riggin #controls-bar a { color: #FFA500; border-color: #FF8C00; }
+    body.theme-riggin #controls-bar a:hover { background-color: #FFA500; color: #333333; }
     body.theme-riggin { background-color: #000000; color: #FFA500; background-image: none; }
     body.theme-riggin header { background-color: #1a1a1a; border-bottom: 4px solid #FF8C00; color: #FFA500; }
     body.theme-riggin #controls-bar { background-color: #222222; border-bottom-color: #FF8C00; }
@@ -641,7 +677,7 @@
     #back-to-top {
         display: none; /* Hidden by default */
         position: fixed; /* Fixed position */
-        bottom: 90px; /* Adjust as needed, above the footer */
+        bottom: 20px; /* Adjust as needed */
         right: 30px; /* Adjust as needed */
         z-index: 99; /* Ensure it's above other content */
         cursor: pointer; /* Add a mouse pointer on hover */
@@ -662,7 +698,9 @@
 
     @media (max-width: 768px) {
         main { padding: 0 15px; }
-        #controls-bar { padding: 8px 15px; }
+        #controls-bar { padding: 8px 15px; justify-content: center;} /* Center items on smaller screens */
+        #controls-bar a, .live-chat-button, #controls-bar .theme-switcher label, #controls-bar .theme-switcher select { font-size: 0.8em; padding: 3px 10px;} /* Adjust padding and font size */
+         #controls-bar .theme-switcher select { padding: 3px 18px 3px 6px; background-position: calc(100% - 6px) center, calc(100% - 3px) center; background-size: 3px 3px, 3px 3px; }
         section h2, section h3 { font-size: 1.4em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         section { padding: 20px; margin-bottom: 20px; }
         .show { padding: 12px; }
@@ -683,10 +721,9 @@
     }
     @media (max-width: 480px) {
          main { padding: 0 10px; }
-         #controls-bar { padding: 6px 10px; }
-         #controls-bar .theme-switcher label, .live-chat-button { font-size: 0.75em; }
-         #controls-bar .theme-switcher select { font-size: 0.75em; padding: 3px 18px 3px 6px; background-position: calc(100% - 6px) center, calc(100% - 3px) center; background-size: 3px 3px, 3px 3px; }
-         .live-chat-button { padding: 3px 8px; }
+         #controls-bar { padding: 6px 10px; justify-content: center; } /* Center items on extra small screens */
+         #controls-bar a, .live-chat-button, #controls-bar .theme-switcher label, #controls-bar .theme-switcher select { font-size: 0.75em; padding: 3px 8px; } /* Adjust padding and font size */
+         #controls-bar .theme-switcher select { padding: 3px 18px 3px 6px; background-position: calc(100% - 6px) center, calc(100% - 3px) center; background-size: 3px 3px, 3px 3px; }
         header h2 { font-size: 1.2em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         section { padding: 15px; margin-bottom: 15px; }
         section h2, section h3 { font-size: 1.2em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -733,7 +770,13 @@
     </header>
 
     <div id="controls-bar">
-         <button type="button" class="live-chat-button" id="discordChatBtn">Live Chat</button>
+        <a href="#livestream">Tune In</a>
+        <a href="#shows">Lineup</a>
+        <a href="#merch">Merch</a>
+        <a href="#tiktok-feed">TikToks</a>
+        <a href="#links-embed">Links</a>
+        <a href="#soundcloud-vibes">Vibes</a>
+        <button type="button" class="live-chat-button" id="discordChatBtn">Live Chat</button>
          <div class="theme-switcher">
              <label for="theme-select">Theme:</label>
              <select id="theme-select">
