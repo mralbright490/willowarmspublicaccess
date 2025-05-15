@@ -78,6 +78,7 @@
             overflow-x: hidden;
             font-size: 16px;
             transition: background-color 0.5s ease, color 0.5s ease, background-image 0.5s ease;
+             padding-top: 130px; /* Add padding to the body to compensate for the fixed header and controls bar */
         }
         header {
             background-color: #1a1a33;
@@ -85,6 +86,11 @@
             padding: 20px;
             text-align: center;
             border-bottom: 4px solid #005b5b;
+             position: fixed; /* Fix the header at the top */
+             width: 100%; /* Make the header span the full width */
+             top: 0; /* Position the header at the top */
+             left: 0;
+             z-index: 100; /* Ensure the header is above other content */
             transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
         }
         header h2 {
@@ -118,9 +124,14 @@
             justify-content: center; /* Center the items */
             align-items: center;
             border-bottom: 1px solid #005b5b;
-            margin-bottom: 30px;
+            margin-bottom: 30px; /* Keep margin for spacing below the fixed bar */
             flex-wrap: wrap;
             gap: 10px; /* Space between items */
+             position: fixed; /* Fix the controls bar at the top */
+             width: 100%; /* Make the controls bar span the full width */
+             top: 96px; /* Position below the header (adjust if header height changes) */
+             left: 0;
+             z-index: 100; /* Ensure the controls bar is above other content */
             transition: background-color 0.5s ease, border-color 0.5s ease;
         }
         #controls-bar .theme-switcher {
@@ -587,8 +598,6 @@
     body.theme-mr-johnson #popup-yes-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
     body.theme-mr-johnson #popup-yes-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
 
-    body.theme-albright #controls-bar a { color: #ffc107; border-color: #b46a00; }
-    body.theme-albright #controls-bar a:hover { background-color: #ffc107; color: #6f4f2d; }
     body.theme-albright { color: #cdc8b1; background-image: url('tp2.png'); background-color: #281c12; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
     body.theme-albright header { background-color: rgba(74, 57, 46, 0.85); border-bottom: 4px solid #b46a00; color: #ffc107; }
     body.theme-albright #controls-bar { background-color: rgba(90, 70, 55, 0.9); border-bottom-color: #b46a00; }
@@ -624,8 +633,6 @@
     body.theme-albright #popup-yes-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
     body.theme-albright #popup-yes-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
 
-    body.theme-riggin #controls-bar a { color: #FFA500; border-color: #FF8C00; }
-    body.theme-riggin #controls-bar a:hover { background-color: #FFA500; color: #333333; }
     body.theme-riggin { background-color: #000000; color: #FFA500; background-image: none; }
     body.theme-riggin header { background-color: #1a1a1a; border-bottom: 4px solid #FF8C00; color: #FFA500; }
     body.theme-riggin #controls-bar { background-color: #222222; border-bottom-color: #FF8C00; }
@@ -724,6 +731,7 @@
          #controls-bar { padding: 6px 10px; justify-content: center; } /* Center items on extra small screens */
          #controls-bar a, .live-chat-button, #controls-bar .theme-switcher label, #controls-bar .theme-switcher select { font-size: 0.75em; padding: 3px 8px; } /* Adjust padding and font size */
          #controls-bar .theme-switcher select { padding: 3px 18px 3px 6px; background-position: calc(100% - 6px) center, calc(100% - 3px) center; background-size: 3px 3px, 3px 3px; }
+         .live-chat-button { padding: 3px 8px; }
         header h2 { font-size: 1.2em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         section { padding: 15px; margin-bottom: 15px; }
         section h2, section h3 { font-size: 1.2em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
