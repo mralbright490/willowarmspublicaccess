@@ -810,18 +810,32 @@
     @media (max-width: 768px) {
         body { padding-top: 110px; } /* Adjusted padding for smaller header on mobile */
         header { padding: 15px; } /* Adjusted padding */
-        header h2 { font-size: 1.4em; }
+        header h2 { font-size: 1.1em; /* Adjusted from 1.4em */ }
         header p { font-size: 0.9em; }
-        #controls-bar { padding: 8px 15px; justify-content: center; top: 75px; } /* Adjusted top position */
-        #controls-bar a, .live-chat-button, #controls-bar .theme-switcher label, #controls-bar .theme-switcher select { font-size: 0.8em; padding: 3px 10px;}
-         #controls-bar .theme-switcher select { padding: 3px 18px 3px 6px; background-position: calc(100% - 6px) center, calc(100% - 3px) center; background-size: 3px 3px, 3px 3px; }
+        #controls-bar {
+            padding: 8px 10px; /* Reduced padding */
+            justify-content: center;
+            top: 70px; /* Adjusted top position based on potentially smaller header */
+            flex-wrap: nowrap; /* Ensure buttons are on one line */
+            gap: 5px; /* Reduced gap between items */
+            overflow-x: auto; /* Add scroll if items still overflow */
+        }
+        #controls-bar a, .live-chat-button, #controls-bar .theme-switcher label, #controls-bar .theme-switcher select {
+            font-size: 0.7em; /* Reduced font size */
+            padding: 3px 6px; /* Reduced padding */
+        }
+         #controls-bar .theme-switcher select {
+            padding: 3px 16px 3px 5px; /* Adjusted select padding */
+            background-position: calc(100% - 5px) center, calc(100% - 2px) center; /* Adjusted arrow position */
+            background-size: 3px 3px, 3px 3px; /* Adjusted arrow size */
+         }
         main { padding: 0 15px; }
         section h2, section h3 { font-size: 1.4em; }
         section { padding: 20px; margin-bottom: 20px; }
         .show { padding: 12px; }
         .show h3 { font-size: 1em; }
         .show p { white-space: normal; overflow: visible; text-overflow: clip; }
-        header h2 { font-size: 1.4em; }
+        /* header h2 was already adjusted above */
         header p { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         #discord-chat-modal-content { max-width: 95%; padding: 15px; max-height: 80vh;}
         #discord-chat-modal-content h2 { font-size: 1.4em; }
@@ -835,12 +849,26 @@
         }
     }
     @media (max-width: 480px) {
-         body { padding-top: 100px; } /* Adjusted padding for smaller header on mobile */
+         body { padding-top: 95px; } /* Adjusted padding for smaller header on mobile */
          header { padding: 10px; } /* Adjusted padding */
-         header h2 { font-size: 1.2em; }
-         #controls-bar { padding: 6px 10px; justify-content: center; top: 62px; } /* Adjusted top position */
-         #controls-bar a, .live-chat-button, #controls-bar .theme-switcher label, #controls-bar .theme-switcher select { font-size: 0.75em; padding: 3px 8px; }
-         #controls-bar .theme-switcher select { padding: 3px 18px 3px 6px; background-position: calc(100% - 6px) center, calc(100% - 3px) center; background-size: 3px 3px, 3px 3px; }
+         header h2 { font-size: 0.9em; /* Adjusted from 1.2em */ }
+         #controls-bar {
+            padding: 6px 5px; /* Further reduced padding */
+            justify-content: center;
+            top: 58px; /* Adjusted top position */
+            flex-wrap: nowrap; /* Ensure buttons are on one line */
+            gap: 3px; /* Further reduced gap */
+            overflow-x: auto; /* Add scroll if items still overflow */
+        }
+         #controls-bar a, .live-chat-button, #controls-bar .theme-switcher label, #controls-bar .theme-switcher select {
+            font-size: 0.65em; /* Further reduced font size */
+            padding: 2px 4px; /* Further reduced padding */
+        }
+         #controls-bar .theme-switcher select {
+            padding: 2px 14px 2px 4px; /* Adjusted select padding */
+            background-position: calc(100% - 5px) center, calc(100% - 2px) center; /* Adjusted arrow position */
+            background-size: 3px 3px, 3px 3px; /* Adjusted arrow size */
+         }
         main { padding: 0 10px; }
         section { padding: 15px; margin-bottom: 15px; }
         section h2, section h3 { font-size: 1.2em; }
