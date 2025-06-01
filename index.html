@@ -112,7 +112,7 @@
          background-color: #1a1a33;
          color: #00e6e6;
     }
-     #controls-bar a, .live-chat-button {
+     #controls-bar a, .live-chat-button, .patreon-button {
         font-size: 0.85em;
         padding: 4px 12px;
         text-decoration: none;
@@ -126,7 +126,7 @@
         transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         display: inline-block;
     }
-    #controls-bar a:hover, .live-chat-button:hover {
+    #controls-bar a:hover, .live-chat-button:hover, .patreon-button:hover {
         background-color: #00e6e6;
         color: #1a1a33;
     }
@@ -142,6 +142,7 @@
     body.theme-afterlounge header p { color: #00a3a3; }
     body.theme-afterlounge #controls-bar a,
     body.theme-afterlounge .live-chat-button,
+    body.theme-afterlounge .patreon-button,
     body.theme-afterlounge #controls-bar .theme-switcher select,
     body.theme-afterlounge .header-toggle label {
         color: #00e6e6;
@@ -149,7 +150,8 @@
         background-color: #1a1a33;
     }
     body.theme-afterlounge #controls-bar a:hover,
-    body.theme-afterlounge .live-chat-button:hover {
+    body.theme-afterlounge .live-chat-button:hover,
+    body.theme-afterlounge .patreon-button:hover {
         background-color: #00e6e6;
         color: #1a1a33;
     }
@@ -164,6 +166,7 @@
     body.theme-noire header p { color: #ffffff; }
     body.theme-noire #controls-bar a,
     body.theme-noire .live-chat-button,
+    body.theme-noire .patreon-button,
     body.theme-noire #controls-bar .theme-switcher select,
     body.theme-noire .header-toggle label {
         color: #ffffff;
@@ -171,7 +174,8 @@
         background-color: #111111;
     }
     body.theme-noire #controls-bar a:hover,
-    body.theme-noire .live-chat-button:hover {
+    body.theme-noire .live-chat-button:hover,
+    body.theme-noire .patreon-button:hover {
         background-color: #ffffff;
         color: #1a1a1a;
     }
@@ -190,6 +194,7 @@
     body.theme-darryl header p { color: #f0f0f0; }
     body.theme-darryl #controls-bar a,
     body.theme-darryl .live-chat-button,
+    body.theme-darryl .patreon-button,
     body.theme-darryl #controls-bar .theme-switcher select,
     body.theme-darryl .header-toggle label {
         color: #f0f0f0;
@@ -197,7 +202,8 @@
         background-color: #505050;
     }
     body.theme-darryl #controls-bar a:hover,
-    body.theme-darryl .live-chat-button:hover {
+    body.theme-darryl .live-chat-button:hover,
+    body.theme-darryl .patreon-button:hover {
         background-color: #8B0000;
         color: #ffffff;
     }
@@ -216,6 +222,7 @@
     body.theme-mr-johnson header p { color: #00ff00; }
     body.theme-mr-johnson #controls-bar a,
     body.theme-mr-johnson .live-chat-button,
+    body.theme-mr-johnson .patreon-button,
     body.theme-mr-johnson #controls-bar .theme-switcher select,
     body.theme-mr-johnson .header-toggle label {
         color: #00ff00;
@@ -223,7 +230,8 @@
         background-color: #3a0066;
     }
     body.theme-mr-johnson #controls-bar a:hover,
-    body.theme-mr-johnson .live-chat-button:hover {
+    body.theme-mr-johnson .live-chat-button:hover,
+    body.theme-mr-johnson .patreon-button:hover {
         background-color: #00ff00;
         color: #3a0066;
     }
@@ -248,6 +256,7 @@
     body.theme-albright #controls-bar { background-color: rgba(90, 70, 55, 0.9); border-bottom-color: #b46a00; }
     body.theme-albright #controls-bar a,
     body.theme-albright .live-chat-button,
+    body.theme-albright .patreon-button,
     body.theme-albright #controls-bar .theme-switcher select,
     body.theme-albright .header-toggle label {
         color: #ffc107;
@@ -255,7 +264,8 @@
         background-color: #6f4f2d;
     }
     body.theme-albright #controls-bar a:hover,
-    body.theme-albright .live-chat-button:hover {
+    body.theme-albright .live-chat-button:hover,
+    body.theme-albright .patreon-button:hover {
         background-color: #ffc107;
         color: #6f4f2d;
     }
@@ -272,6 +282,7 @@
     body.theme-riggin #controls-bar { background-color: #222222; border-bottom-color: #FF8C00; }
     body.theme-riggin #controls-bar a,
     body.theme-riggin .live-chat-button,
+    body.theme-riggin .patreon-button,
     body.theme-riggin #controls-bar .theme-switcher select,
     body.theme-riggin .header-toggle label {
         color: #FFA500;
@@ -279,7 +290,8 @@
         background-color: #333333;
     }
     body.theme-riggin #controls-bar a:hover,
-    body.theme-riggin .live-chat-button:hover {
+    body.theme-riggin .live-chat-button:hover,
+    body.theme-riggin .patreon-button:hover {
         background-color: #FFA500;
         color: #333333;
     }
@@ -375,6 +387,7 @@
     body.theme-mr-johnson header p { color: #00ff00; }
     body.theme-mr-johnson #controls-bar a,
     body.theme-mr-johnson .live-chat-button,
+    body.theme-mr-johnson .patreon-button,
     body.theme-mr-johnson #controls-bar .theme-switcher select,
     body.theme-mr-johnson .header-toggle label {
         color: #00ff00;
@@ -382,7 +395,8 @@
         background-color: #3a0066;
     }
     body.theme-mr-johnson #controls-bar a:hover,
-    body.theme-mr-johnson .live-chat-button:hover {
+    body.theme-mr-johnson .live-chat-button:hover,
+    body.theme-mr-johnson .patreon-button:hover {
         background-color: #00ff00;
         color: #3a0066;
     }
@@ -800,7 +814,7 @@
             gap: 5px;
             overflow-x: auto;
         }
-        #controls-bar a, .live-chat-button, #controls-bar .theme-switcher label, #controls-bar .theme-switcher select {
+        #controls-bar a, .live-chat-button, .patreon-button, #controls-bar .theme-switcher label, #controls-bar .theme-switcher select {
             font-size: 0.7em;
             padding: 3px 6px;
         }
@@ -839,7 +853,7 @@
             gap: 3px;
             overflow-x: auto;
         }
-         #controls-bar a, .live-chat-button, #controls-bar .theme-switcher label, #controls-bar .theme-switcher select {
+         #controls-bar a, .live-chat-button, .patreon-button, #controls-bar .theme-switcher label, #controls-bar .theme-switcher select {
             font-size: 0.65em;
             padding: 2px 4px;
         }
@@ -898,6 +912,7 @@
         <a href="#links-embed">Links</a>
         <a href="#soundcloud-vibes">Vibes</a>
         <button type="button" class="live-chat-button" id="discordChatBtn">Live Chat</button>
+        <a href="https://www.patreon.com/bePatron?u=173819127" data-patreon-widget-type="become-patron-button" class="patreon-button">Become a member!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
          <div class="theme-switcher">
              <label for="theme-select">Theme:</label>
              <select id="theme-select">
@@ -965,7 +980,7 @@
         </section>
         <section id="soundcloud-vibes">
             <h2>[BACKGROUND VIBES]</h2>
-           <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2029026711&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/busboy-383948520" title="BusBoy" target="_blank" style="color: #cccccc; text-decoration: none;">BusBoy</a> · <a href="https://soundcloud.com/busboy-383948520/sets/foxy-uncle" title="Foxy Uncle" target="_blank" style="color: #cccccc; text-decoration: none;">Foxy Uncle</a></div>
+           <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2029026711&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/busboy-383948520" title="BusBoy" target="_blank" style="color: #cccccc; text-decoration: none;">BusBoy</a> · <a href="https://soundcloud.com/busboy-383948520/sets/foxy-uncle" title="Foxy Uncle" target="_blank" style="color: #cccccc; text-decoration: none;">Foxy Uncle</a></div>
         </section>
     </main>
     <a href="#" id="back-to-top" title="Back to top">
