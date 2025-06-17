@@ -1073,7 +1073,7 @@
             
             // !! IMPORTANT !!
             // REPLACE THIS URL with your actual Tailscale-proxied dizqueTV HLS stream URL.
-            var streamUrl = 'http://<YOUR_TAILSCALE_IP>:<DIZQUETV_PORT>/api/channel.m3u8?channel=1';
+            var streamUrl = 'https://desktop-6j8taav.tail154068.ts.net/api/channels.m3u';
 
             if (Hls.isSupported()) {
                 var hls = new Hls();
@@ -1170,6 +1170,31 @@
             window.addEventListener('scroll', () => {
                 if (window.pageYOffset > 100) {
                     backToTopButton.style.display = 'block';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+            backToTopButton.addEventListener('click', (event) => {
+                event.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+         window.addEventListener('resize', () => {
+              if (participateButton && participateButton.style.display === 'block') {
+                   const buttonWidth = participateButton.offsetWidth;
+                   const buttonHeight = participateButton.offsetHeight;
+                   buttonX = Math.max(0, Math.min(buttonX, window.innerWidth - buttonWidth));
+                   buttonY = Math.max(0, Math.min(buttonY, window.innerHeight - buttonHeight));
+                   participateButton.style.left = buttonX + 'px';
+                   participateButton.style.top = buttonY + 'px';
+              }
+         });
+    </script>
+</body>
+</html>splay = 'block';
                 } else {
                     backToTopButton.style.display = 'none';
                 }
