@@ -7,6 +7,8 @@
     <meta name="description" content="Tune into Willow Arms Public Access, an offbeat internet TV channel featuring live streams, The Bonfire Podcast, DogPound, unique music videos ([vibe]rations), experimental shows like 'POV: mom & dad are fighting again', and lo-fi streams ([iinnermission]). Discover weird online broadcasts.">
     <link rel="icon" href="wapabroadcastlogo.ico" type="image/x-icon">
     <script src="https://w.soundcloud.com/player/api.js"></script>
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
     <style>
     body {
         font-family: 'Arial', sans-serif;
@@ -802,86 +804,38 @@
         text-decoration: underline;
     }
     @media (max-width: 768px) {
-        body { padding-top: 110px; }
-        header { padding: 15px; }
-        header h2 { font-size: 1.1em; }
-        header p { font-size: 0.9em; }
-        #controls-bar {
-            padding: 8px 10px;
-            justify-content: center;
-            top: 70px;
-            flex-wrap: nowrap;
-            gap: 5px;
-            overflow-x: auto;
-        }
-        #controls-bar a, .live-chat-button, .patreon-button, #controls-bar .theme-switcher label, #controls-bar .theme-switcher select {
-            font-size: 0.7em;
-            padding: 3px 6px;
-        }
-         #controls-bar .theme-switcher select {
-            padding: 3px 16px 3px 5px;
-            background-position: calc(100% - 5px) center, calc(100% - 2px) center;
-            background-size: 3px 3px, 3px 3px;
-         }
         main { padding: 0 15px; }
-        section h2, section h3 { font-size: 1.4em; }
+        #controls-bar { padding: 8px 15px; }
+        section h2, section h3 { font-size: 1.4em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         section { padding: 20px; margin-bottom: 20px; }
         .show { padding: 12px; }
-        .show h3 { font-size: 1em; }
+        .show h3 { font-size: 1em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .show p { white-space: normal; overflow: visible; text-overflow: clip; }
+        header h2 { font-size: 1.4em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         header p { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         #discord-chat-modal-content { max-width: 95%; padding: 15px; max-height: 80vh;}
         #discord-chat-modal-content h2 { font-size: 1.4em; }
         .discord-widget-container { height: 60vh; }
-        #back-to-top {
-            bottom: 80px;
-            right: 15px;
-        }
-        #back-to-top img {
-            width: 30px;
-        }
     }
     @media (max-width: 480px) {
-         body { padding-top: 95px; }
-         header { padding: 10px; }
-         header h2 { font-size: 0.9em; }
-         #controls-bar {
-            padding: 6px 5px;
-            justify-content: center;
-            top: 58px;
-            flex-wrap: nowrap;
-            gap: 3px;
-            overflow-x: auto;
-        }
-         #controls-bar a, .live-chat-button, .patreon-button, #controls-bar .theme-switcher label, #controls-bar .theme-switcher select {
-            font-size: 0.65em;
-            padding: 2px 4px;
-        }
-         #controls-bar .theme-switcher select {
-            padding: 2px 14px 2px 4px;
-            background-position: calc(100% - 5px) center, calc(100% - 2px) center;
-            background-size: 3px 3px, 3px 3px;
-         }
-        main { padding: 0 10px; }
+         main { padding: 0 10px; }
+         #controls-bar { padding: 6px 10px; }
+         #controls-bar .theme-switcher label, .live-chat-button { font-size: 0.75em; }
+         #controls-bar .theme-switcher select { font-size: 0.75em; padding: 3px 18px 3px 6px; background-position: calc(100% - 6px) center, calc(100% - 3px) center; background-size: 3px 3px, 3px 3px; }
+         .live-chat-button { padding: 3px 8px; }
+        header h2 { font-size: 1.2em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         section { padding: 15px; margin-bottom: 15px; }
-        section h2, section h3 { font-size: 1.2em; }
+        section h2, section h3 { font-size: 1.2em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
          .iframe-container iframe { height: 500px; }
          #tiktok-feed .iframe-container { height: 400px; }
          #livestream .video-container { max-width: 100%; margin-left: 0; margin-right: 0; border-left: none; border-right: none; box-shadow: none; }
          #livestream .video-container p { min-height: 0; padding: 10px; }
-         .show h3 { font-size: 0.9em; }
+         .show h3 { font-size: 0.9em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
          .show p { white-space: normal; overflow: visible; text-overflow: clip; }
          #discord-chat-modal-content { padding: 10px; max-height: 75vh; }
          #discord-chat-modal-content h2 { font-size: 1.2em; margin-bottom: 10px; }
          .discord-modal-close { font-size: 1.8em; top: 5px; right: 10px; }
          .discord-widget-container { height: 60vh; }
-         #back-to-top {
-            bottom: 70px;
-            right: 10px;
-         }
-         #back-to-top img {
-            width: 25px;
-         }
     }
     </style>
 </head>
@@ -893,6 +847,7 @@
             <button id="popup-yes-button">Yes</button>
         </div>
     </div>
+
     <div class="discord-modal-overlay" id="discordModal">
         <div id="discord-chat-modal-content">
             <span class="discord-modal-close" id="discordModalClose">&times;</span>
@@ -900,18 +855,14 @@
             <iframe src="https://discord.com/widget?id=1224858781863907419&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
         </div>
     </div>
+
     <header>
         <h2>// WILLOW ARMS PUBLIC ACCESS \\</h2>
         <p>Indie Online Broadcasts</p>
     </header>
+
     <div id="controls-bar">
-        <a href="#livestream">Tune In</a>
-        <a href="#shows">Lineup</a>
-        <a href="#merch">Merch</a>
-        <a href="#tiktok-feed">TikToks</a>
-        <a href="#links-embed">Links</a>
-        <a href="#soundcloud-vibes">Vibes</a>
-        <button type="button" class="live-chat-button" id="discordChatBtn">Live Chat</button>
+         <button type="button" class="live-chat-button" id="discordChatBtn">Live Chat</button>
          <div class="theme-switcher">
              <label for="theme-select">Theme:</label>
              <select id="theme-select">
@@ -928,9 +879,10 @@
         <section id="livestream">
             <h2>[tune in]</h2>
             <div class="video-container">
-                 <iframe src="https://player.twitch.tv/?channel=willowarmspublicaccess&parent=wapaccess.org" height="720" width="1280" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
+                 <iframe src="https://player.kick.com/willowarmspublicaccess" height="720" width="1280" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
             </div>
         </section>
+
         <section id="shows">
             <h2>[lineup]</h2>
             <p>Explore the programming lineup on Willow Arms Public Access:</p>
@@ -939,8 +891,8 @@
                 <p>Tune into The Bonfire Podcast live stream or catch reruns. It's an unfiltered discussion show covering anything and everything, like a digital gathering around a late-night fire. Expect tangents, strong opinions, and maybe a little bit of chaos. It's our main talk show broadcast.</p>
             </div>
             <div class="show">
-                <h3>:: WANX :: Cynical Robot News</h3>
-                <p>Join Jizzmo, the cynical robot, for WANX—your unfiltered news and expose segment. Dive into sensitive current events with Jizzmo's unique, often sarcastic, perspective. Quickly becoming a Willow Arms favorite, WANX delivers the truth, however uncomfortable.</p>
+                <h3>:: DogPound :: Recovered Transmissions</h3>
+                <p>The city never sleeps, and neither do the cameras. DogPound presents a stark look at life through recovered dash and body camera footage, allegedly from the Willow Arms municipal archives. From daylight disturbances to after-hours altercations, experience the raw, unfiltered reality of the streets. What you're about to see is not a drill. Only on WAPA.</p>
             </div>
             <div class="show">
                 <h3>:: [vibe]rations :: Offbeat Music Videos</h3>
@@ -951,10 +903,11 @@
                 <p>Experience 'POV: mom & dad are fighting again,' one of our most unique online shows. It's an experimental broadcast blending old TV signals, nostalgic aesthetics, and background ambiance. A lo-fi, dreamlike journey into the uncomfortable familiar.</p>
             </div>
             <div class="show">
-                <h3>:: [iinnermission] :: Background Music for Life</h3>
-                <p>Plug into [iinnermission], your continuous stream of background music designed for working, studying, chilling, or just setting the mood. Featuring full albums from artists like BusBoy, this isn't just lo-fi; it's a curated mix of midwest emo, indie rock, and other chill, atmospheric tracks from the Willow Arms universe. Let the soundtrack to your life unfold here.</p>
+                <h3>:: [iinnermission] :: Lo-fi Live Stream</h3>
+                <p>Need to chill? [iinnermission] is our lo-fi live stream designed for focus, relaxation, or just background ambiance. Calming visuals and sounds from the Willow Arms universe. A perfect stream for downtime on the internet.</p>
             </div>
         </section>
+
          <section id="merch">
             <h2>[MERCH]</h2>
             <div class="iframe-container">
@@ -963,12 +916,14 @@
                 </iframe>
             </div>
         </section>
+
         <section id="tiktok-feed">
             <h2>[LATEST TIKTOKS]</h2>
              <div class="iframe-container">
                 <div class='sk-tiktok-feed' data-embed-id='25553721'></div><script src='https://widgets.sociablekit.com/tiktok-feed/widget.js' defer></script>
              </div>
         </section>
+
         <section id="links-embed">
             <h2>[links]</h2>
             <div class="iframe-container">
@@ -977,11 +932,14 @@
                 </iframe>
             </div>
         </section>
+        
         <section id="soundcloud-vibes">
             <h2>[BACKGROUND VIBES]</h2>
-           <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2029026711&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/busboy-383948520" title="BusBoy" target="_blank" style="color: #cccccc; text-decoration: none;">BusBoy</a> · <a href="https://soundcloud.com/busboy-383948520/sets/foxy-uncle" title="Foxy Uncle" target="_blank" style="color: #cccccc; text-decoration: none;">Foxy Uncle</a></div>
+           <iframe id="soundcloud-widget" width="100%" height="600" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2016641082&color=%230d0c0c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #242424;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/djsl34z" title="[wapa]" target="_blank" style="color: #242424; text-decoration: none;">[wapa]</a> · <a href="https://soundcloud.com/djsl34z/sets/willow-arms-public-broadcast-midwestern-ost" title="Willow Arms Public Broadcast Midwestern OST" target="_blank" style="color: #242424; text-decoration: none;">Willow Arms Public Broadcast Midwestern OST</a></div>
         </section>
+
     </main>
+
     <a href="#" id="back-to-top" title="Back to top">
         <img src="backtotop.png" alt="Back to top">
     </a>
@@ -989,6 +947,7 @@
         <p>&copy; <script>document.write(new Date().getFullYear())</script> Willow Arms Public Access. <a href="staffpage.html" class="staff-link">Meet The Staff</a> <br> Your source for offbeat internet TV.</p>
         <p><a href="https://www.patreon.com/bePatron?u=173819127" data-patreon-widget-type="become-patron-button" class="patreon-button">Become a member!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script></p>
     </footer>
+
     <script>
         const participateButton = document.getElementById('participate-button');
         const popupOverlay = document.getElementById('popup-overlay');
@@ -997,6 +956,7 @@
         const defaultButtonSize = 60;
         const speed = 3;
         let animationInterval = null;
+
         function setTheme(themeName) {
             document.body.className = document.body.className.replace(/theme-\S+/g, '').trim();
             document.body.classList.add('theme-' + themeName);
@@ -1006,10 +966,13 @@
                  themeSelect.value = themeName;
             }
         }
+
         function loadTheme() {
             const savedTheme = localStorage.getItem('wapTheme') || 'albright';
             setTheme(savedTheme);
+
         }
+
         function initializeButton() {
             if (!participateButton) return;
             const maxAttempts = 10;
@@ -1039,7 +1002,9 @@
             }
             participateButton.style.left = buttonX + 'px';
             participateButton.style.top = buttonY + 'px';
+            participateButton.style.display = 'block';
         }
+
         function updateButtonPosition() {
              if (!participateButton) return;
              const buttonWidth = participateButton.offsetWidth;
@@ -1063,21 +1028,23 @@
             participateButton.style.left = buttonX + 'px';
             participateButton.style.top = buttonY + 'px';
         }
+
         document.addEventListener('DOMContentLoaded', () => {
             loadTheme();
+
             const themeSelect = document.getElementById('theme-select');
             if (themeSelect) {
                 themeSelect.addEventListener('change', (event) => {
                     setTheme(event.target.value);
                 });
             }
+
             if (participateButton && popupOverlay && popupYesButton) {
                  setTimeout(() => {
-                     participateButton.style.display = 'block';
                      initializeButton();
                      if (animationInterval) clearInterval(animationInterval);
                      animationInterval = setInterval(updateButtonPosition, 30);
-                 }, 5000);
+                 }, 0);
                 participateButton.addEventListener('click', () => {
                     participateButton.style.display = 'none';
                     popupOverlay.style.display = 'flex';
@@ -1088,38 +1055,1182 @@
                 });
                 popupYesButton.addEventListener('click', () => {
                     popupOverlay.style.display = 'none';
-                     setTimeout(() => {
-                         participateButton.style.display = 'block';
-                         initializeButton();
-                         if (animationInterval) clearInterval(animationInterval);
-                         animationInterval = setInterval(updateButtonPosition, 30);
-                     }, 10000);
                 });
-                 popupOverlay.addEventListener('click', (event) => {
-                     if(event.target === popupOverlay) {
-                         popupOverlay.style.display = 'none';
-                          setTimeout(() => {
-                              participateButton.style.display = 'block';
-                              initializeButton();
-                              if (animationInterval) clearInterval(animationInterval);
-                              animationInterval = setInterval(updateButtonPosition, 30);
-                          }, 10000);
-                     }
-                 });
             }
+
             const soundcloud_iframe = document.getElementById('soundcloud-widget');
             if (soundcloud_iframe && typeof SC !== 'undefined' && SC.Widget) {
                 const widget = SC.Widget(soundcloud_iframe);
                 widget.bind(SC.Widget.Events.READY, function() {
+                    console.log('SoundCloud Widget Ready!');
                     widget.bind(SC.Widget.Events.FINISH, function() {
                         widget.seekTo(0);
                         widget.play();
                     });
                 });
+                widget.bind(SC.Widget.Events.PLAY, function() { console.log('SoundCloud Widget Playing'); });
+                widget.bind(SC.Widget.Events.ERROR, function(err) { console.error('SoundCloud Widget Error:', err); });
+            } else {
+                if (!soundcloud_iframe) { console.warn("SoundCloud iframe with id 'soundcloud-widget' not found."); }
+                if (typeof SC === 'undefined' || !SC.Widget) { console.warn("SoundCloud Widget API not available."); }
             }
+
             const discordModal = document.getElementById('discordModal');
             const discordChatBtn = document.getElementById('discordChatBtn');
             const discordModalClose = document.getElementById('discordModalClose');
+
+            if (discordChatBtn && discordModal) {
+                discordChatBtn.onclick = function() {
+                    discordModal.style.display = "flex";
+                }
+            }
+            if (discordModalClose && discordModal) {
+                discordModalClose.onclick = function() {
+                    discordModal.style.display = "none";
+                }
+            }
+            if (discordModal) {
+                discordModal.onclick = function(event) {
+                    if (event.target == discordModal) {
+                        discordModal.style.display = "none";
+
+                    }
+                }
+            }
+            const backToTopButton = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 100) {
+                    backToTopButton.style.display = 'block';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+            backToTopButton.addEventListener('click', (event) => {
+                event.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+         window.addEventListener('resize', () => {
+              if (participateButton && participateButton.style.display === 'block') {
+                   const buttonWidth = participateButton.offsetWidth;
+                   const buttonHeight = participateButton.offsetHeight;
+
+                   buttonX = Math.max(0, Math.min(buttonX, window.innerWidth - buttonWidth));
+                   buttonY = Math.max(0, Math.min(buttonY, window.innerHeight - buttonHeight));
+                   participateButton.style.left = buttonX + 'px';
+                   participateButton.style.top = buttonY + 'px';
+              }
+         });
+    </script>
+</body>
+</html>
+}
+
+Of course, Mr. Albright. I have implemented the necessary changes to your `index.html` file to replace the Twitch feed with a modern, playable M3U8 stream player.
+
+Here are the specific changes I made:
+
+1.  **Added Video.js Library:** In the `<head>` section of your HTML, I've added the necessary stylesheet and script for the Video.js player.
+2.  **Replaced the Video Player:** In the `[tune in]` section, I have removed the `<iframe>` and replaced it with the new `<video>` tag configured for a live M3U8 stream.
+
+Please find the complete, updated code for your `index.html` file below. You can save this directly and, once you have your secure stream URL, you will only need to replace the placeholder in the video tag.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[ wapa broadcasting ]</title>
+    <meta name="description" content="Tune into Willow Arms Public Access, an offbeat internet TV channel featuring live streams, The Bonfire Podcast, DogPound, unique music videos ([vibe]rations), experimental shows like 'POV: mom & dad are fighting again', and lo-fi streams ([iinnermission]). Discover weird online broadcasts.">
+    <link rel="icon" href="wapabroadcastlogo.ico" type="image/x-icon">
+    <script src="[https://w.soundcloud.com/player/api.js](https://w.soundcloud.com/player/api.js)"></script>
+    <link href="[https://vjs.zencdn.net/8.10.0/video-js.css](https://vjs.zencdn.net/8.10.0/video-js.css)" rel="stylesheet" />
+    <script src="[https://vjs.zencdn.net/8.10.0/video.min.js](https://vjs.zencdn.net/8.10.0/video.min.js)"></script>
+    <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #0c0c1a;
+        color: #cccccc;
+        line-height: 1.5;
+        overflow-x: hidden;
+        font-size: 16px;
+        transition: background-color 0.5s ease, color 0.5s ease, background-image 0.5s ease;
+        padding-top: 130px;
+    }
+    header {
+        background-color: #1a1a33;
+        color: #00e6e6;
+        padding: 20px;
+        text-align: center;
+        border-bottom: 4px solid #005b5b;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
+    }
+    header h2 {
+        margin-top: 0;
+        font-size: 2em;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #00a3a3;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        margin-bottom: 0;
+        transition: color 0.5s ease;
+    }
+    header p {
+        font-size: 1em;
+        color: #999999;
+        margin-top: 5px;
+        margin-bottom: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        transition: color 0.5s ease;
+    }
+    #controls-bar {
+        background-color: #1f1f3d;
+        padding: 8px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid #005b5b;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+        gap: 10px;
+        position: fixed;
+        width: 100%;
+        top: 96px;
+        left: 0;
+        z-index: 100;
+        transition: background-color 0.5s ease, border-color 0.5s ease;
+    }
+    #controls-bar .theme-switcher {
+         margin: 0;
+         padding: 0;
+         border: none;
+         color: #cccccc;
+         display: flex;
+         align-items: center;
+         gap: 8px;
+         transition: color 0.5s ease;
+         white-space: nowrap;
+    }
+    #controls-bar .theme-switcher label {
+        margin-right: 0;
+        font-size: 0.85em;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+    #controls-bar .theme-switcher select {
+        font-size: 0.85em;
+        padding: 4px 20px 4px 8px;
+         background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
+         background-position: calc(100% - 8px) center, calc(100% - 4px) center;
+         background-size: 4px 4px, 4px 4px;
+         background-repeat: no-repeat;
+         appearance: none;
+         -webkit-appearance: none;
+         -moz-appearance: none;
+         cursor: pointer;
+         border-radius: 4px;
+         border: 1px solid #00a3a3;
+         background-color: #1a1a33;
+         color: #00e6e6;
+         transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+    #controls-bar .theme-switcher select option {
+         background-color: #1a1a33;
+         color: #00e6e6;
+    }
+     #controls-bar a, .live-chat-button, .patreon-button {
+        font-size: 0.85em;
+        padding: 4px 12px;
+        text-decoration: none;
+        text-transform: uppercase;
+        white-space: nowrap;
+        cursor: pointer;
+        border-radius: 4px;
+        border: 1px solid #00a3a3;
+        background-color: #1a1a33;
+        color: #00e6e6;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        display: inline-block;
+    }
+    #controls-bar a:hover, .live-chat-button:hover, .patreon-button:hover {
+        background-color: #00e6e6;
+        color: #1a1a33;
+    }
+    body.theme-afterlounge {
+        background-image: url('afterlounge.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+        background-color: #0c0c1a;
+    }
+    body.theme-afterlounge header h2,
+    body.theme-afterlounge header p { color: #00a3a3; }
+    body.theme-afterlounge #controls-bar a,
+    body.theme-afterlounge .live-chat-button,
+    body.theme-afterlounge .patreon-button,
+    body.theme-afterlounge #controls-bar .theme-switcher select,
+    body.theme-afterlounge .header-toggle label {
+        color: #00e6e6;
+        border-color: #00a3a3;
+        background-color: #1a1a33;
+    }
+    body.theme-afterlounge #controls-bar a:hover,
+    body.theme-afterlounge .live-chat-button:hover,
+    body.theme-afterlounge .patreon-button:hover {
+        background-color: #00e6e6;
+        color: #1a1a33;
+    }
+    body.theme-afterlounge #controls-bar .theme-switcher label { color: #cccccc; }
+    body.theme-afterlounge #controls-bar .theme-switcher select option { background-color: #1a1a33; color: #00e6e6; }
+    body.theme-noire {
+        background-color: #000000;
+        color: #ffffff;
+        background-image: none;
+    }
+    body.theme-noire header h2,
+    body.theme-noire header p { color: #ffffff; }
+    body.theme-noire #controls-bar a,
+    body.theme-noire .live-chat-button,
+    body.theme-noire .patreon-button,
+    body.theme-noire #controls-bar .theme-switcher select,
+    body.theme-noire .header-toggle label {
+        color: #ffffff;
+        border-color: #333333;
+        background-color: #111111;
+    }
+    body.theme-noire #controls-bar a:hover,
+    body.theme-noire .live-chat-button:hover,
+    body.theme-noire .patreon-button:hover {
+        background-color: #ffffff;
+        color: #1a1a1a;
+    }
+     body.theme-noire #controls-bar .theme-switcher label { color: #e0e0e0; }
+     body.theme-noire #controls-bar .theme-switcher select option { background-color: #111111; color: #ffffff; }
+    body.theme-darryl {
+        background-color: #404040;
+        color: #f0f0f0;
+        background-image: url('darryl-bg.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+    }
+    body.theme-darryl header h2,
+    body.theme-darryl header p { color: #f0f0f0; }
+    body.theme-darryl #controls-bar a,
+    body.theme-darryl .live-chat-button,
+    body.theme-darryl .patreon-button,
+    body.theme-darryl #controls-bar .theme-switcher select,
+    body.theme-darryl .header-toggle label {
+        color: #f0f0f0;
+        border-color: #8B0000;
+        background-color: #505050;
+    }
+    body.theme-darryl #controls-bar a:hover,
+    body.theme-darryl .live-chat-button:hover,
+    body.theme-darryl .patreon-button:hover {
+        background-color: #8B0000;
+        color: #ffffff;
+    }
+    body.theme-darryl #controls-bar .theme-switcher label { color: #cccccc; }
+    body.theme-darryl #controls-bar .theme-switcher select option { background-color: #505050; color: #f0f0f0; }
+    body.theme-mr-johnson {
+        color: #00cc00;
+        background-image: url('garage1.png');
+        background-color: #1a0033;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+    }
+    body.theme-mr-johnson header h2,
+    body.theme-mr-johnson header p { color: #00ff00; }
+    body.theme-mr-johnson #controls-bar a,
+    body.theme-mr-johnson .live-chat-button,
+    body.theme-mr-johnson .patreon-button,
+    body.theme-mr-johnson #controls-bar .theme-switcher select,
+    body.theme-mr-johnson .header-toggle label {
+        color: #00ff00;
+        border-color: #008000;
+        background-color: #3a0066;
+    }
+    body.theme-mr-johnson #controls-bar a:hover,
+    body.theme-mr-johnson .live-chat-button:hover,
+    body.theme-mr-johnson .patreon-button:hover {
+        background-color: #00ff00;
+        color: #3a0066;
+    }
+    body.theme-mr-johnson #controls-bar .theme-switcher label { color: #00aa00; }
+    body.theme-mr-johnson #controls-bar .theme-switcher select option { background-color: #3a0066; color: #00ff00; }
+    body.theme-albright {
+        color: #cdc8b1;
+        background-image: url('tp2.png');
+        background-color: #281c12;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+    }
+    body.theme-albright header {
+        background-color: rgba(28, 18, 11, 0.9);
+        border-bottom: 4px solid #b46a00;
+        color: #ffc107;
+    }
+    body.theme-albright header h2,
+    body.theme-albright header p { color: #ffc107; }
+    body.theme-albright #controls-bar { background-color: rgba(90, 70, 55, 0.9); border-bottom-color: #b46a00; }
+    body.theme-albright #controls-bar a,
+    body.theme-albright .live-chat-button,
+    body.theme-albright .patreon-button,
+    body.theme-albright #controls-bar .theme-switcher select,
+    body.theme-albright .header-toggle label {
+        color: #ffc107;
+        border-color: #b46a00;
+        background-color: #6f4f2d;
+    }
+    body.theme-albright #controls-bar a:hover,
+    body.theme-albright .live-chat-button:hover,
+    body.theme-albright .patreon-button:hover {
+        background-color: #ffc107;
+        color: #6f4f2d;
+    }
+    body.theme-albright #controls-bar .theme-switcher label { color: #a1887f; }
+    body.theme-albright #controls-bar .theme-switcher select option { background-color: #6f4f2d; color: #ffc107; }
+    body.theme-riggin {
+        color: #FFA500;
+        background-color: #000000;
+        background-image: none;
+    }
+    body.theme-riggin header { background-color: #1a1a1a; border-bottom: 4px solid #FF8C00; color: #FFA500; }
+    body.theme-riggin header h2,
+    body.theme-riggin header p { color: #FFA500; }
+    body.theme-riggin #controls-bar { background-color: #222222; border-bottom-color: #FF8C00; }
+    body.theme-riggin #controls-bar a,
+    body.theme-riggin .live-chat-button,
+    body.theme-riggin .patreon-button,
+    body.theme-riggin #controls-bar .theme-switcher select,
+    body.theme-riggin .header-toggle label {
+        color: #FFA500;
+        border-color: #FF8C00;
+        background-color: #333333;
+    }
+    body.theme-riggin #controls-bar a:hover,
+    body.theme-riggin .live-chat-button:hover,
+    body.theme-riggin .patreon-button:hover {
+        background-color: #FFA500;
+        color: #333333;
+    }
+    body.theme-riggin #controls-bar .theme-switcher label { color: #FFD700; }
+    body.theme-riggin #controls-bar .theme-switcher select option { background-color: #333333; color: #FFA500; }
+    body.theme-afterlounge section {
+        background-color: rgba(26, 26, 51, 0.85);
+        color: #ffffff;
+        border: 1px solid #008b8b;
+    }
+    body.theme-afterlounge section h2,
+    body.theme-afterlounge section h3 {
+        color: #00e6e6;
+        border-bottom-color: #00a3a3;
+    }
+    body.theme-afterlounge .show {
+        background-color: rgba(42, 42, 77, 0.9);
+        border-left-color: #00e6e6;
+    }
+    body.theme-afterlounge .show h3 { color: #00e6e6; }
+    body.theme-afterlounge .show p { color: #dddddd; }
+    body.theme-afterlounge .iframe-container {
+        background-color: rgba(26, 26, 51, 0.85);
+        border-color: #008b8b;
+    }
+    body.theme-afterlounge .iframe-container p { color: #dddddd; }
+    body.theme-afterlounge #livestream .video-container {
+        border-color: #00e6e6;
+        box-shadow: 0 0 10px rgba(0, 230, 230, 0.5);
+    }
+    body.theme-afterlounge #discord-chat-modal-content {
+        background-color: rgba(20, 20, 40, 0.97);
+        border: 2px solid #00e6e6;
+        box-shadow: 0 0 25px rgba(0, 230, 230, 0.7);
+    }
+    body.theme-afterlounge #discord-chat-modal-content h2 { color: #00e6e6; border-bottom-color: #00a3a3;}
+    body.theme-afterlounge .discord-modal-close { color: #00e6e6; }
+    body.theme-afterlounge .discord-modal-close:hover { color: #ffffff; }
+    body.theme-afterlounge footer a.staff-link { color: #00e6e6; }
+    body.theme-noire section { background: #000000; border-color: #1a1a1a; box-shadow: 5px 5px 15px rgba(0,0,0,0.7); color: #ffffff; }
+    body.theme-noire section h2, body.theme-noire section h3 { color: #ffffff; border-bottom-color: #1a1a1a; }
+    body.theme-noire .iframe-container { border-color: #1a1a1a; background-color: #050505; }
+    body.theme-noire .iframe-container p { color: #e0e0e0; }
+    body.theme-noire #livestream .video-container { border-color: #ffffff; box-shadow: 0 0 10px rgba(255,255,255,0.3); }
+    body.theme-noire .show { background-color: #0a0a0a; border-left-color: #333333; }
+    body.theme-noire .show h3 { color: #ffffff; }
+    body.theme-noire .show p { color: #e0e0e0; }
+    body.theme-noire footer { background-color: #0a0a0a; color: #555555; border-top-color: #1a1a1a; }
+    body.theme-noire footer a.staff-link { color: #ffffff; }
+    body.theme-noire #participate-button { background-color: #1a1a1a; color: #ffffff; border-color: #333333; }
+    body.theme-noire #participate-button:hover { background-color: #333333; color: #000000; border-color: #ffffff; }
+    body.theme-noire #popup-content { background-color: #0a0a0a; border-color: #333333; box-shadow: 0 0 20px rgba(50, 50, 50, 0.5); color: #ffffff; }
+    body.theme-noire #popup-yes-button { background-color: #1a1a1a; color: #ffffff; border-color: #333333; }
+    body.theme-noire #popup-yes-button:hover { background-color: #333333; color: #000000; border-color: #ffffff; }
+    body.theme-noire #discord-chat-modal-content { background-color: #050505; border-color: #222222; box-shadow: 0 5px 25px rgba(50,50,50,0.5); color: #ffffff;}
+    body.theme-noire #discord-chat-modal-content h2 { color: #ffffff; border-bottom-color: #222222; }
+    body.theme-noire .discord-modal-close { color: #bbbbbb; }
+    body.theme-noire .discord-modal-close:hover { color: #ffffff; }
+    body.theme-darryl section {
+        background-color: rgba(64, 64, 64, 0.85);
+        border: 2px solid #8B0000;
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+        color: #f0f0f0;
+    }
+    body.theme-darryl section h2, body.theme-darryl section h3 { color: #f0f0f0; border-bottom-color: #700000; }
+    body.theme-darryl .iframe-container { border-color: #8B0000; background-color: rgba(50,50,50,0.85); }
+    body.theme-darryl .iframe-container p { color: #cccccc; }
+    body.theme-darryl #livestream .video-container { border-color: #8B0000; box-shadow: 0 0 10px rgba(139,0,0,0.5); }
+    body.theme-darryl .show { background-color: #484848; border-left: 4px solid #8B0000; }
+    body.theme-darryl .show h3 { color: #f0f0f0; }
+    body.theme-darryl .show p { color: #e0e0e0; }
+    body.theme-darryl footer { background-color: #2a2a2a; color: #cccccc; border-top-color: #8B0000; }
+    body.theme-darryl footer a.staff-link { color: #f0f0f0; }
+    body.theme-darryl #participate-button { background-color: #8B0000; color: #ffffff; border-color: #A04040; }
+    body.theme-darryl #participate-button:hover { background-color: #A04040; color: #2a2a2a; border-color: #f0f0f0; }
+    body.theme-darryl #popup-content { background-color: #333333; border-color: #8B0000; box-shadow: 0 0 20px rgba(139,0,0,0.5); color: #f0f0f0; }
+    body.theme-darryl #popup-yes-button { background-color: #8B0000; color: #ffffff; border-color: #A04040; }
+    body.theme-darryl #popup-yes-button:hover { background-color: #A04040; color: #2a2a2a; border-color: #f0f0f0; }
+    body.theme-darryl #discord-chat-modal-content { background-color: #383838; border-color: #8B0000; box-shadow: 0 5px 25px rgba(139,0,0,0.5); color: #f0f0f0; }
+    body.theme-darryl #discord-chat-modal-content h2 { color: #f0f0f0; border-bottom-color: #700000; }
+    body.theme-darryl .discord-modal-close { color: #f0f0f0; }
+    body.theme-darryl .discord-modal-close:hover { color: #ff7f7f; }
+    body.theme-mr-johnson {
+        color: #00cc00;
+        background-image: url('garage1.png');
+        background-color: #1a0033;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+    }
+    body.theme-mr-johnson header h2,
+    body.theme-mr-johnson header p { color: #00ff00; }
+    body.theme-mr-johnson #controls-bar a,
+    body.theme-mr-johnson .live-chat-button,
+    body.theme-mr-johnson .patreon-button,
+    body.theme-mr-johnson #controls-bar .theme-switcher select,
+    body.theme-mr-johnson .header-toggle label {
+        color: #00ff00;
+        border-color: #008000;
+        background-color: #3a0066;
+    }
+    body.theme-mr-johnson #controls-bar a:hover,
+    body.theme-mr-johnson .live-chat-button:hover,
+    body.theme-mr-johnson .patreon-button:hover {
+        background-color: #00ff00;
+        color: #3a0066;
+    }
+    body.theme-mr-johnson #controls-bar .theme-switcher label { color: #00aa00; }
+    body.theme-mr-johnson #controls-bar .theme-switcher select option { background-color: #3a0066; color: #00ff00; }
+    body.theme-mr-johnson section {
+        background: linear-gradient(rgba(42, 0, 85, 0.85), rgba(42, 0, 85, 0.85)), url('purpmarb.png') center center / cover no-repeat;
+        border-color: #008000;
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+        color: #00cc00;
+    }
+    body.theme-mr-johnson section h2, body.theme-mr-johnson section h3 { color: #00ff00; border-bottom-color: #008000; }
+    body.theme-mr-johnson header p { color: #00aa00; }
+    body.theme-mr-johnson .iframe-container { border-color: #008000; background-color: rgba(42, 0, 85, 0.85); }
+    body.theme-mr-johnson .iframe-container p { color: #00aa00; }
+    body.theme-mr-johnson #livestream .video-container { border-color: #00ff00; box-shadow: 0 0 10px rgba(0,255,0,0.5); }
+    body.theme-mr-johnson .show { background-color: rgba(58, 0, 102, 0.9); border-left-color: #00ff00; }
+    body.theme-mr-johnson .show h3 { color: #32cd32; }
+    body.theme-mr-johnson .show p { color: #00dd00; }
+    body.theme-mr-johnson footer { background-color: #2a0055; color: #00aa00; border-top-color: #008000; }
+    body.theme-mr-johnson footer a.staff-link { color: #00ff00; }
+    body.theme-mr-johnson #participate-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
+    body.theme-mr-johnson #participate-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
+    body.theme-mr-johnson #popup-content { background-color: #2a0055; border-color: #00ff00; box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); color: #00dd00; }
+    body.theme-mr-johnson #popup-yes-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
+    body.theme-mr-johnson #popup-yes-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
+    body.theme-mr-johnson #discord-chat-modal-content { background-color: rgba(42,0,85,0.97); border-color: #00ff00; box-shadow: 0 5px 25px rgba(0,255,0,0.5); }
+    body.theme-mr-johnson #discord-chat-modal-content h2 { color: #00ff00; border-bottom-color: #008000; }
+    body.theme-mr-johnson .discord-modal-close { color: #00ff00; }
+    body.theme-mr-johnson .discord-modal-close:hover { color: #32cd32; }
+    body.theme-albright section {
+         background:
+           linear-gradient(rgba(74, 57, 46, 0.7), rgba(74, 57, 46, 0.7)),
+           url('goldtext.png') center center / cover no-repeat;
+         border: 1px solid #b46a00;
+         box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+         color: #cdc8b1;
+    }
+    body.theme-albright section h2, body.theme-albright section h3 { color: #ffc107; border-bottom-color: #b46a00; }
+    body.theme-albright header p { color: #a1887f; }
+    body.theme-albright .iframe-container { border-color: #b46a00; background-color: rgba(74, 57, 46, 0.85); }
+    body.theme-albright .iframe-container p { color: #a1887f; }
+    body.theme-albright #livestream .video-container { border-color: #ffc107; box-shadow: 0 0 10px rgba(255,193,7,0.6); }
+    body.theme-albright .show { background-color: rgba(111, 79, 45, 0.9); border-left: 4px solid #cd7f32; }
+    body.theme-albright .show h3 { color: #ffd700; }
+    body.theme-albright .show p { color: #eee; }
+    body.theme-albright footer { background-color: rgba(28, 18, 11, 0.9); color: #a1887f; border-top: 1px solid #4a392e; }
+    body.theme-albright footer a.staff-link { color: #ffc107; }
+    body.theme-albright #participate-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
+    body.theme-albright #participate-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
+    body.theme-albright #popup-content { background-color: rgba(74, 57, 46, 0.95); border-color: #ffc107; box-shadow: 0 0 20px rgba(255, 193, 7, 0.6); color: #cdc8b1; }
+    body.theme-albright #popup-yes-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
+    body.theme-albright #popup-yes-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
+    body.theme-albright #discord-chat-modal-content { background-color: rgba(74,57,46,0.97); border-color: #ffc107; box-shadow: 0 5px 25px rgba(255,193,7,0.6); }
+    body.theme-albright #discord-chat-modal-content h2 { color: #ffc107; border-bottom-color: #b46a00; }
+    body.theme-albright .discord-modal-close { color: #ffc107; }
+    body.theme-albright .discord-modal-close:hover { color: #ffd700; }
+    body.theme-riggin section { background: #1a1a1a; border: 1px solid #FF8C00; box-shadow: 5px 5px 15px rgba(50,50,50,0.4); color: #FFA500;}
+    body.theme-riggin section h2, body.theme-riggin section h3 { color: #FFA500; border-bottom-color: #FF8C00; }
+    body.theme-riggin header p { color: #FFD700; }
+    body.theme-riggin .iframe-container { border-color: #FF8C00; background-color: #1a1a1a; }
+    body.theme-riggin .iframe-container p { color: #FFD700; }
+    body.theme-riggin #livestream .video-container { border-color: #FFA500; box-shadow: 0 0 10px rgba(255,165,0,0.6); }
+    body.theme-riggin .show { background-color: #333333; border-left: 4px solid #FFA500; }
+    body.theme-riggin .show h3 { color: #FFD700; }
+    body.theme-riggin .show p { color: #cccccc; }
+    body.theme-riggin footer { background-color: #1a1a1a; color: #FFD700; border-top: 1px solid #FF8C00; }
+    body.theme-riggin footer a.staff-link { color: #FFA500; }
+    body.theme-riggin #participate-button { background-color: #FFA500; color: #000000; border-color: #FF8C00; }
+    body.theme-riggin #participate-button:hover { background-color: #FF8C00; color: #000000; border-color: #FFA500; }
+    body.theme-riggin #popup-content { background-color: #1a1a1a; border-color: #FFA500; box-shadow: 0 0 20px rgba(255, 165, 0, 0.6); color: #FFA500; }
+    body.theme-riggin #popup-yes-button { background-color: #FFA500; color: #000000; border-color: #FF8C00; }
+    body.theme-riggin #popup-yes-button:hover { background-color: #FF8C00; color: #000000; border-color: #FFA500; }
+    main {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+    section {
+        background-color: #1a1a33;
+        padding: 25px;
+        margin-bottom: 25px;
+        border: 1px solid #005b5b;
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+        box-sizing: border-box;
+        transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, color 0.5s ease, background 0.5s ease;
+        color: #cccccc;
+    }
+    main section:last-child {
+        margin-bottom: 0;
+    }
+    section h2 {
+        color: #00a3a3;
+        border-bottom: 2px solid #005b5b;
+        padding-bottom: 8px;
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 1.8em;
+        text-transform: uppercase;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        max-width: 100%;
+        transition: color 0.5s ease, border-color 0.5s ease;
+    }
+     section h3 {
+         color: #00a3a3;
+         border-bottom: 2px solid #005b5b;
+         padding-bottom: 8px;
+         margin-top: 0;
+         margin-bottom: 20px;
+         font-size: 1.8em;
+         text-transform: uppercase;
+         white-space: nowrap;
+         overflow: hidden;
+         text-overflow: ellipsis;
+         display: block;
+         max-width: 100%;
+         transition: color 0.5s ease, border-color 0.5s ease;
+     }
+    p {
+        color: #cccccc;
+        margin-bottom: 15px;
+        word-break: break-word;
+        transition: color 0.5s ease;
+    }
+    #livestream .video-container {
+        position: relative;
+        max-width: 1280px;
+        margin: 20px auto;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        background-color: #000;
+        border: 2px solid #00e6e6;
+        box-shadow: 0 0 10px rgba(0, 230, 230, 0.5);
+        box-sizing: border-box;
+        transition: border-color 0.5s ease, box-shadow 0.5s ease;
+    }
+    #livestream .video-container iframe,
+    #livestream .video-container .video-js {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+    #livestream .video-container p {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         color: #fff;
+         font-size: 1.2em;
+         padding: 20px;
+         box-sizing: border-box;
+         text-align: center;
+         background-color: #000;
+         z-index: 1;
+         max-width: 100%;
+    }
+    .show {
+        margin-bottom: 20px;
+        padding: 15px;
+        background-color: #2a2a4d;
+        border-left: 4px solid #00a3a3;
+        box-sizing: border-box;
+        transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+    }
+    .show h3 {
+        margin-top: 0;
+        margin-bottom: 8px;
+        color: #00e6e6;
+        font-size: 1.3em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        transition: color 0.5s ease;
+    }
+    .show p {
+        color: #bbbbbb;
+        font-size: 0.95em;
+         word-break: break-word;
+         transition: color 0.5s ease;
+    }
+    .iframe-container {
+        border: 1px solid #00a3a3;
+        padding: 10px;
+        background-color: #1a1a33;
+        box-sizing: border-box;
+        width: 100%;
+        overflow: hidden;
+        transition: border-color 0.5s ease, background-color 0.5s ease;
+    }
+    .iframe-container iframe {
+        width: 100%;
+        height: 600px;
+        border: none;
+        display: block;
+    }
+    .iframe-container p {
+         text-align: center;
+         color: #999999;
+         font-size: 0.9em;
+         margin-bottom: 0;
+         transition: color 0.5s ease;
+    }
+    #tiktok-feed .iframe-container {
+         height: 500px;
+         overflow-y: scroll;
+    }
+     #tiktok-feed .iframe-container p {
+         position: static;
+         width: auto;
+         height: auto;
+         padding: 0;
+     }
+    #participate-button {
+        position: fixed;
+        z-index: 1000;
+        display: none;
+        padding: 10px 15px;
+        background-color: #00a3a3;
+        color: #1a1a33;
+        border: 2px solid #00e6e6;
+        border-radius: 5px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-size: 1em;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+    #participate-button:hover {
+         background-color: #00e6e6;
+         color: #1a1a33;
+         border-color: #00a3a3;
+    }
+    #popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+    }
+    #popup-content {
+        background-color: #1a1a33;
+        padding: 30px;
+        border: 2px solid #00a3a3;
+        border-radius: 8px;
+        text-align: center;
+        max-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 163, 163, 0.5);
+        color: #cccccc;
+        transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+    }
+    #popup-content p {
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 1.2em;
+    }
+    #popup-yes-button {
+        background-color: #00a3a3;
+        color: #1a1a33;
+        border: 2px solid #00e6e6;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-size: 1em;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+    #popup-yes-button:hover {
+         background-color: #00e6e6;
+         color: #1a1a33;
+         border-color: #00a3a3;
+    }
+    .live-chat-button {
+        font-size: 0.85em;
+        padding: 4px 12px;
+        text-decoration: none;
+        text-transform: uppercase;
+        white-space: nowrap;
+        cursor: pointer;
+        border-radius: 4px;
+        border: 1px solid #00a3a3;
+        background-color: #1a1a33;
+        color: #00e6e6;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        display: inline-block;
+    }
+    .live-chat-button:hover {
+        background-color: #00e6e6;
+        color: #1a1a33;
+    }
+    .discord-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 3000;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    #discord-chat-modal-content {
+        position: relative;
+        background-color: #1a1a33;
+        padding: 20px;
+        border: 2px solid #00a3a3;
+        border-radius: 8px;
+        box-shadow: 0 5px 25px rgba(0, 163, 163, 0.5);
+        color: #cccccc;
+        width: auto;
+        min-width: 300px;
+        max-width: 450px;
+        max-height: 85vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+    #discord-chat-modal-content h2 {
+        color: #00a3a3;
+        border-bottom: 2px solid #005b5b;
+        padding-bottom: 10px;
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 1.5em;
+        text-align: center;
+    }
+    .discord-modal-close {
+        position: absolute;
+        top: 8px;
+        right: 12px;
+        font-size: 1.8em;
+        font-weight: bold;
+        color: #00a3a3;
+        cursor: pointer;
+        line-height: 1;
+    }
+    .discord-modal-close:hover { color: #00e6e6; }
+    .discord-widget-container {
+        width: 100%;
+        height: 65vh;
+        min-height: 350px;
+        overflow: hidden;
+    }
+    .discord-widget-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+    #back-to-top {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+    #back-to-top img {
+        width: 40px;
+        height: auto;
+        display: block;
+    }
+    #back-to-top:hover {
+        background-color: rgba(0, 163, 163, 0.5);
+    }
+    footer {
+        text-align: center;
+        padding: 20px;
+        margin-top: 30px;
+        background-color: #1a1a33;
+        color: #666666;
+        font-size: 0.85em;
+        border-top: 1px solid #005b5b;
+        transition: background-color 0.5s ease, color 0.5s ease, border-top-color 0.5s ease;
+    }
+    footer a.staff-link {
+        color: #00e6e6;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    footer a.staff-link:hover {
+        text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+        main { padding: 0 15px; }
+        #controls-bar { padding: 8px 15px; }
+        section h2, section h3 { font-size: 1.4em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        section { padding: 20px; margin-bottom: 20px; }
+        .show { padding: 12px; }
+        .show h3 { font-size: 1em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .show p { white-space: normal; overflow: visible; text-overflow: clip; }
+        header h2 { font-size: 1.4em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        header p { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        #discord-chat-modal-content { max-width: 95%; padding: 15px; max-height: 80vh;}
+        #discord-chat-modal-content h2 { font-size: 1.4em; }
+        .discord-widget-container { height: 60vh; }
+    }
+    @media (max-width: 480px) {
+         main { padding: 0 10px; }
+         #controls-bar { padding: 6px 10px; }
+         #controls-bar .theme-switcher label, .live-chat-button { font-size: 0.75em; }
+         #controls-bar .theme-switcher select { font-size: 0.75em; padding: 3px 18px 3px 6px; background-position: calc(100% - 6px) center, calc(100% - 3px) center; background-size: 3px 3px, 3px 3px; }
+         .live-chat-button { padding: 3px 8px; }
+        header h2 { font-size: 1.2em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        section { padding: 15px; margin-bottom: 15px; }
+        section h2, section h3 { font-size: 1.2em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+         .iframe-container iframe { height: 500px; }
+         #tiktok-feed .iframe-container { height: 400px; }
+         #livestream .video-container { max-width: 100%; margin-left: 0; margin-right: 0; border-left: none; border-right: none; box-shadow: none; }
+         #livestream .video-container p { min-height: 0; padding: 10px; }
+         .show h3 { font-size: 0.9em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+         .show p { white-space: normal; overflow: visible; text-overflow: clip; }
+         #discord-chat-modal-content { padding: 10px; max-height: 75vh; }
+         #discord-chat-modal-content h2 { font-size: 1.2em; margin-bottom: 10px; }
+         .discord-modal-close { font-size: 1.8em; top: 5px; right: 10px; }
+         .discord-widget-container { height: 60vh; }
+    }
+    </style>
+</head>
+<body class="theme-albright">
+    <button id="participate-button">Participate</button>
+    <div id="popup-overlay">
+        <div id="popup-content">
+            <p>You've come here in search of release, huh?</p>
+            <button id="popup-yes-button">Yes</button>
+        </div>
+    </div>
+
+    <div class="discord-modal-overlay" id="discordModal">
+        <div id="discord-chat-modal-content">
+            <span class="discord-modal-close" id="discordModalClose">&times;</span>
+            <h2>WAPA Live Chat</h2>
+            <iframe src="[https://discord.com/widget?id=1224858781863907419&theme=dark](https://discord.com/widget?id=1224858781863907419&theme=dark)" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        </div>
+    </div>
+
+    <header>
+        <h2>// WILLOW ARMS PUBLIC ACCESS \\</h2>
+        <p>Indie Online Broadcasts</p>
+    </header>
+
+    <div id="controls-bar">
+         <button type="button" class="live-chat-button" id="discordChatBtn">Live Chat</button>
+         <div class="theme-switcher">
+             <label for="theme-select">Theme:</label>
+             <select id="theme-select">
+                 <option value="afterlounge">AfterLounge</option>
+                 <option value="noire">Noire</option>
+                 <option value="darryl">Darryl</option>
+                 <option value="mr-johnson">Mr. Johnson</option>
+                 <option value="albright">Albright</option>
+                 <option value="riggin">Riggin</option>
+             </select>
+         </div>
+    </div>
+    <main>
+        <section id="livestream">
+            <h2>[tune in]</h2>
+            <div class="video-container">
+                 <video
+                    id="wapa-player"
+                    class="video-js vjs-fluid vjs-default-skin"
+                    controls
+                    preload="auto"
+                    width="1280"
+                    height="720"
+                    poster="YOUR_POSTER_IMAGE_URL_HERE"
+                    data-setup='{}'>
+                  <source src="http://100.79.204.97:8000/m3u8?channel=68" type="application/x-mpegURL">
+                </video>
+            </div>
+        </section>
+
+        <section id="shows">
+            <h2>[lineup]</h2>
+            <p>Explore the programming lineup on Willow Arms Public Access:</p>
+            <div class="show">
+                <h3>:: The Bonfire Podcast :: Live Discussions & Rambling</h3>
+                <p>Tune into The Bonfire Podcast live stream or catch reruns. It's an unfiltered discussion show covering anything and everything, like a digital gathering around a late-night fire. Expect tangents, strong opinions, and maybe a little bit of chaos. It's our main talk show broadcast.</p>
+            </div>
+            <div class="show">
+                <h3>:: DogPound :: Recovered Transmissions</h3>
+                <p>The city never sleeps, and neither do the cameras. DogPound presents a stark look at life through recovered dash and body camera footage, allegedly from the Willow Arms municipal archives. From daylight disturbances to after-hours altercations, experience the raw, unfiltered reality of the streets. What you're about to see is not a drill. Only on WAPA.</p>
+            </div>
+            <div class="show">
+                <h3>:: [vibe]rations :: Offbeat Music Videos</h3>
+                <p>[vibe]rations brings you a curated selection of unique and offbeat music videos. From lo-fi visuals to experimental sounds, this show is like finding a hidden signal of digital art and music. Great for discovering new vibes on our internet TV channel.</p>
+            </div>
+            <div class="show">
+                <h3>:: POV: mom & dad are fighting again :: Experimental Broadcast</h3>
+                <p>Experience 'POV: mom & dad are fighting again,' one of our most unique online shows. It's an experimental broadcast blending old TV signals, nostalgic aesthetics, and background ambiance. A lo-fi, dreamlike journey into the uncomfortable familiar.</p>
+            </div>
+            <div class="show">
+                <h3>:: [iinnermission] :: Lo-fi Live Stream</h3>
+                <p>Need to chill? [iinnermission] is our lo-fi live stream designed for focus, relaxation, or just background ambiance. Calming visuals and sounds from the Willow Arms universe. A perfect stream for downtime on the internet.</p>
+            </div>
+        </section>
+
+         <section id="merch">
+            <h2>[MERCH]</h2>
+            <div class="iframe-container">
+                <iframe src="[https://wapashop.printify.me](https://wapashop.printify.me)">
+                    <p>Your browser does not support iframes. Please visit the <a href="[https://wapashop.printify.me](https://wapashop.printify.me)">Merch Store</a> directly.</p>
+                </iframe>
+            </div>
+        </section>
+
+        <section id="tiktok-feed">
+            <h2>[LATEST TIKTOKS]</h2>
+             <div class="iframe-container">
+                <div class='sk-tiktok-feed' data-embed-id='25553721'></div><script src='[https://widgets.sociablekit.com/tiktok-feed/widget.js](https://widgets.sociablekit.com/tiktok-feed/widget.js)' defer></script>
+             </div>
+        </section>
+
+        <section id="links-embed">
+            <h2>[links]</h2>
+            <div class="iframe-container">
+                <iframe src="[https://taplink.cc/wapaccess](https://taplink.cc/wapaccess)">
+                    <p>Your browser does not support iframes. Please visit our <a href="[https://taplink.cc/wapaccess](https://taplink.cc/wapaccess)">Links Page</a> directly.</p>
+                </iframe>
+            </div>
+        </section>
+        
+        <section id="soundcloud-vibes">
+            <h2>[BACKGROUND VIBES]</h2>
+           <iframe id="soundcloud-widget" width="100%" height="600" scrolling="no" frameborder="no" allow="autoplay" src="[https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2016641082&color=%230d0c0c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true](https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2016641082&color=%230d0c0c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true)"></iframe><div style="font-size: 10px; color: #242424;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="[https://soundcloud.com/djsl34z](https://soundcloud.com/djsl34z)" title="[wapa]" target="_blank" style="color: #242424; text-decoration: none;">[wapa]</a> · <a href="[https://soundcloud.com/djsl34z/sets/willow-arms-public-broadcast-midwestern-ost](https://soundcloud.com/djsl34z/sets/willow-arms-public-broadcast-midwestern-ost)" title="Willow Arms Public Broadcast Midwestern OST" target="_blank" style="color: #242424; text-decoration: none;">Willow Arms Public Broadcast Midwestern OST</a></div>
+        </section>
+
+    </main>
+
+    <a href="#" id="back-to-top" title="Back to top">
+        <img src="backtotop.png" alt="Back to top">
+    </a>
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Willow Arms Public Access. <a href="staffpage.html" class="staff-link">Meet The Staff</a> <br> Your source for offbeat internet TV.</p>
+        <p><a href="[https://www.patreon.com/bePatron?u=173819127](https://www.patreon.com/bePatron?u=173819127)" data-patreon-widget-type="become-patron-button" class="patreon-button">Become a member!</a><script async src="[https://c6.patreon.com/becomePatronButton.bundle.js](https://c6.patreon.com/becomePatronButton.bundle.js)"></script></p>
+    </footer>
+
+    <script>
+        const participateButton = document.getElementById('participate-button');
+        const popupOverlay = document.getElementById('popup-overlay');
+        const popupYesButton = document.getElementById('popup-yes-button');
+        let buttonX, buttonY, dx, dy;
+        const defaultButtonSize = 60;
+        const speed = 3;
+        let animationInterval = null;
+
+        function setTheme(themeName) {
+            document.body.className = document.body.className.replace(/theme-\S+/g, '').trim();
+            document.body.classList.add('theme-' + themeName);
+            localStorage.setItem('wapTheme', themeName);
+            const themeSelect = document.getElementById('theme-select');
+            if (themeSelect) {
+                 themeSelect.value = themeName;
+            }
+        }
+
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('wapTheme') || 'albright';
+            setTheme(savedTheme);
+        }
+
+        function initializeButton() {
+            if (!participateButton) return;
+            const maxAttempts = 10;
+            let attempts = 0;
+            const buttonWidth = participateButton.offsetWidth || defaultButtonSize;
+            const buttonHeight = participateButton.offsetHeight || defaultButtonSize;
+            while (attempts < maxAttempts) {
+                buttonX = Math.random() * (window.innerWidth - buttonWidth);
+                buttonY = Math.random() * (window.innerHeight - buttonHeight);
+                const distanceToBottomRight = Math.sqrt(
+                    Math.pow(window.innerWidth - buttonWidth - buttonX, 2) +
+                    Math.pow(window.innerHeight - buttonHeight - buttonY, 2)
+                );
+                if (distanceToBottomRight > 150) { break; }
+                attempts++;
+            }
+             if (attempts === maxAttempts) {
+                 buttonX = Math.max(0, Math.min(50, window.innerWidth - buttonWidth));
+                 buttonY = Math.max(0, Math.min(50, window.innerHeight - buttonHeight));
+             }
+            dx = (Math.random() - 0.5) * 2 * speed;
+            dy = (Math.random() - 0.5) * 2 * speed;
+            if (Math.abs(dx) < 0.1 && Math.abs(dy) < 0.1) {
+                 dx = (Math.random() < 0.5 ? -1 : 1) * speed;
+                 dy = (Math.random() < 0.5 ? -1 : 1) * speed;
+                 if (Math.abs(dx) < 0.1 && Math.abs(dy) < 0.1) dx = speed;
+            }
+            participateButton.style.left = buttonX + 'px';
+            participateButton.style.top = buttonY + 'px';
+            participateButton.style.display = 'block';
+        }
+
+        function updateButtonPosition() {
+             if (!participateButton) return;
+             const buttonWidth = participateButton.offsetWidth;
+             const buttonHeight = participateButton.offsetHeight;
+            buttonX += dx;
+            buttonY += dy;
+            if (buttonX + buttonWidth > window.innerWidth) {
+                dx = -Math.abs(dx);
+                buttonX = window.innerWidth - buttonWidth;
+            } else if (buttonX < 0) {
+                dx = Math.abs(dx);
+                buttonX = 0;
+            }
+            if (buttonY + buttonHeight > window.innerHeight) {
+                dy = -Math.abs(dy);
+                buttonY = window.innerHeight - buttonHeight;
+            } else if (buttonY < 0) {
+                dy = Math.abs(dy);
+                buttonY = 0;
+            }
+            participateButton.style.left = buttonX + 'px';
+            participateButton.style.top = buttonY + 'px';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadTheme();
+
+            const themeSelect = document.getElementById('theme-select');
+            if (themeSelect) {
+                themeSelect.addEventListener('change', (event) => {
+                    setTheme(event.target.value);
+                });
+            }
+
+            if (participateButton && popupOverlay && popupYesButton) {
+                 setTimeout(() => {
+                     initializeButton();
+                     if (animationInterval) clearInterval(animationInterval);
+                     animationInterval = setInterval(updateButtonPosition, 30);
+                 }, 0);
+                participateButton.addEventListener('click', () => {
+                    participateButton.style.display = 'none';
+                    popupOverlay.style.display = 'flex';
+                    if (animationInterval) {
+                        clearInterval(animationInterval);
+                        animationInterval = null;
+                    }
+                });
+                popupYesButton.addEventListener('click', () => {
+                    popupOverlay.style.display = 'none';
+                });
+            }
+
+            const soundcloud_iframe = document.getElementById('soundcloud-widget');
+            if (soundcloud_iframe && typeof SC !== 'undefined' && SC.Widget) {
+                const widget = SC.Widget(soundcloud_iframe);
+                widget.bind(SC.Widget.Events.READY, function() {
+                    console.log('SoundCloud Widget Ready!');
+                    widget.bind(SC.Widget.Events.FINISH, function() {
+                        widget.seekTo(0);
+                        widget.play();
+                    });
+                });
+                widget.bind(SC.Widget.Events.PLAY, function() { console.log('SoundCloud Widget Playing'); });
+                widget.bind(SC.Widget.Events.ERROR, function(err) { console.error('SoundCloud Widget Error:', err); });
+            } else {
+                if (!soundcloud_iframe) { console.warn("SoundCloud iframe with id 'soundcloud-widget' not found."); }
+                if (typeof SC === 'undefined' || !SC.Widget) { console.warn("SoundCloud Widget API not available."); }
+            }
+
+            const discordModal = document.getElementById('discordModal');
+            const discordChatBtn = document.getElementById('discordChatBtn');
+            const discordModalClose = document.getElementById('discordModalClose');
+
             if (discordChatBtn && discordModal) {
                 discordChatBtn.onclick = function() {
                     discordModal.style.display = "flex";
@@ -1153,6 +2264,7 @@
                 });
             });
         });
+
          window.addEventListener('resize', () => {
               if (participateButton && participateButton.style.display === 'block') {
                    const buttonWidth = participateButton.offsetWidth;
