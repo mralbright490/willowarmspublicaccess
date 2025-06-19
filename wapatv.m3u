@@ -1,3 +1,3 @@
-#EXTM3U url-tvg="http://192.168.1.181:8000/api/xmltv.xml" x-tvg-url="http://192.168.1.181:8000/api/xmltv.xml"
-#EXTINF:-1 tvg-id="C68.110.tunarr.com" channel-id="C68.110.tunarr.com" CUID="C68.110.tunarr.com" tvg-chno="68" tvg-name="[wapa]" tvg-logo="http://100.79.204.97:8000/images/uploads/e2ce640d-9602-48e1-911d-4b7dd57cd741_icon.JPEG" group-title="mivi",[wapa]
-http://192.168.1.181:8000/stream/channels/75e9f0b6-884b-408a-a998-b920b66792ef?streamMode=hls
+#EXTM3U url-tvg="http://208.191.77.144:8000/api/xmltv.xml" x-tvg-url="http://208.191.77.144:8000/api/xmltv.xml"
+#EXTINF:-1 tvg-id="C68.110.tunarr.com" channel-id="C68.110.tunarr.com" CUID="C68.110.tunarr.com" tvg-chno="68" tvg-name="[wapa]" tvg-logo="http://208.191.77.144:8000/images/uploads/75e9f0b6-884b-408a-a998-b920b66792ef_icon.png" group-title="mivi",[wapa]
+http://208.191.77.144:8000/stream/channels/75e9f0b6-884b-408a-a998-b920b66792ef?streamMode=hls
