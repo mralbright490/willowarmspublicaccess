@@ -9,28 +9,8 @@ https://apollo.production-public.tubi.io/live/ac-wews2.m3u8
 https://apollo.production-public.tubi.io/live/ac-wcpo.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="AdultIPTV.net Anal" tvg-language="English" tvg-logo="https://files.adultiptv.net/adultiptvnet.jpg" group-title="XXX",AdultIPTV.net Anal
 http://cdn.adultiptv.net/anal.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="AdultIPTV.net Asian" tvg-language="English" tvg-logo="https://files.adultiptv.net/adultiptvnet.jpg" group-title="XXX",AdultIPTV.net Asian
-http://cdn.adultiptv.net/asian.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="AdultIPTV.net Blonde" tvg-language="English" tvg-logo="https://files.adultiptv.net/adultiptvnet.jpg" group-title="XXX",AdultIPTV.net Blonde
-http://cdn.adultiptv.net/blonde.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="AdultIPTV.net Blowjob" tvg-language="English" tvg-logo="https://files.adultiptv.net/adultiptvnet.jpg" group-title="XXX",AdultIPTV.net Blowjob
-http://cdn.adultiptv.net/blowjob.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="AdultIPTV.net Fetish" tvg-language="English" tvg-logo="https://files.adultiptv.net/adultiptvnet.jpg" group-title="XXX",AdultIPTV.net Fetish
-http://cdn.adultiptv.net/fetish.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="AdultIPTV.net Gangbang" tvg-language="English" tvg-logo="https://files.adultiptv.net/adultiptvnet.jpg" group-title="XXX",AdultIPTV.net Gangbang
-http://cdn.adultiptv.net/gangbang.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="AdultIPTV.net Hardcore" tvg-language="English" tvg-logo="https://files.adultiptv.net/adultiptvnet.jpg" group-title="XXX",AdultIPTV.net Hardcore
-http://cdn.adultiptv.net/hardcore.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="AdultIPTV.net Lesbian" tvg-language="English" tvg-logo="https://files.adultiptv.net/adultiptvnet.jpg" group-title="XXX",AdultIPTV.net Lesbian
 http://cdn.adultiptv.net/lesbian.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="AdultIPTV.net Live Cams" tvg-language="English" tvg-logo="https://files.adultiptv.net/adultiptvnet.jpg" group-title="XXX",AdultIPTV.net Live Cams
-http://cdn.adultiptv.net/livecams.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="AdultIPTV.net Pornstar" tvg-language="English" tvg-logo="https://files.adultiptv.net/adultiptvnet.jpg" group-title="XXX",AdultIPTV.net Pornstar
-http://cdn.adultiptv.net/pornstar.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="AdultIPTV.net Rough" tvg-language="English" tvg-logo="https://files.adultiptv.net/adultiptvnet.jpg" group-title="XXX",AdultIPTV.net Rough
-http://cdn.adultiptv.net/rough.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="AdultIPTV.net Teen" tvg-language="English" tvg-logo="https://files.adultiptv.net/adultiptvnet.jpg" group-title="XXX",AdultIPTV.net Teen
-http://cdn.adultiptv.net/teen.m3u8
 #EXTINF:-1 tvg-id="AFV.us" tvg-logo="https://i.imgur.com/TOB9vmW.png" group-title="Comedy",AFV (720p)
 https://linear-12.frequency.stream/dist/plex/12/hls/master/playlist.m3u8
 #EXTINF:-1 tvg-id="" tvg-logo="" group-title="Undefined",American Crimes
@@ -179,9 +159,9 @@ https://amg00376-magellan-amg00376c11-rakuten-us-1700.playouts.now.amagi.tv/play
 https://linear-188.frequency.stream/dist/glewedtv/188/hls/master/playlist.m3u8
 #EXTINF:-1 tvg-id="USANetwork.us@East" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/USA_Network_logo_%282016%29.svg/512px-USA_Network_logo_%282016%29.svg.png" group-title="Undefined",USA Network (720p)
 http://fl3.moveonjoy.com/USA_NETWORK/index.m3u8
-#EXTM3U url-tvg="http://192.168.1.181:8000/api/xmltv.xml" x-tvg-url="http://192.168.1.181:8000/api/xmltv.xml"
-#EXTINF:-1 tvg-id="C68.110.tunarr.com" channel-id="C68.110.tunarr.com" CUID="C68.110.tunarr.com" tvg-chno="68" tvg-name="[wapa]" tvg-logo="http://100.79.204.97:8000/images/uploads/e2ce640d-9602-48e1-911d-4b7dd57cd741_icon.JPEG" group-title="mivi",[wapa]
-http://192.168.1.181:8000/stream/channels/75e9f0b6-884b-408a-a998-b920b66792ef?streamMode=hls
+#EXTM3U url-tvg="http://18.222.189.154:8000/api/xmltv.xml" x-tvg-url="http://18.222.189.154:8000/api/xmltv.xml"
+#EXTINF:-1 tvg-id="C68.110.tunarr.com" channel-id="C68.110.tunarr.com" CUID="C68.110.tunarr.com" tvg-chno="68" tvg-name="[wapatv]" tvg-logo="https://wapaccess.org/standby.png" group-title="[spec-net]",[wapatv]
+http://18.222.189.154:8000/stream/channels/898b193e-b472-47d5-ab0b-2d9a8bbde8ea?streamMode=hls
 #EXTINF:-1 tvg-id="WildTV.ca@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Wild_TV_logo_2020.png/512px-Wild_TV_logo_2020.png" group-title="Undefined",Wild TV (1080p)
 https://dfhsahpa45kk2.cloudfront.net/scheduler/scheduleMaster/476.m3u8
 #EXTINF:-1 tvg-id="" tvg-logo="" group-title="Undefined",Wild West TV
