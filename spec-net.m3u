@@ -74,7 +74,6 @@ https://raw.githubusercontent.com/InsolenceWillow/insolencetvgo/main/streams/tru
 #EXTINF:-1 tvg-id="USANetwork.us@East" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/USA_Network_logo_%282016%29.svg/512px-USA_Network_logo_%282016%29.svg.png" group-title="Undefined",USA Network (720p)
 http://fl3.moveonjoy.com/USA_NETWORK/index.m3u8
 #EXTM3U url-tvg="http://192.168.1.82:8001/api/xmltv.xml" x-tvg-url="http://192.168.1.82:8001/api/xmltv.xml"
-#EXTINF:-1 tvg-id="C68.110.tunarr.com" channel-id="C68.110.tunarr.com" CUID="C68.110.tunarr.com" tvg-chno="68" tvg-name="[wapatv]" tvg-logo="https://wapaccess.org/standby.png" group-title="[spec-net]",[wapatv]
-http://192.168.1.82:8001/stream/channels/898b193e-b472-47d5-ab0b-2d9a8bbde8ea?streamMode=hls
-#EXTINF:-1 tvg-id="WildTV.ca@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Wild_TV_logo_2020.png/512px-Wild_TV_logo_2020.png" group-title="Undefined",Wild TV (1080p)
+#EXTINF:-1 tvg-id="C68.110.tunarr.com" channel-id="C68.110.tunarr.com" CUID="C68.110.tunarr.com" tvg-chno="68" tvg-name="[wapatv]" tvg-logo="http://wapaccess.org/standby.png" group-title="[spec-net]",[wapatv]
+http://192.168.1.82:8001/stream/channels/8d05f3ec-1d60-4cf7-9bcf-3883e53bd4d6?streamMode=hls#EXTINF:-1 tvg-id="WildTV.ca@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Wild_TV_logo_2020.png/512px-Wild_TV_logo_2020.png" group-title="Undefined",Wild TV (1080p)
 https://dfhsahpa45kk2.cloudfront.net/scheduler/scheduleMaster/476.m3u8
