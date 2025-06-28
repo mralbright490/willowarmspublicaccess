@@ -1,3 +1,0 @@
-#EXTM3U url-tvg="http://18.222.189.154:8000/api/xmltv.xml" x-tvg-url="http://18.222.189.154:8000/api/xmltv.xml"
-#EXTINF:-1 tvg-id="C68.110.tunarr.com" channel-id="C68.110.tunarr.com" CUID="C68.110.tunarr.com" tvg-chno="68" tvg-name="[wapatv]" tvg-logo="https://wapaccess.org/standby.png" group-title="[spec-net]",[wapatv]
-http://18.222.189.154:8000/stream/channels/898b193e-b472-47d5-ab0b-2d9a8bbde8ea?streamMode=hls
