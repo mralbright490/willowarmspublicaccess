@@ -1,5 +1,5 @@
 #EXTM3U
 #EXTINF:5509, tvg-id="1752721986237" tvg-name="ConspiracyTV" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Dollarnote_siegel_hq.jpg/640px-Dollarnote_siegel_hq.jpg",The Conspiracy Theory of Everything - 90-Minute Special
-208.191.77.144/stream/1752722439558
+http://169.254.83.107:8000/stream/1752722439558
 #EXTINF:1859, tvg-id="1752721986237" tvg-name="ConspiracyTV" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Dollarnote_siegel_hq.jpg/640px-Dollarnote_siegel_hq.jpg",The Dark Side of Science: The Robbers Cave Experiment 1954 (Short Documentary)
-208.191.77.144/stream/1752725135701
+http://169.254.83.107:8000/stream/1752725135701
