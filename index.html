@@ -133,7 +133,7 @@
         background-color: #00e6e6;
         color: #1a1a33;
     }
-    /* --- RADIO PLAYER STYLES --- */
+    /* --- RADIO PLAYER STYLES (AStream overrides) --- */
     .radio-player-container {
         padding: 20px;
         background-color: #0a0a1a;
@@ -142,7 +142,6 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         transition: background-color 0.5s ease, border-color 0.5s ease;
     }
-    /* AStream Player container takes the styling */
     #wapa-stream-player {
         background-color: #2a2a4d !important;
         border: 1px solid #00e6e6 !important;
@@ -150,6 +149,18 @@
         padding: 10px;
         transition: background-color 0.5s ease, border-color 0.5s ease;
     }
+    /* GENERAL ASTREAM OVERRIDES */
+    .as-player, .as-player * {
+        box-sizing: content-box !important;
+    }
+    .as-player__container {
+        background-color: transparent !important;
+        border: none !important;
+    }
+    .as-player__actions button {
+        color: currentColor !important; /* Inherit color from theme */
+    }
+    
     /* End of RADIO PLAYER STYLES */
 
     body.theme-afterlounge {
@@ -165,7 +176,6 @@
     body.theme-afterlounge #controls-bar a,
     body.theme-afterlounge .live-chat-button,
     body.theme-afterlounge .patreon-button,
-    body.theme-afterlounge #controls-bar .theme-switcher select,
     body.theme-afterlounge .header-toggle label {
         color: #00e6e6;
         border-color: #00a3a3;
@@ -181,6 +191,8 @@
     body.theme-afterlounge #controls-bar .theme-switcher select option { background-color: #1a1a33; color: #00e6e6; }
     body.theme-afterlounge .radio-player-container { background-color: rgba(26, 26, 51, 0.85); border-color: #008b8b; }
     body.theme-afterlounge #wapa-stream-player { background-color: #1a1a33 !important; border-color: #00e6e6 !important; }
+    body.theme-afterlounge #wapa-stream-player .as-player__title { color: #00e6e6 !important; } 
+
 
     body.theme-noire {
         background-color: #000000;
@@ -192,7 +204,6 @@
     body.theme-noire #controls-bar a,
     body.theme-noire .live-chat-button,
     body.theme-noire .patreon-button,
-    body.theme-noire #controls-bar .theme-switcher select,
     body.theme-noire .header-toggle label {
         color: #ffffff;
         border-color: #333333;
@@ -208,6 +219,8 @@
      body.theme-noire #controls-bar .theme-switcher select option { background-color: #111111; color: #ffffff; }
      body.theme-noire .radio-player-container { background-color: #0a0a0a; border-color: #333333; }
      body.theme-noire #wapa-stream-player { background-color: #1a1a1a !important; border-color: #ffffff !important; }
+     body.theme-noire #wapa-stream-player .as-player__title { color: #ffffff !important; } 
+
 
     body.theme-darryl {
         background-color: #404040;
@@ -223,7 +236,6 @@
     body.theme-darryl #controls-bar a,
     body.theme-darryl .live-chat-button,
     body.theme-darryl .patreon-button,
-    body.theme-darryl #controls-bar .theme-switcher select,
     body.theme-darryl .header-toggle label {
         color: #f0f0f0;
         border-color: #8B0000;
@@ -239,6 +251,8 @@
     body.theme-darryl #controls-bar .theme-switcher select option { background-color: #505050; color: #f0f0f0; }
     body.theme-darryl .radio-player-container { background-color: rgba(64, 64, 64, 0.85); border-color: #8B0000; }
     body.theme-darryl #wapa-stream-player { background-color: #505050 !important; border-color: #8B0000 !important; }
+    body.theme-darryl #wapa-stream-player .as-player__title { color: #f0f0f0 !important; } 
+
 
     body.theme-mr-johnson {
         color: #00cc00;
@@ -254,7 +268,6 @@
     body.theme-mr-johnson #controls-bar a,
     body.theme-mr-johnson .live-chat-button,
     body.theme-mr-johnson .patreon-button,
-    body.theme-mr-johnson #controls-bar .theme-switcher select,
     body.theme-mr-johnson .header-toggle label {
         color: #00ff00;
         border-color: #008000;
@@ -293,462 +306,262 @@
     body.theme-mr-johnson #discord-chat-modal-content h2 { color: #00ff00; border-bottom-color: #008000; }
     body.theme-mr-johnson .discord-modal-close { color: #00ff00; }
     body.theme-mr-johnson .discord-modal-close:hover { color: #32cd32; }
-    body.theme-albright section {
-         background:
-           linear-gradient(rgba(74, 57, 46, 0.7), rgba(74, 57, 46, 0.7)),
-           url('goldtext.png') center center / cover no-repeat;
-         border: 1px solid #b46a00;
-         box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
-         color: #cdc8b1;
+    body.theme-albright {
+        color: #cdc8b1;
+        background-image: url('tp2.png');
+        background-color: #281c12;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
     }
-    body.theme-albright section h2, body.theme-albright section h3 { color: #ffc107; border-bottom-color: #b46a00; }
-    body.theme-albright header p { color: #a1887f; }
-    body.theme-albright .iframe-container { border-color: #b46a00; background-color: rgba(74, 57, 46, 0.85); }
-    body.theme-albright .iframe-container p { color: #a1887f; }
-    body.theme-albright #livestream .video-container { border-color: #ffc107; box-shadow: 0 0 10px rgba(255,193,7,0.6); }
-    body.theme-albright .show { background-color: rgba(111, 79, 45, 0.9); border-left: 4px solid #cd7f32; }
-    body.theme-albright .show h3 { color: #ffd700; }
-    body.theme-albright .show p { color: #eee; }
-    body.theme-albright footer { background-color: rgba(28, 18, 11, 0.9); color: #a1887f; border-top: 1px solid #4a392e; }
-    body.theme-albright footer a.staff-link { color: #ffc107; }
-    body.theme-albright #participate-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
-    body.theme-albright #participate-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
-    body.theme-albright #popup-content { background-color: rgba(74, 57, 46, 0.95); border-color: #ffc107; box-shadow: 0 0 20px rgba(255, 193, 7, 0.6); color: #cdc8b1; }
-    body.theme-albright #popup-yes-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
-    body.theme-albright #popup-yes-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
-    body.theme-albright #discord-chat-modal-content { background-color: rgba(74,57,46,0.97); border-color: #ffc107; box-shadow: 0 5px 25px rgba(255,193,7,0.6); }
-    body.theme-albright #discord-chat-modal-content h2 { color: #ffc107; border-bottom-color: #b46a00; }
-    body.theme-albright .discord-modal-close { color: #ffc107; }
-    body.theme-albright .discord-modal-close:hover { color: #ffd700; }
-    body.theme-riggin section { background: #1a1a1a; border: 1px solid #FF8C00; box-shadow: 5px 5px 15px rgba(50,50,50,0.4); color: #FFA500;}
-    body.theme-riggin section h2, body.theme-riggin section h3 { color: #FFA500; border-bottom-color: #FF8C00; }
-    body.theme-riggin header p { color: #FFD700; }
-    body.theme-riggin .iframe-container { border-color: #FF8C00; background-color: #1a1a1a; }
-    body.theme-riggin .iframe-container p { color: #FFD700; }
-    body.theme-riggin #livestream .video-container { border-color: #FFA500; box-shadow: 0 0 10px rgba(255,165,0,0.6); }
-    body.theme-riggin .show { background-color: #333333; border-left: 4px solid #FFA500; }
-    body.theme-riggin .show h3 { color: #FFD700; }
-    body.theme-riggin .show p { color: #cccccc; }
-    body.theme-riggin footer { background-color: #1a1a1a; color: #FFD700; border-top: 1px solid #FF8C00; }
-    body.theme-riggin footer a.staff-link { color: #FFA500; }
-    body.theme-riggin #participate-button { background-color: #FFA500; color: #000000; border-color: #FF8C00; }
-    body.theme-riggin #participate-button:hover { background-color: #FF8C00; color: #000000; border-color: #FFA500; }
-    body.theme-riggin #popup-content { background-color: #1a1a1a; border-color: #FFA500; box-shadow: 0 0 20px rgba(255, 165, 0, 0.6); color: #FFA500; }
-    body.theme-riggin #popup-yes-button { background-color: #FFA500; color: #000000; border-color: #FF8C00; }
-    body.theme-riggin #popup-yes-button:hover { background-color: #FF8C00; color: #000000; border-color: #FFA500; }
-    main {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 0 20px;
-        box-sizing: border-box;
+    body.theme-albright header {
+        background-color: rgba(28, 18, 11, 0.9);
+        border-bottom: 4px solid #b46a00;
+        color: #ffc107;
     }
-    section {
-        background-color: #1a1a33;
-        padding: 25px;
-        margin-bottom: 25px;
-        border: 1px solid #005b5b;
-        box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
-        box-sizing: border-box;
-        transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, color 0.5s ease, background 0.5s ease;
-        color: #cccccc;
+    body.theme-albright header h2,
+    body.theme-albright header p { color: #ffc107; }
+    body.theme-albright #controls-bar { background-color: rgba(90, 70, 55, 0.9); border-bottom-color: #b46a00; }
+    body.theme-albright #controls-bar a,
+    body.theme-albright .live-chat-button,
+    body.theme-albright .patreon-button,
+    body.theme-albright .header-toggle label {
+        color: #ffc107;
+        border-color: #b46a00;
+        background-color: #6f4f2d;
     }
-    main section:last-child {
-        margin-bottom: 0;
+    body.theme-albright #controls-bar a:hover,
+    body.theme-albright .live-chat-button:hover,
+    body.theme-albright .patreon-button:hover {
+        background-color: #ffc107;
+        color: #6f4f2d;
     }
-    section h2 {
-        color: #00a3a3;
-        border-bottom: 2px solid #005b5b;
-        padding-bottom: 8px;
-        margin-top: 0;
-        margin-bottom: 20px;
-        font-size: 1.8em;
-        text-transform: uppercase;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: block;
-        max-width: 100%;
-        transition: color 0.5s ease, border-color 0.5s ease;
+    body.theme-albright #controls-bar .theme-switcher label { color: #a1887f; }
+    body.theme-albright #controls-bar .theme-switcher select option { background-color: #6f4f2d; color: #ffc107; }
+    body.theme-albright .radio-player-container { background-color: rgba(74, 57, 46, 0.85); border-color: #b46a00; }
+    body.theme-albright #wapa-stream-player { background-color: #6f4f2d !important; border-color: #ffc107 !important; }
+
+    body.theme-riggin {
+        color: #FFA500;
+        background-color: #000000;
+        background-image: none;
     }
-     section h3 {
-         color: #00a3a3;
-         border-bottom: 2px solid #005b5b;
-         padding-bottom: 8px;
-         margin-top: 0;
-         margin-bottom: 20px;
-         font-size: 1.8em;
-         text-transform: uppercase;
-         white-space: nowrap;
-         overflow: hidden;
-         text-overflow: ellipsis;
-         display: block;
-         max-width: 100%;
-         transition: color 0.5s ease, border-color 0.5s ease;
-     }
-    p {
-        color: #cccccc;
-        margin-bottom: 15px;
-        word-break: break-word;
-        transition: color 0.5s ease;
+    body.theme-riggin header { background-color: #1a1a1a; border-bottom: 4px solid #FF8C00; color: #FFA500; }
+    body.theme-riggin header h2,
+    body.theme-riggin header p { color: #FFA500; }
+    body.theme-riggin #controls-bar { background-color: #222222; border-bottom-color: #FF8C00; }
+    body.theme-riggin #controls-bar a,
+    body.theme-riggin .live-chat-button,
+    body.theme-riggin .patreon-button,
+    body.theme-riggin .header-toggle label {
+        color: #FFA500;
+        border-color: #FF8C00;
+        background-color: #333333;
     }
-    #livestream .video-container {
-        position: relative;
-        max-width: 1280px;
-        margin: 20px auto;
-        padding-bottom: 56.25%;
-        height: 0;
-        overflow: hidden;
-        background-color: #000;
-        border: 2px solid #00e6e6;
+    body.theme-riggin #controls-bar a:hover,
+    body.theme-riggin .live-chat-button:hover,
+    body.theme-riggin .patreon-button:hover {
+        background-color: #FFA500;
+        color: #333333;
+    }
+    body.theme-riggin #controls-bar .theme-switcher label { color: #FFD700; }
+    body.theme-riggin #controls-bar .theme-switcher select option { background-color: #333333; color: #FFA500; }
+    body.theme-riggin .radio-player-container { background-color: #1a1a1a; border-color: #FF8C00; }
+    body.theme-riggin #wapa-stream-player { background-color: #333333 !important; border-color: #FFA500 !important; }
+    
+    body.theme-afterlounge section {
+        background-color: rgba(26, 26, 51, 0.85);
+        color: #ffffff;
+        border: 1px solid #008b8b;
+    }
+    body.theme-afterlounge section h2,
+    body.theme-afterlounge section h3 {
+        color: #00e6e6;
+        border-bottom-color: #00a3a3;
+    }
+    body.theme-afterlounge .show {
+        background-color: rgba(42, 42, 77, 0.9);
+        border-left-color: #00e6e6;
+    }
+    body.theme-afterlounge .show h3 { color: #00e6e6; }
+    body.theme-afterlounge .show p { color: color: #dddddd; }
+    body.theme-afterlounge .iframe-container {
+        background-color: rgba(26, 26, 51, 0.85);
+        border-color: #008b8b;
+    }
+    body.theme-afterlounge .iframe-container p { color: #dddddd; }
+    body.theme-afterlounge #livestream .video-container {
+        border-color: #00e6e6;
         box-shadow: 0 0 10px rgba(0, 230, 230, 0.5);
-        box-sizing: border-box;
-        transition: border-color 0.5s ease, box-shadow 0.5s ease;
     }
-    #livestream .video-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-    }
-    #livestream .video-container p {
-         position: absolute;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 100%;
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         color: #fff;
-         font-size: 1.2em;
-         padding: 20px;
-         box-sizing: border-box;
-         text-align: center;
-         background-color: #000;
-         z-index: 1;
-         max-width: 100%;
-    }
-    .show {
-        margin-bottom: 20px;
-        padding: 15px;
-        background-color: #2a2a4d;
-        border-left: 4px solid #00a3a3;
-        box-sizing: border-box;
-        transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
-    }
-    .show h3 {
-        margin-top: 0;
-        margin-bottom: 8px;
-        color: #00e6e6;
-        font-size: 1.3em;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: block;
-        transition: color 0.5s ease;
-    }
-    .show p {
-        color: #bbbbbb;
-        font-size: 0.95em;
-         word-break: break-word;
-         transition: color 0.5s ease;
-    }
-    .iframe-container {
-        border: 1px solid #00a3a3;
-        padding: 10px;
-        background-color: #1a1a33;
-        box-sizing: border-box;
-        width: 100%;
-        overflow: hidden;
-        transition: border-color 0.5s ease, background-color 0.5s ease;
-    }
-    .iframe-container iframe {
-        width: 100%;
-        height: 600px;
-        border: none;
-        display: block;
-    }
-    .iframe-container p {
-         text-align: center;
-         color: #999999;
-         font-size: 0.9em;
-         margin-bottom: 0;
-         transition: color 0.5s ease;
-    }
-    #tiktok-feed .iframe-container {
-         height: 500px;
-         overflow-y: scroll;
-    }
-     #tiktok-feed .iframe-container p {
-         position: static;
-         width: auto;
-         height: auto;
-         padding: 0;
-     }
-    #participate-button {
-        position: fixed;
-        z-index: 1000;
-        display: none;
-        padding: 10px 15px;
-        background-color: #00a3a3;
-        color: #1a1a33;
+    body.theme-afterlounge #discord-chat-modal-content {
+        background-color: rgba(20, 20, 40, 0.97);
         border: 2px solid #00e6e6;
-        border-radius: 5px;
-        cursor: pointer;
-        text-transform: uppercase;
-        font-size: 1em;
-        box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        box-shadow: 0 0 25px rgba(0, 230, 230, 0.7);
     }
-    #participate-button:hover {
-         background-color: #00e6e6;
-         color: #1a1a33;
-         border-color: #00a3a3;
+    body.theme-afterlounge #discord-chat-modal-content h2 { color: #00e6e6; border-bottom-color: #00a3a3;}
+    body.theme-afterlounge .discord-modal-close { color: #00e6e6; }
+    body.theme-afterlounge .discord-modal-close:hover { color: #ffffff; }
+    body.theme-afterlounge footer a.staff-link { color: #00e6e6; }
+    body.theme-noire section { background: #000000; border-color: #1a1a1a; box-shadow: 5px 5px 15px rgba(0,0,0,0.7); color: #ffffff; }
+    body.theme-noire section h2, body.theme-noire section h3 { color: #ffffff; border-bottom-color: #1a1a1a; }
+    body.theme-noire .iframe-container { border-color: #1a1a1a; background-color: #050505; }
+    body.theme-noire .iframe-container p { color: #e0e0e0; }
+    body.theme-noire #livestream .video-container { border-color: #ffffff; box-shadow: 0 0 10px rgba(255,255,255,0.3); }
+    body.theme-noire .show { background-color: #0a0a0a; border-left-color: #333333; }
+    body.theme-noire .show h3 { color: #ffffff; }
+    body.theme-noire .show p { color: #e0e0e0; }
+    body.theme-noire footer { background-color: #0a0a0a; color: #555555; border-top-color: #1a1a1a; }
+    body.theme-noire footer a.staff-link { color: #ffffff; }
+    body.theme-noire #participate-button { background-color: #1a1a1a; color: #ffffff; border-color: #333333; }
+    body.theme-noire #participate-button:hover { background-color: #333333; color: #000000; border-color: #ffffff; }
+    body.theme-noire #popup-content { background-color: #0a0a0a; border-color: #333333; box-shadow: 0 0 20px rgba(50, 50, 50, 0.5); color: #ffffff; }
+    body.theme-noire #popup-yes-button { background-color: #1a1a1a; color: #ffffff; border-color: #333333; }
+    body.theme-noire #popup-yes-button:hover { background-color: #333333; color: #000000; border-color: #ffffff; }
+    body.theme-noire #discord-chat-modal-content { background-color: #050505; border-color: #222222; box-shadow: 0 5px 25px rgba(50,50,50,0.5); color: #ffffff;}
+    body.theme-noire #discord-chat-modal-content h2 { color: #ffffff; border-bottom-color: #222222; }
+    body.theme-noire .discord-modal-close { color: #bbbbbb; }
+    body.theme-noire .discord-modal-close:hover { color: #ffffff; }
+    body.theme-darryl section {
+        background-color: rgba(64, 64, 64, 0.85);
+        border: 2px solid #8B0000;
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+        color: #f0f0f0;
     }
-    #popup-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.7);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 2000;
+    body.theme-darryl section h2, body.theme-darryl section h3 { color: #f0f0f0; border-bottom-color: #700000; }
+    body.theme-darryl .iframe-container { border-color: #8B0000; background-color: rgba(50,50,50,0.85); }
+    body.theme-darryl .iframe-container p { color: #cccccc; }
+    body.theme-darryl #livestream .video-container { border-color: #8B0000; box-shadow: 0 0 10px rgba(139,0,0,0.5); }
+    body.theme-darryl .show { background-color: #484848; border-left: 4px solid #8B0000; }
+    body.theme-darryl .show h3 { color: #f0f0f0; }
+    body.theme-darryl .show p { color: #e0e0e0; }
+    body.theme-darryl footer { background-color: #2a2a2a; color: #cccccc; border-top-color: #8B0000; }
+    body.theme-darryl footer a.staff-link { color: #f0f0f0; }
+    body.theme-darryl #participate-button { background-color: #8B0000; color: #ffffff; border-color: #A04040; }
+    body.theme-darryl #participate-button:hover { background-color: #A04040; color: #2a2a2a; border-color: #f0f0f0; }
+    body.theme-darryl #popup-content { background-color: #333333; border-color: #8B0000; box-shadow: 0 0 20px rgba(139,0,0,0.5); color: #f0f0f0; }
+    body.theme-darryl #popup-yes-button { background-color: #8B0000; color: #ffffff; border-color: #A04040; }
+    body.theme-darryl #popup-yes-button:hover { background-color: #A04040; color: #2a2a2a; border-color: #f0f0f0; }
+    body.theme-darryl #discord-chat-modal-content { background-color: #383838; border-color: #8B0000; box-shadow: 0 5px 25px rgba(139,0,0,0.5); color: #f0f0f0; }
+    body.theme-darryl #discord-chat-modal-content h2 { color: #f0f0f0; border-bottom-color: #700000; }
+    body.theme-darryl .discord-modal-close { color: #f0f0f0; }
+    body.theme-darryl .discord-modal-close:hover { color: #ff7f7f; }
+    body.theme-mr-johnson {
+        color: #00cc00;
+        background-image: url('garage1.png');
+        background-color: #1a0033;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
     }
-    #popup-content {
-        background-color: #1a1a33;
-        padding: 30px;
-        border: 2px solid #00a3a3;
-        border-radius: 8px;
-        text-align: center;
-        max-width: 400px;
-        box-shadow: 0 0 20px rgba(0, 163, 163, 0.5);
-        color: #cccccc;
-        transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+    body.theme-mr-johnson header h2,
+    body.theme-mr-johnson header p { color: #00ff00; }
+    body.theme-mr-johnson #controls-bar a,
+    body.theme-mr-johnson .live-chat-button,
+    body.theme-mr-johnson .patreon-button,
+    body.theme-mr-johnson .header-toggle label {
+        color: #00ff00;
+        border-color: #008000;
+        background-color: #3a0066;
     }
-    #popup-content p {
-        margin-top: 0;
-        margin-bottom: 20px;
-        font-size: 1.2em;
+    body.theme-mr-johnson #controls-bar a:hover,
+    body.theme-mr-johnson .live-chat-button:hover,
+    body.theme-mr-johnson .patreon-button:hover {
+        background-color: #00ff00;
+        color: #3a0066;
     }
-    #popup-yes-button {
-        background-color: #00a3a3;
-        color: #1a1a33;
-        border: 2px solid #00e6e6;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        text-transform: uppercase;
-        font-size: 1em;
-        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    body.theme-mr-johnson #controls-bar .theme-switcher label { color: #00aa00; }
+    body.theme-mr-johnson #controls-bar .theme-switcher select option { background-color: #3a0066; color: #00ff00; }
+    body.theme-mr-johnson section {
+        background: linear-gradient(rgba(42, 0, 85, 0.85), rgba(42, 0, 85, 0.85)), url('purpmarb.png') center center / cover no-repeat;
+        border-color: #008000;
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+        color: #00cc00;
     }
-    #popup-yes-button:hover {
-         background-color: #00e6e6;
-         color: #1a1a33;
-         border-color: #00a3a3;
+    body.theme-mr-johnson section h2, body.theme-mr-johnson section h3 { color: #00ff00; border-bottom-color: #008000; }
+    body.theme-mr-johnson header p { color: #00aa00; }
+    body.theme-mr-johnson .iframe-container { border-color: #008000; background-color: rgba(42, 0, 85, 0.85); }
+    body.theme-mr-johnson .iframe-container p { color: #00aa00; }
+    body.theme-mr-johnson #livestream .video-container { border-color: #00ff00; box-shadow: 0 0 10px rgba(0,255,0,0.5); }
+    body.theme-mr-johnson .show { background-color: rgba(58, 0, 102, 0.9); border-left-color: #00ff00; }
+    body.theme-mr-johnson .show h3 { color: #32cd32; }
+    body.theme-mr-johnson .show p { color: #00dd00; }
+    body.theme-mr-johnson footer { background-color: #2a0055; color: #00aa00; border-top-color: #008000; }
+    body.theme-mr-johnson footer a.staff-link { color: #00ff00; }
+    body.theme-mr-johnson #participate-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
+    body.theme-mr-johnson #participate-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
+    body.theme-mr-johnson #popup-content { background-color: #2a0055; border-color: #00ff00; box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); color: #00dd00; }
+    body.theme-mr-johnson #popup-yes-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
+    body.theme-mr-johnson #popup-yes-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
+    body.theme-mr-johnson #discord-chat-modal-content { background-color: rgba(42,0,85,0.97); border-color: #00ff00; box-shadow: 0 5px 25px rgba(0,255,0,0.5); }
+    body.theme-mr-johnson #discord-chat-modal-content h2 { color: #00ff00; border-bottom-color: #008000; }
+    body.theme-mr-johnson .discord-modal-close { color: #00ff00; }
+    body.theme-mr-johnson .discord-modal-close:hover { color: #32cd32; }
+    body.theme-albright {
+        color: #cdc8b1;
+        background-image: url('tp2.png');
+        background-color: #281c12;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
     }
-    .live-chat-button {
-        font-size: 0.85em;
-        padding: 4px 12px;
-        text-decoration: none;
-        text-transform: uppercase;
-        white-space: nowrap;
-        cursor: pointer;
-        border-radius: 4px;
-        border: 1px solid #00a3a3;
-        background-color: #1a1a33;
-        color: #00e6e6;
-        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-        display: inline-block;
+    body.theme-albright header {
+        background-color: rgba(28, 18, 11, 0.9);
+        border-bottom: 4px solid #b46a00;
+        color: #ffc107;
     }
-    .live-chat-button:hover {
-        background-color: #00e6e6;
-        color: #1a1a33;
+    body.theme-albright header h2,
+    body.theme-albright header p { color: #ffc107; }
+    body.theme-albright #controls-bar { background-color: rgba(90, 70, 55, 0.9); border-bottom-color: #b46a00; }
+    body.theme-albright #controls-bar a,
+    body.theme-albright .live-chat-button,
+    body.theme-albright .patreon-button,
+    body.theme-albright .header-toggle label {
+        color: #ffc107;
+        border-color: #b46a00;
+        background-color: #6f4f2d;
     }
-    .discord-modal-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.8);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 3000;
-        padding: 20px;
-        box-sizing: border-box;
+    body.theme-albright #controls-bar a:hover,
+    body.theme-albright .live-chat-button:hover,
+    body.theme-albright .patreon-button:hover {
+        background-color: #ffc107;
+        color: #6f4f2d;
     }
-    #discord-chat-modal-content {
-        position: relative;
-        background-color: #1a1a33;
-        padding: 20px;
-        border: 2px solid #00a3a3;
-        border-radius: 8px;
-        box-shadow: 0 5px 25px rgba(0, 163, 163, 0.5);
-        color: #cccccc;
-        width: auto;
-        min-width: 300px;
-        max-width: 450px;
-        max-height: 85vh;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
+    body.theme-albright #controls-bar .theme-switcher label { color: #a1887f; }
+    body.theme-albright #controls-bar .theme-switcher select option { background-color: #6f4f2d; color: #ffc107; }
+    body.theme-albright .radio-player-container { background-color: rgba(74, 57, 46, 0.85); border-color: #b46a00; }
+    body.theme-albright #wapa-stream-player { background-color: #6f4f2d !important; border-color: #ffc107 !important; }
+
+    body.theme-riggin {
+        color: #FFA500;
+        background-color: #000000;
+        background-image: none;
     }
-    #discord-chat-modal-content h2 {
-        color: #00a3a3;
-        border-bottom: 2px solid #005b5b;
-        padding-bottom: 10px;
-        margin-top: 0;
-        margin-bottom: 15px;
-        font-size: 1.5em;
-        text-align: center;
+    body.theme-riggin header { background-color: #1a1a1a; border-bottom: 4px solid #FF8C00; color: #FFA500; }
+    body.theme-riggin header h2,
+    body.theme-riggin header p { color: #FFA500; }
+    body.theme-riggin #controls-bar { background-color: #222222; border-bottom-color: #FF8C00; }
+    body.theme-riggin #controls-bar a,
+    body.theme-riggin .live-chat-button,
+    body.theme-riggin .patreon-button,
+    body.theme-riggin .header-toggle label {
+        color: #FFA500;
+        border-color: #FF8C00;
+        background-color: #333333;
     }
-    .discord-modal-close {
-        position: absolute;
-        top: 8px;
-        right: 12px;
-        font-size: 1.8em;
-        font-weight: bold;
-        color: #00a3a3;
-        cursor: pointer;
-        line-height: 1;
+    body.theme-riggin #controls-bar a:hover,
+    body.theme-riggin .live-chat-button:hover,
+    body.theme-riggin .patreon-button:hover {
+        background-color: #FFA500;
+        color: #333333;
     }
-    .discord-modal-close:hover { color: #00e6e6; }
-    .discord-widget-container {
-        width: 100%;
-        height: 65vh;
-        min-height: 350px;
-        overflow: hidden;
-    }
-    .discord-widget-container iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-    }
-    #back-to-top {
-        display: none;
-        position: fixed;
-        bottom: 20px;
-        right: 30px;
-        z-index: 99;
-        cursor: pointer;
-        padding: 10px;
-        border-radius: 4px;
-        transition: background-color 0.3s ease;
-    }
-    #back-to-top img {
-        width: 40px;
-        height: auto;
-        display: block;
-    }
-    #back-to-top:hover {
-        background-color: rgba(0, 163, 163, 0.5);
-    }
-    footer {
-        text-align: center;
-        padding: 20px;
-        margin-top: 30px;
-        background-color: #1a1a33;
-        color: #666666;
-        font-size: 0.85em;
-        border-top: 1px solid #005b5b;
-        transition: background-color 0.5s ease, color 0.5s ease, border-top-color 0.5s ease;
-    }
-    footer a.staff-link {
-        color: #00e6e6;
-        text-decoration: none;
-        margin: 0 10px;
-    }
-    footer a.staff-link:hover {
-        text-decoration: underline;
-    }
-    @media (max-width: 768px) {
-        body { padding-top: 110px; }
-        header { padding: 15px; }
-        header h2 { font-size: 1.1em; }
-        header p { font-size: 0.9em; }
-        #controls-bar {
-            padding: 8px 10px;
-            justify-content: center;
-            top: 70px;
-            flex-wrap: nowrap;
-            gap: 5px;
-            overflow-x: auto;
-        }
-        #controls-bar a, .live-chat-button, .patreon-button, #controls-bar .theme-switcher label, #controls-bar .theme-switcher select {
-            font-size: 0.7em;
-            padding: 3px 6px;
-        }
-         #controls-bar .theme-switcher select {
-            padding: 3px 16px 3px 5px;
-            background-position: calc(100% - 5px) center, calc(100% - 2px) center;
-            background-size: 3px 3px, 3px 3px;
-         }
-        main { padding: 0 15px; }
-        section h2, section h3 { font-size: 1.4em; }
-        section { padding: 20px; margin-bottom: 20px; }
-        .show { padding: 12px; }
-        .show h3 { font-size: 1em; }
-        .show p { white-space: normal; overflow: visible; text-overflow: clip; }
-        header p { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        #discord-chat-modal-content { max-width: 95%; padding: 15px; max-height: 80vh;}
-        #discord-chat-modal-content h2 { font-size: 1.4em; }
-        .discord-widget-container { height: 60vh; }
-        #back-to-top {
-            bottom: 80px;
-            right: 15px;
-        }
-        #back-to-top img {
-            width: 30px;
-        }
-    }
-    @media (max-width: 480px) {
-         body { padding-top: 95px; }
-         header { padding: 10px; }
-         header h2 { font-size: 0.9em; }
-         #controls-bar {
-            padding: 6px 5px;
-            justify-content: center;
-            top: 58px;
-            flex-wrap: nowrap;
-            gap: 3px;
-            overflow-x: auto;
-        }
-         #controls-bar a, .live-chat-button, .patreon-button, #controls-bar .theme-switcher label, #controls-bar .theme-switcher select {
-            font-size: 0.65em;
-            padding: 2px 4px;
-        }
-         #controls-bar .theme-switcher select {
-            padding: 2px 14px 2px 4px;
-            background-position: calc(100% - 5px) center, calc(100% - 2px) center;
-            background-size: 3px 3px, 3px 3px;
-         }
-        main { padding: 0 10px; }
-        section { padding: 15px; margin-bottom: 15px; }
-        section h2, section h3 { font-size: 1.2em; }
-         .iframe-container iframe { height: 500px; }
-         #tiktok-feed .iframe-container { height: 400px; }
-         #livestream .video-container { max-width: 100%; margin-left: 0; margin-right: 0; border-left: none; border-right: none; box-shadow: none; }
-         #livestream .video-container p { min-height: 0; padding: 10px; }
-         .show h3 { font-size: 0.9em; }
-         .show p { white-space: normal; overflow: visible; text-overflow: clip; }
-         #discord-chat-modal-content { padding: 10px; max-height: 75vh; }
-         #discord-chat-modal-content h2 { font-size: 1.2em; margin-bottom: 10px; }
-         .discord-modal-close { font-size: 1.8em; top: 5px; right: 10px; }
-         .discord-widget-container { height: 60vh; }
-         #back-to-top {
-            bottom: 70px;
-            right: 10px;
-         }
-         #back-to-top img {
-            width: 25px;
-         }
-    }
+    body.theme-riggin #controls-bar .theme-switcher label { color: #FFD700; }
+    body.theme-riggin #controls-bar .theme-switcher select option { background-color: #333333; color: #FFA500; }
+    body.theme-riggin .radio-player-container { background-color: #1a1a1a; border-color: #FF8C00; }
+    body.theme-riggin #wapa-stream-player { background-color: #333333 !important; border-color: #FFA500 !important; }
     </style>
 </head>
 <body class="theme-albright">
@@ -869,8 +682,6 @@
         const speed = 3;
         let animationInterval = null;
         
-        // JPlayer Initialization script removed, replaced with AStream Player logic below
-
         function setTheme(themeName) {
             document.body.className = document.body.className.replace(/theme-\S+/g, '').trim();
             document.body.classList.add('theme-' + themeName);
@@ -1040,6 +851,10 @@
          
         // START ASTREAM PLAYER INITIALIZATION SCRIPT (Now wrapped in window.onload)
         window.onload = function() {
+            // Restore theme after external player CSS loads, which fixes appearance
+            loadTheme();
+            
+            // Player Initialization
             new AudioStream('wapa-stream-player', {
                 // **REPLACE THIS WITH YOUR CURRENT NGROK HTTPS URL**
                 url: 'https://folksiest-don-nonfelicitously.ngrok-free.dev/waparadio', 
@@ -1054,6 +869,13 @@
                 auto_play: false, // Set to false to prevent mobile browser blocks
                 artwork: true 
             });
+            
+            // Re-run the button initialization after window loads
+            if (participateButton && participateButton.style.display === 'block') {
+                initializeButton();
+                if (animationInterval) clearInterval(animationInterval);
+                animationInterval = setInterval(updateButtonPosition, 30);
+            }
         };
         // END ASTREAM PLAYER INITIALIZATION SCRIPT
     </script>
