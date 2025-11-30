@@ -8,38 +8,26 @@
     <link rel="icon" href="wapabroadcastlogo.ico" type="image/x-icon">
     <script src="https://w.soundcloud.com/player/api.js"></script>
 
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
-    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
-
     <style>
-    /* PLYR THEME INTEGRATION */
-    /* This ensures the player matches your site's variables without breaking layout */
-    :root {
-        --plyr-color-main: #00a3a3; /* Default Accent */
-        --plyr-audio-controls-background: transparent;
-        --plyr-audio-control-color: #cccccc;
-    }
-    
-    /* Theme-Specific Player Colors */
-    body.theme-afterlounge { --plyr-color-main: #00e6e6; --plyr-audio-control-color: #00e6e6; }
-    body.theme-noire { --plyr-color-main: #ffffff; --plyr-audio-control-color: #ffffff; }
-    body.theme-darryl { --plyr-color-main: #8B0000; --plyr-audio-control-color: #f0f0f0; }
-    body.theme-mr-johnson { --plyr-color-main: #00ff00; --plyr-audio-control-color: #00ff00; }
-    body.theme-albright { --plyr-color-main: #ffc107; --plyr-audio-control-color: #ffc107; }
-    body.theme-riggin { --plyr-color-main: #FFA500; --plyr-audio-control-color: #FFA500; }
-
-    /* Custom Player Container Styling */
+    /* NATIVE PLAYER STYLING */
+    /* This makes the standard browser player look intentional and fit the box */
     .radio-player-container {
-        padding: 15px;
+        padding: 20px;
         background-color: #0a0a1a;
         border: 1px solid #008b8b;
         margin-bottom: 20px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        border-radius: 4px;
         transition: background-color 0.5s ease, border-color 0.5s ease;
+        text-align: center; /* Centers the player */
     }
     
-    /* Theme overrides for the container background/border */
+    audio {
+        width: 100%; /* Forces player to fill the box */
+        height: 40px;
+        outline: none;
+    }
+
+    /* THEME OVERRIDES FOR CONTAINER */
     body.theme-afterlounge .radio-player-container { background-color: rgba(26, 26, 51, 0.85); border-color: #008b8b; }
     body.theme-noire .radio-player-container { background-color: #0a0a0a; border-color: #333333; }
     body.theme-darryl .radio-player-container { background-color: rgba(64, 64, 64, 0.85); border-color: #8B0000; }
@@ -267,7 +255,6 @@
     body.theme-mr-johnson #controls-bar a,
     body.theme-mr-johnson .live-chat-button,
     body.theme-mr-johnson .patreon-button,
-    body.theme-mr-johnson #controls-bar .theme-switcher select,
     body.theme-mr-johnson .header-toggle label {
         color: #00ff00;
         border-color: #008000;
@@ -326,7 +313,6 @@
     body.theme-albright #controls-bar a,
     body.theme-albright .live-chat-button,
     body.theme-albright .patreon-button,
-    body.theme-albright #controls-bar .theme-switcher select,
     body.theme-albright .header-toggle label {
         color: #ffc107;
         border-color: #b46a00;
@@ -354,7 +340,6 @@
     body.theme-riggin #controls-bar a,
     body.theme-riggin .live-chat-button,
     body.theme-riggin .patreon-button,
-    body.theme-riggin #controls-bar .theme-switcher select,
     body.theme-riggin .header-toggle label {
         color: #FFA500;
         border-color: #FF8C00;
@@ -1009,8 +994,9 @@
             <p>Tune in to the WAPA 24/7 radio stream, featuring the best in midwest emo, indie rock, and lo-fi vibes. Perfect for study, work, or just tuning out.</p>
             
             <div class="radio-player-container">
-                <audio id="player" controls>
-                    <source src="d0bca817d0316e.lhr.life/waparadio" type="audio/mpeg">
+                <audio controls>
+                    <source src="https://d0bca817d0316e.lhr.life/waparadio" type="audio/mpeg">
+                    Your browser does not support the audio element.
                 </audio>
             </div>
         </section>
@@ -1230,11 +1216,6 @@
                     top: 0,
                     behavior: 'smooth'
                 });
-            });
-            
-            // INITIALIZE PLYR PLAYER
-            const player = new Plyr('#player', {
-                controls: ['play', 'mute', 'volume', 'current-time']
             });
         });
          window.addEventListener('resize', () => {
