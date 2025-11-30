@@ -8,10 +8,46 @@
     <link rel="icon" href="wapabroadcastlogo.ico" type="image/x-icon">
     <script src="https://w.soundcloud.com/player/api.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link href="http://www.jplayer.org/latest/skin/blue.monday/css/jplayer.blue.monday.min.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="http://www.jplayer.org/latest/dist/jplayer/jquery.jplayer.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+
     <style>
+    /* PLYR THEME INTEGRATION */
+    /* This ensures the player matches your site's variables without breaking layout */
+    :root {
+        --plyr-color-main: #00a3a3; /* Default Accent */
+        --plyr-audio-controls-background: transparent;
+        --plyr-audio-control-color: #cccccc;
+    }
+    
+    /* Theme-Specific Player Colors */
+    body.theme-afterlounge { --plyr-color-main: #00e6e6; --plyr-audio-control-color: #00e6e6; }
+    body.theme-noire { --plyr-color-main: #ffffff; --plyr-audio-control-color: #ffffff; }
+    body.theme-darryl { --plyr-color-main: #8B0000; --plyr-audio-control-color: #f0f0f0; }
+    body.theme-mr-johnson { --plyr-color-main: #00ff00; --plyr-audio-control-color: #00ff00; }
+    body.theme-albright { --plyr-color-main: #ffc107; --plyr-audio-control-color: #ffc107; }
+    body.theme-riggin { --plyr-color-main: #FFA500; --plyr-audio-control-color: #FFA500; }
+
+    /* Custom Player Container Styling */
+    .radio-player-container {
+        padding: 15px;
+        background-color: #0a0a1a;
+        border: 1px solid #008b8b;
+        margin-bottom: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+        transition: background-color 0.5s ease, border-color 0.5s ease;
+    }
+    
+    /* Theme overrides for the container background/border */
+    body.theme-afterlounge .radio-player-container { background-color: rgba(26, 26, 51, 0.85); border-color: #008b8b; }
+    body.theme-noire .radio-player-container { background-color: #0a0a0a; border-color: #333333; }
+    body.theme-darryl .radio-player-container { background-color: rgba(64, 64, 64, 0.85); border-color: #8B0000; }
+    body.theme-mr-johnson .radio-player-container { background-color: rgba(42, 0, 85, 0.85); border-color: #008000; }
+    body.theme-albright .radio-player-container { background-color: rgba(74, 57, 46, 0.85); border-color: #b46a00; }
+    body.theme-riggin .radio-player-container { background-color: #1a1a1a; border-color: #FF8C00; }
+
+    /* Standard Site CSS */
     body {
         font-family: 'Arial', sans-serif;
         margin: 0;
@@ -134,33 +170,6 @@
         background-color: #00e6e6;
         color: #1a1a33;
     }
-    /* --- JPLAYER STYLES OVERRIDE (for better theme compatibility) --- */
-    .radio-player-container {
-        padding: 20px;
-        background-color: #0a0a1a;
-        border: 1px solid #008b8b;
-        margin-bottom: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        transition: background-color 0.5s ease, border-color 0.5s ease;
-    }
-    /* Hide the original controls, as we're using JPlayer's custom GUI */
-    .radio-player-container audio {
-        display: none; 
-    }
-    /* JPlayer Blue Monday Theme Styling (adjusting colors for your themes) */
-    .jp-audio, .jp-title, .jp-interface {
-        background-color: #2a2a4d !important;
-        border-color: #00e6e6 !important;
-        color: #cccccc !important;
-    }
-    .jp-interface button {
-        color: #00e6e6 !important;
-    }
-    .jp-volume-max {
-         background-color: transparent !important;
-         color: #00e6e6 !important;
-    }
-    /* End of JPLAYER STYLES OVERRIDE */
 
     body.theme-afterlounge {
         background-image: url('afterlounge.png');
@@ -189,13 +198,6 @@
     }
     body.theme-afterlounge #controls-bar .theme-switcher label { color: #cccccc; }
     body.theme-afterlounge #controls-bar .theme-switcher select option { background-color: #1a1a33; color: #00e6e6; }
-    body.theme-afterlounge .radio-player-container { background-color: rgba(26, 26, 51, 0.85); border-color: #008b8b; }
-    body.theme-afterlounge .radio-player-container .jp-audio, 
-    body.theme-afterlounge .radio-player-container .jp-title, 
-    body.theme-afterlounge .radio-player-container .jp-interface { 
-        background-color: #1a1a33 !important; 
-        border-color: #00e6e6 !important; 
-    }
 
     body.theme-noire {
         background-color: #000000;
@@ -221,14 +223,6 @@
     }
      body.theme-noire #controls-bar .theme-switcher label { color: #e0e0e0; }
      body.theme-noire #controls-bar .theme-switcher select option { background-color: #111111; color: #ffffff; }
-     body.theme-noire .radio-player-container { background-color: #0a0a0a; border-color: #333333; }
-     body.theme-noire .radio-player-container .jp-audio,
-     body.theme-noire .radio-player-container .jp-title,
-     body.theme-noire .radio-player-container .jp-interface {
-        background-color: #1a1a1a !important;
-        border-color: #ffffff !important;
-        color: #ffffff !important;
-     }
 
     body.theme-darryl {
         background-color: #404040;
@@ -258,14 +252,6 @@
     }
     body.theme-darryl #controls-bar .theme-switcher label { color: #cccccc; }
     body.theme-darryl #controls-bar .theme-switcher select option { background-color: #505050; color: #f0f0f0; }
-    body.theme-darryl .radio-player-container { background-color: rgba(64, 64, 64, 0.85); border-color: #8B0000; }
-    body.theme-darryl .radio-player-container .jp-audio,
-    body.theme-darryl .radio-player-container .jp-title,
-    body.theme-darryl .radio-player-container .jp-interface {
-        background-color: #505050 !important;
-        border-color: #8B0000 !important;
-        color: #f0f0f0 !important;
-    }
 
     body.theme-mr-johnson {
         color: #00cc00;
@@ -295,15 +281,31 @@
     }
     body.theme-mr-johnson #controls-bar .theme-switcher label { color: #00aa00; }
     body.theme-mr-johnson #controls-bar .theme-switcher select option { background-color: #3a0066; color: #00ff00; }
-    body.theme-mr-johnson .radio-player-container { background-color: rgba(42, 0, 85, 0.85); border-color: #008000; }
-    body.theme-mr-johnson .radio-player-container .jp-audio,
-    body.theme-mr-johnson .radio-player-container .jp-title,
-    body.theme-mr-johnson .radio-player-container .jp-interface {
-        background-color: #3a0066 !important;
-        border-color: #00ff00 !important;
-        color: #00ff00 !important;
+    body.theme-mr-johnson section {
+        background: linear-gradient(rgba(42, 0, 85, 0.85), rgba(42, 0, 85, 0.85)), url('purpmarb.png') center center / cover no-repeat;
+        border-color: #008000;
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+        color: #00cc00;
     }
-
+    body.theme-mr-johnson section h2, body.theme-mr-johnson section h3 { color: #00ff00; border-bottom-color: #008000; }
+    body.theme-mr-johnson header p { color: #00aa00; }
+    body.theme-mr-johnson .iframe-container { border-color: #008000; background-color: rgba(42, 0, 85, 0.85); }
+    body.theme-mr-johnson .iframe-container p { color: #00aa00; }
+    body.theme-mr-johnson #livestream .video-container { border-color: #00ff00; box-shadow: 0 0 10px rgba(0,255,0,0.5); }
+    body.theme-mr-johnson .show { background-color: rgba(58, 0, 102, 0.9); border-left-color: #00ff00; }
+    body.theme-mr-johnson .show h3 { color: #32cd32; }
+    body.theme-mr-johnson .show p { color: #00dd00; }
+    body.theme-mr-johnson footer { background-color: #2a0055; color: #00aa00; border-top-color: #008000; }
+    body.theme-mr-johnson footer a.staff-link { color: #00ff00; }
+    body.theme-mr-johnson #participate-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
+    body.theme-mr-johnson #participate-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
+    body.theme-mr-johnson #popup-content { background-color: #2a0055; border-color: #00ff00; box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); color: #00dd00; }
+    body.theme-mr-johnson #popup-yes-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
+    body.theme-mr-johnson #popup-yes-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
+    body.theme-mr-johnson #discord-chat-modal-content { background-color: rgba(42,0,85,0.97); border-color: #00ff00; box-shadow: 0 5px 25px rgba(0,255,0,0.5); }
+    body.theme-mr-johnson #discord-chat-modal-content h2 { color: #00ff00; border-bottom-color: #008000; }
+    body.theme-mr-johnson .discord-modal-close { color: #00ff00; }
+    body.theme-mr-johnson .discord-modal-close:hover { color: #32cd32; }
     body.theme-albright {
         color: #cdc8b1;
         background-image: url('tp2.png');
@@ -339,13 +341,6 @@
     body.theme-albright #controls-bar .theme-switcher label { color: #a1887f; }
     body.theme-albright #controls-bar .theme-switcher select option { background-color: #6f4f2d; color: #ffc107; }
     body.theme-albright .radio-player-container { background-color: rgba(74, 57, 46, 0.85); border-color: #b46a00; }
-    body.theme-albright .radio-player-container .jp-audio,
-    body.theme-albright .radio-player-container .jp-title,
-    body.theme-albright .radio-player-container .jp-interface {
-        background-color: #6f4f2d !important;
-        border-color: #ffc107 !important;
-        color: #ffc107 !important;
-    }
 
     body.theme-riggin {
         color: #FFA500;
@@ -374,13 +369,6 @@
     body.theme-riggin #controls-bar .theme-switcher label { color: #FFD700; }
     body.theme-riggin #controls-bar .theme-switcher select option { background-color: #333333; color: #FFA500; }
     body.theme-riggin .radio-player-container { background-color: #1a1a1a; border-color: #FF8C00; }
-    body.theme-riggin .radio-player-container .jp-audio,
-    body.theme-riggin .radio-player-container .jp-title,
-    body.theme-riggin .radio-player-container .jp-interface {
-        background-color: #333333 !important;
-        border-color: #FFA500 !important;
-        color: #FFA500 !important;
-    }
     
     body.theme-afterlounge section {
         background-color: rgba(26, 26, 51, 0.85);
@@ -473,7 +461,6 @@
     body.theme-mr-johnson #controls-bar a,
     body.theme-mr-johnson .live-chat-button,
     body.theme-mr-johnson .patreon-button,
-    body.theme-mr-johnson #controls-bar .theme-switcher select,
     body.theme-mr-johnson .header-toggle label {
         color: #00ff00;
         border-color: #008000;
@@ -1022,46 +1009,11 @@
             <p>Tune in to the WAPA 24/7 radio stream, featuring the best in midwest emo, indie rock, and lo-fi vibes. Perfect for study, work, or just tuning out.</p>
             
             <div class="radio-player-container">
-                <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
-                    <div class="jp-type-single">
-                        <div id="jquery_jplayer_1" class="jp-jplayer"></div>
-                        
-                        <div class="jp-gui jp-interface">
-                            <div class="jp-controls">
-                                <button class="jp-play" role="button" tabindex="0">play</button>
-                                <button class="jp-stop" role="button" tabindex="0">stop</button>
-                            </div>
-                            
-                            <div class="jp-title">
-                                <ul>
-                                    <li>WAPA 24/7 Stream (Online)</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="jp-volume-controls">
-                                <button class="jp-mute" role="button" tabindex="0">mute</button>
-                                <button class="jp-volume-max" role="button" tabindex="0">max volume</button>
-                                <div class="jp-volume-bar">
-                                    <div class="jp-volume-bar-value"></div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="jp-details">
-                            <div class="jp-title" aria-label="title">&nbsp;</div>
-                        </div>
-                        
-                        <div class="jp-no-solution">
-                            <span>Update Required</span>
-                            To play the media, you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flash/" target="_blank">Flash plugin</a>.
-                            <br>
-                            Alternatively, access the stream directly: 
-                            <a href="https://folksiest-don-nonfelicitously.ngrok-free.dev/waparadio.m3u">WAPA Radio (M3U)</a>
-                        </div>
-                    </div>
-                </div>
+                <audio id="player" controls>
+                    <source src="https://folksiest-don-nonfelicitously.ngrok-free.dev/waparadio" type="audio/mp3" />
+                </audio>
             </div>
-            </section>
+        </section>
         <section id="shows">
             <h2>[lineup]</h2>
             <p>Explore the programming lineup on Willow Arms Public Access:</p>
@@ -1279,6 +1231,11 @@
                     behavior: 'smooth'
                 });
             });
+            
+            // INITIALIZE PLYR PLAYER
+            const player = new Plyr('#player', {
+                controls: ['play', 'mute', 'volume', 'current-time']
+            });
         });
          window.addEventListener('resize', () => {
               if (participateButton && participateButton.style.display === 'block') {
@@ -1289,27 +1246,6 @@
                    participateButton.style.left = buttonX + 'px';
                    participateButton.style.top = buttonY + 'px';
               }
-         });
-         
-         // JPLAYER INITIALIZATION SCRIPT
-         $(document).ready(function(){
-             $("#jquery_jplayer_1").jPlayer({
-                 ready: function () {
-                     $(this).jPlayer("setMedia", {
-                         // **REPLACE THIS WITH YOUR CURRENT NGROK HTTPS URL**
-                         mp3: "https://folksiest-don-nonfelicitously.ngrok-free.dev/waparadio" 
-                     }).jPlayer("play"); // Optional: Auto-play the stream
-                 },
-                 swfPath: "http://www.jplayer.org/latest/dist/jplayer",
-                 supplied: "mp3",
-                 wmode: "window",
-                 useStateClassSkin: true,
-                 autoBlur: false,
-                 smoothPlayBar: true,
-                 keyEnabled: true,
-                 toggleDuration: true,
-                 remainingDuration: true
-             });
          });
     </script>
 </body>
