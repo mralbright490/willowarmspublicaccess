@@ -130,6 +130,24 @@
         background-color: #00e6e6;
         color: #1a1a33;
     }
+    /* --- NEW AUDIO PLAYER CSS --- */
+    .radio-player-container {
+        padding: 20px;
+        background-color: #0a0a1a;
+        border: 1px solid #008b8b;
+        margin-bottom: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.5s ease, border-color 0.5s ease;
+    }
+    .radio-player-container audio {
+        width: 100%;
+        background-color: #2a2a4d; /* Player background */
+        border: 1px solid #00e6e6;
+        border-radius: 4px;
+        transition: background-color 0.5s ease, border-color 0.5s ease;
+    }
+    /* End of NEW Audio Player CSS */
+
     body.theme-afterlounge {
         background-image: url('afterlounge.png');
         background-size: cover;
@@ -157,6 +175,9 @@
     }
     body.theme-afterlounge #controls-bar .theme-switcher label { color: #cccccc; }
     body.theme-afterlounge #controls-bar .theme-switcher select option { background-color: #1a1a33; color: #00e6e6; }
+    body.theme-afterlounge .radio-player-container { background-color: rgba(26, 26, 51, 0.85); border-color: #008b8b; }
+    body.theme-afterlounge .radio-player-container audio { background-color: #1a1a33; border-color: #00e6e6; }
+
     body.theme-noire {
         background-color: #000000;
         color: #ffffff;
@@ -181,6 +202,9 @@
     }
      body.theme-noire #controls-bar .theme-switcher label { color: #e0e0e0; }
      body.theme-noire #controls-bar .theme-switcher select option { background-color: #111111; color: #ffffff; }
+     body.theme-noire .radio-player-container { background-color: #0a0a0a; border-color: #333333; }
+     body.theme-noire .radio-player-container audio { background-color: #1a1a1a; border-color: #ffffff; }
+
     body.theme-darryl {
         background-color: #404040;
         color: #f0f0f0;
@@ -209,6 +233,9 @@
     }
     body.theme-darryl #controls-bar .theme-switcher label { color: #cccccc; }
     body.theme-darryl #controls-bar .theme-switcher select option { background-color: #505050; color: #f0f0f0; }
+    body.theme-darryl .radio-player-container { background-color: rgba(64, 64, 64, 0.85); border-color: #8B0000; }
+    body.theme-darryl .radio-player-container audio { background-color: #505050; border-color: #8B0000; }
+
     body.theme-mr-johnson {
         color: #00cc00;
         background-image: url('garage1.png');
@@ -237,6 +264,9 @@
     }
     body.theme-mr-johnson #controls-bar .theme-switcher label { color: #00aa00; }
     body.theme-mr-johnson #controls-bar .theme-switcher select option { background-color: #3a0066; color: #00ff00; }
+    body.theme-mr-johnson .radio-player-container { background-color: rgba(42, 0, 85, 0.85); border-color: #008000; }
+    body.theme-mr-johnson .radio-player-container audio { background-color: #3a0066; border-color: #00ff00; }
+
     body.theme-albright {
         color: #cdc8b1;
         background-image: url('tp2.png');
@@ -271,6 +301,9 @@
     }
     body.theme-albright #controls-bar .theme-switcher label { color: #a1887f; }
     body.theme-albright #controls-bar .theme-switcher select option { background-color: #6f4f2d; color: #ffc107; }
+    body.theme-albright .radio-player-container { background-color: rgba(74, 57, 46, 0.85); border-color: #b46a00; }
+    body.theme-albright .radio-player-container audio { background-color: #6f4f2d; border-color: #ffc107; }
+
     body.theme-riggin {
         color: #FFA500;
         background-color: #000000;
@@ -297,6 +330,9 @@
     }
     body.theme-riggin #controls-bar .theme-switcher label { color: #FFD700; }
     body.theme-riggin #controls-bar .theme-switcher select option { background-color: #333333; color: #FFA500; }
+    body.theme-riggin .radio-player-container { background-color: #1a1a1a; border-color: #FF8C00; }
+    body.theme-riggin .radio-player-container audio { background-color: #333333; border-color: #FFA500; }
+    
     body.theme-afterlounge section {
         background-color: rgba(26, 26, 51, 0.85);
         color: #ffffff;
@@ -897,7 +933,9 @@
         <div id="discord-chat-modal-content">
             <span class="discord-modal-close" id="discordModalClose">&times;</span>
             <h2>WAPA Live Chat</h2>
-            <iframe src="https://discord.com/widget?id=1224858781863907419&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+            <div class="discord-widget-container">
+                <iframe src="https://discord.com/widget?id=1224858781863907419&theme=dark" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+            </div>
         </div>
     </div>
     <header>
@@ -905,8 +943,7 @@
         <p>Indie Online Broadcasts</p>
     </header>
     <div id="controls-bar">
-        <a href="#livestream">Tune In</a>
-        <a href="#shows">Lineup</a>
+        <a href="#livestream">Tune In (Video)</a> <a href="#radio-stream">Tune In (Radio)</a> <a href="#shows">Lineup</a>
         <a href="#merch">Merch</a>
         <a href="#tiktok-feed">TikToks</a>
         <a href="#links-embed">Links</a>
@@ -919,16 +956,28 @@
                  <option value="noire">Noire</option>
                  <option value="darryl">Darryl</option>
                  <option value="mr-johnson">Mr. Johnson</option>
-                 <option value="albright">Albright</option>
+                 <option value="albright" selected>Albright</option>
                  <option value="riggin">Riggin</option>
              </select>
          </div>
     </div>
     <main>
         <section id="livestream">
-            <h2>[tune in]</h2>
-            <div class="video-container">
+            <h2>[tune in] Video Stream</h2> <div class="video-container">
                  <iframe src="https://player.twitch.tv/?channel=willowarmspublicaccess&parent=wapaccess.org" height="720" width="1280" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
+            </div>
+        </section>
+        
+        <section id="radio-stream">
+            <h2>[tune in] Radio Stream</h2>
+            <p>Tune in to the WAPA 24/7 radio stream, featuring the best in midwest emo, indie rock, and lo-fi vibes. Perfect for study, work, or just tuning out.</p>
+            <div class="radio-player-container">
+                <audio controls autoplay preload="none">
+                    <source src="http://radio.wapaccess.org:8000/waparadio" type="audio/mpeg">
+                    
+                    Your browser does not support the audio element. Please try accessing the stream directly: 
+                    <a href="http://radio.wapaccess.org:8000/waparadio.m3u">WAPA Radio (M3U)</a>
+                </audio>
             </div>
         </section>
         <section id="shows">
@@ -969,7 +1018,7 @@
             <h2>[links]</h2>
             <div class="iframe-container">
                 <iframe src="https://taplink.cc/wapaccess">
-                    <p>Your browser does not support iframes. Please visit our <a href="https://taplink.cc/wapaccess">Links Page</a> directly.</p>
+                    <p>Your browser does support iframes. Please visit our <a href="https://taplink.cc/wapaccess">Links Page</a> directly.</p>
                 </iframe>
             </div>
         </section>
