@@ -9,8 +9,8 @@
     <script src="https://w.soundcloud.com/player/api.js"></script>
 
     <style>
-    /* NATIVE PLAYER STYLING */
-    /* This makes the standard browser player look intentional and fit the box */
+    /* PLAYER CONTAINER STYLING */
+    /* This frames the Caster.fm widget nicely within your theme */
     .radio-player-container {
         padding: 20px;
         background-color: #0a0a1a;
@@ -18,13 +18,8 @@
         margin-bottom: 20px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         transition: background-color 0.5s ease, border-color 0.5s ease;
-        text-align: center; /* Centers the player */
-    }
-    
-    audio {
-        width: 100%; /* Forces player to fill the box */
-        height: 40px;
-        outline: none;
+        text-align: center;
+        min-height: 100px; /* Ensures space while widget loads */
     }
 
     /* THEME OVERRIDES FOR CONTAINER */
@@ -484,49 +479,68 @@
     body.theme-mr-johnson #discord-chat-modal-content h2 { color: #00ff00; border-bottom-color: #008000; }
     body.theme-mr-johnson .discord-modal-close { color: #00ff00; }
     body.theme-mr-johnson .discord-modal-close:hover { color: #32cd32; }
-    body.theme-albright section {
-         background:
-           linear-gradient(rgba(74, 57, 46, 0.7), rgba(74, 57, 46, 0.7)),
-           url('goldtext.png') center center / cover no-repeat;
-         border: 1px solid #b46a00;
-         box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
-         color: #cdc8b1;
+    body.theme-albright {
+        color: #cdc8b1;
+        background-image: url('tp2.png');
+        background-color: #281c12;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
     }
-    body.theme-albright section h2, body.theme-albright section h3 { color: #ffc107; border-bottom-color: #b46a00; }
-    body.theme-albright header p { color: #a1887f; }
-    body.theme-albright .iframe-container { border-color: #b46a00; background-color: rgba(74, 57, 46, 0.85); }
-    body.theme-albright .iframe-container p { color: #a1887f; }
-    body.theme-albright #livestream .video-container { border-color: #ffc107; box-shadow: 0 0 10px rgba(255,193,7,0.6); }
-    body.theme-albright .show { background-color: rgba(111, 79, 45, 0.9); border-left: 4px solid #cd7f32; }
-    body.theme-albright .show h3 { color: #ffd700; }
-    body.theme-albright .show p { color: #eee; }
-    body.theme-albright footer { background-color: rgba(28, 18, 11, 0.9); color: #a1887f; border-top: 1px solid #4a392e; }
-    body.theme-albright footer a.staff-link { color: #ffc107; }
-    body.theme-albright #participate-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
-    body.theme-albright #participate-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
-    body.theme-albright #popup-content { background-color: rgba(74, 57, 46, 0.95); border-color: #ffc107; box-shadow: 0 0 20px rgba(255, 193, 7, 0.6); color: #cdc8b1; }
-    body.theme-albright #popup-yes-button { background-color: #b46a00; color: #281c12; border-color: #cd7f32; }
-    body.theme-albright #popup-yes-button:hover { background-color: #cd7f32; color: #4a392e; border-color: #ffd700; }
-    body.theme-albright #discord-chat-modal-content { background-color: rgba(74,57,46,0.97); border-color: #ffc107; box-shadow: 0 5px 25px rgba(255,193,7,0.6); }
-    body.theme-albright #discord-chat-modal-content h2 { color: #ffc107; border-bottom-color: #b46a00; }
-    body.theme-albright .discord-modal-close { color: #ffc107; }
-    body.theme-albright .discord-modal-close:hover { color: #ffd700; }
-    body.theme-riggin section { background: #1a1a1a; border: 1px solid #FF8C00; box-shadow: 5px 5px 15px rgba(50,50,50,0.4); color: #FFA500;}
-    body.theme-riggin section h2, body.theme-riggin section h3 { color: #FFA500; border-bottom-color: #FF8C00; }
-    body.theme-riggin header p { color: #FFD700; }
-    body.theme-riggin .iframe-container { border-color: #FF8C00; background-color: #1a1a1a; }
-    body.theme-riggin .iframe-container p { color: #FFD700; }
-    body.theme-riggin #livestream .video-container { border-color: #FFA500; box-shadow: 0 0 10px rgba(255,165,0,0.6); }
-    body.theme-riggin .show { background-color: #333333; border-left: 4px solid #FFA500; }
-    body.theme-riggin .show h3 { color: #FFD700; }
-    body.theme-riggin .show p { color: #cccccc; }
-    body.theme-riggin footer { background-color: #1a1a1a; color: #FFD700; border-top: 1px solid #FF8C00; }
-    body.theme-riggin footer a.staff-link { color: #FFA500; }
-    body.theme-riggin #participate-button { background-color: #FFA500; color: #000000; border-color: #FF8C00; }
-    body.theme-riggin #participate-button:hover { background-color: #FF8C00; color: #000000; border-color: #FFA500; }
-    body.theme-riggin #popup-content { background-color: #1a1a1a; border-color: #FFA500; box-shadow: 0 0 20px rgba(255, 165, 0, 0.6); color: #FFA500; }
-    body.theme-riggin #popup-yes-button { background-color: #FFA500; color: #000000; border-color: #FF8C00; }
-    body.theme-riggin #popup-yes-button:hover { background-color: #FF8C00; color: #000000; border-color: #FFA500; }
+    body.theme-albright header {
+        background-color: rgba(28, 18, 11, 0.9);
+        border-bottom: 4px solid #b46a00;
+        color: #ffc107;
+    }
+    body.theme-albright header h2,
+    body.theme-albright header p { color: #ffc107; }
+    body.theme-albright #controls-bar { background-color: rgba(90, 70, 55, 0.9); border-bottom-color: #b46a00; }
+    body.theme-albright #controls-bar a,
+    body.theme-albright .live-chat-button,
+    body.theme-albright .patreon-button,
+    body.theme-albright .header-toggle label {
+        color: #ffc107;
+        border-color: #b46a00;
+        background-color: #6f4f2d;
+    }
+    body.theme-albright #controls-bar a:hover,
+    body.theme-albright .live-chat-button:hover,
+    body.theme-albright .patreon-button:hover {
+        background-color: #ffc107;
+        color: #6f4f2d;
+    }
+    body.theme-albright #controls-bar .theme-switcher label { color: #a1887f; }
+    body.theme-albright #controls-bar .theme-switcher select option { background-color: #6f4f2d; color: #ffc107; }
+    body.theme-albright .radio-player-container { background-color: rgba(74, 57, 46, 0.85); border-color: #b46a00; }
+
+    body.theme-riggin {
+        color: #FFA500;
+        background-color: #000000;
+        background-image: none;
+    }
+    body.theme-riggin header { background-color: #1a1a1a; border-bottom: 4px solid #FF8C00; color: #FFA500; }
+    body.theme-riggin header h2,
+    body.theme-riggin header p { color: #FFA500; }
+    body.theme-riggin #controls-bar { background-color: #222222; border-bottom-color: #FF8C00; }
+    body.theme-riggin #controls-bar a,
+    body.theme-riggin .live-chat-button,
+    body.theme-riggin .patreon-button,
+    body.theme-riggin .header-toggle label {
+        color: #FFA500;
+        border-color: #FF8C00;
+        background-color: #333333;
+    }
+    body.theme-riggin #controls-bar a:hover,
+    body.theme-riggin .live-chat-button:hover,
+    body.theme-riggin .patreon-button:hover {
+        background-color: #FFA500;
+        color: #333333;
+    }
+    body.theme-riggin #controls-bar .theme-switcher label { color: #FFD700; }
+    body.theme-riggin #controls-bar .theme-switcher select option { background-color: #333333; color: #FFA500; }
+    body.theme-riggin .radio-player-container { background-color: #1a1a1a; border-color: #FF8C00; }
+    
     main {
         max-width: 1100px;
         margin: 0 auto;
@@ -994,12 +1008,9 @@
             <p>Tune in to the WAPA 24/7 radio stream, featuring the best in midwest emo, indie rock, and lo-fi vibes. Perfect for study, work, or just tuning out.</p>
             
             <div class="radio-player-container">
-                <audio controls>
-                    <source src="https://sheimslazi5g.share.zrok.io/waparadio" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-        </section>
+               <div data-type="newStreamPlayer" data-publicToken="9ae856dc-1f16-44ef-8074-425622184dea" data-theme="dark" data-color="e81e4d" data-channelId="a07c0478-acb3-4fe1-b175-4daa5317601f" data-rendered="false" class="cstrEmbed"><a href="https://www.caster.fm">Shoutcast Hosting</a> <a href="https://www.caster.fm">Stream Hosting</a> <a href="https://www.caster.fm">Radio Server Hosting</a></div><script src="//cdn.cloud.caster.fm//widgets/embed.js"></script>
+                </div>
+            </section>
         <section id="shows">
             <h2>[lineup]</h2>
             <p>Explore the programming lineup on Willow Arms Public Access:</p>
