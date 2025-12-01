@@ -9,8 +9,8 @@
     <script src="https://w.soundcloud.com/player/api.js"></script>
 
     <style>
-    /* PLAYER CONTAINER STYLING */
-    /* This frames the Caster.fm widget nicely within your theme */
+    /* --- RADIO PLAYER CONTAINER STYLING --- */
+    /* Frames the Caster.fm widget */
     .radio-player-container {
         padding: 20px;
         background-color: #0a0a1a;
@@ -19,18 +19,18 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         transition: background-color 0.5s ease, border-color 0.5s ease;
         text-align: center;
-        min-height: 100px; /* Ensures space while widget loads */
+        min-height: 150px; /* Slight height increase to accommodate widget */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    /* Hide the default Caster.fm text links to keep it clean */
+    .cstrEmbed a {
+        display: none !important;
     }
 
-    /* THEME OVERRIDES FOR CONTAINER */
-    body.theme-afterlounge .radio-player-container { background-color: rgba(26, 26, 51, 0.85); border-color: #008b8b; }
-    body.theme-noire .radio-player-container { background-color: #0a0a0a; border-color: #333333; }
-    body.theme-darryl .radio-player-container { background-color: rgba(64, 64, 64, 0.85); border-color: #8B0000; }
-    body.theme-mr-johnson .radio-player-container { background-color: rgba(42, 0, 85, 0.85); border-color: #008000; }
-    body.theme-albright .radio-player-container { background-color: rgba(74, 57, 46, 0.85); border-color: #b46a00; }
-    body.theme-riggin .radio-player-container { background-color: #1a1a1a; border-color: #FF8C00; }
-
-    /* Standard Site CSS */
+    /* --- STANDARD SITE CSS --- */
     body {
         font-family: 'Arial', sans-serif;
         margin: 0;
@@ -154,6 +154,8 @@
         color: #1a1a33;
     }
 
+    /* --- THEMES --- */
+    /* Theme: AfterLounge */
     body.theme-afterlounge {
         background-image: url('afterlounge.png');
         background-size: cover;
@@ -162,385 +164,77 @@
         background-position: center center;
         background-color: #0c0c1a;
     }
-    body.theme-afterlounge header h2,
-    body.theme-afterlounge header p { color: #00a3a3; }
-    body.theme-afterlounge #controls-bar a,
-    body.theme-afterlounge .live-chat-button,
-    body.theme-afterlounge .patreon-button,
-    body.theme-afterlounge #controls-bar .theme-switcher select,
-    body.theme-afterlounge .header-toggle label {
-        color: #00e6e6;
-        border-color: #00a3a3;
-        background-color: #1a1a33;
-    }
-    body.theme-afterlounge #controls-bar a:hover,
-    body.theme-afterlounge .live-chat-button:hover,
-    body.theme-afterlounge .patreon-button:hover {
-        background-color: #00e6e6;
-        color: #1a1a33;
-    }
+    body.theme-afterlounge header h2, body.theme-afterlounge header p { color: #00a3a3; }
+    body.theme-afterlounge #controls-bar a, body.theme-afterlounge .live-chat-button, body.theme-afterlounge .patreon-button, body.theme-afterlounge #controls-bar .theme-switcher select { color: #00e6e6; border-color: #00a3a3; background-color: #1a1a33; }
+    body.theme-afterlounge #controls-bar a:hover, body.theme-afterlounge .live-chat-button:hover, body.theme-afterlounge .patreon-button:hover { background-color: #00e6e6; color: #1a1a33; }
     body.theme-afterlounge #controls-bar .theme-switcher label { color: #cccccc; }
     body.theme-afterlounge #controls-bar .theme-switcher select option { background-color: #1a1a33; color: #00e6e6; }
+    body.theme-afterlounge .radio-player-container { background-color: rgba(26, 26, 51, 0.85); border-color: #008b8b; }
 
-    body.theme-noire {
-        background-color: #000000;
-        color: #ffffff;
-        background-image: none;
-    }
-    body.theme-noire header h2,
-    body.theme-noire header p { color: #ffffff; }
-    body.theme-noire #controls-bar a,
-    body.theme-noire .live-chat-button,
-    body.theme-noire .patreon-button,
-    body.theme-noire #controls-bar .theme-switcher select,
-    body.theme-noire .header-toggle label {
-        color: #ffffff;
-        border-color: #333333;
-        background-color: #111111;
-    }
-    body.theme-noire #controls-bar a:hover,
-    body.theme-noire .live-chat-button:hover,
-    body.theme-noire .patreon-button:hover {
-        background-color: #ffffff;
-        color: #1a1a1a;
-    }
-     body.theme-noire #controls-bar .theme-switcher label { color: #e0e0e0; }
-     body.theme-noire #controls-bar .theme-switcher select option { background-color: #111111; color: #ffffff; }
+    /* Theme: Noire */
+    body.theme-noire { background-color: #000000; color: #ffffff; background-image: none; }
+    body.theme-noire header h2, body.theme-noire header p { color: #ffffff; }
+    body.theme-noire #controls-bar a, body.theme-noire .live-chat-button, body.theme-noire .patreon-button, body.theme-noire #controls-bar .theme-switcher select { color: #ffffff; border-color: #333333; background-color: #111111; }
+    body.theme-noire #controls-bar a:hover, body.theme-noire .live-chat-button:hover, body.theme-noire .patreon-button:hover { background-color: #ffffff; color: #1a1a1a; }
+    body.theme-noire #controls-bar .theme-switcher label { color: #e0e0e0; }
+    body.theme-noire #controls-bar .theme-switcher select option { background-color: #111111; color: #ffffff; }
+    body.theme-noire .radio-player-container { background-color: #0a0a0a; border-color: #333333; }
 
-    body.theme-darryl {
-        background-color: #404040;
-        color: #f0f0f0;
-        background-image: url('darryl-bg.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center center;
-    }
-    body.theme-darryl header h2,
-    body.theme-darryl header p { color: #f0f0f0; }
-    body.theme-darryl #controls-bar a,
-    body.theme-darryl .live-chat-button,
-    body.theme-darryl .patreon-button,
-    body.theme-darryl #controls-bar .theme-switcher select,
-    body.theme-darryl .header-toggle label {
-        color: #f0f0f0;
-        border-color: #8B0000;
-        background-color: #505050;
-    }
-    body.theme-darryl #controls-bar a:hover,
-    body.theme-darryl .live-chat-button:hover,
-    body.theme-darryl .patreon-button:hover {
-        background-color: #8B0000;
-        color: #ffffff;
-    }
+    /* Theme: Darryl */
+    body.theme-darryl { background-color: #404040; color: #f0f0f0; background-image: url('darryl-bg.png'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
+    body.theme-darryl header h2, body.theme-darryl header p { color: #f0f0f0; }
+    body.theme-darryl #controls-bar a, body.theme-darryl .live-chat-button, body.theme-darryl .patreon-button, body.theme-darryl #controls-bar .theme-switcher select { color: #f0f0f0; border-color: #8B0000; background-color: #505050; }
+    body.theme-darryl #controls-bar a:hover, body.theme-darryl .live-chat-button:hover, body.theme-darryl .patreon-button:hover { background-color: #8B0000; color: #ffffff; }
     body.theme-darryl #controls-bar .theme-switcher label { color: #cccccc; }
     body.theme-darryl #controls-bar .theme-switcher select option { background-color: #505050; color: #f0f0f0; }
+    body.theme-darryl .radio-player-container { background-color: rgba(64, 64, 64, 0.85); border-color: #8B0000; }
 
-    body.theme-mr-johnson {
-        color: #00cc00;
-        background-image: url('garage1.png');
-        background-color: #1a0033;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center center;
-    }
-    body.theme-mr-johnson header h2,
-    body.theme-mr-johnson header p { color: #00ff00; }
-    body.theme-mr-johnson #controls-bar a,
-    body.theme-mr-johnson .live-chat-button,
-    body.theme-mr-johnson .patreon-button,
-    body.theme-mr-johnson .header-toggle label {
-        color: #00ff00;
-        border-color: #008000;
-        background-color: #3a0066;
-    }
-    body.theme-mr-johnson #controls-bar a:hover,
-    body.theme-mr-johnson .live-chat-button:hover,
-    body.theme-mr-johnson .patreon-button:hover {
-        background-color: #00ff00;
-        color: #3a0066;
-    }
+    /* Theme: Mr. Johnson */
+    body.theme-mr-johnson { color: #00cc00; background-image: url('garage1.png'); background-color: #1a0033; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
+    body.theme-mr-johnson header h2, body.theme-mr-johnson header p { color: #00ff00; }
+    body.theme-mr-johnson #controls-bar a, body.theme-mr-johnson .live-chat-button, body.theme-mr-johnson .patreon-button, body.theme-mr-johnson #controls-bar .theme-switcher select { color: #00ff00; border-color: #008000; background-color: #3a0066; }
+    body.theme-mr-johnson #controls-bar a:hover, body.theme-mr-johnson .live-chat-button:hover, body.theme-mr-johnson .patreon-button:hover { background-color: #00ff00; color: #3a0066; }
     body.theme-mr-johnson #controls-bar .theme-switcher label { color: #00aa00; }
     body.theme-mr-johnson #controls-bar .theme-switcher select option { background-color: #3a0066; color: #00ff00; }
-    body.theme-mr-johnson section {
-        background: linear-gradient(rgba(42, 0, 85, 0.85), rgba(42, 0, 85, 0.85)), url('purpmarb.png') center center / cover no-repeat;
-        border-color: #008000;
-        box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
-        color: #00cc00;
-    }
+    body.theme-mr-johnson section { background: linear-gradient(rgba(42, 0, 85, 0.85), rgba(42, 0, 85, 0.85)), url('purpmarb.png') center center / cover no-repeat; border-color: #008000; box-shadow: 5px 5px 15px rgba(0,0,0,0.4); color: #00cc00; }
     body.theme-mr-johnson section h2, body.theme-mr-johnson section h3 { color: #00ff00; border-bottom-color: #008000; }
-    body.theme-mr-johnson header p { color: #00aa00; }
-    body.theme-mr-johnson .iframe-container { border-color: #008000; background-color: rgba(42, 0, 85, 0.85); }
-    body.theme-mr-johnson .iframe-container p { color: #00aa00; }
-    body.theme-mr-johnson #livestream .video-container { border-color: #00ff00; box-shadow: 0 0 10px rgba(0,255,0,0.5); }
+    body.theme-mr-johnson .radio-player-container { background-color: rgba(42, 0, 85, 0.85); border-color: #008000; }
     body.theme-mr-johnson .show { background-color: rgba(58, 0, 102, 0.9); border-left-color: #00ff00; }
     body.theme-mr-johnson .show h3 { color: #32cd32; }
-    body.theme-mr-johnson .show p { color: #00dd00; }
-    body.theme-mr-johnson footer { background-color: #2a0055; color: #00aa00; border-top-color: #008000; }
-    body.theme-mr-johnson footer a.staff-link { color: #00ff00; }
-    body.theme-mr-johnson #participate-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
-    body.theme-mr-johnson #participate-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
-    body.theme-mr-johnson #popup-content { background-color: #2a0055; border-color: #00ff00; box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); color: #00dd00; }
-    body.theme-mr-johnson #popup-yes-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
-    body.theme-mr-johnson #popup-yes-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
-    body.theme-mr-johnson #discord-chat-modal-content { background-color: rgba(42,0,85,0.97); border-color: #00ff00; box-shadow: 0 5px 25px rgba(0,255,0,0.5); }
-    body.theme-mr-johnson #discord-chat-modal-content h2 { color: #00ff00; border-bottom-color: #008000; }
-    body.theme-mr-johnson .discord-modal-close { color: #00ff00; }
-    body.theme-mr-johnson .discord-modal-close:hover { color: #32cd32; }
-    body.theme-albright {
-        color: #cdc8b1;
-        background-image: url('tp2.png');
-        background-color: #281c12;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center center;
-    }
-    body.theme-albright header {
-        background-color: rgba(28, 18, 11, 0.9);
-        border-bottom: 4px solid #b46a00;
-        color: #ffc107;
-    }
-    body.theme-albright header h2,
-    body.theme-albright header p { color: #ffc107; }
-    body.theme-albright #controls-bar { background-color: rgba(90, 70, 55, 0.9); border-bottom-color: #b46a00; }
-    body.theme-albright #controls-bar a,
-    body.theme-albright .live-chat-button,
-    body.theme-albright .patreon-button,
-    body.theme-albright .header-toggle label {
-        color: #ffc107;
-        border-color: #b46a00;
-        background-color: #6f4f2d;
-    }
-    body.theme-albright #controls-bar a:hover,
-    body.theme-albright .live-chat-button:hover,
-    body.theme-albright .patreon-button:hover {
-        background-color: #ffc107;
-        color: #6f4f2d;
-    }
-    body.theme-albright #controls-bar .theme-switcher label { color: #a1887f; }
-    body.theme-albright #controls-bar .theme-switcher select option { background-color: #6f4f2d; color: #ffc107; }
-    body.theme-albright .radio-player-container { background-color: rgba(74, 57, 46, 0.85); border-color: #b46a00; }
-
-    body.theme-riggin {
-        color: #FFA500;
-        background-color: #000000;
-        background-image: none;
-    }
-    body.theme-riggin header { background-color: #1a1a1a; border-bottom: 4px solid #FF8C00; color: #FFA500; }
-    body.theme-riggin header h2,
-    body.theme-riggin header p { color: #FFA500; }
-    body.theme-riggin #controls-bar { background-color: #222222; border-bottom-color: #FF8C00; }
-    body.theme-riggin #controls-bar a,
-    body.theme-riggin .live-chat-button,
-    body.theme-riggin .patreon-button,
-    body.theme-riggin .header-toggle label {
-        color: #FFA500;
-        border-color: #FF8C00;
-        background-color: #333333;
-    }
-    body.theme-riggin #controls-bar a:hover,
-    body.theme-riggin .live-chat-button:hover,
-    body.theme-riggin .patreon-button:hover {
-        background-color: #FFA500;
-        color: #333333;
-    }
-    body.theme-riggin #controls-bar .theme-switcher label { color: #FFD700; }
-    body.theme-riggin #controls-bar .theme-switcher select option { background-color: #333333; color: #FFA500; }
-    body.theme-riggin .radio-player-container { background-color: #1a1a1a; border-color: #FF8C00; }
-    
-    body.theme-afterlounge section {
-        background-color: rgba(26, 26, 51, 0.85);
-        color: #ffffff;
-        border: 1px solid #008b8b;
-    }
-    body.theme-afterlounge section h2,
-    body.theme-afterlounge section h3 {
-        color: #00e6e6;
-        border-bottom-color: #00a3a3;
-    }
-    body.theme-afterlounge .show {
-        background-color: rgba(42, 42, 77, 0.9);
-        border-left-color: #00e6e6;
-    }
-    body.theme-afterlounge .show h3 { color: #00e6e6; }
-    body.theme-afterlounge .show p { color: #dddddd; }
-    body.theme-afterlounge .iframe-container {
-        background-color: rgba(26, 26, 51, 0.85);
-        border-color: #008b8b;
-    }
-    body.theme-afterlounge .iframe-container p { color: #dddddd; }
-    body.theme-afterlounge #livestream .video-container {
-        border-color: #00e6e6;
-        box-shadow: 0 0 10px rgba(0, 230, 230, 0.5);
-    }
-    body.theme-afterlounge #discord-chat-modal-content {
-        background-color: rgba(20, 20, 40, 0.97);
-        border: 2px solid #00e6e6;
-        box-shadow: 0 0 25px rgba(0, 230, 230, 0.7);
-    }
-    body.theme-afterlounge #discord-chat-modal-content h2 { color: #00e6e6; border-bottom-color: #00a3a3;}
-    body.theme-afterlounge .discord-modal-close { color: #00e6e6; }
-    body.theme-afterlounge .discord-modal-close:hover { color: #ffffff; }
-    body.theme-afterlounge footer a.staff-link { color: #00e6e6; }
-    body.theme-noire section { background: #000000; border-color: #1a1a1a; box-shadow: 5px 5px 15px rgba(0,0,0,0.7); color: #ffffff; }
-    body.theme-noire section h2, body.theme-noire section h3 { color: #ffffff; border-bottom-color: #1a1a1a; }
-    body.theme-noire .iframe-container { border-color: #1a1a1a; background-color: #050505; }
-    body.theme-noire .iframe-container p { color: #e0e0e0; }
-    body.theme-noire #livestream .video-container { border-color: #ffffff; box-shadow: 0 0 10px rgba(255,255,255,0.3); }
-    body.theme-noire .show { background-color: #0a0a0a; border-left-color: #333333; }
-    body.theme-noire .show h3 { color: #ffffff; }
-    body.theme-noire .show p { color: #e0e0e0; }
-    body.theme-noire footer { background-color: #0a0a0a; color: #555555; border-top-color: #1a1a1a; }
-    body.theme-noire footer a.staff-link { color: #ffffff; }
-    body.theme-noire #participate-button { background-color: #1a1a1a; color: #ffffff; border-color: #333333; }
-    body.theme-noire #participate-button:hover { background-color: #333333; color: #000000; border-color: #ffffff; }
-    body.theme-noire #popup-content { background-color: #0a0a0a; border-color: #333333; box-shadow: 0 0 20px rgba(50, 50, 50, 0.5); color: #ffffff; }
-    body.theme-noire #popup-yes-button { background-color: #1a1a1a; color: #ffffff; border-color: #333333; }
-    body.theme-noire #popup-yes-button:hover { background-color: #333333; color: #000000; border-color: #ffffff; }
-    body.theme-noire #discord-chat-modal-content { background-color: #050505; border-color: #222222; box-shadow: 0 5px 25px rgba(50,50,50,0.5); color: #ffffff;}
-    body.theme-noire #discord-chat-modal-content h2 { color: #ffffff; border-bottom-color: #222222; }
-    body.theme-noire .discord-modal-close { color: #bbbbbb; }
-    body.theme-noire .discord-modal-close:hover { color: #ffffff; }
-    body.theme-darryl section {
-        background-color: rgba(64, 64, 64, 0.85);
-        border: 2px solid #8B0000;
-        box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
-        color: #f0f0f0;
-    }
-    body.theme-darryl section h2, body.theme-darryl section h3 { color: #f0f0f0; border-bottom-color: #700000; }
-    body.theme-darryl .iframe-container { border-color: #8B0000; background-color: rgba(50,50,50,0.85); }
-    body.theme-darryl .iframe-container p { color: #cccccc; }
-    body.theme-darryl #livestream .video-container { border-color: #8B0000; box-shadow: 0 0 10px rgba(139,0,0,0.5); }
-    body.theme-darryl .show { background-color: #484848; border-left: 4px solid #8B0000; }
-    body.theme-darryl .show h3 { color: #f0f0f0; }
-    body.theme-darryl .show p { color: #e0e0e0; }
-    body.theme-darryl footer { background-color: #2a2a2a; color: #cccccc; border-top-color: #8B0000; }
-    body.theme-darryl footer a.staff-link { color: #f0f0f0; }
-    body.theme-darryl #participate-button { background-color: #8B0000; color: #ffffff; border-color: #A04040; }
-    body.theme-darryl #participate-button:hover { background-color: #A04040; color: #2a2a2a; border-color: #f0f0f0; }
-    body.theme-darryl #popup-content { background-color: #333333; border-color: #8B0000; box-shadow: 0 0 20px rgba(139,0,0,0.5); color: #f0f0f0; }
-    body.theme-darryl #popup-yes-button { background-color: #8B0000; color: #ffffff; border-color: #A04040; }
-    body.theme-darryl #popup-yes-button:hover { background-color: #A04040; color: #2a2a2a; border-color: #f0f0f0; }
-    body.theme-darryl #discord-chat-modal-content { background-color: #383838; border-color: #8B0000; box-shadow: 0 5px 25px rgba(139,0,0,0.5); color: #f0f0f0; }
-    body.theme-darryl #discord-chat-modal-content h2 { color: #f0f0f0; border-bottom-color: #700000; }
-    body.theme-darryl .discord-modal-close { color: #f0f0f0; }
-    body.theme-darryl .discord-modal-close:hover { color: #ff7f7f; }
-    body.theme-mr-johnson {
-        color: #00cc00;
-        background-image: url('garage1.png');
-        background-color: #1a0033;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center center;
-    }
-    body.theme-mr-johnson header h2,
-    body.theme-mr-johnson header p { color: #00ff00; }
-    body.theme-mr-johnson #controls-bar a,
-    body.theme-mr-johnson .live-chat-button,
-    body.theme-mr-johnson .patreon-button,
-    body.theme-mr-johnson .header-toggle label {
-        color: #00ff00;
-        border-color: #008000;
-        background-color: #3a0066;
-    }
-    body.theme-mr-johnson #controls-bar a:hover,
-    body.theme-mr-johnson .live-chat-button:hover,
-    body.theme-mr-johnson .patreon-button:hover {
-        background-color: #00ff00;
-        color: #3a0066;
-    }
-    body.theme-mr-johnson #controls-bar .theme-switcher label { color: #00aa00; }
-    body.theme-mr-johnson #controls-bar .theme-switcher select option { background-color: #3a0066; color: #00ff00; }
-    body.theme-mr-johnson section {
-        background: linear-gradient(rgba(42, 0, 85, 0.85), rgba(42, 0, 85, 0.85)), url('purpmarb.png') center center / cover no-repeat;
-        border-color: #008000;
-        box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
-        color: #00cc00;
-    }
-    body.theme-mr-johnson section h2, body.theme-mr-johnson section h3 { color: #00ff00; border-bottom-color: #008000; }
-    body.theme-mr-johnson header p { color: #00aa00; }
-    body.theme-mr-johnson .iframe-container { border-color: #008000; background-color: rgba(42, 0, 85, 0.85); }
-    body.theme-mr-johnson .iframe-container p { color: #00aa00; }
     body.theme-mr-johnson #livestream .video-container { border-color: #00ff00; box-shadow: 0 0 10px rgba(0,255,0,0.5); }
-    body.theme-mr-johnson .show { background-color: rgba(58, 0, 102, 0.9); border-left-color: #00ff00; }
-    body.theme-mr-johnson .show h3 { color: #32cd32; }
-    body.theme-mr-johnson .show p { color: #00dd00; }
-    body.theme-mr-johnson footer { background-color: #2a0055; color: #00aa00; border-top-color: #008000; }
-    body.theme-mr-johnson footer a.staff-link { color: #00ff00; }
-    body.theme-mr-johnson #participate-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
-    body.theme-mr-johnson #participate-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
-    body.theme-mr-johnson #popup-content { background-color: #2a0055; border-color: #00ff00; box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); color: #00dd00; }
-    body.theme-mr-johnson #popup-yes-button { background-color: #008000; color: #1a0033; border-color: #00ff00; }
-    body.theme-mr-johnson #popup-yes-button:hover { background-color: #00ff00; color: #ffffff; border-color: #32cd32; }
-    body.theme-mr-johnson #discord-chat-modal-content { background-color: rgba(42,0,85,0.97); border-color: #00ff00; box-shadow: 0 5px 25px rgba(0,255,0,0.5); }
-    body.theme-mr-johnson #discord-chat-modal-content h2 { color: #00ff00; border-bottom-color: #008000; }
-    body.theme-mr-johnson .discord-modal-close { color: #00ff00; }
-    body.theme-mr-johnson .discord-modal-close:hover { color: #32cd32; }
-    body.theme-albright {
-        color: #cdc8b1;
-        background-image: url('tp2.png');
-        background-color: #281c12;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center center;
-    }
-    body.theme-albright header {
-        background-color: rgba(28, 18, 11, 0.9);
-        border-bottom: 4px solid #b46a00;
-        color: #ffc107;
-    }
-    body.theme-albright header h2,
-    body.theme-albright header p { color: #ffc107; }
+
+    /* Theme: Albright */
+    body.theme-albright { color: #cdc8b1; background-image: url('tp2.png'); background-color: #281c12; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center center; }
+    body.theme-albright header { background-color: rgba(28, 18, 11, 0.9); border-bottom: 4px solid #b46a00; color: #ffc107; }
+    body.theme-albright header h2, body.theme-albright header p { color: #ffc107; }
     body.theme-albright #controls-bar { background-color: rgba(90, 70, 55, 0.9); border-bottom-color: #b46a00; }
-    body.theme-albright #controls-bar a,
-    body.theme-albright .live-chat-button,
-    body.theme-albright .patreon-button,
-    body.theme-albright .header-toggle label {
-        color: #ffc107;
-        border-color: #b46a00;
-        background-color: #6f4f2d;
-    }
-    body.theme-albright #controls-bar a:hover,
-    body.theme-albright .live-chat-button:hover,
-    body.theme-albright .patreon-button:hover {
-        background-color: #ffc107;
-        color: #6f4f2d;
-    }
+    body.theme-albright #controls-bar a, body.theme-albright .live-chat-button, body.theme-albright .patreon-button, body.theme-albright #controls-bar .theme-switcher select { color: #ffc107; border-color: #b46a00; background-color: #6f4f2d; }
+    body.theme-albright #controls-bar a:hover, body.theme-albright .live-chat-button:hover, body.theme-albright .patreon-button:hover { background-color: #ffc107; color: #6f4f2d; }
     body.theme-albright #controls-bar .theme-switcher label { color: #a1887f; }
     body.theme-albright #controls-bar .theme-switcher select option { background-color: #6f4f2d; color: #ffc107; }
+    body.theme-albright section { background: linear-gradient(rgba(74, 57, 46, 0.7), rgba(74, 57, 46, 0.7)), url('goldtext.png') center center / cover no-repeat; border: 1px solid #b46a00; box-shadow: 5px 5px 15px rgba(0,0,0,0.6); color: #cdc8b1; }
+    body.theme-albright section h2, body.theme-albright section h3 { color: #ffc107; border-bottom-color: #b46a00; }
     body.theme-albright .radio-player-container { background-color: rgba(74, 57, 46, 0.85); border-color: #b46a00; }
+    body.theme-albright .show { background-color: rgba(111, 79, 45, 0.9); border-left: 4px solid #cd7f32; }
+    body.theme-albright .show h3 { color: #ffd700; }
+    body.theme-albright #livestream .video-container { border-color: #ffc107; box-shadow: 0 0 10px rgba(255,193,7,0.6); }
 
-    body.theme-riggin {
-        color: #FFA500;
-        background-color: #000000;
-        background-image: none;
-    }
+    /* Theme: Riggin */
+    body.theme-riggin { color: #FFA500; background-color: #000000; background-image: none; }
     body.theme-riggin header { background-color: #1a1a1a; border-bottom: 4px solid #FF8C00; color: #FFA500; }
-    body.theme-riggin header h2,
-    body.theme-riggin header p { color: #FFA500; }
+    body.theme-riggin header h2, body.theme-riggin header p { color: #FFA500; }
     body.theme-riggin #controls-bar { background-color: #222222; border-bottom-color: #FF8C00; }
-    body.theme-riggin #controls-bar a,
-    body.theme-riggin .live-chat-button,
-    body.theme-riggin .patreon-button,
-    body.theme-riggin .header-toggle label {
-        color: #FFA500;
-        border-color: #FF8C00;
-        background-color: #333333;
-    }
-    body.theme-riggin #controls-bar a:hover,
-    body.theme-riggin .live-chat-button:hover,
-    body.theme-riggin .patreon-button:hover {
-        background-color: #FFA500;
-        color: #333333;
-    }
+    body.theme-riggin #controls-bar a, body.theme-riggin .live-chat-button, body.theme-riggin .patreon-button, body.theme-riggin #controls-bar .theme-switcher select { color: #FFA500; border-color: #FF8C00; background-color: #333333; }
+    body.theme-riggin #controls-bar a:hover, body.theme-riggin .live-chat-button:hover, body.theme-riggin .patreon-button:hover { background-color: #FFA500; color: #333333; }
     body.theme-riggin #controls-bar .theme-switcher label { color: #FFD700; }
     body.theme-riggin #controls-bar .theme-switcher select option { background-color: #333333; color: #FFA500; }
+    body.theme-riggin section { background: #1a1a1a; border: 1px solid #FF8C00; box-shadow: 5px 5px 15px rgba(50,50,50,0.4); color: #FFA500;}
+    body.theme-riggin section h2, body.theme-riggin section h3 { color: #FFA500; border-bottom-color: #FF8C00; }
     body.theme-riggin .radio-player-container { background-color: #1a1a1a; border-color: #FF8C00; }
-    
+    body.theme-riggin .show { background-color: #333333; border-left: 4px solid #FFA500; }
+    body.theme-riggin .show h3 { color: #FFD700; }
+    body.theme-riggin #livestream .video-container { border-color: #FFA500; box-shadow: 0 0 10px rgba(255,165,0,0.6); }
+
     main {
         max-width: 1100px;
         margin: 0 auto;
@@ -595,6 +289,10 @@
         margin-bottom: 15px;
         word-break: break-word;
         transition: color 0.5s ease;
+    }
+    /* Video Container Fix (from previous request) */
+    #livestream .video-container iframe {
+        background-color: #000 !important;
     }
     #livestream .video-container {
         position: relative;
@@ -877,23 +575,9 @@
         header { padding: 15px; }
         header h2 { font-size: 1.1em; }
         header p { font-size: 0.9em; }
-        #controls-bar {
-            padding: 8px 10px;
-            justify-content: center;
-            top: 70px;
-            flex-wrap: nowrap;
-            gap: 5px;
-            overflow-x: auto;
-        }
-        #controls-bar a, .live-chat-button, .patreon-button, #controls-bar .theme-switcher label, #controls-bar .theme-switcher select {
-            font-size: 0.7em;
-            padding: 3px 6px;
-        }
-         #controls-bar .theme-switcher select {
-            padding: 3px 16px 3px 5px;
-            background-position: calc(100% - 5px) center, calc(100% - 2px) center;
-            background-size: 3px 3px, 3px 3px;
-         }
+        #controls-bar { padding: 8px 10px; justify-content: center; top: 70px; flex-wrap: nowrap; gap: 5px; overflow-x: auto; }
+        #controls-bar a, .live-chat-button, .patreon-button, #controls-bar .theme-switcher label, #controls-bar .theme-switcher select { font-size: 0.7em; padding: 3px 6px; }
+        #controls-bar .theme-switcher select { padding: 3px 16px 3px 5px; background-position: calc(100% - 5px) center, calc(100% - 2px) center; background-size: 3px 3px, 3px 3px; }
         main { padding: 0 15px; }
         section h2, section h3 { font-size: 1.4em; }
         section { padding: 20px; margin-bottom: 20px; }
@@ -904,35 +588,16 @@
         #discord-chat-modal-content { max-width: 95%; padding: 15px; max-height: 80vh;}
         #discord-chat-modal-content h2 { font-size: 1.4em; }
         .discord-widget-container { height: 60vh; }
-        #back-to-top {
-            bottom: 80px;
-            right: 15px;
-        }
-        #back-to-top img {
-            width: 30px;
-        }
+        #back-to-top { bottom: 80px; right: 15px; }
+        #back-to-top img { width: 30px; }
     }
     @media (max-width: 480px) {
          body { padding-top: 95px; }
          header { padding: 10px; }
          header h2 { font-size: 0.9em; }
-         #controls-bar {
-            padding: 6px 5px;
-            justify-content: center;
-            top: 58px;
-            flex-wrap: nowrap;
-            gap: 3px;
-            overflow-x: auto;
-        }
-         #controls-bar a, .live-chat-button, .patreon-button, #controls-bar .theme-switcher label, #controls-bar .theme-switcher select {
-            font-size: 0.65em;
-            padding: 2px 4px;
-        }
-         #controls-bar .theme-switcher select {
-            padding: 2px 14px 2px 4px;
-            background-position: calc(100% - 5px) center, calc(100% - 2px) center;
-            background-size: 3px 3px, 3px 3px;
-         }
+         #controls-bar { padding: 6px 5px; justify-content: center; top: 58px; flex-wrap: nowrap; gap: 3px; overflow-x: auto; }
+         #controls-bar a, .live-chat-button, .patreon-button, #controls-bar .theme-switcher label, #controls-bar .theme-switcher select { font-size: 0.65em; padding: 2px 4px; }
+         #controls-bar .theme-switcher select { padding: 2px 14px 2px 4px; background-position: calc(100% - 5px) center, calc(100% - 2px) center; background-size: 3px 3px, 3px 3px; }
         main { padding: 0 10px; }
         section { padding: 15px; margin-bottom: 15px; }
         section h2, section h3 { font-size: 1.2em; }
@@ -946,13 +611,8 @@
          #discord-chat-modal-content h2 { font-size: 1.2em; margin-bottom: 10px; }
          .discord-modal-close { font-size: 1.8em; top: 5px; right: 10px; }
          .discord-widget-container { height: 60vh; }
-         #back-to-top {
-            bottom: 70px;
-            right: 10px;
-         }
-         #back-to-top img {
-            width: 25px;
-         }
+         #back-to-top { bottom: 70px; right: 10px; }
+         #back-to-top img { width: 25px; }
     }
     </style>
 </head>
@@ -1008,8 +668,8 @@
             <p>Tune in to the WAPA 24/7 radio stream, featuring the best in midwest emo, indie rock, and lo-fi vibes. Perfect for study, work, or just tuning out.</p>
             
             <div class="radio-player-container">
-               <div data-type="newStreamPlayer" data-publicToken="9ae856dc-1f16-44ef-8074-425622184dea" data-theme="dark" data-color="e81e4d" data-channelId="a07c0478-acb3-4fe1-b175-4daa5317601f" data-rendered="false" class="cstrEmbed"><a href="https://www.caster.fm">Shoutcast Hosting</a> <a href="https://www.caster.fm">Stream Hosting</a> <a href="https://www.caster.fm">Radio Server Hosting</a></div><script src="//cdn.cloud.caster.fm//widgets/embed.js"></script>
-                </div>
+                <div data-type="newStreamPlayer" data-publicToken="9ae856dc-1f16-44ef-8074-425622184dea" data-theme="dark" data-color="e81e4d" data-channelId="a07c0478-acb3-4fe1-b175-4daa5317601f" data-rendered="false" class="cstrEmbed"><a href="https://www.caster.fm">Shoutcast Hosting</a> <a href="https://www.caster.fm">Stream Hosting</a> <a href="https://www.caster.fm">Radio Server Hosting</a></div><script src="//cdn.cloud.caster.fm//widgets/embed.js"></script>
+            </div>
             </section>
         <section id="shows">
             <h2>[lineup]</h2>
