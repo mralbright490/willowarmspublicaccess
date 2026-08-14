@@ -42,6 +42,10 @@
         .grid-card { border: 1px solid; padding: 15px; background: rgba(0,0,0,0.4); }
         .tiktok-embed-wrapper { display: flex; justify-content: center; align-items: center; width: 100%; overflow: hidden; }
 
+        /* TAPLINK EMBED STYLES */
+        .taplink-wrapper { width: 100%; display: flex; justify-content: center; overflow: hidden; }
+        .taplink-iframe { width: 100%; max-width: 800px; height: 700px; border: none; }
+
         /* --- THEMES --- */
         
         /* Albright Theme: Browns, Golds & Background Image */
@@ -90,6 +94,7 @@
         <a href="#shows">Lineup</a>
         <a href="#merch">Merch</a>
         <a href="#tiktok-feed">TikToks</a>
+        <a href="#taplink">Links</a>
         <span>| Theme:
             <select class="theme-select" onchange="document.body.className = this.value">
                 <option value="theme-albright">Albright</option>
@@ -163,6 +168,14 @@
                     </section>
                 </blockquote>
                 <script async src="https://www.tiktok.com/embed.js"></script>
+            </div>
+        </section>
+
+        <!-- TAPLINK EMBED -->
+        <section id="taplink">
+            <h2>[LINKS]</h2>
+            <div class="taplink-wrapper">
+                <iframe src="https://taplink.cc/wapaccess" class="taplink-iframe" title="WAPA Taplink"></iframe>
             </div>
         </section>
     </main>
