@@ -35,8 +35,8 @@
         .volume-container { display: flex; align-items: center; gap: 8px; font-size: 0.85em; font-weight: bold; }
         .volume-slider { width: 80px; accent-color: currentColor; cursor: pointer; }
 
-        .iframe-container { border: 1px solid; padding: 15px; width: 100%; box-sizing: border-box; text-align: center; }
-        .iframe-container iframe { width: 100%; height: 850px; border: none; }
+        /* MERCH STORE CONTAINER STYLES */
+        .merch-container { border: 1px solid; padding: 40px 20px; text-align: center; background: rgba(0,0,0,0.4); }
 
         .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 15px; }
         .grid-card { border: 1px solid; padding: 15px; background: rgba(0,0,0,0.4); }
@@ -52,7 +52,7 @@
         body.theme-albright section { background-color: rgba(36, 22, 7, 0.9); border-color: #d4af37; }
         body.theme-albright .video-container { border-color: #ffd700; }
         body.theme-albright .radio-player-container { background-color: #1a1005; border-color: #d4af37; }
-        body.theme-albright .iframe-container { border-color: #d4af37; background-color: rgba(26, 16, 5, 0.9); }
+        body.theme-albright .merch-container { border-color: #d4af37; background-color: rgba(26, 16, 5, 0.9); }
         body.theme-albright .grid-card { border-color: #d4af37; }
 
         /* Ari / Darryl Theme: Orange and Black */
@@ -63,7 +63,7 @@
         body.theme-ari section { background-color: #121212; border-color: #ff9900; }
         body.theme-ari .video-container { border-color: #ff9900; }
         body.theme-ari .radio-player-container { background-color: #000000; border-color: #ff9900; }
-        body.theme-ari .iframe-container { border-color: #ff9900; background-color: #121212; }
+        body.theme-ari .merch-container { border-color: #ff9900; background-color: #121212; }
         body.theme-ari .grid-card { border-color: #ff9900; }
 
         /* Johnson Theme: Purple and Green */
@@ -74,7 +74,7 @@
         body.theme-johnson section { background-color: #22002a; border-color: #8a2be2; }
         body.theme-johnson .video-container { border-color: #00ff66; }
         body.theme-johnson .radio-player-container { background-color: #100014; border-color: #8a2be2; }
-        body.theme-johnson .iframe-container { border-color: #00ff66; background-color: #22002a; }
+        body.theme-johnson .merch-container { border-color: #00ff66; background-color: #22002a; }
         body.theme-johnson .grid-card { border-color: #8a2be2; }
     </style>
 </head>
@@ -142,12 +142,14 @@
             </div>
         </section>
 
-        <!-- EMBEDDED MERCH STORE -->
+        <!-- OFFICIAL MERCH STORE -->
         <section id="merch">
             <h2>[MERCH STORE]</h2>
-            <div class="iframe-container">
-                <iframe src="https://wapashop.printify.me/" title="WAPA Official Merch Store" loading="lazy" allow="payment"></iframe>
-                <p style="margin-top: 10px; font-size: 0.85em;">Store not loading due to browser cookie rules? <a href="https://wapashop.printify.me/" target="_blank" style="color: inherit; font-weight: bold;">Click here to open in a new tab</a>.</p>
+            <div class="merch-container">
+                <p style="margin-top: 0; margin-bottom: 20px; font-weight: bold;">Grab official Willow Arms Public Access gear directly from our Printify shop.</p>
+                <a href="https://wapashop.printify.me/" target="_blank" class="player-btn" style="display: inline-block; text-decoration: none; padding: 12px 24px; font-size: 1.1em;">
+                    [ VISIT OFFICIAL WAPA SHOP ↗ ]
+                </a>
             </div>
         </section>
 
