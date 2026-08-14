@@ -14,7 +14,8 @@
         header h2 { margin: 0 0 5px 0; }
         header p { margin: 0; }
         
-        #controls-bar { padding: 8px 20px; display: flex; justify-content: center; align-items: center; border-bottom: 1px solid; position: fixed; width: 100%; top: 115px; z-index: 100; gap: 15px; box-sizing: border-box; flex-wrap: wrap; }
+        /* CONTROLS BAR: Changed to absolute so it scrolls off-screen naturally */
+        #controls-bar { padding: 8px 20px; display: flex; justify-content: center; align-items: center; border-bottom: 1px solid; position: absolute; width: 100%; top: 115px; z-index: 99; gap: 15px; box-sizing: border-box; flex-wrap: wrap; }
         #controls-bar a { text-decoration: none; font-weight: bold; }
         .theme-select { margin-left: 10px; padding: 2px 6px; font-family: inherit; font-weight: bold; }
         
@@ -168,8 +169,8 @@
     <script>
         const audioPlaylist = [
             { title: "[midnite-feed] - Ep. 1", src: "Audio/midnite-feed_episode-1.mp3" },
-            { title: "[midnite-feed] - Ep. 2", src: "Audio/midnite_feed_episode-2.mp3" }
-	    { title: "The Bonfire Podcast - 4Chan Mysteries Series - Ep. 3", src: "Audio\TheBonfirePodcast - 4Chan Mysteries Series S1E03.mp3" }
+            { title: "[midnite-feed] - Ep. 2", src: "Audio/midnite_feed_episode-2.mp3" },
+            { title: "The Bonfire Podcast - 4Chan Mysteries Series - Ep. 3", src: "Audio/TheBonfirePodcast - 4Chan Mysteries Series S1E03.mp3" }
         ];
 
         function shufflePlaylist(array) {
