@@ -7,37 +7,25 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Share+Tech+Mono&display=swap');
 
-        * {
-            box-sizing: border-box;
+        html, body {
             margin: 0;
             padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: transparent;
+            font-family: 'Share Tech Mono', monospace;
             user-select: none;
         }
 
-        body {
-            background-color: #000;
-            color: #fff;
-            font-family: 'Share Tech Mono', monospace;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        /* 4:3 CRT Screen Frame */
         #tv-screen {
-            position: relative;
-            width: 100vw;
-            height: 75vw;
-            max-height: 100vh;
-            max-width: 133.33vh;
+            position: absolute;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
             background: #112233;
-            box-shadow: 0 0 50px rgba(0,0,0,0.9);
             overflow: hidden;
         }
 
-        /* CRT Scanlines and Grain Overlay */
         .crt-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -47,45 +35,38 @@
             pointer-events: none;
         }
 
-        /* Main Map Container */
+        /* Map Canvas */
         .map-container {
             position: absolute;
-            top: 10%;
-            left: 0;
-            width: 100%;
-            height: 68%;
-            background: #2b442b; /* Map Land Mass */
+            top: 10%; left: 0;
+            width: 100%; height: 68%;
+            background: #2b442b;
             overflow: hidden;
+            transition: all 1.5s ease-in-out;
         }
 
-        /* Simulated Water / Ocean / Lakes */
         .water-bg {
             position: absolute;
-            width: 100%;
-            height: 100%;
+            width: 100%; height: 100%;
             background: linear-gradient(135deg, #1f3a5f 0%, #0d1b2a 100%);
         }
 
-        /* Land Outline Styling (Regional State Map) */
         .state-land {
             position: absolute;
-            top: 10%;
-            left: 5%;
-            width: 90%;
-            height: 85%;
+            top: 5%; left: 5%;
+            width: 120%; height: 120%;
             background: #3e5c3e;
             border: 2px solid #5a805a;
             box-shadow: inset 0 0 20px #1e331e;
             clip-path: polygon(0% 20%, 30% 10%, 60% 0%, 90% 15%, 100% 40%, 85% 80%, 50% 100%, 15% 90%, 5% 60%);
+            transition: transform 1.5s ease-in-out;
         }
 
-        /* Animated Storm Radar Layer moving across West Virginia */
+        /* Radar Overlay */
         .radar-storm-layer {
             position: absolute;
-            top: 25%;
-            left: 20%;
-            width: 45vw;
-            height: 30vw;
+            top: 25%; left: 20%;
+            width: 45vw; height: 30vw;
             background: radial-gradient(ellipse at center, 
                 rgba(255, 0, 0, 0.85) 0%, 
                 rgba(255, 165, 0, 0.8) 30%, 
@@ -103,48 +84,50 @@
             100% { transform: translate(6vw, -3vw) scale(1); opacity: 0.8; }
         }
 
-        /* Map City Markers & Temperature Tags */
+        /* Dynamic Map Camera Modes */
+        .mode-regional .state-land { transform: scale(1) translate(0, 0); }
+        .mode-local .state-land { transform: scale(2.2) translate(-15%, -10%); }
+        .mode-corridor .state-land { transform: scale(1.8) translate(-5%, -20%); }
+
         .city-tag {
             position: absolute;
             font-family: 'Chakra Petch', sans-serif;
-            font-size: 1.3vw;
+            font-size: 1.5vw;
             color: #ffffff;
             text-shadow: 2px 2px 0px #000, -1px -1px 0px #000;
             display: flex;
             align-items: center;
             gap: 6px;
             z-index: 4;
+            transition: all 1s ease-in-out;
         }
 
         .city-tag .temp-badge {
             background: #cc0000;
             color: #fff;
             padding: 2px 6px;
-            font-size: 1.1vw;
+            font-size: 1.2vw;
             border-radius: 2px;
             border: 1px solid #ffcc00;
         }
 
         .city-tag.reeling {
             color: #ffcc00;
-            font-size: 1.8vw;
+            font-size: 2vw;
             font-weight: bold;
         }
 
         .city-tag.reeling .temp-badge {
             background: #ffcc00;
             color: #000;
-            font-size: 1.5vw;
-            font-weight: bold;
+            font-size: 1.6vw;
         }
 
-        /* Top Header Bar */
+        /* Header Bar */
         .twc-header {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 10%;
+            top: 0; left: 0;
+            width: 100%; height: 10%;
             background: linear-gradient(180deg, #002b7f 0%, #001a4d 100%);
             border-bottom: 3px solid #ffcc00;
             display: flex;
@@ -155,25 +138,14 @@
             font-family: 'Chakra Petch', sans-serif;
         }
 
-        .twc-header .title {
-            color: #fff;
-            font-size: 2vw;
-            text-shadow: 2px 2px #000;
-        }
+        .twc-header .title { color: #fff; font-size: 2vw; text-shadow: 2px 2px #000; }
+        .twc-header .clock { color: #ffcc00; font-size: 1.8vw; text-shadow: 2px 2px #000; }
 
-        .twc-header .clock {
-            color: #ffcc00;
-            font-size: 1.8vw;
-            text-shadow: 2px 2px #000;
-        }
-
-        /* Bottom "Local on the 8s" Graphic Panel */
+        /* Bottom Graphic Panel */
         .twc-bottom-panel {
             position: absolute;
-            bottom: 6%;
-            left: 0;
-            width: 100%;
-            height: 22%;
+            bottom: 6%; left: 0;
+            width: 100%; height: 22%;
             background: linear-gradient(180deg, #003399 0%, #001a66 100%);
             border-top: 4px solid #ffcc00;
             display: flex;
@@ -192,18 +164,8 @@
             text-align: center;
         }
 
-        .location-box .city {
-            font-family: 'Chakra Petch', sans-serif;
-            font-size: 2.2vw;
-            color: #fff;
-            text-shadow: 2px 2px #000;
-        }
-
-        .location-box .label {
-            font-size: 1.2vw;
-            color: #ffcc00;
-            margin-top: 5px;
-        }
+        .location-box .city { font-family: 'Chakra Petch', sans-serif; font-size: 2.2vw; color: #fff; text-shadow: 2px 2px #000; }
+        .location-box .label { font-size: 1.2vw; color: #ffcc00; margin-top: 5px; }
 
         .current-data {
             width: 70%;
@@ -213,28 +175,14 @@
             padding: 0 20px;
         }
 
-        .temp-val {
-            font-size: 4.8vw;
-            font-weight: bold;
-            color: #ffcc00;
-            text-shadow: 3px 3px #000;
-            font-family: 'Chakra Petch', sans-serif;
-        }
+        .temp-val { font-size: 4.8vw; font-weight: bold; color: #ffcc00; text-shadow: 3px 3px #000; font-family: 'Chakra Petch', sans-serif; }
+        .condition-details { font-size: 1.4vw; line-height: 1.4; color: #ffffff; text-shadow: 1.5px 1.5px #000; }
 
-        .condition-details {
-            font-size: 1.4vw;
-            line-height: 1.4;
-            color: #ffffff;
-            text-shadow: 1.5px 1.5px #000;
-        }
-
-        /* Ticker */
+        /* News Ticker */
         .ticker-bar {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 6%;
+            bottom: 0; left: 0;
+            width: 100%; height: 6%;
             background: #e6b800;
             color: #000;
             display: flex;
@@ -276,54 +224,46 @@
 <div id="tv-screen">
     <div class="crt-overlay"></div>
 
-    <!-- Map Background Area -->
-    <div class="map-container">
+    <div class="map-container mode-regional" id="map-frame">
         <div class="water-bg"></div>
         <div class="state-land"></div>
-        
-        <!-- Animated Storm Radar Mask -->
         <div class="radar-storm-layer"></div>
 
-        <!-- Regional Cities -->
-        <div class="city-tag" style="top: 18%; left: 45%;">PITTSBURGH <span class="temp-badge">68°</span></div>
-        <div class="city-tag" style="top: 32%; left: 68%;">BALTIMORE <span class="temp-badge">75°</span></div>
-        <div class="city-tag" style="top: 55%; left: 22%;">CHARLESTON <span class="temp-badge">71°</span></div>
+        <div class="city-tag" style="top: 18%; left: 45%;">PITTSBURGH <span class="temp-badge" id="pgh-temp">--°</span></div>
+        <div class="city-tag" style="top: 32%; left: 68%;">BALTIMORE <span class="temp-badge" id="balt-temp">--°</span></div>
+        <div class="city-tag" style="top: 55%; left: 22%;">CHARLESTON <span class="temp-badge" id="crw-temp">--°</span></div>
         
-        <!-- Focus Area: Reeling, WV -->
         <div class="city-tag reeling" style="top: 42%; left: 42%;">
-            ★ REELING, WV <span class="temp-badge">72°</span>
+            ★ REELING, WV <span class="temp-badge" id="map-reeling-temp">--°</span>
         </div>
     </div>
 
-    <!-- Header -->
     <div class="twc-header">
-        <span class="title">REGIONAL OBSERVATIONS - WEST VIRGINIA</span>
+        <span class="title" id="header-title">REGIONAL OBSERVATIONS - WEST VIRGINIA</span>
         <span class="clock" id="live-clock">12:00:00 PM</span>
     </div>
 
-    <!-- Weather Star Bottom Panel -->
     <div class="twc-bottom-panel">
         <div class="location-box">
             <div class="city">REELING</div>
-            <div class="label">WEST VIRGINIA</div>
+            <div class="label" id="view-label">WEST VIRGINIA</div>
         </div>
         <div class="current-data">
             <div>
-                <span class="temp-val">72°</span>
+                <span class="temp-val" id="live-temp">--°</span>
+            </div>
+            <div class="condition-details" id="live-stats">
+                HUMIDITY: --%<br>
+                WIND: LOADING...<br>
+                BARO: 29.92 R
             </div>
             <div class="condition-details">
-                HUMIDITY: 78%<br>
-                WIND: NW 5 MPH<br>
-                BARO: 29.88 R
-            </div>
-            <div class="condition-details">
-                MOSTLY CLOUDY<br>
-                <span style="color: #ffcc00;">SHOWERS DEVELOPING</span>
+                <span id="live-condition">UPDATING NWS DATA...</span><br>
+                <span style="color: #ffcc00;" id="live-alert">WILLOW ARMS SECTOR</span>
             </div>
         </div>
     </div>
 
-    <!-- Ticker -->
     <div class="ticker-bar">
         <div class="ticker-title">LOCAL BULLETIN</div>
         <div class="ticker-content">
@@ -333,20 +273,79 @@
 </div>
 
 <script>
+    // 1. Live Clock
     function updateClock() {
         const now = new Date();
         let hours = now.getHours();
         const minutes = String(now.getMinutes()).padStart(2, '0');
         const seconds = String(now.getSeconds()).padStart(2, '0');
         const ampm = hours >= 12 ? 'PM' : 'AM';
-        hours = hours % 12;
-        hours = hours ? hours : 12; 
-        
+        hours = hours % 12 || 12;
         document.getElementById('live-clock').textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
     }
-
     setInterval(updateClock, 1000);
     updateClock();
+
+    // 2. Rotating Map Background Views
+    const views = [
+        { mode: 'mode-regional', title: 'REGIONAL OBSERVATIONS - WEST VIRGINIA', label: 'STATE RADAR' },
+        { mode: 'mode-local', title: 'LOCAL DOPPLER 6000 - REELING METRO', label: 'REELING LOCAL' },
+        { mode: 'mode-corridor', title: 'ROUTE 9 CORRIDOR - WILLOW ARMS SECTOR', label: 'RT. 9 RADAR' }
+    ];
+    let viewIndex = 0;
+
+    function cycleMapViews() {
+        viewIndex = (viewIndex + 1) % views.length;
+        const current = views[viewIndex];
+        const mapFrame = document.getElementById('map-frame');
+        
+        mapFrame.className = `map-container ${current.mode}`;
+        document.getElementById('header-title').textContent = current.title;
+        document.getElementById('view-label').textContent = current.label;
+    }
+    setInterval(cycleMapViews, 15000); // Switches views every 15 seconds
+
+    // 3. Live Weather Fetching via National Weather Service API (Martinsburg/Eastern WV Station)
+    async function fetchLiveWVWeather() {
+        try {
+            const response = await fetch('https://api.weather.gov/stations/KMRB/observations/latest');
+            const data = await response.json();
+            const obs = data.properties;
+
+            // Convert Celsius to Fahrenheit
+            const tempC = obs.temperature.value;
+            const tempF = tempC !== null ? Math.round((tempC * 9/5) + 32) : 72;
+            
+            const windSpeedMph = obs.windSpeed.value ? Math.round(obs.windSpeed.value * 0.621371) : 5;
+            const windDir = obs.windDirection.value ? getCardinalDirection(obs.windDirection.value) : 'NW';
+            const humidity = obs.relativeHumidity.value ? Math.round(obs.relativeHumidity.value) : 75;
+            const textCondition = obs.textDescription ? obs.textDescription.toUpperCase() : 'PARTLY CLOUDY';
+
+            // Populate Webpage
+            document.getElementById('live-temp').textContent = `${tempF}°`;
+            document.getElementById('map-reeling-temp').textContent = `${tempF}°`;
+            document.getElementById('crw-temp').textContent = `${tempF - 2}°`;
+            document.getElementById('pgh-temp').textContent = `${tempF - 4}°`;
+            document.getElementById('balt-temp').textContent = `${tempF + 3}°`;
+
+            document.getElementById('live-stats').innerHTML = `HUMIDITY: ${humidity}%<br>WIND: ${windDir} ${windSpeedMph} MPH<br>BARO: 29.92 R`;
+            document.getElementById('live-condition').textContent = textCondition;
+        } catch (error) {
+            console.log('NWS Fetch fallback engaged:', error);
+            // Fallback default values if offline
+            document.getElementById('live-temp').textContent = '72°';
+            document.getElementById('map-reeling-temp').textContent = '72°';
+            document.getElementById('live-condition').textContent = 'MOSTLY CLOUDY';
+        }
+    }
+
+    function getCardinalDirection(angle) {
+        const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+        return directions[Math.round(angle / 45) % 8];
+    }
+
+    fetchLiveWVWeather();
+    setInterval(fetchLiveWVWeather, 600000); // Refresh weather data every 10 minutes
 </script>
 
 </body>
