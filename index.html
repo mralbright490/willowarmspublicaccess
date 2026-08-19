@@ -41,6 +41,10 @@
         .grid-card { border: 1px solid; padding: 15px; background: rgba(0,0,0,0.5); }
         .tiktok-embed-wrapper { display: flex; justify-content: center; align-items: center; width: 100%; overflow: hidden; }
 
+        /* SPEAKPIPE EMBED CONTAINER */
+        .speakpipe-wrapper { margin-top: 25px; border: 1px solid currentColor; padding: 10px; background: rgba(0, 0, 0, 0.6); }
+        .speakpipe-wrapper iframe { filter: invert(0.9) hue-rotate(180deg); width: 100%; height: 200px; border: none; display: block; }
+
         /* TAPLINK EMBED */
         .taplink-wrapper { width: 100%; display: flex; justify-content: center; overflow: hidden; }
         .taplink-iframe { width: 100%; max-width: 800px; height: 700px; border: none; }
@@ -124,6 +128,12 @@
                 <a href="https://discord.gg/HGTEGpSbUT" target="_blank" class="player-btn" style="display: inline-block; text-decoration: none; padding: 12px 24px; font-size: 1.1em;">
                     [ REQUEST A SPOT ↗ ]
                 </a>
+                
+                <!-- Styled SpeakPipe Voice Recorder Container -->
+                <div class="speakpipe-wrapper">
+                    <iframe src="https://www.speakpipe.com/widget/inline/rxbk7hxhzc7dk8nciqzfo8tt6kxo094u" allow="microphone" width="100%" height="200" frameborder="0"></iframe>
+                    <script async src="https://www.speakpipe.com/widget/loader.js" charset="utf-8"></script>
+                </div>
             </div>
         </section>
 
