@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acoustic Braid Status: DECAY — WAPA Signal Feed</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: #030604;
+    color: #39ff14;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+  }
+
+  /* CRT Monitor Housing / Vignette */
+  .crt-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #08140a 0%, #020503 75%, #000000 100%);
+    overflow: hidden;
+  }
+
+  /* Canvas for infinite recursive tunnel & oscilloscope */
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: contrast(1.25) brightness(1.1);
+  }
+
+  /* Scanlines & Phosphor Grid */
+  .scanlines {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      rgba(18, 16, 16, 0) 50%, 
+      rgba(0, 0, 0, 0.45) 50%
+    ), linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.03),
+      rgba(0, 255, 0, 0.01),
+      rgba(0, 0, 255, 0.03)
+    );
+    background-size: 100% 4px, 6px 100%;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  /* CRT Curvature & Inner Shadow */
+  .vignette {
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 110px rgba(0, 0, 0, 0.92), inset 0 0 30px rgba(0, 255, 65, 0.08);
+    pointer-events: none;
+    z-index: 11;
+  }
+
+  /* Subtle screen flicker */
+  .flicker {
+    position: absolute;
+    inset: 0;
+    background: rgba(57, 255, 20, 0.015);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 12;
+    animation: crtFlicker 0.14s infinite;
+  }
+
+  @keyframes crtFlicker {
+    0% { opacity: 0.02; }
+    50% { opacity: 0.06; }
+    100% { opacity: 0.01; }
+  }
+
+  /* Bottom Status Bar matching the panel */
+  .hud-bar {
+    position: absolute;
+    bottom: 24px;
+    left: 28px;
+    right: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 15;
+    font-size: clamp(1rem, 2.1vw, 1.65rem);
+    letter-spacing: 0.12em;
+    text-shadow: 0 0 8px rgba(57, 255, 20, 0.85), 0 0 18px rgba(57, 255, 20, 0.45);
+    background: rgba(2, 10, 4, 0.72);
+    border-top: 1px solid rgba(57, 255, 20, 0.35);
+    border-bottom: 1px solid rgba(57, 255, 20, 0.35);
+    padding: 8px 16px;
+  }
+
+  .status-text {
+    font-weight: bold;
+  }
+
+  .decay-badge {
+    color: #7dff63;
+    animation: textGlitch 3.5s infinite;
+  }
+
+  .telemetry {
+    font-size: 0.72em;
+    opacity: 0.78;
+    letter-spacing: 0.08em;
+  }
+
+  /* Top subtle signal telemetry */
+  .top-hud {
+    position: absolute;
+    top: 20px;
+    left: 28px;
+    right: 28px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 15;
+    font-size: clamp(0.7rem, 1.1vw, 0.9rem);
+    color: rgba(57, 255, 20, 0.65);
+    letter-spacing: 0.15em;
+    text-shadow: 0 0 6px rgba(57, 255, 20, 0.5);
+  }
+
+  @keyframes textGlitch {
+    0%, 92%, 100% { transform: translate(0, 0); opacity: 1; }
+    93% { transform: translate(-2px, 1px); opacity: 0.85; }
+    94% { transform: translate(2px, -1px); opacity: 0.9; }
+    95% { transform: translate(0, 0); opacity: 1; }
+    97% { transform: translate(1px, 0); opacity: 0.75; }
+  }
+</style>
+</head>
+<body>
+
+<div class="crt-container">
+  <div class="top-hud">
+    <span>WAPA // SIGNAL BLEED // SECTOR 04</span>
+    <span id="freq-readout">34.8 Hz — UNVERIFIED</span>
+  </div>
+
+  <canvas id="braidCanvas"></canvas>
+
+  <div class="hud-bar">
+    <div class="status-text">Acoustic Braid Status: <span class="decay-badge" id="status-word">DECAY</span></div>
+    <div class="telemetry" id="depth-readout">LOOP DEPTH: ∞</div>
+  </div>
+
+  <div class="scanlines"></div>
+  <div class="vignette"></div>
+  <div class="flicker"></div>
+</div>
+
+<script>
+  const canvas = document.getElementById('braidCanvas');
+  const ctx = canvas.getContext('2d');
+  const freqReadout = document.getElementById('freq-readout');
+  const depthReadout = document.getElementById('depth-readout');
+  const statusWord = document.getElementById('status-word');
+
+  let width, height, cx, cy;
+
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+    cx = width / 2;
+    cy = height / 2;
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+
+  // Animation state
+  let time = 0;
+  let infiniteDepth = 42.00;
+  const numFrames = 26; // Number of nested recursive rectangular stairwell frames
+
+  // Pre-seed noise particles for phosphor dust/interference
+  const particles = Array.from({ length: 140 }, () => ({
+    x: Math.random(),
+    y: Math.random(),
+    size: Math.random() * 1.8 + 0.4,
+    speed: Math.random() * 0.002 + 0.0005,
+    alpha: Math.random() * 0.5 + 0.1
+  }));
+
+  function drawPhosphorNoise() {
+    ctx.fillStyle = '#39ff14';
+    for (let p of particles) {
+      p.y -= p.speed;
+      if (p.y < 0) {
+        p.y = 1;
+        p.x = Math.random();
+      }
+      ctx.globalAlpha = p.alpha * (0.6 + 0.4 * Math.sin(time * 5 + p.x * 20));
+      ctx.fillRect(p.x * width, p.y * height, p.size, p.size);
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function drawBraidFrame(progress, index) {
+    // Exponential zoom curve so movement toward infinity feels seamless and constant
+    const scale = Math.pow(0.012, 1 - progress);
+    if (scale < 0.002 || scale > 2.2) return;
+
+    const baseW = Math.min(width, height) * 0.88;
+    const baseH = baseW * 0.82;
+
+    const w = baseW * scale;
+    const h = baseH * scale;
+
+    // Slight spiral twist & acoustic wave distortion as frames approach or recede
+    const wave = Math.sin(time * 2.4 - progress * 8.0);
+    const twist = (1 - progress) * 0.24 + wave * 0.025 * (1 - progress);
+
+    // Off-center perspective drift mimicking the crooked stairwell corridor in panel 6
+    const offsetX = Math.sin(time * 0.9 + progress * 3.0) * 18 * (1 - progress) - (1 - progress) * 28;
+    const offsetY = Math.cos(time * 0.7 + progress * 2.5) * 14 * (1 - progress) - (1 - progress) * 16;
+
+    ctx.save();
+    ctx.translate(cx + offsetX, cy + offsetY);
+    ctx.rotate(twist);
+
+    // Alpha fades smoothly at the far vanishing point and right before leaving screen edges
+    const edgeFade = Math.sin(Math.min(1, progress) * Math.PI);
+    const alpha = Math.max(0, Math.min(0.95, edgeFade * 1.15));
+
+    // Double/triple ghosted phosphor lines ("Acoustic Braid" fraying effect)
+    const strands = 3;
+    for (let s = 0; s < strands; s++) {
+      const jitterX = Math.sin(time * 6 + index + s * 2.1) * (2.5 * scale + 0.6);
+      const jitterY = Math.cos(time * 5.3 + index + s * 1.7) * (2.5 * scale + 0.6);
+
+      ctx.beginPath();
+      ctx.strokeStyle = s === 0
+        ? `rgba(110, 255, 85, ${alpha})`
+        : `rgba(35, 210, 20, ${alpha * 0.42})`;
+      ctx.lineWidth = s === 0 ? Math.max(1, 2.4 * scale) : Math.max(0.6, 1.1 * scale);
+
+      // Draw slightly broken/architectural stairwell corridor segments
+      const hw = w / 2;
+      const hh = h / 2;
+
+      // Top lintel
+      ctx.moveTo(-hw + jitterX, -hh + jitterY);
+      ctx.lineTo(hw + jitterX, -hh + jitterY);
+
+      // Right wall
+      ctx.lineTo(hw + jitterX, hh + jitterY);
+
+      // Bottom floor with stairwell step notch
+      const stepW = hw * 0.35;
+      const stepH = hh * 0.14;
+      ctx.lineTo(stepW + jitterX, hh + jitterY);
+      ctx.lineTo(stepW + jitterX, hh - stepH + jitterY);
+      ctx.lineTo(-stepW + jitterX, hh - stepH + jitterY);
+      ctx.lineTo(-stepW + jitterX, hh + jitterY);
+      ctx.lineTo(-hw + jitterX, hh + jitterY);
+
+      // Left wall back up
+      ctx.closePath();
+      ctx.stroke();
+
+      // Add perspective connecting ribs (acoustic filaments) between frames
+      if (s === 0 && progress > 0.15) {
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(57, 255, 20, ${alpha * 0.25})`;
+        ctx.lineWidth = 0.8;
+        ctx.moveTo(-hw, -hh);
+        ctx.lineTo(-hw * 0.82, -hh * 0.82);
+        ctx.moveTo(hw, -hh);
+        ctx.lineTo(hw * 0.82, -hh * 0.82);
+        ctx.moveTo(hw, hh);
+        ctx.lineTo(hw * 0.82, hh * 0.82);
+        ctx.moveTo(-hw, hh);
+        ctx.lineTo(-hw * 0.82, hh * 0.82);
+        ctx.stroke();
+      }
+    }
+
+    ctx.restore();
+  }
+
+  function drawOscilloscopeBraid() {
+    // Horizontal waveform threading through the center of the infinite tunnel
+    ctx.save();
+    ctx.beginPath();
+    ctx.strokeStyle = 'rgba(130, 255, 110, 0.55)';
+    ctx.lineWidth = 1.6;
+    ctx.shadowColor = '#39ff14';
+    ctx.shadowBlur = 10;
+
+    const points = 120;
+    for (let i = 0; i <= points; i++) {
+      const pct = i / points;
+      const x = pct * width;
+      const envelope = Math.sin(pct * Math.PI);
+      const y = cy +
+        Math.sin(pct * 22 + time * 7) * 14 * envelope +
+        Math.cos(pct * 47 - time * 11) * 6 * envelope;
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  let frameCount = 0;
+
+  function animate() {
+    frameCount++;
+    time += 0.016;
+    infiniteDepth += 0.03;
+
+    // Phosphor persistence trail (creates authentic CRT ghosting/afterimage)
+    ctx.fillStyle = 'rgba(2, 7, 3, 0.28)';
+    ctx.fillRect(0, 0, width, height);
+
+    // Occasional horizontal VHS/CRT tracking tear
+    if (Math.random() < 0.035) {
+      const tearY = Math.random() * height;
+      const tearH = Math.random() * 18 + 4;
+      ctx.fillStyle = 'rgba(57, 255, 20, 0.07)';
+      ctx.fillRect(0, tearY, width, tearH);
+    }
+
+    drawPhosphorNoise();
+
+    // Infinite forward tunnel travel
+    const speed = 0.22;
+    const cycle = (time * speed) % 1;
+
+    for (let i = 0; i < numFrames; i++) {
+      // Progress goes from 0 (deep infinity) to 1 (closest to camera)
+      const progress = ((i + cycle) / numFrames);
+      drawBraidFrame(progress, i);
+    }
+
+    drawOscilloscopeBraid();
+
+    // Update live telemetry readouts every ~15 frames
+    if (frameCount % 15 === 0) {
+      const hz = (34.2 + Math.sin(time * 1.7) * 1.4 + (Math.random() - 0.5) * 0.3).toFixed(2);
+      freqReadout.textContent = `${hz} Hz — BRAID FRAYING`;
+      depthReadout.textContent = `STEP: ${Math.floor(infiniteDepth)} // LOOP: ∞`;
+    }
+
+    // Subtle glitch swap on DECAY text
+    if (Math.random() < 0.012) {
+      statusWord.textContent = 'DECAY // 04';
+      setTimeout(() => { statusWord.textContent = 'DECAY'; }, 140);
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
+</body>
+</html>
